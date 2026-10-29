@@ -52,3 +52,7 @@ make nrm SYMS=/path/to/JFGRecompSyms
 The `.nrm` is written to `build/<mod id>.nrm`. Mods with their own models or sounds also have the scripts that make them (`build_assets.py`, `make_sounds.py`); their outputs are committed, so a plain build doesn't need them.
 
 Mods use only the port's mod API (`include/jfg_api.h`), not the game's own code. Its reference is on the [modding wiki](https://jfg.vibintoast.com).
+
+## License
+
+[MIT](LICENSE). Jet Force Gemini itself is not included: the mods need the game and the port.
