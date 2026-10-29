@@ -25,7 +25,7 @@ The easy way is the game's launcher: **Get Mods** lists every mod here, installs
 | <img src="jfg_more_enemies/thumb.png" width="64" alt=""> | **[More Enemies](jfg_more_enemies/README.md)** | Two or three times the enemies in every squad. | Enemies, Gameplay | 0.1.0 |
 | <img src="jfg_plasma_ricochet/thumb.png" width="64" alt=""> | **[Ricochet Plasma](jfg_plasma_ricochet/README.md)** | Charged plasma shots bounce off walls and split at every bounce. | Weapons | 1.0.0 |
 | <img src="jfg_plasma_vortex/thumb.png" width="64" alt=""> | **[Plasma Vortex](jfg_plasma_vortex/README.md)** | Charged plasma shots pull enemies in, then burst. | Weapons | 1.0.0 |
-| <img src="jfg_quick_talk/thumb.png" width="64" alt=""> | **[Quick Talk](jfg_quick_talk/README.md)** | Hint characters turn to you and talk at once: no walking up, no slow turn. | Gameplay | 0.1.0 |
+| <img src="jfg_quick_talk/thumb.png" width="64" alt=""> | **[Quick Talk](jfg_quick_talk/README.md)** | Hint characters turn to you and talk at once: no walking up, no slow turn. | Gameplay | 0.1.1 |
 | <img src="jfg_reticle/thumb.png" width="64" alt=""> | **[Reticle](jfg_reticle/README.md)** | No snapping to enemies; reticle shape, colour and size. | HUD | 1.1.0 |
 | <img src="jfg_shellback/thumb.png" width="64" alt=""> | **[Rolling Shellback](jfg_shellback/README.md)** | A new enemy: an armoured beetle that curls up, rolls at you and fires spines. | Enemies | 0.1.0 |
 | <img src="jfg_singularity/thumb.png" width="64" alt=""> | **[Singularity](jfg_singularity/README.md)** | A thrown black hole that pulls enemies in, then collapses in a blast. | Weapons | 0.2.0 |

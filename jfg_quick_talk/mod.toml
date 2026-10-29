@@ -2,7 +2,7 @@
 
 [manifest]
 id = "jfg_quick_talk"
-version = "0.1.0"
+version = "0.1.1"
 display_name = "Quick Talk"
 description = """
 The characters who give you hints no longer make a show of it. Walk up and they turn to face you at once and start \

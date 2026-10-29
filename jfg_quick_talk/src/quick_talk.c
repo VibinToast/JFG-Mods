@@ -36,7 +36,7 @@ RECOMP_IMPORT("*", double recomp_get_config_double(const char* key));
 #define D_TALK_RADIUS 0x18
 #define D_TARGET_SPEED 0x28
 
-// The game's angle of a direction (as Arctanf(x, z)): 0 along +z, 0x4000 along +x.
+// The angle of a direction (x, z): 0 along +z, 0x4000 along +x.
 static int angle_of(float x, float z) {
     const float ax = x < 0 ? -x : x, az = z < 0 ? -z : z;
     if (ax < 1e-6f && az < 1e-6f) return 0;
@@ -114,7 +114,9 @@ RECOMP_CALLBACK("*", jfg_on_game_tick) void qt_tick(int frames) {
                 tx -= jfg_turn_sin((unsigned int)hy) * 80.0f;
                 tz -= jfg_turn_cos((unsigned int)hy) * 80.0f;
             }
-            turn_to(obj, angle_of(tx - *f32_at(obj, OBJ_X), tz - *f32_at(obj, OBJ_Z)), step);
+            // The game's yaw toward a point is the direction from the point to the object (as Arctanf: its stock
+            // facers aim with self - target), so a character turned the other way here faced away.
+            turn_to(obj, angle_of(*f32_at(obj, OBJ_X) - tx, *f32_at(obj, OBJ_Z) - tz), step);
         }
         if (skip_greeting && (*state == ST_GREET || *state == ST_GREET_SHOT)) {
             *f32_at(obj, OBJ_PHASE) = 1.0f; // the game starts the text when the greeting reaches its end
