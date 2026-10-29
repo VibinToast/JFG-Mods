@@ -1,0 +1,189 @@
+{
+  "entries": [
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_blackhole_tex0",
+      "file": "assets/tex_blackhole_tex0.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_blackhole_tex1",
+      "file": "assets/tex_blackhole_tex1.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_blackhole_tex2",
+      "file": "assets/tex_blackhole_tex2.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_blackhole_tex3",
+      "file": "assets/tex_blackhole_tex3.bin"
+    },
+    {
+      "table": 38,
+      "data": 39,
+      "append": "model_blackhole",
+      "file": "assets/model_blackhole.bin",
+      "packed": true,
+      "fixups": [
+        {
+          "at": 142,
+          "type": "u16",
+          "ref": "tex_blackhole_tex0",
+          "add": 32768
+        },
+        {
+          "at": 150,
+          "type": "u16",
+          "ref": "tex_blackhole_tex1",
+          "add": 32768
+        },
+        {
+          "at": 158,
+          "type": "u16",
+          "ref": "tex_blackhole_tex2",
+          "add": 32768
+        },
+        {
+          "at": 166,
+          "type": "u16",
+          "ref": "tex_blackhole_tex3",
+          "add": 32768
+        }
+      ]
+    },
+    {
+      "table": 46,
+      "data": 47,
+      "append": "objdef_blackhole",
+      "copyOf": 427,
+      "set": [
+        {
+          "at": 0,
+          "hex": "3f800000"
+        },
+        {
+          "at": 28,
+          "hex": "0035"
+        },
+        {
+          "at": 208,
+          "hex": "00000000"
+        }
+      ],
+      "fixups": [
+        {
+          "at": 224,
+          "type": "u32",
+          "ref": "model_blackhole"
+        }
+      ]
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_core_tex0",
+      "file": "assets/tex_core_tex0.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_core_tex1",
+      "file": "assets/tex_core_tex1.bin"
+    },
+    {
+      "table": 38,
+      "data": 39,
+      "append": "model_core",
+      "file": "assets/model_core.bin",
+      "packed": true,
+      "fixups": [
+        {
+          "at": 142,
+          "type": "u16",
+          "ref": "tex_core_tex0",
+          "add": 32768
+        },
+        {
+          "at": 150,
+          "type": "u16",
+          "ref": "tex_core_tex1",
+          "add": 32768
+        }
+      ]
+    },
+    {
+      "table": 46,
+      "data": 47,
+      "append": "objdef_core",
+      "copyOf": 427,
+      "set": [
+        {
+          "at": 0,
+          "hex": "3f800000"
+        },
+        {
+          "at": 28,
+          "hex": "0035"
+        },
+        {
+          "at": 280,
+          "hex": "3df5c28f"
+        },
+        {
+          "at": 284,
+          "hex": "41a00000"
+        },
+        {
+          "at": 288,
+          "hex": "3d75c28f"
+        },
+        {
+          "at": 272,
+          "hex": "41000000"
+        }
+      ],
+      "fixups": [
+        {
+          "at": 224,
+          "type": "u32",
+          "ref": "model_core"
+        }
+      ]
+    },
+    {
+      "table": 3,
+      "data": 2,
+      "append": "tex2d_icon_0",
+      "file": "assets/tex2d_icon_0.bin"
+    },
+    {
+      "table": 22,
+      "data": 21,
+      "append": "sprite_icon",
+      "file": "assets/sprite_icon.bin",
+      "fixups": [
+        {
+          "at": 0,
+          "type": "s16",
+          "ref": "tex2d_icon_0"
+        }
+      ]
+    }
+  ],
+  "objtypes": [
+    {
+      "append": "objtype_blackhole",
+      "def": "objdef_blackhole"
+    },
+    {
+      "append": "objtype_core",
+      "def": "objdef_core"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+# Kill Feed: who killed what, with which weapon, at the top right.
+
+[manifest]
+id = "jfg_kill_feed"
+version = "1.0.0"
+display_name = "Kill Feed"
+description = """
+A feed of kills at the top right of the screen, as in arena shooters: who fired (the hero in their colour, or Floyd), \
+the weapon's icon, and who died. Tribals lost show in a red row. Rows slide in, newest at the bottom, and fade out \
+after a few seconds. Enemy names come from your own game, so the feed follows any mod that changes them. The weapon \
+icons stay the game's own, so texture packs still change them. Pairs with the Health Ring and the Ammo Ring."""
+short_description = "Who killed what, with which weapon: a modern kill feed at the top right."
+authors = [ "VibinToast" ]
+tags = [ "HUD" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "On"
+description = "The mod on or off: the mods menu's On/Off switch, which works during play too."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "size"
+name = "Size (%)"
+description = "The rows' size."
+type = "Number"
+min = 60
+max = 180
+step = 10
+precision = 0
+percent = false
+default = 100
+
+[[manifest.config_options]]
+id = "opacity"
+name = "Opacity (%)"
+description = "How solid the rows are: lower lets more of the game show through."
+type = "Number"
+min = 20
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 70
+
+[[manifest.config_options]]
+id = "rows"
+name = "Rows"
+description = "How many kills are shown at once; older ones fade out early to make room."
+type = "Number"
+min = 1
+max = 8
+step = 1
+precision = 0
+percent = false
+default = 5
+
+[[manifest.config_options]]
+id = "seconds"
+name = "Time Shown (s)"
+description = "How long each kill stays in the feed."
+type = "Number"
+min = 2
+max = 15
+step = 1
+precision = 0
+percent = false
+default = 6
+
+[[manifest.config_options]]
+id = "font"
+name = "Font"
+description = "Modern: the menus' font. Game: lettering after the game's own."
+type = "Enum"
+options = [ "Modern", "Game" ]
+default = "Modern"
+
+[[manifest.config_options]]
+id = "others"
+name = "Other Kills"
+description = "Also show deaths the heroes didn't cause: a Tribal shot by an enemy, an enemy caught in a blast."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_kill_feed"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png" ]

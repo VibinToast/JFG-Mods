@@ -1,0 +1,129 @@
+# Dodge: a quick dash in the direction you move, with a moment where nothing can hurt you.
+
+[manifest]
+id = "jfg_dodge"
+version = "1.1.0"
+display_name = "Dodge"
+description = """
+Better mobility: click the right stick (or press N64 L with the classic controls) to dash in the direction you \
+are moving, strafing while aiming included; standing still, you hop back. For the first moment of the dodge nothing \
+can hurt you (it can tint the hero red while it lasts), you can keep firing, and Juno and Vela roll. Choose how far it takes you, how long you are protected and how soon you can dodge again."""
+short_description = "Click the right stick to dodge where you move, briefly safe from harm."
+authors = [ "VibinToast" ]
+tags = [ "Gameplay" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "On"
+description = "The mod on or off: the mods menu's On/Off switch, which works during play too."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "dodge_button"
+name = "Dodge Button"
+description = "On a modern controller: the right stick's click, or N64 L (the left bumper, as you bound it; Back opens the settings and never dodges). The classic controls always use N64 L."
+type = "Enum"
+options = [ "Right Stick Click", "N64 L" ]
+default = "Right Stick Click"
+
+[[manifest.config_options]]
+id = "distance"
+name = "Distance"
+description = "How far a dodge takes you, in level units (a hero is about 50 tall)."
+type = "Number"
+min = 50
+max = 400
+step = 10
+precision = 0
+percent = false
+default = 200
+
+[[manifest.config_options]]
+id = "dodge_time"
+name = "Dodge Time (1/100 s)"
+description = "How long a dodge takes to cover its distance: the roll ends with it. Less is a snappier dodge."
+type = "Number"
+min = 15
+max = 200
+step = 5
+precision = 0
+percent = false
+default = 55
+
+[[manifest.config_options]]
+id = "protect"
+name = "Protection (1/100 s)"
+description = "How long nothing can hurt you from the start of a dodge. 0 = no protection."
+type = "Number"
+min = 0
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 60
+
+[[manifest.config_options]]
+id = "tint"
+name = "Red Tint While Protected"
+description = "The hero is tinted red while nothing can hurt it, so you can tell how long that lasts."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "cooldown"
+name = "Cooldown (1/100 s)"
+description = "How long after a dodge until the next one."
+type = "Number"
+min = 20
+max = 300
+step = 10
+precision = 0
+percent = false
+default = 120
+
+[[manifest.config_options]]
+id = "roll"
+name = "Roll"
+description = "Juno and Vela roll as they dodge (the game's own side roll), to the side the dodge goes."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "jump_sound"
+name = "Jump Sound"
+description = "The hero's own jump voice (Juno's, Vela's or Lupus's) plays with each dodge."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "shoot"
+name = "Shoot While Dodging"
+description = "Keep firing through a dodge. Off: the fire button does nothing until the dodge ends."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "while_aiming"
+name = "Dodge While Aiming"
+description = "Dodge while aiming too: a sidestep that keeps your aim."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_dodge"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png" ]

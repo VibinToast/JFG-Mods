@@ -1,0 +1,125 @@
+# Weapon Sounds: new sound effects for the weapons, made to fit the game.
+
+[manifest]
+id = "jfg_weapon_sounds"
+version = "1.0.0"
+display_name = "Weapon Sounds"
+description = """
+The weapons' own sound effects, remastered to sound modern and heavy: rebuilt highs, a sub-bass punch under every shot, a sharper attack and a stereo room. The pistol cracks, the sniper rifle booms and rolls away in a long reverb, the machine gun is a dense automatic stream with a softer settle when you let go, missiles and rockets launch with a boom, the plasma shotgun's charge builds under you and its shot hits hard, the shocker hums deep, and changing weapons racks steel on steel. Throws and grenade bounces keep their sound with more bass; the flamethrower, explosions and the enemies' weapons keep the game's. Each weapon's sounds can be turned off in the options, during play too."""
+short_description = "The weapons' sounds remastered: modern, punchy and heavy, each one switchable."
+authors = [ "VibinToast" ]
+tags = [ "Weapons", "Audio" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "pistol"
+name = "Pistol"
+description = "The pistol's shot. Off: the game's own sound."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "sniper"
+name = "Sniper Rifle"
+description = "The sniper rifle's own shot: heavier, with a long reverb rolling off the walls. Off: the game's own sound."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "machine_gun"
+name = "Machine Gun"
+description = "The automatic stream, its last round and the settle when you let go. Off: the game's own sound."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "missiles"
+name = "Missiles & Rockets"
+description = "Homing missiles and the tri-rocket launcher. Off: the game's own sound."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "plasma"
+name = "Plasma Shotgun"
+description = "Its charge and its shot. Off: the game's own sound."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "shocker"
+name = "Shocker"
+description = "The shocker's current. Off: the game's own sound."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "throws"
+name = "Throws & Grenades"
+description = "Throwing (grenades, mines, shuriken...) and grenades bouncing. Off: the game's own sound."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "shuriken"
+name = "Shuriken"
+description = "A shuriken in flight. Off: the game's own sound."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "mines"
+name = "Mines"
+description = "A mine arming. Off: the game's own sound."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "flares"
+name = "Flares"
+description = "A flare being lit. Off: the game's own sound."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "switch"
+name = "Weapon Change"
+description = "Changing weapons. Off: the game's own sound."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_weapon_sounds"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png", "jfg_sounds.json",
+    "sounds/flare.wav",
+    "sounds/machine_gun_loop.wav",
+    "sounds/mine_beep.wav",
+    "sounds/missile.wav",
+    "sounds/pistol.wav",
+    "sounds/pistol_light.wav",
+    "sounds/plasma_charge.wav",
+    "sounds/plasma_fire.wav",
+    "sounds/shocker.wav",
+    "sounds/sniper.wav",
+    "sounds/spin_down.wav",
+    "sounds/switch.wav",
+    "sounds/throw.wav",
+    "sounds/zing.wav" ]

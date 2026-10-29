@@ -1,0 +1,14 @@
+{
+  "sounds": {
+    "walk": "sounds/walk.wav",
+    "roll": "sounds/roll_loop.wav",
+    "bounce": "sounds/bounce.wav",
+    "deflect": "sounds/deflect.wav",
+    "curl": "sounds/curl.wav",
+    "dizzy": "sounds/dizzy_loop.wav",
+    "spines": "sounds/spines.wav",
+    "hurt": "sounds/hurt.wav",
+    "death": "sounds/death.wav",
+    "alert": "sounds/alert.wav"
+  }
+}

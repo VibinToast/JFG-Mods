@@ -1,0 +1,161 @@
+# Better Flamethrower: ground fires, spreading burns, more damage.
+
+[manifest]
+id = "jfg_better_flamethrower"
+version = "1.1.0"
+display_name = "Better Flamethrower"
+description = """
+The flamethrower becomes a weapon worth carrying. A tank of fuel lasts much longer, and its flames leave big, long fires on the ground that burn anyone standing in \
+them (enemies, Tribals and, if you choose, you) and set enemies alight. Burning enemies pass the fire to those near \
+them, and the flames themselves hit harder. Every part can be turned up, down or off."""
+short_description = "Ground fires, spreading burns and stronger flames."
+authors = [ "VibinToast" ]
+tags = [ "Weapons" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "On"
+description = "The mod on or off: the mods menu's On/Off switch, which works during play too."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "fuel_use"
+name = "Fuel Use (%)"
+description = "How fast the flamethrower burns its fuel: 100 is the original game, 25 makes a tank last four times as long."
+type = "Number"
+min = 10
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 25
+
+[[manifest.config_options]]
+id = "ground_fire"
+name = "Ground Fire"
+description = "The flames leave fires on the ground where they reach."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "reach"
+name = "Flame Reach"
+description = "How far in front of you the flames reach, in level units: where the ground fires are left and the extra damage lands."
+type = "Number"
+min = 60
+max = 400
+step = 10
+precision = 0
+percent = false
+default = 220
+
+[[manifest.config_options]]
+id = "fire_time"
+name = "Ground Fire Time (1/10 s)"
+description = "How long a ground fire burns."
+type = "Number"
+min = 10
+max = 300
+step = 10
+precision = 0
+percent = false
+default = 200
+
+[[manifest.config_options]]
+id = "fire_size"
+name = "Ground Fire Size"
+description = "How big a ground fire is (and how far around it burns). 24 is the size explosions leave."
+type = "Number"
+min = 16
+max = 127
+step = 4
+precision = 0
+percent = false
+default = 40
+
+[[manifest.config_options]]
+id = "fire_damage"
+name = "Ground Fire Damage (% per s)"
+description = "Health a ground fire takes each second from anyone in it, in percent of one unit (100 = one unit a second)."
+type = "Number"
+min = 0
+max = 500
+step = 25
+precision = 0
+percent = false
+default = 100
+
+[[manifest.config_options]]
+id = "hurts_you"
+name = "Fire Hurts You"
+description = "Your own ground fires hurt you too if you stand in them: a hit each second, as from an enemy's shot (at Ground Fire Damage 200 or more, two units)."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "tribals"
+name = "Fire Hurts Tribals"
+description = "Ground fires and spreading flames set Tribals alight too. Careful."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "spread"
+name = "Spreading Fire"
+description = "Enemies the flames or a fire caught burn for a while and set alight the enemies that come near them."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "spread_time"
+name = "Spreading Time (s)"
+description = "How long a burning enemy can pass the fire on."
+type = "Number"
+min = 1
+max = 15
+step = 1
+precision = 0
+percent = false
+default = 3
+
+[[manifest.config_options]]
+id = "spread_chance"
+name = "Spreading Chance (%)"
+description = "The chance, twice a second, that a burning enemy sets those near it alight."
+type = "Number"
+min = 0
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 20
+
+[[manifest.config_options]]
+id = "flame_damage"
+name = "Extra Flame Damage (% per s)"
+description = "Damage the flames add to what they touch, in percent of one unit each second, on top of the game's burning."
+type = "Number"
+min = 0
+max = 1000
+step = 50
+precision = 0
+percent = false
+default = 100
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_better_flamethrower"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png" ]

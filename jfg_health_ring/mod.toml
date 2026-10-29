@@ -1,0 +1,90 @@
+# Health Ring: the health meter redrawn as a ring of segments around an emblem.
+
+[manifest]
+id = "jfg_health_ring"
+version = "1.0.0"
+display_name = "Health Ring"
+description = """
+The health meter redrawn sharp at any resolution: a ring of segments around an emblem. Each health upgrade adds a \
+segment, and with all of them the ring closes. Health fills the segments five times over, a colour each round \
+(green is full, red the last); lost health flashes white and drains away, health crystals fill it back in, and a red \
+ring pulses when health is low. Choose its corner, size and opacity."""
+short_description = "A sharp, modern health meter that grows into a full ring with every health upgrade."
+authors = [ "VibinToast" ]
+tags = [ "HUD" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "On"
+description = "The mod on or off: the mods menu's On/Off switch, which works during play too. Off shows the game's own meter."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "corner"
+name = "Corner"
+description = "Where the ring sits on the screen (the next free corner when another mod's HUD piece is there)."
+type = "Enum"
+options = [ "Top Left", "Top Right", "Bottom Left", "Bottom Right" ]
+default = "Bottom Left"
+
+[[manifest.config_options]]
+id = "size"
+name = "Size (%)"
+description = "The ring's width, as a share of the screen's height."
+type = "Number"
+min = 12
+max = 40
+step = 1
+precision = 0
+percent = false
+default = 22
+
+[[manifest.config_options]]
+id = "opacity"
+name = "Opacity (%)"
+description = "How solid the ring is: lower lets more of the game show through."
+type = "Number"
+min = 20
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 70
+
+[[manifest.config_options]]
+id = "pulse"
+name = "Low Health Pulse"
+description = "A red ring pulses around the meter when a quarter of your health or less is left."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "next_slot"
+name = "Next Upgrade Slot"
+description = "A faint outline shows where the next health upgrade's segment goes."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "speed"
+name = "Health Animation"
+description = "How fast lost health drains away and gained health fills in. Instant: no animation."
+type = "Enum"
+options = [ "Instant", "Fast", "Normal", "Slow" ]
+default = "Fast"
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_health_ring"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png" ]

@@ -1,0 +1,41 @@
+# Toggle Aim: press the aim button once to aim, again to stop.
+
+[manifest]
+id = "jfg_aim_toggle"
+version = "1.1.0"
+display_name = "Toggle Aim"
+description = """
+Manual aiming without holding the button: press the aim button (N64 R, or what you bound to it) once to start \
+aiming and again to stop. Works with every control scheme, Swap Triggers included. Aiming stops by itself when you \
+die or leave the level, and (an option) when you jump or swim."""
+short_description = "Press the aim button once to aim, again to stop."
+authors = [ "VibinToast" ]
+tags = [ "Controls" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "Toggle Aim"
+description = "On: the aim button toggles aiming. Off: hold it, as in the original game."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "release"
+name = "Stop Aiming on Jump or Swim"
+description = "Aiming stops when you jump or swim, so you land or surface walking."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_aim_toggle"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png" ]

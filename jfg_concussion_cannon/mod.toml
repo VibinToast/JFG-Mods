@@ -1,0 +1,219 @@
+# Concussion Cannon: a charged cone of force that knocks enemies back and slams them into walls.
+
+[manifest]
+id = "jfg_concussion_cannon"
+version = "0.2.0"
+display_name = "Concussion Cannon"
+description = """
+A new weapon: hold fire to charge the Concussion Cannon, let go to fire a cone of force along your aim. Every enemy in \
+the cone is knocked away, light ones far and heavy ones barely; flyers spin off through the air. An enemy knocked into \
+a wall fast enough slams into it and takes damage, and the kill is the cannon's. The more you charge, the further and \
+harder it hits, and the more it pushes you back. It sits with your other weapons (next / previous weapon), and what \
+you carry is saved with your file. More charges come from enemy drops, plasma shotgun pickups (some of them turned \
+into cannons) and an optional recharge. Set its range, cone, force, damage and recoil."""
+short_description = "A charged cone of force that knocks enemies back and slams them into walls."
+authors = [ "VibinToast" ]
+tags = [ "Weapons" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "On"
+description = "The mod on or off: the mods menu's On/Off switch, which works during play too."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "give"
+name = "Start With It"
+description = "Your hero has the Concussion Cannon from the start."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "infinite"
+name = "Infinite Ammo"
+description = "Shots use no charges: the cannon is always full (the ammo options below then don't matter)."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "range"
+name = "Range"
+description = "How far a full charge reaches, in level units (a weak shot reaches 40% of it)."
+type = "Number"
+min = 100
+max = 800
+step = 25
+precision = 0
+percent = false
+default = 800
+
+[[manifest.config_options]]
+id = "cone"
+name = "Cone Width (degrees)"
+description = "How wide the cone of force is."
+type = "Number"
+min = 20
+max = 120
+step = 5
+precision = 0
+percent = false
+default = 50
+
+[[manifest.config_options]]
+id = "power"
+name = "Force"
+description = "How hard it knocks enemies away, in percent (100 is a solid shove; heavy enemies need more)."
+type = "Number"
+min = 20
+max = 600
+step = 10
+precision = 0
+percent = false
+default = 510
+
+[[manifest.config_options]]
+id = "damage"
+name = "Blast Damage"
+description = "Damage the blast itself does at full charge up close, in hundredths of a unit of health (0: none, it only knocks back)."
+type = "Number"
+min = 0
+max = 1000
+step = 25
+precision = 0
+percent = false
+default = 0
+
+[[manifest.config_options]]
+id = "slam"
+name = "Wall Slam Damage"
+description = "Damage an enemy takes when knocked into a wall, in hundredths of a unit of health (harder slams more)."
+type = "Number"
+min = 0
+max = 2000
+step = 50
+precision = 0
+percent = false
+default = 1550
+
+[[manifest.config_options]]
+id = "recoil"
+name = "Recoil"
+description = "How far a shot pushes you back, in percent (0: not at all)."
+type = "Number"
+min = 0
+max = 200
+step = 10
+precision = 0
+percent = false
+default = 100
+
+[[manifest.config_options]]
+id = "shake"
+name = "Screen Shake"
+description = "How much a shot shakes the view, in percent (0: not at all)."
+type = "Number"
+min = 0
+max = 200
+step = 10
+precision = 0
+percent = false
+default = 100
+
+[[manifest.config_options]]
+id = "push_tribals"
+name = "Push Tribals"
+description = "Tribals in the cone are knocked back too (never hurt by the blast or a wall slam)."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "drops"
+name = "Ammo: Enemy Drops"
+description = "Enemies you kill sometimes drop a charge cell (big ones twice as often): walk into it to take two charges."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "drop_chance"
+name = "Drop Chance (%)"
+description = "How likely a kill is to drop a cell. Shared with other mods' drops: a kill drops at most one, and from squads made bigger by More Enemies the chance is shared out over the extra enemies."
+type = "Number"
+min = 1
+max = 50
+step = 1
+precision = 0
+percent = false
+default = 8
+
+[[manifest.config_options]]
+id = "shotgun_refill"
+name = "Ammo: Plasma Shotgun Pickups"
+description = "Picking up the plasma shotgun or its ammo gives three charges too."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "pickup_share"
+name = "Ammo: Cannon Pickups (%)"
+description = "This share of the level's plasma shotgun pickups give the Concussion Cannon instead (they still look like the shotgun's). 0: none."
+type = "Number"
+min = 0
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 25
+
+[[manifest.config_options]]
+id = "recharge"
+name = "Ammo: Recharge"
+description = "One charge comes back by itself every so often, while you have fewer than it holds."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "recharge_secs"
+name = "Recharge Time (s)"
+description = "Seconds for one charge to come back (with Recharge on)."
+type = "Number"
+min = 2
+max = 120
+step = 1
+precision = 0
+percent = false
+default = 15
+
+[[manifest.config_options]]
+id = "debug"
+name = "Debug Line"
+description = "For testing: a line at the top left with the charge and what the last shot hit."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_concussion_cannon"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png", "jfg_sounds.json", "sounds/charge_loop.wav", "sounds/full.wav", "sounds/blast.wav",
+                     "sounds/slam.wav", "jfg_assets.json",
+                     "assets/model_wave.bin", "assets/tex_wave_tex0.bin", "assets/tex_wave_tex1.bin",
+                     "assets/model_impact.bin", "assets/tex_impact_tex0.bin", "assets/tex_impact_tex1.bin",
+                     "assets/model_charge.bin", "assets/tex_charge_tex0.bin", "assets/tex_charge_tex1.bin",
+                     "assets/model_cannon.bin", "assets/tex_cannon_tex0.bin", "assets/tex_cannon_tex1.bin",
+                     "assets/tex_cannon_tex2.bin", "assets/tex_cannon_tex3.bin", "assets/tex_cannon_tex4.bin",
+                     "assets/tex2d_icon_0.bin", "assets/sprite_icon.bin" ]

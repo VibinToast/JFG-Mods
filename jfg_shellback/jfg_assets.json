@@ -1,0 +1,423 @@
+{
+  "entries": [
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_shellback_tex0",
+      "file": "assets/tex_shellback_tex0.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_shellback_tex1",
+      "file": "assets/tex_shellback_tex1.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_shellback_tex2",
+      "file": "assets/tex_shellback_tex2.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_shellback_tex3",
+      "file": "assets/tex_shellback_tex3.bin"
+    },
+    {
+      "table": 38,
+      "data": 39,
+      "append": "model_shellback",
+      "file": "assets/model_shellback.bin",
+      "packed": true,
+      "fixups": [
+        {
+          "at": 142,
+          "type": "u16",
+          "ref": "tex_shellback_tex0",
+          "add": 32768
+        },
+        {
+          "at": 150,
+          "type": "u16",
+          "ref": "tex_shellback_tex1",
+          "add": 32768
+        },
+        {
+          "at": 158,
+          "type": "u16",
+          "ref": "tex_shellback_tex2",
+          "add": 32768
+        },
+        {
+          "at": 166,
+          "type": "u16",
+          "ref": "tex_shellback_tex3",
+          "add": 32768
+        }
+      ]
+    },
+    {
+      "table": 42,
+      "data": 43,
+      "append": "anim_00_idle_loop",
+      "file": "assets/anim_00_idle_loop.bin"
+    },
+    {
+      "table": 42,
+      "data": 43,
+      "append": "anim_01_walk_loop",
+      "file": "assets/anim_01_walk_loop.bin"
+    },
+    {
+      "table": 42,
+      "data": 43,
+      "append": "anim_02_turn_loop",
+      "file": "assets/anim_02_turn_loop.bin"
+    },
+    {
+      "table": 42,
+      "data": 43,
+      "append": "anim_03_curl",
+      "file": "assets/anim_03_curl.bin"
+    },
+    {
+      "table": 42,
+      "data": 43,
+      "append": "anim_04_ball_loop",
+      "file": "assets/anim_04_ball_loop.bin"
+    },
+    {
+      "table": 42,
+      "data": 43,
+      "append": "anim_05_dizzy_loop",
+      "file": "assets/anim_05_dizzy_loop.bin"
+    },
+    {
+      "table": 42,
+      "data": 43,
+      "append": "anim_06_uncurl",
+      "file": "assets/anim_06_uncurl.bin"
+    },
+    {
+      "table": 42,
+      "data": 43,
+      "append": "anim_07_fire",
+      "file": "assets/anim_07_fire.bin"
+    },
+    {
+      "table": 42,
+      "data": 43,
+      "append": "anim_08_hit",
+      "file": "assets/anim_08_hit.bin"
+    },
+    {
+      "table": 42,
+      "data": 43,
+      "append": "anim_09_death",
+      "file": "assets/anim_09_death.bin"
+    },
+    {
+      "table": 42,
+      "data": 43,
+      "append": "anim_10_dead",
+      "file": "assets/anim_10_dead.bin"
+    },
+    {
+      "table": 46,
+      "data": 47,
+      "append": "objdef_shellback",
+      "copyOf": 336,
+      "set": [
+        {
+          "at": 0,
+          "hex": "3f580000"
+        },
+        {
+          "at": 180,
+          "hex": "000000260000"
+        },
+        {
+          "at": 188,
+          "hex": "42a80000"
+        },
+        {
+          "at": 192,
+          "hex": "42280000"
+        },
+        {
+          "at": 256,
+          "hex": "42004000"
+        }
+      ],
+      "fixups": [
+        {
+          "at": 224,
+          "type": "u32",
+          "ref": "model_shellback"
+        }
+      ]
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_spine_tex0",
+      "file": "assets/tex_spine_tex0.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_spine_tex1",
+      "file": "assets/tex_spine_tex1.bin"
+    },
+    {
+      "table": 38,
+      "data": 39,
+      "append": "model_spine",
+      "file": "assets/model_spine.bin",
+      "packed": true,
+      "fixups": [
+        {
+          "at": 142,
+          "type": "u16",
+          "ref": "tex_spine_tex0",
+          "add": 32768
+        },
+        {
+          "at": 150,
+          "type": "u16",
+          "ref": "tex_spine_tex1",
+          "add": 32768
+        }
+      ]
+    },
+    {
+      "table": 46,
+      "data": 47,
+      "append": "objdef_spine",
+      "copyOf": 427,
+      "set": [
+        {
+          "at": 0,
+          "hex": "3f800000"
+        },
+        {
+          "at": 28,
+          "hex": "0035"
+        },
+        {
+          "at": 208,
+          "hex": "00000000"
+        }
+      ],
+      "fixups": [
+        {
+          "at": 224,
+          "type": "u32",
+          "ref": "model_spine"
+        }
+      ]
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_dizzy_tex0",
+      "file": "assets/tex_dizzy_tex0.bin"
+    },
+    {
+      "table": 38,
+      "data": 39,
+      "append": "model_dizzy",
+      "file": "assets/model_dizzy.bin",
+      "packed": true,
+      "fixups": [
+        {
+          "at": 142,
+          "type": "u16",
+          "ref": "tex_dizzy_tex0",
+          "add": 32768
+        }
+      ]
+    },
+    {
+      "table": 46,
+      "data": 47,
+      "append": "objdef_dizzy",
+      "copyOf": 427,
+      "set": [
+        {
+          "at": 0,
+          "hex": "3f800000"
+        },
+        {
+          "at": 28,
+          "hex": "0035"
+        },
+        {
+          "at": 208,
+          "hex": "00000000"
+        }
+      ],
+      "fixups": [
+        {
+          "at": 224,
+          "type": "u32",
+          "ref": "model_dizzy"
+        }
+      ]
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_spark_tex0",
+      "file": "assets/tex_spark_tex0.bin"
+    },
+    {
+      "table": 38,
+      "data": 39,
+      "append": "model_spark",
+      "file": "assets/model_spark.bin",
+      "packed": true,
+      "fixups": [
+        {
+          "at": 142,
+          "type": "u16",
+          "ref": "tex_spark_tex0",
+          "add": 32768
+        }
+      ]
+    },
+    {
+      "table": 46,
+      "data": 47,
+      "append": "objdef_spark",
+      "copyOf": 427,
+      "set": [
+        {
+          "at": 0,
+          "hex": "3f800000"
+        },
+        {
+          "at": 28,
+          "hex": "007E"
+        },
+        {
+          "at": 208,
+          "hex": "00000000"
+        }
+      ],
+      "fixups": [
+        {
+          "at": 224,
+          "type": "u32",
+          "ref": "model_spark"
+        }
+      ]
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_dust_tex0",
+      "file": "assets/tex_dust_tex0.bin"
+    },
+    {
+      "table": 38,
+      "data": 39,
+      "append": "model_dust",
+      "file": "assets/model_dust.bin",
+      "packed": true,
+      "fixups": [
+        {
+          "at": 142,
+          "type": "u16",
+          "ref": "tex_dust_tex0",
+          "add": 32768
+        }
+      ]
+    },
+    {
+      "table": 46,
+      "data": 47,
+      "append": "objdef_dust",
+      "copyOf": 427,
+      "set": [
+        {
+          "at": 0,
+          "hex": "3f800000"
+        },
+        {
+          "at": 28,
+          "hex": "007E"
+        },
+        {
+          "at": 208,
+          "hex": "00000000"
+        }
+      ],
+      "fixups": [
+        {
+          "at": 224,
+          "type": "u32",
+          "ref": "model_dust"
+        }
+      ]
+    }
+  ],
+  "objtypes": [
+    {
+      "append": "objtype_shellback",
+      "def": "objdef_shellback",
+      "like": 238
+    },
+    {
+      "append": "objtype_spine",
+      "def": "objdef_spine"
+    },
+    {
+      "append": "objtype_dizzy",
+      "def": "objdef_dizzy"
+    },
+    {
+      "append": "objtype_spark",
+      "def": "objdef_spark"
+    },
+    {
+      "append": "objtype_dust",
+      "def": "objdef_dust"
+    }
+  ],
+  "animRows": [
+    {
+      "model": "model_shellback",
+      "anims": [
+        "anim_00_idle_loop",
+        "anim_00_idle_loop",
+        "anim_00_idle_loop",
+        "anim_00_idle_loop",
+        "anim_08_hit",
+        "anim_08_hit",
+        "anim_08_hit",
+        "anim_08_hit",
+        "anim_08_hit",
+        "anim_09_death",
+        "anim_10_dead",
+        "anim_09_death",
+        "anim_10_dead",
+        "anim_09_death",
+        "anim_10_dead",
+        "anim_09_death",
+        "anim_10_dead",
+        "anim_05_dizzy_loop",
+        "anim_07_fire",
+        "anim_01_walk_loop",
+        "anim_01_walk_loop",
+        "anim_02_turn_loop",
+        "anim_03_curl",
+        "anim_04_ball_loop",
+        "anim_05_dizzy_loop",
+        "anim_06_uncurl"
+      ],
+      "slots": "assets/slots_shellback.bin"
+    }
+  ]
+}

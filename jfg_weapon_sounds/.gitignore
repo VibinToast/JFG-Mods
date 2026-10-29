@@ -1,0 +1,5 @@
+build/
+syms/
+*.nrm
+preview.html
+original/

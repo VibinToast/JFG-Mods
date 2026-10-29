@@ -1,0 +1,8 @@
+{
+  "sounds": {
+    "charge": "sounds/charge_loop.wav",
+    "full": "sounds/full.wav",
+    "blast": "sounds/blast.wav",
+    "slam": "sounds/slam.wav"
+  }
+}

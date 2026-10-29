@@ -1,0 +1,7 @@
+{
+  "sounds": {
+    "hum": "sounds/hum.wav",
+    "open": "sounds/open.wav",
+    "collapse": "sounds/collapse.wav"
+  }
+}

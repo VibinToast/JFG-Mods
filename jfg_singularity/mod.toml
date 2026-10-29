@@ -1,0 +1,217 @@
+# Singularity: a thrown black hole that pulls enemies in, then collapses in a blast.
+
+[manifest]
+id = "jfg_singularity"
+version = "0.2.0"
+display_name = "Singularity"
+description = """
+A new weapon: throw a Singularity and where it lands it tears open a black hole. For a few seconds it drags the \
+enemies around it in: small ones fly across the ground, heavy ones only creep, and flyers are pulled down out of the \
+air (they find their way back if they survive); those at its heart can take damage too. Then it collapses in a blast that \
+hits what it gathered. Tribals are pulled too (an option) but never hurt by it, and nothing is pulled through walls. It sits with your \
+other weapons (next / previous weapon), and what you carry is saved with your file; more come from enemy drops, grenade \
+pickups, some grenade pickups turned into Singularities, and an optional recharge. Set how far it reaches, how hard \
+it pulls, how long it lasts and how much it hurts."""
+short_description = "A thrown black hole that pulls enemies in, then collapses in a blast."
+authors = [ "VibinToast" ]
+tags = [ "Weapons" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "On"
+description = "The mod on or off: the mods menu's On/Off switch, which works during play too."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "give"
+name = "Start With It"
+description = "Your hero has the Singularity from the start, with three to throw."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "throw"
+name = "Throw Distance"
+description = "How hard you throw it: higher throws it further (30 lands a few steps away, 60 about where a grenade lands, 150 far across a clearing)."
+type = "Number"
+min = 30
+max = 150
+step = 5
+precision = 0
+percent = false
+default = 100
+
+[[manifest.config_options]]
+id = "reach"
+name = "Reach"
+description = "How far the black hole pulls from, in level units."
+type = "Number"
+min = 200
+max = 1200
+step = 50
+precision = 0
+percent = false
+default = 1000
+
+[[manifest.config_options]]
+id = "pull"
+name = "Pull Strength"
+description = "How hard it pulls, in percent."
+type = "Number"
+min = 20
+max = 300
+step = 10
+precision = 0
+percent = false
+default = 240
+
+[[manifest.config_options]]
+id = "duration"
+name = "Duration (1/10 s)"
+description = "How long it pulls before it collapses."
+type = "Number"
+min = 10
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 20
+
+[[manifest.config_options]]
+id = "damage"
+name = "Heart Damage"
+description = "Health a second it takes from enemies at its heart, in percent of a unit."
+type = "Number"
+min = 0
+max = 500
+step = 25
+precision = 0
+percent = false
+default = 0
+
+[[manifest.config_options]]
+id = "burst"
+name = "Collapse Damage"
+description = "Health the collapse takes from everything it gathered (the pistol takes 1 a shot)."
+type = "Number"
+min = 1
+max = 40
+step = 1
+precision = 0
+percent = false
+default = 10
+
+[[manifest.config_options]]
+id = "blast_radius"
+name = "Collapse Radius"
+description = "How far the collapse's blast reaches, in level units (an enemy is about 30 wide). Enemies it gathered take the full blow inside it."
+type = "Number"
+min = 50
+max = 600
+step = 10
+precision = 0
+percent = false
+default = 210
+
+[[manifest.config_options]]
+id = "pull_tribals"
+name = "Pull Tribals"
+description = "Tribals are pulled in too (the mod never hurts them; the grenade explosion at the end hurts anything in its blast, as a grenade does). Off: Tribals stay where they are."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "tint"
+name = "Caught Glow"
+description = "Enemies caught in its pull glow violet."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "drops"
+name = "Ammo: Enemy Drops"
+description = "Enemies you kill sometimes drop a Singularity cell (big ones twice as often): walk into it to take one."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "drop_chance"
+name = "Drop Chance (%)"
+description = "How likely a kill is to drop a cell. Shared with other mods' drops: a kill drops at most one, and from squads made bigger by More Enemies the chance is shared out over the extra enemies."
+type = "Number"
+min = 1
+max = 50
+step = 1
+precision = 0
+percent = false
+default = 8
+
+[[manifest.config_options]]
+id = "grenade_refill"
+name = "Ammo: Grenade Pickups"
+description = "Picking up grenades or grenade ammo gives one Singularity too."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "pickup_share"
+name = "Ammo: Singularity Pickups (%)"
+description = "This share of the level's grenade pickups give the Singularity instead (they still look like grenades). 0: none."
+type = "Number"
+min = 0
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 25
+
+[[manifest.config_options]]
+id = "recharge"
+name = "Ammo: Recharge"
+description = "One Singularity comes back by itself every so often, while you have fewer than it holds."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "recharge_secs"
+name = "Recharge Time (s)"
+description = "Seconds for one Singularity to come back (with Recharge on)."
+type = "Number"
+min = 5
+max = 180
+step = 5
+precision = 0
+percent = false
+default = 45
+
+[[manifest.config_options]]
+id = "debug"
+name = "Debug Line"
+description = "For testing: a line at the top left with each thrown Singularity's state."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_singularity"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png", "jfg_sounds.json", "sounds/hum.wav", "sounds/open.wav", "sounds/collapse.wav",
+                     "jfg_assets.json", "assets/model_blackhole.bin", "assets/tex_blackhole_tex0.bin",
+                     "assets/tex_blackhole_tex1.bin", "assets/tex_blackhole_tex2.bin", "assets/tex_blackhole_tex3.bin",
+                     "assets/model_core.bin", "assets/tex_core_tex0.bin", "assets/tex_core_tex1.bin",
+                     "assets/tex2d_icon_0.bin", "assets/sprite_icon.bin" ]

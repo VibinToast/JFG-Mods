@@ -1,0 +1,111 @@
+# Ricochet Plasma: plasma shotgun shots bounce off walls, stronger each bounce.
+
+[manifest]
+id = "jfg_plasma_ricochet"
+version = "1.0.0"
+display_name = "Ricochet Plasma"
+description = """
+The plasma shotgun's charged shots ricochet and split. Instead of dying on the first wall, a ball bounces off walls, \
+floors and ceilings, and at each bounce it splits: three pieces by default (from two up to six) fly off different ways, each \
+smaller and weaker, and each can bounce and split again. The more you charge, the more times it bounces: none for a quick shot, \
+up to four at full charge, which ends in a spray of small shots filling the room. A bounce also turns the shots a \
+little toward the nearest enemy ahead. Every part can be turned up, down or off."""
+short_description = "Charged plasma shots bounce off walls and split at every bounce."
+authors = [ "VibinToast" ]
+tags = [ "Weapons" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "On"
+description = "The mod on or off: the mods menu's On/Off switch, which works during play too. Off leaves the plasma shotgun as the game made it."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "bounces"
+name = "Bounces"
+description = "How many times a fully charged shot bounces (and splits); less charged ones bounce less, a quick shot not at all."
+type = "Number"
+min = 1
+max = 8
+step = 1
+precision = 0
+percent = false
+default = 4
+
+[[manifest.config_options]]
+id = "split"
+name = "Split"
+description = "Each bounce splits the shot in two. Off: a bounce makes the shot bigger and stronger instead."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "pieces"
+name = "Split Pieces"
+description = "How many shots a split makes, fanned out across the split angle. Each can bounce and split again, so more pieces fill a room fast."
+type = "Number"
+min = 2
+max = 6
+step = 1
+precision = 0
+percent = false
+default = 3
+
+[[manifest.config_options]]
+id = "angle"
+name = "Split Angle"
+description = "How wide the pieces fan out, in degrees each side of a plain bounce (the outermost pieces fly at this angle)."
+type = "Number"
+min = 5
+max = 60
+step = 5
+precision = 0
+percent = false
+default = 60
+
+[[manifest.config_options]]
+id = "split_damage"
+name = "Split Damage (%)"
+description = "How much of the shot's damage each piece keeps."
+type = "Number"
+min = 20
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 70
+
+[[manifest.config_options]]
+id = "homing"
+name = "Homing (%)"
+description = "How far a bounce turns the shot toward the nearest enemy ahead of it. 0: a plain bounce, as off a mirror."
+type = "Number"
+min = 0
+max = 100
+step = 10
+precision = 0
+percent = false
+default = 10
+
+[[manifest.config_options]]
+id = "sound"
+name = "Bounce Sound"
+description = "A zap at each bounce."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_plasma_ricochet"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png" ]

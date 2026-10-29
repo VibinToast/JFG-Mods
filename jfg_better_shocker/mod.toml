@@ -1,0 +1,109 @@
+# Better Shocker: the shock arcs from enemy to enemy and stuns them.
+
+[manifest]
+id = "jfg_better_shocker"
+version = "1.1.0"
+display_name = "Better Shocker"
+description = """
+The shocker's lightning no longer stops at one enemy: it arcs on to the next enemy nearby, and the next, each jump a \
+little weaker, and every enemy it reaches is stunned, shaking in place while the current drains it. Tribals are \
+never chained. Choose how many jumps, how far they reach, how hard they hit and whether they stun."""
+short_description = "The shock arcs from enemy to enemy and stuns them."
+authors = [ "VibinToast" ]
+tags = [ "Weapons" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "On"
+description = "The mod on or off: the mods menu's On/Off switch, which works during play too."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "chain"
+name = "Chain Lightning"
+description = "The shock arcs from the enemy you hit to others nearby."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "jumps"
+name = "Chain Jumps"
+description = "How many more enemies the shock can jump to."
+type = "Number"
+min = 1
+max = 8
+step = 1
+precision = 0
+percent = false
+default = 3
+
+[[manifest.config_options]]
+id = "reach"
+name = "Jump Reach"
+description = "How far the shock can jump from one enemy to the next, in level units."
+type = "Number"
+min = 100
+max = 600
+step = 25
+precision = 0
+percent = false
+default = 350
+
+[[manifest.config_options]]
+id = "stun"
+name = "Stun"
+description = "Enemies the shock reaches are held in place, shaking, for about two seconds while it drains them."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "damage"
+name = "Shock Damage (% per pulse)"
+description = "Extra health each pulse takes, in percent of one unit, on top of the shocker's own."
+type = "Number"
+min = 0
+max = 500
+step = 25
+precision = 0
+percent = false
+default = 100
+
+[[manifest.config_options]]
+id = "falloff"
+name = "Chain Falloff (%)"
+description = "How much of the damage each jump keeps."
+type = "Number"
+min = 25
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 70
+
+[[manifest.config_options]]
+id = "pulse"
+name = "Pulse Interval (1/10 s)"
+description = "How often the shock arcs while the beam touches an enemy."
+type = "Number"
+min = 2
+max = 20
+step = 1
+precision = 0
+percent = false
+default = 5
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_better_shocker"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png" ]

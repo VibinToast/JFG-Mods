@@ -1,0 +1,245 @@
+# Better Floyd: Floyd shoots enemies for you once he joins you; Hide Floyd.
+
+[manifest]
+id = "jfg_better_floyd"
+version = "1.2.0"
+display_name = "Better Floyd"
+description = """
+Once Floyd joins you he earns his keep: while he follows you he picks out the nearest enemy he can see in front of \
+him and, after a moment's aim, fires his lasers at it, not always dead on, never at a Tribal (and never through \
+one); enemies already dying on the ground he leaves alone. Choose how often he fires, how many bolts at a time, how \
+hard they hit, how far he looks, how wide his view is, how quickly he reacts and how well he aims. Tribal Alert blinks his lights blue and he chirps while a Tribal is near, as he blinks red at an \
+enemy. Floyd Talks has him remark on what happens: new levels, Tribals near, rescued or lost, your health and ammo \
+running low, kill streaks and his own kills, and a quiet word when all is calm. Hide Floyd hides him, his shadow and \
+his sounds, and stops his shooting. When a player flies Floyd, or in his own missions, he is the game's as usual."""
+short_description = "Floyd shoots enemies, warns you of Tribals and talks; Hide Floyd."
+authors = [ "VibinToast" ]
+tags = [ "Gameplay" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "On"
+description = "The mod on or off: the mods menu's On/Off switch, which works during play too."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "shoots"
+name = "Floyd Shoots"
+description = "Floyd fires at enemies by himself while he follows you."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "interval"
+name = "Fire Interval (1/10 s)"
+description = "Time between his volleys."
+type = "Number"
+min = 3
+max = 40
+step = 1
+precision = 0
+percent = false
+default = 15
+
+[[manifest.config_options]]
+id = "burst"
+name = "Bolts per Volley"
+description = "How many bolts he fires at a time."
+type = "Enum"
+options = [ "One", "Two", "Three" ]
+default = "Two"
+
+[[manifest.config_options]]
+id = "damage"
+name = "Bolt Damage"
+description = "Health each bolt takes (the heroes' pistol takes 1)."
+type = "Number"
+min = 1
+max = 10
+step = 1
+precision = 0
+percent = false
+default = 1
+
+[[manifest.config_options]]
+id = "range"
+name = "Range"
+description = "How far he looks for enemies, in level units."
+type = "Number"
+min = 200
+max = 1500
+step = 50
+precision = 0
+percent = false
+default = 600
+
+[[manifest.config_options]]
+id = "ahead"
+name = "Only Fire Ahead"
+description = "He only fires at enemies in front of him, not behind him or off to the side."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "arc"
+name = "Firing Arc (degrees)"
+description = "How wide the view in front of him is, in which he fires (with Only Fire Ahead on)."
+type = "Number"
+min = 30
+max = 300
+step = 10
+precision = 0
+percent = false
+default = 120
+
+[[manifest.config_options]]
+id = "spread"
+name = "Aim Spread"
+description = "How far off his bolts may go, in level units (an enemy is about 30 wide). 0 = every bolt dead on."
+type = "Number"
+min = 0
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 60
+
+[[manifest.config_options]]
+id = "delay"
+name = "Reaction Time (1/10 s)"
+description = "How long he watches a new target before he opens fire."
+type = "Number"
+min = 0
+max = 30
+step = 1
+precision = 0
+percent = false
+default = 12
+
+[[manifest.config_options]]
+id = "ignore_dying"
+name = "Ignore Dying Enemies"
+description = "He leaves alone enemies lying on the ground who will die by themselves."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "hide"
+name = "Hide Floyd"
+description = "Floyd, his shadow and his sounds are gone while he follows you (he does not shoot then). Floyd missions and a second player flying him show him as usual."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "tribal_alert"
+name = "Tribal Alert"
+description = "Floyd blinks blue while a Tribal is near, as he blinks red at an enemy, and chirps when he spots one."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "alert_range"
+name = "Alert Range"
+description = "How near a Tribal must be for Floyd to notice it."
+type = "Number"
+min = 200
+max = 2000
+step = 50
+precision = 0
+percent = false
+default = 700
+
+[[manifest.config_options]]
+id = "talk"
+name = "Floyd Talks"
+description = "Floyd remarks on what happens while he follows you, in a box at the bottom of the screen."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "chatty"
+name = "How Chatty"
+description = "How often he speaks: Quiet (at most every 40 s), Normal (20 s) or Chatty (10 s). Small talk comes after 4, 2 or 1 minutes of calm."
+type = "Enum"
+options = [ "Quiet", "Normal", "Chatty" ]
+default = "Normal"
+
+[[manifest.config_options]]
+id = "talk_size"
+name = "Text Size"
+description = "The size of his speech box, in percent."
+type = "Number"
+min = 60
+max = 200
+step = 10
+precision = 0
+percent = false
+default = 100
+
+[[manifest.config_options]]
+id = "talk_arrivals"
+name = "Talk: Arrivals"
+description = "His first words once he joins you, and new levels."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "talk_tribals"
+name = "Talk: Tribals"
+description = "A Tribal near, rescued or killed."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "talk_health"
+name = "Talk: Low Health"
+description = "When your health runs low."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "talk_ammo"
+name = "Talk: Empty Weapon"
+description = "When the weapon in your hand runs out of ammo."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "talk_kills"
+name = "Talk: Kills"
+description = "Your kill streaks, and his own kills."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "talk_quiet"
+name = "Talk: Small Talk"
+description = "A remark now and then when all is calm."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_better_floyd"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png", "jfg_sounds.json", "sounds/chirp.wav" ]

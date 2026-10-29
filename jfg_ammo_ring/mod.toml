@@ -1,0 +1,83 @@
+# Ammo Ring: the weapon panel redrawn as a ring around the weapon's icon.
+
+[manifest]
+id = "jfg_ammo_ring"
+version = "1.0.0"
+display_name = "Ammo Ring"
+description = """
+The weapon panel redrawn sharp at any resolution, to pair with the Health Ring: your ammo as a ring around the \
+weapon's icon, the charge bar as a thin arc inside it and the count at its foot. Change weapons and the ones you own \
+fan out beside it with the new one's name; save a Tribal and a badge shows how many are saved and left; pick-ups \
+(ammo, keys, parts) come up as a short feed under it. The weapon icons stay the game's own, so texture packs still \
+change them."""
+short_description = "A sharp, modern weapon panel: an ammo ring, a weapon fan, a Tribal badge and a pick-up feed."
+authors = [ "VibinToast" ]
+tags = [ "HUD" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "On"
+description = "The mod on or off: the mods menu's On/Off switch, which works during play too. Off shows the game's own panel."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "size"
+name = "Size (%)"
+description = "The ring's width, as a share of the screen's height."
+type = "Number"
+min = 14
+max = 40
+step = 1
+precision = 0
+percent = false
+default = 24
+
+[[manifest.config_options]]
+id = "opacity"
+name = "Opacity (%)"
+description = "How solid the panel is: lower lets more of the game show through."
+type = "Number"
+min = 20
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 70
+
+[[manifest.config_options]]
+id = "font"
+name = "Font"
+description = "Modern: the menus' font. Game: lettering after the game's own."
+type = "Enum"
+options = [ "Modern", "Game" ]
+default = "Game"
+
+[[manifest.config_options]]
+id = "feed"
+name = "Pick-up Feed"
+description = "Pick-ups (ammo, keys, parts) shown as short lines under the ring, with the ammo gained."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "tribals"
+name = "Tribal Badge"
+description = "When a Tribal is saved or lost, a badge under the ring shows how many are saved, lost and left."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_ammo_ring"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png" ]

@@ -1,0 +1,61 @@
+{
+  "sounds": {
+    "flare": "sounds/flare.wav",
+    "machine_gun_loop": "sounds/machine_gun_loop.wav",
+    "mine_beep": "sounds/mine_beep.wav",
+    "missile": "sounds/missile.wav",
+    "pistol": "sounds/pistol.wav",
+    "pistol_light": "sounds/pistol_light.wav",
+    "plasma_charge": "sounds/plasma_charge.wav",
+    "plasma_fire": "sounds/plasma_fire.wav",
+    "shocker": "sounds/shocker.wav",
+    "sniper": "sounds/sniper.wav",
+    "spin_down": "sounds/spin_down.wav",
+    "switch": "sounds/switch.wav",
+    "throw": "sounds/throw.wav",
+    "zing": "sounds/zing.wav"
+  },
+  "replace": {
+    "0x3": {
+      "sound": "pistol",
+      "volume": 0.55
+    },
+    "0xE": {
+      "sound": "pistol_light",
+      "volume": 0.5
+    },
+    "0x8": {
+      "sound": "machine_gun_loop",
+      "loop": true,
+      "volume": 0.55
+    },
+    "0x1E1": {
+      "sound": "spin_down",
+      "volume": 0.45
+    },
+    "0x95": "missile",
+    "0xFA": {
+      "sound": "plasma_charge",
+      "volume": 0.4,
+      "stopped_by": [
+        "0xE1"
+      ]
+    },
+    "0xE1": "plasma_fire",
+    "0x9B": {
+      "sound": "shocker",
+      "loop": true
+    },
+    "0x2F": "throw",
+    "0x9A": "zing",
+    "0xD0": {
+      "sound": "mine_beep",
+      "volume": 0.8
+    },
+    "0xF1": "flare",
+    "0x8B": {
+      "sound": "switch",
+      "volume": 0.5
+    }
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "entries": [
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_wave_tex0",
+      "file": "assets/tex_wave_tex0.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_wave_tex1",
+      "file": "assets/tex_wave_tex1.bin"
+    },
+    {
+      "table": 38,
+      "data": 39,
+      "append": "model_wave",
+      "file": "assets/model_wave.bin",
+      "packed": true,
+      "fixups": [
+        {
+          "at": 142,
+          "type": "u16",
+          "ref": "tex_wave_tex0",
+          "add": 32768
+        },
+        {
+          "at": 150,
+          "type": "u16",
+          "ref": "tex_wave_tex1",
+          "add": 32768
+        }
+      ]
+    },
+    {
+      "table": 46,
+      "data": 47,
+      "append": "objdef_wave",
+      "copyOf": 427,
+      "set": [
+        {
+          "at": 0,
+          "hex": "3f800000"
+        },
+        {
+          "at": 28,
+          "hex": "007E"
+        },
+        {
+          "at": 208,
+          "hex": "00000000"
+        }
+      ],
+      "fixups": [
+        {
+          "at": 224,
+          "type": "u32",
+          "ref": "model_wave"
+        }
+      ]
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_impact_tex0",
+      "file": "assets/tex_impact_tex0.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_impact_tex1",
+      "file": "assets/tex_impact_tex1.bin"
+    },
+    {
+      "table": 38,
+      "data": 39,
+      "append": "model_impact",
+      "file": "assets/model_impact.bin",
+      "packed": true,
+      "fixups": [
+        {
+          "at": 142,
+          "type": "u16",
+          "ref": "tex_impact_tex0",
+          "add": 32768
+        },
+        {
+          "at": 150,
+          "type": "u16",
+          "ref": "tex_impact_tex1",
+          "add": 32768
+        }
+      ]
+    },
+    {
+      "table": 46,
+      "data": 47,
+      "append": "objdef_impact",
+      "copyOf": 427,
+      "set": [
+        {
+          "at": 0,
+          "hex": "3f800000"
+        },
+        {
+          "at": 28,
+          "hex": "007E"
+        },
+        {
+          "at": 208,
+          "hex": "00000000"
+        }
+      ],
+      "fixups": [
+        {
+          "at": 224,
+          "type": "u32",
+          "ref": "model_impact"
+        }
+      ]
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_charge_tex0",
+      "file": "assets/tex_charge_tex0.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_charge_tex1",
+      "file": "assets/tex_charge_tex1.bin"
+    },
+    {
+      "table": 38,
+      "data": 39,
+      "append": "model_charge",
+      "file": "assets/model_charge.bin",
+      "packed": true,
+      "fixups": [
+        {
+          "at": 142,
+          "type": "u16",
+          "ref": "tex_charge_tex0",
+          "add": 32768
+        },
+        {
+          "at": 150,
+          "type": "u16",
+          "ref": "tex_charge_tex1",
+          "add": 32768
+        }
+      ]
+    },
+    {
+      "table": 46,
+      "data": 47,
+      "append": "objdef_charge",
+      "copyOf": 427,
+      "set": [
+        {
+          "at": 0,
+          "hex": "3f800000"
+        },
+        {
+          "at": 28,
+          "hex": "0035"
+        },
+        {
+          "at": 208,
+          "hex": "00000000"
+        }
+      ],
+      "fixups": [
+        {
+          "at": 224,
+          "type": "u32",
+          "ref": "model_charge"
+        }
+      ]
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_cannon_tex0",
+      "file": "assets/tex_cannon_tex0.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_cannon_tex1",
+      "file": "assets/tex_cannon_tex1.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_cannon_tex2",
+      "file": "assets/tex_cannon_tex2.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_cannon_tex3",
+      "file": "assets/tex_cannon_tex3.bin"
+    },
+    {
+      "table": 1,
+      "data": 0,
+      "append": "tex_cannon_tex4",
+      "file": "assets/tex_cannon_tex4.bin"
+    },
+    {
+      "table": 38,
+      "data": 39,
+      "append": "model_cannon",
+      "file": "assets/model_cannon.bin",
+      "packed": true,
+      "fixups": [
+        {
+          "at": 142,
+          "type": "u16",
+          "ref": "tex_cannon_tex0",
+          "add": 32768
+        },
+        {
+          "at": 150,
+          "type": "u16",
+          "ref": "tex_cannon_tex1",
+          "add": 32768
+        },
+        {
+          "at": 158,
+          "type": "u16",
+          "ref": "tex_cannon_tex2",
+          "add": 32768
+        },
+        {
+          "at": 166,
+          "type": "u16",
+          "ref": "tex_cannon_tex3",
+          "add": 32768
+        },
+        {
+          "at": 174,
+          "type": "u16",
+          "ref": "tex_cannon_tex4",
+          "add": 32768
+        }
+      ]
+    },
+    {
+      "table": 46,
+      "data": 47,
+      "append": "objdef_cannon",
+      "copyOf": 427,
+      "set": [
+        {
+          "at": 0,
+          "hex": "3f800000"
+        },
+        {
+          "at": 28,
+          "hex": "0035"
+        },
+        {
+          "at": 208,
+          "hex": "00000000"
+        }
+      ],
+      "fixups": [
+        {
+          "at": 224,
+          "type": "u32",
+          "ref": "model_cannon"
+        }
+      ]
+    },
+    {
+      "table": 3,
+      "data": 2,
+      "append": "tex2d_icon_0",
+      "file": "assets/tex2d_icon_0.bin"
+    },
+    {
+      "table": 22,
+      "data": 21,
+      "append": "sprite_icon",
+      "file": "assets/sprite_icon.bin",
+      "fixups": [
+        {
+          "at": 0,
+          "type": "s16",
+          "ref": "tex2d_icon_0"
+        }
+      ]
+    }
+  ],
+  "objtypes": [
+    {
+      "append": "objtype_wave",
+      "def": "objdef_wave"
+    },
+    {
+      "append": "objtype_impact",
+      "def": "objdef_impact"
+    },
+    {
+      "append": "objtype_charge",
+      "def": "objdef_charge"
+    },
+    {
+      "append": "objtype_cannon",
+      "def": "objdef_cannon"
+    }
+  ]
+}

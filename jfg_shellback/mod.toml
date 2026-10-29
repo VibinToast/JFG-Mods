@@ -1,0 +1,239 @@
+# Rolling Shellback: a new squad enemy, an armoured beetle that curls up and rolls at you.
+
+[manifest]
+id = "jfg_shellback"
+version = "0.1.0"
+display_name = "Rolling Shellback"
+description = """
+A new enemy for levels and packs to place: an armoured beetle that walks its patrol until it sees you, then hisses, curls into a ball and rolls at you, bouncing off walls. Its shell turns shots from the front and sides: hit it from behind, or with a blast. After a few bounces it stops, dizzy and open; then it uncurls, turns and fires a fan of three spines before it walks on. Its model, animations, spines and sounds are all its own."""
+short_description = "A new enemy: an armoured beetle that curls up, rolls at you and fires spines."
+authors = [ "VibinToast" ]
+tags = [ "Enemies" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "On"
+description = "The mod on or off."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "health"
+name = "Health"
+description = "Each shellback's health, in units (a spine does 1). Replaces the health its squad gives it."
+type = "Number"
+min = 1
+max = 20
+step = 1
+precision = 0
+percent = false
+default = 12
+
+[[manifest.config_options]]
+id = "sfx_volume"
+name = "Sound Volume (%)"
+description = "How loud its sounds are (all but the rolling, which is quiet already)."
+type = "Number"
+min = 0
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 60
+
+[[manifest.config_options]]
+id = "sight"
+name = "Sight Range"
+description = "How near the hero must be (and in sight) for it to curl up and roll, in level units."
+type = "Number"
+min = 200
+max = 1500
+step = 50
+precision = 0
+percent = false
+default = 700
+
+[[manifest.config_options]]
+id = "roll_speed"
+name = "Roll Speed"
+description = "How fast it rolls, in tenths of a unit a move."
+type = "Number"
+min = 40
+max = 300
+step = 10
+precision = 0
+percent = false
+default = 170
+
+[[manifest.config_options]]
+id = "turn"
+name = "Roll Turning"
+description = "How sharply it turns toward the hero while rolling (thousandths of the way a move)."
+type = "Number"
+min = 5
+max = 200
+step = 5
+precision = 0
+percent = false
+default = 80
+
+[[manifest.config_options]]
+id = "bounces"
+name = "Bounces Before Dizzy"
+description = "Wall bounces before it stops, dizzy and open to hits."
+type = "Number"
+min = 1
+max = 8
+step = 1
+precision = 0
+percent = false
+default = 1
+
+[[manifest.config_options]]
+id = "dizzy"
+name = "Dizzy Time (1/10 s)"
+description = "How long it stays dizzy."
+type = "Number"
+min = 10
+max = 80
+step = 5
+precision = 0
+percent = false
+default = 30
+
+[[manifest.config_options]]
+id = "rest"
+name = "Rest Time (1/10 s)"
+description = "How long it walks, after losing sight of the hero, before it may attack again."
+type = "Number"
+min = 10
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 40
+
+[[manifest.config_options]]
+id = "roll_time"
+name = "Roll Time (1/10 s)"
+description = "How long a roll lasts at most (it stops sooner, dizzy, after its bounces)."
+type = "Number"
+min = 10
+max = 150
+step = 5
+precision = 0
+percent = false
+default = 50
+
+[[manifest.config_options]]
+id = "pause"
+name = "Pause Between Attacks (1/10 s)"
+description = "How long it stands between attacks (a roll or a fan of spines, at random)."
+type = "Number"
+min = 0
+max = 60
+step = 2
+precision = 0
+percent = false
+default = 12
+
+[[manifest.config_options]]
+id = "ram_damage"
+name = "Ram Damage (1/10 health unit)"
+description = "Damage when a rolling shellback rams the hero, on top of the game's own touch (one unit). The spines deal 10."
+type = "Number"
+min = 0
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 30
+
+[[manifest.config_options]]
+id = "ram_push"
+name = "Ram Knockback"
+description = "How hard a ram knocks the hero back, in tenths of a unit a tick (the hero walks about 20)."
+type = "Number"
+min = 0
+max = 200
+step = 10
+precision = 0
+percent = false
+default = 80
+
+[[manifest.config_options]]
+id = "spine_speed"
+name = "Spine Speed"
+description = "How fast its spines fly, in tenths of a unit a tick."
+type = "Number"
+min = 40
+max = 250
+step = 10
+precision = 0
+percent = false
+default = 120
+
+[[manifest.config_options]]
+id = "spine_damage"
+name = "Spine Damage"
+description = "Damage a spine does, in hundredths of a unit of health."
+type = "Number"
+min = 25
+max = 400
+step = 25
+precision = 0
+percent = false
+default = 100
+
+[[manifest.config_options]]
+id = "spread"
+name = "Spine Spread (degrees)"
+description = "The angle between its three spines."
+type = "Number"
+min = 5
+max = 45
+step = 1
+precision = 0
+percent = false
+default = 15
+
+[[manifest.config_options]]
+id = "armour"
+name = "Shell Armour"
+description = "While rolling, shots from the front and sides bounce off its shell; only shots from behind and blasts hurt."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "debug"
+name = "Debug Line"
+description = "For testing: a line at the top left with the Shellbacks' state."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_shellback"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png", "jfg_sounds.json",
+                     "jfg_assets.json", "assets/anim_00_idle_loop.bin", "assets/anim_01_walk_loop.bin",
+                     "assets/anim_02_turn_loop.bin", "assets/anim_03_curl.bin", "assets/anim_04_ball_loop.bin",
+                     "assets/anim_05_dizzy_loop.bin", "assets/anim_06_uncurl.bin", "assets/anim_07_fire.bin",
+                     "assets/anim_08_hit.bin", "assets/anim_09_death.bin", "assets/anim_10_dead.bin",
+                     "assets/model_dizzy.bin", "assets/model_dust.bin", "assets/model_shellback.bin",
+                     "assets/model_spark.bin", "assets/model_spine.bin", "assets/slots_shellback.bin",
+                     "assets/tex_dizzy_tex0.bin", "assets/tex_dust_tex0.bin", "assets/tex_shellback_tex0.bin",
+                     "assets/tex_shellback_tex1.bin", "assets/tex_shellback_tex2.bin",
+                     "assets/tex_shellback_tex3.bin", "assets/tex_spark_tex0.bin", "assets/tex_spine_tex0.bin",
+                     "assets/tex_spine_tex1.bin", "sounds/walk.wav", "sounds/roll_loop.wav", "sounds/bounce.wav",
+                     "sounds/deflect.wav", "sounds/curl.wav", "sounds/dizzy_loop.wav", "sounds/spines.wav",
+                     "sounds/hurt.wav", "sounds/death.wav", "sounds/alert.wav" ]
