@@ -17,7 +17,7 @@ The easy way is the game's launcher: **Get Mods** lists every mod here, installs
 | <img src="jfg_better_floyd/thumb.png" width="64" alt=""> | **[Better Floyd](jfg_better_floyd/README.md)** | Floyd shoots enemies, warns you of Tribals and talks; Hide Floyd. | Gameplay | 1.2.0 |
 | <img src="jfg_better_shocker/thumb.png" width="64" alt=""> | **[Better Shocker](jfg_better_shocker/README.md)** | The shock arcs from enemy to enemy and stuns them. | Weapons | 1.1.0 |
 | <img src="jfg_blood/thumb.png" width="64" alt=""> | **[Blood](jfg_blood/README.md)** | Blood options: none, more, splats that stay, colours per creature, rainbow blood. | Visuals | 1.1.0 |
-| <img src="jfg_concussion_cannon/thumb.png" width="64" alt=""> | **[Concussion Cannon](jfg_concussion_cannon/README.md)** | A charged cone of force that knocks enemies back and slams them into walls. | Weapons | 0.2.0 |
+| <img src="jfg_concussion_cannon/thumb.png" width="64" alt=""> | **[Concussion Cannon](jfg_concussion_cannon/README.md)** | A charged cone of force that knocks enemies back and slams them into walls. | Weapons | 0.2.1 |
 | <img src="jfg_dodge/thumb.png" width="64" alt=""> | **[Dodge](jfg_dodge/README.md)** | Click the right stick to dodge where you move, briefly safe from harm. | Gameplay | 1.1.0 |
 | <img src="jfg_health_ring/thumb.png" width="64" alt=""> | **[Health Ring](jfg_health_ring/README.md)** | A sharp, modern health meter that grows into a full ring with every health upgrade. | HUD | 1.0.0 |
 | <img src="jfg_kill_feed/thumb.png" width="64" alt=""> | **[Kill Feed](jfg_kill_feed/README.md)** | Who killed what, with which weapon: a modern kill feed at the top right. | HUD | 1.0.0 |

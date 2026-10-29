@@ -4,11 +4,11 @@
 
 **A charged cone of force that knocks enemies back and slams them into walls.**
 
-Version **0.2.0** · Weapons · by VibinToast · needs Jet Force Gemini: Recompiled 1.3.0 or newer
+Version **0.2.1** · Weapons · by VibinToast · needs Jet Force Gemini: Recompiled 1.3.0 or newer
 
 ## About
 
-A new weapon: hold fire to charge the Concussion Cannon, let go to fire a cone of force along your aim. Every enemy in the cone is knocked away, light ones far and heavy ones barely; flyers spin off through the air. An enemy knocked into a wall fast enough slams into it and takes damage, and the kill is the cannon's. The more you charge, the further and harder it hits, and the more it pushes you back. It sits with your other weapons (next / previous weapon), and what you carry is saved with your file. More charges come from enemy drops, plasma shotgun pickups (some of them turned into cannons) and an optional recharge. Set its range, cone, force, damage and recoil.
+A new weapon: hold fire to charge the Concussion Cannon, let go to fire a cone of force along your aim. Every enemy in the cone is knocked away, even behind crates and barrels (only walls stop it), light ones far and heavy ones barely; flyers spin off through the air. An enemy knocked into a wall fast enough slams into it and takes damage, and the kill is the cannon's. The more you charge, the further and harder it hits, and the more it pushes you back. It sits with your other weapons (next / previous weapon), and what you carry is saved with your file. More charges come from enemy drops, plasma shotgun pickups (some of them turned into cannons) and an optional recharge. Set its range, cone, force, damage and recoil.
 
 ## Options
 
@@ -38,7 +38,7 @@ Change them in the game's Mods menu (the mod's Configure page) or on the launche
 ## Install
 
 - **In the game's launcher:** open **Get Mods**, pick this mod and press **Install** (it keeps it up to date).
-- **By hand:** download `jfg_concussion_cannon.nrm` from its release, [`jfg_concussion_cannon-v0.2.0`](https://github.com/VibinToast/JFG-Mods/releases/tag/jfg_concussion_cannon-v0.2.0), and put it in the game's `mods` folder.
+- **By hand:** download `jfg_concussion_cannon.nrm` from its release, [`jfg_concussion_cannon-v0.2.1`](https://github.com/VibinToast/JFG-Mods/releases/tag/jfg_concussion_cannon-v0.2.1), and put it in the game's `mods` folder.
 
 ## Build
 

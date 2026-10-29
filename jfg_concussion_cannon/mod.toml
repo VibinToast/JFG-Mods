@@ -2,11 +2,11 @@
 
 [manifest]
 id = "jfg_concussion_cannon"
-version = "0.2.0"
+version = "0.2.1"
 display_name = "Concussion Cannon"
 description = """
 A new weapon: hold fire to charge the Concussion Cannon, let go to fire a cone of force along your aim. Every enemy in \
-the cone is knocked away, light ones far and heavy ones barely; flyers spin off through the air. An enemy knocked into \
+the cone is knocked away, even behind crates and barrels (only walls stop it), light ones far and heavy ones barely; flyers spin off through the air. An enemy knocked into \
 a wall fast enough slams into it and takes damage, and the kill is the cannon's. The more you charge, the further and \
 harder it hits, and the more it pushes you back. It sits with your other weapons (next / previous weapon), and what \
 you carry is saved with your file. More charges come from enemy drops, plasma shotgun pickups (some of them turned \

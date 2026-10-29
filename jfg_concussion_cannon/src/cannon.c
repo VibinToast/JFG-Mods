@@ -4,7 +4,7 @@
 //   fills the HUD's charge bar, decomp MSR 10b). On the shot the game's bolt is cancelled (jfg_on_weapon_fire) and the
 //   charge level (1..5, charge >> 5) sets how far and how hard the blast reaches.
 // - The blast: every enemy in a cone along the aim (the aim's yaw, and its pitch while aiming, as the game aims a shot),
-//   in sight of the hero, is knocked away, heavy ones less (mass from full health and hit radius, as the Singularity
+//   and not behind a wall (crates and other objects are no cover), is knocked away, heavy ones less (mass from full health and hit radius, as the Singularity
 //   weighs them). They are flung the game's own way (decomp MSR 10c: velocity, track collision, AI off until they
 //   touch something; flyers for a few calls, spinning). A wall touched fast enough (the member's touch flags) is a
 //   slam: damage by how fast, an impact effect, and the kill is the cannon's (jfg_weapon_credit). Members the game
@@ -260,8 +260,15 @@ static void blast(void* hero, int level) {
                                                         : flat > 1.0f ? (tx * d[0] + tz * d[2]) / flat : 1.0f;
             if (c < cfg.cone_cos && dist > e->radius + 20.0f) continue;
         }
+        // Only the level's walls and floors shield an enemy: crates, barrels and other objects don't (jfg_level_ray, not
+        // jfg_line_of_sight, which counts every object with a hit model as cover). A wall met within the enemy's own
+        // hit radius of its centre (it stands against it) doesn't count.
         const float to[3] = { e->x, e->y, e->z };
-        if (!jfg_line_of_sight(hero, e->object, m, to)) continue;
+        float wall[6];
+        if (jfg_level_ray(m, to, wall)) {
+            const float wx = wall[0] - e->x, wy = wall[1] - e->y, wz = wall[2] - e->z;
+            if (wx * wx + wy * wy + wz * wz > (e->radius + 10.0f) * (e->radius + 10.0f)) continue;
+        }
         int flyer;
         const float mass = mass_of(e->object, &flyer);
         const float near = 1.0f - 0.5f * (dist / range);     // closer: harder
