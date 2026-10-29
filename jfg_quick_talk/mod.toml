@@ -1,0 +1,70 @@
+# Quick Talk: hint characters turn to you and talk straight away.
+
+[manifest]
+id = "jfg_quick_talk"
+version = "0.1.0"
+display_name = "Quick Talk"
+description = """
+The characters who give you hints no longer make a show of it. Walk up and they turn to face you at once and start \
+talking from where they stand: no stroll round to stand in front of you, no slow turn on the spot, and no wait for \
+their greeting before the words come up. Their talk range can be made shorter too, so you can walk past without \
+being stopped for a chat. Characters that never move already talk face to face and work as before."""
+short_description = "Hint characters turn to you and talk at once: no walking up, no slow turn."
+authors = [ "VibinToast" ]
+tags = [ "Gameplay" ]
+game_id = "jet-force-gemini"
+minimum_recomp_version = "1.3.0"
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+[[manifest.config_options]]
+id = "enabled"
+name = "On"
+description = "The mod on or off: the mods menu's On/Off switch, which works during play too."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "turn"
+name = "Turn Speed"
+description = "How fast a hint character turns to face you. Game's: the original slow turn. Fast: about a quarter of a second. Instant: at once."
+type = "Enum"
+options = [ "Game's", "Fast", "Instant" ]
+default = "Fast"
+
+[[manifest.config_options]]
+id = "walk"
+name = "Walk Up To You"
+description = "On: they still walk round to stand in front of you first, as in the game. Off: they talk from where they are."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "skip_greeting"
+name = "Skip Greeting"
+description = "The words come up at once instead of after the character's greeting move."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "range"
+name = "Talk Range (%)"
+description = "How close you must be before a hint character talks to you. 100 is the game's range; lower means you can pass by closer without stopping."
+type = "Number"
+min = 25
+max = 100
+step = 5
+precision = 0
+percent = false
+default = 100
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "jfg_quick_talk"
+func_reference_syms_file = "syms/jfg.us.syms.toml"
+data_reference_syms_files = [ "syms/jfg.us.datasyms.toml" ]
+additional_files = [ "thumb.png" ]
