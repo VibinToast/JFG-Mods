@@ -1,6 +1,6 @@
 # Jet Force Gemini: Recompiled · Official Mods
 
-The official mods for [Jet Force Gemini: Recompiled](https://github.com/VibinToast/JetForceGemini-Recomp): new weapons, a new enemy, HUD redesigns and gameplay options. Every mod lives in its own folder with its own README, and is versioned and released on its own.
+The official mods for [Jet Force Gemini: Recompiled](https://github.com/VibinToast/JetForceGemini-Recomp), with new weapons, a new enemy, HUD redesigns and gameplay options. Every mod lives in its own folder with its own README, and is versioned and released on its own.
 
 ## Installing
 
