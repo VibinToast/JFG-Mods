@@ -12,9 +12,9 @@ The easy way is the game's launcher: **Get Mods** lists every mod here, installs
 |---|---|---|---|---|
 | <img src="jfg_aim_toggle/thumb.png" width="64" alt=""> | **[Toggle Aim](jfg_aim_toggle/README.md)** | Press the aim button once to aim, again to stop. | Controls | 1.1.0 |
 | <img src="jfg_ammo_ring/thumb.png" width="64" alt=""> | **[Ammo Ring](jfg_ammo_ring/README.md)** | A sharp, modern weapon panel: an ammo ring, a weapon fan, a Tribal badge and a pick-up feed. | HUD | 1.0.0 |
-| <img src="jfg_ammo_stays/thumb.png" width="64" alt=""> | **[Ammo Stays](jfg_ammo_stays/README.md)** | Ammo dropped by enemies no longer disappears. | Gameplay | 1.1.0 |
 | <img src="jfg_better_flamethrower/thumb.png" width="64" alt=""> | **[Better Flamethrower](jfg_better_flamethrower/README.md)** | Ground fires, spreading burns and stronger flames. | Weapons | 1.1.0 |
 | <img src="jfg_better_floyd/thumb.png" width="64" alt=""> | **[Better Floyd](jfg_better_floyd/README.md)** | Floyd shoots enemies, warns you of Tribals and talks; Hide Floyd. | Gameplay | 1.2.0 |
+| <img src="jfg_better_pickups/thumb.png" width="64" alt=""> | **[Better Pickups](jfg_better_pickups/README.md)** | Drops stay until you take them, a drop rate for mods' items, and a pickup magnet. | Gameplay | 2.0.0 |
 | <img src="jfg_better_shocker/thumb.png" width="64" alt=""> | **[Better Shocker](jfg_better_shocker/README.md)** | The shock arcs from enemy to enemy and stuns them. | Weapons | 1.1.0 |
 | <img src="jfg_blood/thumb.png" width="64" alt=""> | **[Blood](jfg_blood/README.md)** | Blood options: none, more, splats that stay, colours per creature, rainbow blood. | Visuals | 1.1.0 |
 | <img src="jfg_concussion_cannon/thumb.png" width="64" alt=""> | **[Concussion Cannon](jfg_concussion_cannon/README.md)** | A charged cone of force that knocks enemies back and slams them into walls. | Weapons | 0.2.1 |
