@@ -1,0 +1,92 @@
+{
+ "format": 1,
+ "objects": [
+  {
+   "fields": {
+    "corner": 0,
+    "region": 14
+   },
+   "name": "region14_0",
+   "pos": [
+    -278,
+    4,
+    1758
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region1"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 14
+   },
+   "name": "region14_1",
+   "pos": [
+    322,
+    4,
+    1758
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region2"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 14
+   },
+   "name": "region14_2",
+   "pos": [
+    322,
+    4,
+    2358
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region3"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 14
+   },
+   "name": "region14_3",
+   "pos": [
+    -278,
+    4,
+    2358
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region4"
+  },
+  {
+   "fields": {
+    "baddyType": 238,
+    "count": 2,
+    "doorId": 0,
+    "heading": 2,
+    "region": 14,
+    "size": 100,
+    "squadronId": 1,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "jfg_shellback:objtype/shellback"
+   },
+   "name": "shellback squad",
+   "pos": [
+    1942,
+    10,
+    4318
+   ],
+   "stock": {
+    "entry": 37,
+    "list": 461
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "shellback_squad1"
+  }
+ ]
+}

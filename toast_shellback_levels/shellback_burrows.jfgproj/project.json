@@ -1,0 +1,22 @@
+{
+ "authors": [
+  "VibinToast"
+ ],
+ "dependencies": [
+  {
+   "id": "jfg_shellback",
+   "mod": "../../jfg_shellback",
+   "version": "0.1.0"
+  }
+ ],
+ "description": "The Rolling Shellbacks have dug in. Squads of the armoured beetles now lurk in the game's caves and mines, and around the mouths of the caves where they come out to hunt: seven squads across five areas. Wherever the rock closes in, listen for the hiss: they curl up and come rolling down the tunnels at you, bouncing off the walls. Needs the Rolling Shellback mod, which is installed with it.",
+ "format": 1,
+ "id": "toast_shellback_levels",
+ "name": "Shellback Burrows",
+ "shortDescription": "Rolling Shellback squads lurk in caves and around cave mouths across the game.",
+ "tags": [
+  "Enemies",
+  "Levels"
+ ],
+ "version": "0.2.0"
+}
