@@ -6,6 +6,10 @@
 //   and is freed. Each tick (the jfg_on_severed_limb_tick event, before the game's code) the mod puts the life back
 //   and the fade off, for the newest drops only: each is an object with a model, and the game stops making new drops
 //   when its memory runs low.
+// - Health gems: a gem an enemy drops (kind 61, the health pickup, with its drop countdown at data +0x10: 0 for the
+//   level's own) hangs where the enemy died and goes after 480 ticks (blinking by its alpha, object +0x8C, from 0x80
+//   left). It falls to the floor under it here, and with Health Gems Stay its countdown is put back each tick. The
+//   pickup's home (data +0x00, +0x04, +0x08) moves with it.
 // - Mod Drop Rate: the shared drop pool's chances (other mods' items: jfg_drop_rate).
 // - Pickup Magnet: drops within reach drift to the hero, who picks them up the game's way; mods' items are drawn by the
 //   port (jfg_drop_magnet).
@@ -36,11 +40,67 @@ static float reach_now(void) {
     return m < 3 ? MAGNET_REACH[m] : 0.0f;
 }
 
+#define KIND_HEALTH_PICKUP 61
+#define MAX_GEMS 48
+#define GEM_LIFE 480
+#define GEM_REST 14.0f       // a resting gem's middle above the floor
+#define GEM_FALL 7.0f        // units a 1/30 s tick
+
+// Pulls p toward the hero (within reach, step units at most); 1 if it moved.
+static int pull(float* p, const float* h, float reach, float step, float lift) {
+    const float dx = h[0] - p[0], dy = h[1] + lift - p[1], dz = h[2] - p[2];
+    const float d = jfg_sqrt(dx * dx + dy * dy + dz * dz);
+    if (d >= reach || d < 1.0f) return 0;
+    if (step > d) step = d;
+    p[0] += dx / d * step;
+    p[1] += dy / d * step;
+    p[2] += dz / d * step;
+    return 1;
+}
+
+static void gems_tick(void* hero) {
+    JfgObjectInfo gems[MAX_GEMS];
+    const int n = jfg_objects_of_kind(KIND_HEALTH_PICKUP, gems, MAX_GEMS);
+    const float scale = jfg_get_tick_scale(), reach = reach_now();
+    const int stay = recomp_get_config_u32("gems") != 0;
+    for (int i = 0; i < n && i < MAX_GEMS; i++) {
+        void* obj = gems[i].object;
+        unsigned char* data = *(unsigned char**)((unsigned char*)obj + 0x68);
+        if (data == 0) continue;
+        short* countdown = (short*)(data + 0x10);
+        if (*countdown <= 0) continue; // the level's own gem
+        float* home = (float*)data;
+        float* p = jfg_obj_pos(obj);
+        int moved = hero != 0 && reach > 0.0f && pull(home, jfg_obj_pos(hero), reach, MAGNET_SPEED * scale, 30.0f);
+        if (!moved) {
+            // Down to the floor under it.
+            const float from[3] = { home[0], home[1] + 5.0f, home[2] };
+            const float to[3] = { home[0], home[1] - 4000.0f, home[2] };
+            float hit[6];
+            if (jfg_level_ray(from, to, hit)) {
+                const float rest = hit[1] + GEM_REST;
+                if (home[1] > rest) {
+                    home[1] -= GEM_FALL * scale;
+                    if (home[1] < rest) home[1] = rest;
+                }
+            }
+        }
+        p[0] = home[0];
+        p[1] = home[1];
+        p[2] = home[2];
+        if (stay) {
+            *countdown = GEM_LIFE;
+            *(int*)((unsigned char*)obj + 0x8C) = 255;
+        }
+    }
+}
+
 RECOMP_CALLBACK("*", jfg_on_game_tick) void ammo_tick(int frames) {
     tick++;
     const int on = recomp_get_config_u32("enabled") != 0;
     jfg_drop_rate(on ? (int)recomp_get_config_double("mod_drop_rate") : 100);
     jfg_drop_magnet(reach_now());
+    if (on && !jfg_game_paused()) gems_tick(jfg_hero_get());
 }
 
 RECOMP_CALLBACK("*", jfg_on_level_change) void ammo_level(int level, int character) {

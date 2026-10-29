@@ -2,15 +2,16 @@
 
 [manifest]
 id = "jfg_better_pickups"
-version = "2.0.0"
+version = "2.1.0"
 display_name = "Better Pickups"
 description = """
-Everything enemies drop, your way. The ammo, weapons and drone heads enemies leave behind no longer vanish after a \
-few seconds: they wait for you (the newest ones, so the game never runs short of room for more). Set how often enemies \
+Everything enemies drop, your way. The ammo, weapons, drone heads and health gems enemies leave behind no longer \
+vanish after a few seconds: they wait for you (the newest ones, so the game never runs short of room for more), and a \
+gem dropped in mid-air falls to the ground where you can reach it. Set how often enemies \
 drop the items other mods add, such as the new weapons' ammo cells: from none to three times as many. And turn on the \
 pickup magnet to have drops near you drift into your hands, so you don't have to walk over every one of them in the \
 middle of a fight."""
-short_description = "Drops stay until you take them, a drop rate for mods' items, and a pickup magnet."
+short_description = "Drops (gems too) stay until you take them, a drop rate for mods' items, and a pickup magnet."
 authors = [ "VibinToast" ]
 tags = [ "Gameplay" ]
 game_id = "jet-force-gemini"
@@ -52,6 +53,14 @@ options = [ "Off", "On" ]
 default = "On"
 
 [[manifest.config_options]]
+id = "gems"
+name = "Health Gems Stay"
+description = "Health gems dropped by enemies stay until you pick them up. Dropped gems always fall to the ground."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
 id = "keep"
 name = "Drops Kept"
 description = "How many of the newest drops are kept at once. Older ones fade as in the game, so the game always has room for new ones."
@@ -78,7 +87,7 @@ default = 100
 [[manifest.config_options]]
 id = "magnet"
 name = "Pickup Magnet"
-description = "Drops near you drift to you and are picked up: ammo, weapons, drone heads and mods' items. Short reaches a few steps, Long across a room."
+description = "Drops near you drift to you and are picked up: ammo, weapons, drone heads, health gems and mods' items. Short reaches a few steps, Long across a room."
 type = "Enum"
 options = [ "Off", "Short", "Long" ]
 default = "Off"
