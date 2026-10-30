@@ -82,15 +82,15 @@ def gullwing_docks():
     """1.2: golden hour on the docks. The theme with more drive: accordion and brass, a backbeat, 8th-note bass."""
     s = Song("driftwood_2_gullwing_docks", bpm=132, bars=40, key=65, scale=MAJOR, reverb=1.4, damp=0.5,
              loudness=-15.5)
-    s.bus("lead", gain=0.95, rev=0.18, delay=(0.5, 0.2, 0.12))
-    s.bus("brass", gain=0.55, rev=0.2)
-    s.bus("whistle", gain=0.5, rev=0.3, delay=(0.75, 0.25, 0.2))
-    s.bus("comp", gain=0.32, rev=0.15, width=0.35)
-    s.bus("pizz", gain=0.35, rev=0.2, delay=(0.75, 0.3, 0.25))
+    s.bus("lead", gain=2.0, rev=0.18, delay=(0.5, 0.2, 0.12))
+    s.bus("brass", gain=1.0, rev=0.2)
+    s.bus("whistle", gain=0.9, rev=0.3, delay=(0.75, 0.25, 0.2))
+    s.bus("comp", gain=1.3, rev=0.15, width=0.35)
+    s.bus("pizz", gain=1.3, rev=0.2, delay=(0.75, 0.3, 0.25))
     s.bus("pad", gain=0.2, rev=0.35, width=0.5)
-    s.bus("bass", gain=0.8, rev=0.02, lp=2000)
-    s.bus("drums", gain=0.8, rev=0.07)
-    s.bus("perc", gain=0.55, rev=0.1)
+    s.bus("bass", gain=0.7, rev=0.02, lp=2000)
+    s.bus("drums", gain=0.65, rev=0.07)
+    s.bus("perc", gain=1.4, rev=0.1)
     eights = [(0, 0.4, 0), (0.5, 0.4, 0), (1.0, 0.4, 3), (1.5, 0.4, 0)]
     beat_a = {"kick": "x.......x.x.....", "snare": "....x.......x...", "hat": "x.x.x.x.x.x.x.xo"}
     beat_b = {"kick": "x.....x.x.x.....", "snare": "....x.......x..o", "hat": "xoxoxoxoxoxoxoxo"}
@@ -166,11 +166,11 @@ def blackwater_grotto():
              loudness=-19.0)
     s.bus("lead", gain=0.9, rev=0.4, delay=(0.75, 0.35, 0.3))
     s.bus("reed", gain=0.7, rev=0.35, lp=2500)
-    s.bus("harp", gain=0.4, rev=0.35)
+    s.bus("harp", gain=1.1, rev=0.35)
     s.bus("drips", gain=0.45, rev=0.5, delay=(0.75, 0.45, 0.45))
     s.bus("drone", gain=0.5, rev=0.3, width=0.5)
     s.bus("pad", gain=0.28, rev=0.45, width=0.5)
-    s.bus("bass", gain=0.7, rev=0.1, lp=900)
+    s.bus("bass", gain=1.8, rev=0.1, lp=900)
     s.bus("pulse", gain=0.65, rev=0.15, lp=500)
     s.bus("perc", gain=0.35, rev=0.3)
     for b in range(0, 28, 4):
