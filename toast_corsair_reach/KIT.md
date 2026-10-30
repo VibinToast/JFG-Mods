@@ -264,6 +264,12 @@ Health and ammo after every big fight; a full health before each world's last fi
   - Turrets (0xF5): give rockets and the sniper (preferred, for headshots) before the first one, with ammo.
   - Big bases with no member entries (0x122, 0x143, 0xEF): squadron `count` 1. More than one stack in one spot and
     stop firing. For more of them, use separate one-enemy squadrons, apart.
+    Decomp MSR 17: with no member entries and a sentry behaviour (9) all spawn at the squadron and never walk; squad
+    mates block each other's line of fire (read, not traced). Stock: 37 of 38 such squadrons have count 1. Several
+    squadrons may share a door. 0xEE swarms (behaviour 17, spawn interval 3) walk and stagger, so they keep their counts.
+  - Enemy heads left by kills (MSR 17, the identity a guess): they stop on the floor by a sphere of radius 15 round the
+    model's centre, so big ones sink; the same code runs in stock levels, per enemy type. A level can only change it
+    through the enemy's scale.
   - Door lock lights (0xDE): the model is centred (38 under its position), so mount it on a wall about 110 over the
     floor, never on the floor (the game's own stand about 100 up). validate's "floating" on them is expected.
   - Door switches (0x48): the model is centred, 102 wide and 79 tall; keep 45 clear above and below and 20 behind.
