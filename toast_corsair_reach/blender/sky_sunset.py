@@ -1,11 +1,12 @@
-"""The golden-hour sky of Gullwing Docks (Corsair Reach 1.2): a dome with clouds and the low sun, every pixel drawn
-here.
+"""The golden-hour sunset sky of Gullwing Docks (Corsair Reach 1.2): a dome with lit clouds and the low sun's glow in
+the west, every pixel drawn here.
 
-    blender --background --factory-startup --addons jfg64 --python sky_dusk.py   -> out/sky_dusk.glb
-Then in JFG-Studio: import_sky (out/sky_dusk.glb, "dusk") and set_level sky pack:sky/dusk.
+    blender --background --factory-startup --addons jfg64 --python sky_sunset.py   -> out/sky_sunset.glb
+Then in JFG-Studio: import_sky (out/sky_sunset.glb, "sunset") and set_level sky pack:sky/sunset.
 The game draws a sky behind everything, centred on the camera, unlit: the faces point inwards, and the colour is the
 image times the vertex colours. The image goes round the sky once (the sun is in it, in the west); the vertex
-colours warm the western half and cool the east.
+colours warm the western half and cool the east overhead, and are plain white at the horizon, so the horizon is
+exactly the level's fog colour (235, 160, 130) all round and the fog meets the sky without a seam.
 """
 import math
 import os
@@ -46,7 +47,8 @@ def noise(seed):
 
 
 N = noise(23)
-SUN_U, SUN_V = 0.0, 4.5  # the sun: due west, a little over the horizon (pixels)
+SUN_U, SUN_V = 0.0, 4.5
+HORIZON = (235 / 255, 160 / 255, 130 / 255)  # the level's fog colour (set_level fogR/G/B)  # the sun: due west, a little over the horizon (pixels)
 
 
 def mix(a, b, t):
@@ -56,9 +58,9 @@ def mix(a, b, t):
 def sky_px(x, row_from_top):
     y = H - 1 - row_from_top  # 0 at the horizon
     t = y / (H - 1)
-    # orange at the horizon, rose, then violet-blue overhead
+    # the fog's orange-pink at the horizon, rose, then violet-blue overhead
     if t < 0.3:
-        base = mix((1.0, 0.62, 0.32), (0.95, 0.5, 0.48), t / 0.3)
+        base = mix(HORIZON, (0.95, 0.5, 0.48), t / 0.3)
     else:
         base = mix((0.95, 0.5, 0.48), (0.28, 0.24, 0.5), min(1.0, (t - 0.3) / 0.7) ** 0.8)
     # the sun's glow round due west (x wraps)
@@ -68,21 +70,22 @@ def sky_px(x, row_from_top):
     if dx ** 2 + ((y - SUN_V) * 1.4) ** 2 <= 5.0:
         return (1.0, 0.95, 0.78)  # the sun's disc
     # long low clouds, lit orange from below, darker violet on top
-    band = math.exp(-((t - 0.22) / 0.22) ** 2)
-    c = min(1.0, max(0.0, (N(x, y) - 0.45) * 4.0) * band)
+    band = math.exp(-((t - 0.3) / 0.25) ** 2)
+    c = min(0.9, max(0.0, (N(x, y) - 0.4) * 6.0) * band)
     lit = 0.5 + 0.5 * glow
-    cloud = mix((0.42, 0.3, 0.45), (1.0, 0.72, 0.5), lit * (1.0 - 0.6 * t))
+    under = max(0.0, min(1.0, (N(x, y + 2) - 0.35) * 3.0))  # undersides catch the sun, tops stay violet
+    cloud = mix((0.36, 0.24, 0.42), (1.0, 0.8, 0.52), min(1.0, lit * (0.4 + 0.6 * under)))
     return mix(base, cloud, c)
 
 
-scene, coll = C.new_scene("sky_dusk")
-img = C.own_image("sky_dusk_clouds", W, H, sky_px)
-mat = C.own_material("sky_dusk", img)
+scene, coll = C.new_scene("sky_sunset")
+img = C.own_image("sky_sunset_clouds", W, H, sky_px)
+mat = C.own_material("sky_sunset", img)
 
 bm = bmesh.new()
 bmesh.ops.create_uvsphere(bm, u_segments=24, v_segments=12, radius=R)
 bmesh.ops.reverse_faces(bm, faces=bm.faces[:])  # seen from inside
-mesh = bpy.data.meshes.new("sky_dusk")
+mesh = bpy.data.meshes.new("sky_sunset")
 bm.to_mesh(mesh)
 bm.free()
 uv = mesh.uv_layers.new(name="UV")
@@ -102,14 +105,15 @@ for poly in mesh.polygons:
         uv.data[li].uv = (u, v)
         west = 0.5 + 0.5 * math.cos(ang)  # 1 facing the sun, 0 away
         if elev >= 0:
-            k = 0.78 + 0.22 * west
-            c = (k, k * (0.92 + 0.08 * west), k * (1.05 - 0.12 * west))
+            up = min(1.0, elev / 0.5)  # 0 at the horizon (plain white: the fog's colour shows), 1 well up
+            k = 1.0 - up * (0.22 - 0.22 * west)
+            c = (k, k * (1.0 - up * (0.08 - 0.08 * west)), k * (1.0 + up * (0.05 - 0.12 * west)))
         else:
             d = min(1.0, -elev / 0.6)
-            c = (0.85 - 0.3 * d, 0.6 - 0.2 * d, 0.55 - 0.1 * d)  # warm sea haze below the horizon
+            c = (1.0 - 0.3 * d, 1.0 - 0.3 * d, 1.0 - 0.25 * d)  # below the horizon: the horizon's row, darkening
         col.data[li].color = (*[min(1.0, v_) for v_ in c], 1.0)
 mesh.materials.append(mat)
-obj = bpy.data.objects.new("sky_dusk", mesh)
+obj = bpy.data.objects.new("sky_sunset", mesh)
 coll.objects.link(obj)
-out = jfg64.export(os.path.join(C.OUT, "sky_dusk.glb"), objects=[obj])
+out = jfg64.export(os.path.join(C.OUT, "sky_sunset.glb"), objects=[obj])
 print("SKY", out.get("triangles") if isinstance(out, dict) else out)

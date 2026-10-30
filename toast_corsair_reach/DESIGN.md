@@ -141,7 +141,7 @@ Health and ammo after every big fight; a full health before each world's last fi
 | Level | Light (sun / ambient) | Fog colour, near / far | Sky | Music (own track; game tune until imported) |
 |---|---|---|---|---|
 | 1.1 | (1.0, 0.97, 0.9) from high / (0.45, 0.55, 0.7) | pale blue (200, 220, 240), 988 / 1021 | `pack:sky/noon`: our own dome, deep blue over a pale horizon with clouds (`blender/sky_noon.py`) | `sunwreck_beach`; 4 (bright outdoor) |
-| 1.2 | (1.0, 0.75, 0.45) low from the west / (0.35, 0.3, 0.5) | orange-pink (235, 160, 130), 986 / 1020 | 186 or 189 (warm; picked by looking) | `gullwing_docks`; 5 (more drive) |
+| 1.2 | (1.0, 0.75, 0.45) low from the west / (0.35, 0.3, 0.5) | orange-pink (235, 160, 130), 986 / 1020 | `pack:sky/sunset`: our own golden-hour dome, its horizon the fog's colour (`blender/sky_sunset.py`; owner, 2026-10-30) | `gullwing_docks`; 5 (more drive) |
 | 1.3 | moon shaft only / (0.08, 0.14, 0.18) | dark teal (10, 30, 40), 986 / 1021 | 193 (night) for the crack | `blackwater_grotto`; 12 (tense, quiet) |
 | 1.4 | candles / dim green-grey | green-grey (30, 40, 30), 986 / 1021 | none (no opening) | `smugglers_run`; 16 (dark) |
 | 2.1 | (0.5, 0.55, 0.6) from above / (0.25, 0.3, 0.35) | dark blue-grey (60, 70, 85), 985 / 1019 | a dark storm sky (196 or 206) | `stiltwater_outskirts`; 46 (brooding) |
@@ -500,8 +500,11 @@ the stats screen's Tribal count per world, and where a death restarts (above).
 ### 1.2 Gullwing Docks as built (2026-10-30, not play-tested yet)
 
 Built by `blender/gullwing.py` (by hand on `common.py`'s new `block`/`sides`/`tiled`/`post`/`collider`/`water_box`
-helpers; no jfg64 `layout`/`building`), sky `blender/sky_dusk.py` (`pack:sky/dusk`: violet over an orange horizon, the
-sun's disc due west, the western half warmed by vertex colour), kinds `boarder` and `first_mate` in `blender/kinds.py`.
+helpers; no jfg64 `layout`/`building`), kinds `boarder` and `first_mate` in `blender/kinds.py`. **Sky: our own
+sunset dome** (owner, 2026-10-30: a custom skybox, not a game sky), `blender/sky_sunset.py` → `pack:sky/sunset`:
+violet overhead through rose to the fog's orange-pink at the horizon, cloud banks lit warm from below, the low sun's
+disc and glow due west; the vertex colours warm the west and cool the east overhead but are white at the horizon, so
+the horizon row is exactly the fog colour (235, 160, 130) all round and the haze meets the sky without a seam.
 4,042 triangles, 165 KB, 7 images of our own (sail, fish sign, KEEP OUT sign, awning canvas, rope coil, flag,
 shutters), 13 game textures. Fog (235, 160, 130) 986 / 1020, tune 5, music `pack:music/gullwing_docks`.
 
