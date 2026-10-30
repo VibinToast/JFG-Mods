@@ -1,7 +1,7 @@
 # Jet Force Gemini: Recompiled · Official Mods
 
-> [!IMPORTANT]
-> **Not yet usable.** These mods require Jet Force Gemini: Recompiled 1.3, which has not been released. They will not load in the current public version, and the launcher's **Get Mods** page arrives with 1.3. This repository is public for preview only; the mods will be ready to install once 1.3 is released.
+> [!NOTE]
+> **Proof of concept.** These mods demonstrate what the Jet Force Gemini: Recompiled modding API can do. Crashes will be fixed, but feature requests and other changes are low priority.
 
 The official mods for [Jet Force Gemini: Recompiled](https://github.com/VibinToast/JetForceGemini-Recomp), with new weapons, a new enemy, HUD redesigns and gameplay options. Every mod lives in its own folder with its own README, and is versioned and released on its own.
 
