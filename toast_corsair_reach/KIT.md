@@ -21,7 +21,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | 1.2 | `gullwing` Gullwing Docks | built, checked, not play-tested | 5c3543b |
 | 1.3 | `blackwater` Blackwater Grotto | built, checked, not play-tested | 6e5dd6b |
 | 1.4 | `smugglers` Smugglers' Run (optional) | built, checked, not play-tested | 12b6f3c |
-| 2.1 | `stiltwater` Stiltwater Outskirts | built, checked, not play-tested | (this commit) |
+| 2.1 | `stiltwater` Stiltwater Outskirts | built, checked, not play-tested | 3f6e998 |
 | 2.2 | `bellmarket` Drowned Bellmarket (hub) | | |
 | 2.3 | `undercistern` The Undercistern | | |
 | 2.4 | `stormspire` Stormspire | | |
