@@ -1,0 +1,31 @@
+{
+ "format": 1,
+ "header": {
+  "cutsceneData": 3,
+  "fog3": 984,
+  "fogB": 80,
+  "fogFar": 1018,
+  "fogG": 65,
+  "fogNear": 984,
+  "fogR": 55,
+  "lights": 24,
+  "region": 0,
+  "regionIndex": 0,
+  "tune": 4,
+  "tuneChannelMask": 65535,
+  "weather": 1184,
+  "weatherFlags": 1,
+  "weatherIntensity": 191,
+  "weatherOpacity": 240,
+  "weatherType": 1,
+  "weatherVelX": -60,
+  "weatherVelY": -420,
+  "weatherVelZ": 170,
+  "world": 15
+ },
+ "music": "pack:music/stormspire",
+ "name": "Stormspire",
+ "planet": "mirefall",
+ "sky": "pack:sky/storm",
+ "track": "pack:track/stormspire"
+}

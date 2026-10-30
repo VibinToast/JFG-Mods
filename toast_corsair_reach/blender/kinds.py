@@ -443,6 +443,41 @@ TOWER_WARDEN = {
 }
 
 
+STORM_BLUE, BOLT = (36, 62, 120), (250, 226, 90)
+SPIRE_CAPTAIN = {
+    "seed": 71, "coat": STORM_BLUE, "trim": (200, 210, 225), "limb": (26, 44, 88), "strap": (30, 30, 36),
+    # a storm-blue long coat, a yellow lightning stripe zig-zagging down its front
+    "pattern": lambda x, y, w, h: BOLT if abs(x - (w / 2 + (4 if (y // 8) % 2 else -4) * (((y % 8) / 8.0) - 0.5) * 2)) < 2
+    else (44, 72, 136) if (x // 5) % 3 == 0 else STORM_BLUE,
+    "hat": lambda x, y, w, h: BOLT if abs(y - h * 0.22) < 1.5 else (22, 30, 56),  # a dark tricorn, a yellow band
+    "band": lambda x, y, w, h: BOLT if y % 5 in (1, 2) and x % 8 < 5 else (30, 50, 100),
+    # the coat's skirts: blue, a bolt down the middle, a pale hem
+    "armour": lambda x, y, w, h: (200, 210, 225) if y > h - 4 else BOLT if abs(x - (w / 2 + ((y % 12) - 6) * 0.6)) < 1.6
+    else (40, 66, 126) if (x // 4) % 4 else (30, 52, 104),
+}
+BRASS, BRASS_D = (196, 150, 64), (120, 86, 34)
+ENGINE_GUARD = {
+    "seed": 73, "coat": BLACK, "trim": BRASS, "limb": (36, 32, 30), "strap": BRASS_D,
+    # black plate with brass bands and brass rivets
+    "pattern": lambda x, y, w, h: BRASS if y % 14 in (4, 5) else BRASS_D if y % 14 == 6 and x % 3 == 0
+    else (40, 36, 34) if (x // 7) % 2 else BLACK,
+    "hat": lambda x, y, w, h: BRASS if abs(y - h * 0.3) < 1.5 or (y < h * 0.3 and abs(x - w / 2) < 1.5)
+    else (30, 28, 28),  # a black helm, a brass crest and rim
+    "band": lambda x, y, w, h: BRASS if y % 5 in (1, 2) else BLACK,
+    "emblem": lambda x, y, w, h: BRASS if (x // 4) % 2 == (y // 4) % 2 else (40, 36, 32),
+    # the shield: black plate, a brass rim and a brass cog in the middle
+    "shieldface": lambda x, y, w, h: (BRASS if (x < 3 or x > w - 4 or y < 3 or y > h - 4)
+                                      or (w * 0.14 < math.hypot(x - w / 2 + 0.5, y - h / 2 + 0.5) < w * 0.26
+                                          and (int(math.degrees(math.atan2(y - h / 2 + 0.5, x - w / 2 + 0.5)) + 360)
+                                               // 30) % 2 == 0)
+                                      or math.hypot(x - w / 2 + 0.5, y - h / 2 + 0.5) < w * 0.14
+                                      else (34, 30, 30) if (x // 4 + y // 4) % 2 else BLACK),
+    # its see-through face and glow: a cold blue sheen from the engine's light
+    "shieldglow": lambda x, y, w, h: shade((120, 170, 230), 0.45 + 0.35 * math.sin(math.pi * (x + 0.5) / w)),
+    "glow": lambda x, y, w, h: shade((140, 190, 255), 0.4 + 0.6 * max(0.0, 1 - math.hypot(x - w / 2, y - h / 2) / (w / 2))),
+}
+
+
 def storm_midge(role):
     """A biting flyer of the storm: slate grey, electric-blue stripes, pale glowing wing edges."""
     sp = speckle(43)
@@ -590,6 +625,8 @@ KINDS = {
     "tower_warden": (0x99, lambda r: soldier(TOWER_WARDEN)(r)),
     "cistern_crawler": (0xEF, cistern_crawler),  # 0xEF: 0xBD's squads are all sentries; 0xEF has a smart one
     "drain_rat": (0xEE, drain_rat),  # a ground beetle, not 0xE1 (it hangs from a thread)
+    "spire_captain": (0x12F, lambda r: soldier(SPIRE_CAPTAIN)(r)),
+    "engine_guard": (0x9C, lambda r: soldier(ENGINE_GUARD)(r)),
 }
 
 

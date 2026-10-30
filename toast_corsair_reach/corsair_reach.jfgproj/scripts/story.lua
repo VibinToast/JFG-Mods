@@ -1,7 +1,10 @@
 -- Corsair Reach: the story lines, shown once per visit to a level when the player reaches each spot.
 -- Each beat: start (on arrival), box {x0, x1, z0, z1} (inside it), near {x, y, z, r} (within r), flag n (when that
 -- game flag turns on during the visit: a switch shot; already on at arrival, the beat is skipped), or after n (delay
--- seconds after beat n was shown). A beat may also complete a planet (complete = id) and play a track (music = name).
+-- seconds after beat n was shown), or door n (when that door unlocks during the visit: its squads are dead). A beat
+-- may also complete a planet (complete = id), play a track (music = name), set a game flag for good (set_flag = n:
+-- with it, the beat counts as done on later visits and its fog is put back at arrival) and fade the level's fog
+-- (fog = {r, g, b, near, far, ticks}).
 
 local BEATS = {
   level_sunwreck = {
@@ -81,6 +84,20 @@ local BEATS = {
     -- on the plinth in the great cistern, by the key (a sphere: the gallery's lookout is above)
     { near = { 200, -260, 820, 150 }, text = "The causeway key. Back up to the square." },
   },
+  level_stormspire = {
+    -- on the causeway, past the gatehouse (start point 0, the only one, is south of this strip)
+    { box = { -150, 150, 1300, 1480 }, text = "The lighthouse. The engine's on top." },
+    -- the north half-floor inside the tower, up the first ramp (a sphere: the floors above share its x and z)
+    { near = { -280, 220, -650, 130 }, text = "The gallery door hangs from that pulley." },
+    -- out on the gallery, past the first turn (a sphere: the islet is under it)
+    { near = { 400, 460, -150, 160 }, text = "Don't look down." },
+    -- up into the lamp room (a sphere: the keeper's floor is under it)
+    { near = { 280, 1200, -870, 160 }, text = "The Stormglass, wired into their engine." },
+    -- the lift door (door 3) opens: the engine's guards are dead. The world is done: its last gate is open
+    { door = 3, set_flag = 127, fog = { 120, 110, 100, 988, 1021, 90 }, complete = "mirefall",
+      music = "mirefall_victory", text = "The engine's dead. The storm is breaking." },
+    { after = 5, delay = 4, text = "Their maker's mark: Cinderhold. Mirefall is free." },
+  },
 }
 
 -- Lightning in Mirefall's levels: every `every` seconds (a random wait between the two), the fog flashes to `flash`
@@ -89,10 +106,12 @@ local BEATS = {
 local LIGHTNING = {
   level_stiltwater = { fog = { 60, 70, 85, 985, 1019 }, flash = { 190, 205, 235 }, every = { 20, 40 } },
   level_bellmarket = { fog = { 60, 70, 85, 985, 1019 }, flash = { 190, 205, 235 }, every = { 20, 40 } },
+  -- the storm at its worst over the lighthouse; flag 127 (set by its door beat) is the engine dead: no more
+  level_stormspire = { fog = { 55, 65, 80, 984, 1018 }, flash = { 200, 212, 240 }, every = { 10, 20 }, stop_flag = 127 },
   -- level_undercistern has none: it is underground, with no sky or opening for a flash to show through
 }
 
-local current, said, ids, when = nil, {}, {}, {}
+local current, said, ids, when, locked = nil, {}, {}, {}, {}
 local clock = 0
 local storm, next_flash, flash_ticks, flicker = nil, 0, -1, false
 
@@ -140,6 +159,8 @@ end
 local function show(i, b, seconds)
   said[i], when[i] = true, clock
   jfg.message(b.text, seconds)
+  if b.set_flag then jfg.set_flag(b.set_flag, true) end
+  if b.fog then jfg.fog(b.fog[1], b.fog[2], b.fog[3], b.fog[4], b.fog[5], b.fog[6]) end
   local done = false
   if b.complete then
     done = select(3, jfg.planet(b.complete))  -- completed on an earlier visit: no sting again
@@ -149,13 +170,17 @@ local function show(i, b, seconds)
 end
 
 jfg.on("level", function(level)
-  current, said, when, clock = beats_here(level), {}, {}, 0
+  current, said, when, clock, locked = beats_here(level), {}, {}, 0, {}
   storm, flash_ticks, flicker = storm_here(level), -1, false
   if storm then next_flash = math.random(8, 16) end  -- the first soon after arrival
   if not current then return end
   for i, b in ipairs(current) do
     if b.start then show(i, b, 5) end
     if b.flag and jfg.flag(b.flag) then said[i] = true end  -- already done on an earlier visit
+    if b.set_flag and jfg.flag(b.set_flag) then  -- done on an earlier visit: its fog stays, no message or sting
+      said[i] = true
+      if b.fog then jfg.fog(b.fog[1], b.fog[2], b.fog[3], b.fog[4], b.fog[5], 1) end
+    end
   end
 end)
 
@@ -175,6 +200,9 @@ jfg.on("tick", function(level, seconds)
         hit = dx * dx + dy * dy + dz * dz <= b.near[4] * b.near[4]
       elseif b.flag then
         hit = jfg.flag(b.flag)
+      elseif b.door then  -- seen locked this visit, now open
+        local l = jfg.door_locked(b.door)
+        if l then locked[i] = true elseif l == false and locked[i] then hit = true end
       elseif b.after then
         hit = when[b.after] ~= nil and clock - when[b.after] >= (b.delay or 0)
       end

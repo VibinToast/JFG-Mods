@@ -24,7 +24,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | 2.1 | `stiltwater` Stiltwater Outskirts | built, checked, not play-tested | 3f6e998 |
 | 2.2 | `bellmarket` Drowned Bellmarket (hub) | built, checked, not play-tested | ff63176 |
 | 2.3 | `undercistern` The Undercistern | built, checked, not play-tested | 09771d2 |
-| 2.4 | `stormspire` Stormspire | | |
+| 2.4 | `stormspire` Stormspire | built, checked, not play-tested | |
 | 3.1 | `slagflats` Slag Flats | | |
 | 3.2 | `bellows` The Bellows | | |
 | 3.3 | `crown` Caldera Crown (finale) | | |
@@ -83,6 +83,7 @@ Free: magenta, green, lemon.
 | Health upgrade: fountain grotto | 2.2 | 107 |
 | Switch: sluice valve | 2.3 | 108 |
 | Switch: stairwell pulley | 2.4 | 109 |
+| Lua: the storm engine dead (`story.lua` sets it: lightning off, warm fog) | 2.4 | 127 (no object holds it) |
 | Switch: rail signal | 3.1 | 110 |
 | Switch: crane release | 3.2 | 111 |
 | Health upgrade: pump hall | 3.4 | 112 |
@@ -339,6 +340,23 @@ Health and ammo after every big fight; a full health before each world's last fi
   80 of level floor past it.
 - A lookout over a pillared hall: the row nearest its perch blocks most of its fan; work out where each line to the
   way in, the key and the doors crosses each row (`raycast` from just in front of its rim) and keep pillars out.
+- A tower of floors over one x/z (2.4: islet 40, half-floors 220/400, keeper's floor 900, lamp room 1,200): every
+  `place_squad`, `place_tribal` and `connect` lands region points, members and Tribals on whichever floor it picks
+  (often the islet under the tower, through hidden ground in the wall). Place, then fix every y in `objects.json`
+  in one script (and the holes), `open_project`. `place_tribal` takes no y at all.
+- A flyer squad over a gallery that rings a tower: `place_squad` takes the gallery for a roof over the ground and
+  sets the drop spot under it. Set the squadron's y to the gallery + 670 and `offsetY` -32 (the spot is y +
+  16 x offsetY, about 150 over the gallery).
+- A lookout's perch: its own floor stops shots steeper than about 45° along it. Keep perches small (2.4: 64 across,
+  110 deep, the lookout in the middle) and `raycast` from its eye to each target.
+- Several squads can lock one door (decomp MSR: each adds an opener; it opens when all are dead): give them the same
+  `doorId` (2.4's keeper's floor: two squads, one door).
+- `story.lua` beats (2.4): `door = n` fires when door id n, seen locked this visit, opens (`jfg.door_locked`);
+  `set_flag = n` sets a game flag (later visits skip the beat and put its `fog` back at arrival); `fog = {r, g, b,
+  near, far, ticks}` fades the fog. 2.4 uses flag 127 for "the engine is dead" (`LIGHTNING`'s `stop_flag`).
+- A level with a horizon sea (water out to 12,000): `level_preview` draws the whole sea and the level is a dot; look
+  with `render_views.py` instead. The sea's edge at the horizon is `validate`'s one `water` warning (1.1, 1.2, 2.4).
+- A tall tower raises the poly list need (2.4: 281, the build sets 422; 1.1's 414 passed its play-test).
 
 ## Before you finish
 

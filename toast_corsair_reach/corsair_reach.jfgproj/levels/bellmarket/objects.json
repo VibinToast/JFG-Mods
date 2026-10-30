@@ -69,14 +69,14 @@
     "startPoint": 0,
     "unlockWorld": -1
    },
-   "name": "TODO 2.4: over the causeway to the spire (for now: the game's way back)",
+   "name": "over the causeway",
    "pos": [
     0,
     2,
     -1840
    ],
    "size": 28,
-   "target": "stock:level/21",
+   "target": "pack:level/stormspire",
    "type": "stock:objtype/0xB",
    "uid": "todo_2_4__over_the_causeway_to_the_spire__for_now__the_game_s_way_back1"
   },

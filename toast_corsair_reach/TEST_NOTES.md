@@ -226,8 +226,8 @@ in its north face (Tribal, the world's health upgrade).
   Arrivals at start points 1-3 show none of them.
 - **Size:** 207 KB unpacked, 5,094 triangles; polyList need 86 (the game's 90).
 
-**Placeholders:** the causeway's exit leads to the game's usual way back (stock level 21) until 2.4 exists (TODO in
-`levels/2.4_stormspire.md`). The cistern's exit leads to 2.3 (start point 0) since 2.3 was built.
+**Placeholders:** none left: the causeway's exit leads to 2.4 (start point 0) since 2.4 was built, the cistern's to 2.3
+(start point 0).
 
 ## 2.3 The Undercistern (JFG-169, built 2026-10-30, not played)
 
@@ -274,3 +274,61 @@ return stair up to the pump gallery (its door opens when the south rats are dead
 - **No rain, no lightning** underground (a choice: no sky or opening; `story.lua` has no `LIGHTNING` row for it).
 - **Story:** 6 lines (the entry landing, the sluice gate, the valve shot, the cell block, the channel walks, the key).
 - **Size:** 137 KB unpacked, 3,430 triangles; polyList need 91 (the build sets 137).
+
+## 2.4 Stormspire (Mirefall's last level; JFG-169, built 2026-10-30, not played)
+
+Start it from 2.2's causeway passage (behind both gates), or straight in:
+`--mods-only toast_corsair_reach --start-level toast_corsair_reach:level_stormspire --start-point 0`. One start
+point (0, the causeway's south end).
+
+**The route:** the causeway north (two storm midge squads come down over it; fallen parapet blocks and a cart as
+cover) → the keeper's islet (3 engine guards between the causeway and the tower; the cottage west: health, ammo, a
+Tribal) → the tower door opens when the guards are dead → inside, up the west ramp to the north half-floor (4
+slickers among stone blocks) → shoot the pulley on the north wall (flag 109) → up the east ramp to the gallery door
+→ out on the gallery: up the east side (3 storm midges over the sea) → the north balcony (3 tower wardens, 2 lookouts
+on perches above it) → up the west side (Tribal on the broken balcony) → the south balcony (health, ammo) → the
+keeper's floor (4 spire captains and 3 engine guards; a Tribal in the storeroom nook) → the lamp room door opens
+when both squads are dead → the quiet stair (full health, ammo) up into the lamp room → 4 engine guards round the
+storm engine → the lift door opens: Mirefall complete → the lift cage's exit (the stats screen, then stock level 21
+until 3.1 exists).
+
+**Untested in a pack level (please look):**
+- **The world's end (never run):** when the lamp room's guards die and the lift door opens: does `story.lua`'s new
+  door beat fire (message "The engine's dead. The storm is breaking.", then "Their maker's mark: Cinderhold..."), is
+  Mirefall completed (Cinderhold shows on the map), does the `mirefall_victory` sting play, only the first time? Does
+  the **lightning stop** for good (flag 127), and the **fog fade** to the warmer (120, 110, 100) over 3 seconds? Leave
+  and come back (or die after it): the fog should come back warm at arrival, with no lightning and no message. The
+  rain goes on (Lua can't stop it).
+- **The stats screen** as the lift's exit leaves Mirefall's region (`arg1A` 1), and no stats screen between 2.2 and
+  2.4.
+- **The two new kinds:** spire captains (0x12F, storm-blue coat, a yellow lightning stripe) and engine guards (0x9C,
+  black and brass, a brass cog on the shield, a cold blue shield glow). Slots painted by role, not looked at on the
+  model. Do the engine guards take cover (they carry big shields)?
+- **Flyers:** storm midges over the causeway (both squads at once, over its two halves) and over the gallery's east
+  side (the squadron set high by hand so they drop to the gallery, not to the islet under it). Do they come over the
+  rails, and can they be hit?
+- **The lookouts on their perches** (880, over the north balcony at 650): seen from the east ramp as the tower turns,
+  before they fire? `raycast` clear to the ramps and the balcony. If one is still alive when the player climbs the
+  west side, it is behind them.
+- **Squads under floors** (the slickers on G1 under the keeper's floor, the wardens on the balcony under the perches,
+  the keeper's floor under the lamp room, the lamp room): members, region points and holes set by hand. Do they move
+  between their blocks, or stand? Squad 11 has `flags` + 0x40 (go for the hero at once).
+- **Two squads, one door** (the lamp room door, id 2): does it open only when both the captains and the guards are
+  dead?
+- **The pulley switch** (0x48 at 560 on the north wall over G1): seen and shot from G1 or R2? Does the gallery door
+  open and stay open after a reload (flag 109)?
+- **The gallery:** rails at 150 with colliders to 1,300 (no fall into the sea): do they feel like invisible walls?
+  The ramps (9-11°) and the inside ramps (25.9-29.4°): every hero climbs them? The two open ends (parapets 150 with
+  colliders).
+- **The broken balcony** (side 12, a `ledge` top 140 over the ramp, Tribal 2): can any hero jump and grab it, or only
+  some? Optional.
+- **The lamp room's barred windows** (bars and a collider in the outer face: a grille, it may read as an invisible
+  wall) and the slot's balustrades (100, no collider; drops of 110-237 onto the stair: harmless?).
+- **The lift door** in the lamp room's east wall (a 30 reveal, the cage beyond): does the door fill its opening?
+- **Heaviest rain** (intensity 191, opacity 240, steeper and windier than 2.1's) and lightning every 10-20 s: too
+  much? The storm sky's horizon against the fog (55, 65, 80).
+- **Story:** 6 lines (the causeway, G1, the first ramp, the lamp room, the engine dead, Cinderhold).
+- **Size:** 224 KB unpacked, 5,449 triangles; polyList need 281 (the build sets 422).
+
+**Placeholders:** the lift's exit leads to the game's usual way back (stock level 21) until 3.1 exists (TODO in
+`levels/3.1_slagflats.md`). 2.2's causeway exit now leads here.
