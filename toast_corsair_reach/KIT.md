@@ -27,7 +27,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | 2.4 | `stormspire` Stormspire | built, checked, not play-tested | 1f2bf81 |
 | 3.1 | `slagflats` Slag Flats | built, checked, not play-tested | 80e6941 |
 | 3.2 | `bellows` The Bellows | built, checked, not play-tested | 4cfd5ca |
-| 3.3 | `crown` Caldera Crown (finale) | | |
+| 3.3 | `crown` Caldera Crown (finale) | built, checked, not play-tested | a8dee33 |
 | 3.4 | `vents` Coolant Vents (optional) | | |
 
 ## The pack
