@@ -1,0 +1,23 @@
+{
+ "format": 1,
+ "header": {
+  "cutsceneData": 3,
+  "fog3": 988,
+  "fogB": 240,
+  "fogFar": 1021,
+  "fogG": 220,
+  "fogNear": 988,
+  "fogR": 200,
+  "lights": 24,
+  "region": 0,
+  "regionIndex": 0,
+  "tune": 4,
+  "tuneChannelMask": 65535,
+  "world": 15
+ },
+ "music": "pack:music/sunwreck_beach",
+ "name": "Sunwreck Beach",
+ "planet": "driftwood",
+ "sky": "pack:sky/noon",
+ "track": "pack:track/sunwreck"
+}

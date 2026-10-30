@@ -1,0 +1,24 @@
+{
+ "disc": {
+  "colour": [
+   214,
+   196,
+   140
+  ],
+  "index": 3,
+  "radius": 34,
+  "x": 260,
+  "y": 300
+ },
+ "displayName": {
+  "en": "Driftwood Cay"
+ },
+ "entryLevel": {
+  "juno": "pack:level/sunwreck",
+  "lupus": "pack:level/sunwreck",
+  "vela": "pack:level/sunwreck"
+ },
+ "format": 1,
+ "galaxy": "corsair_reach",
+ "unlock": "start"
+}

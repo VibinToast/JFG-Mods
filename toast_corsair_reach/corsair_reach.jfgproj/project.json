@@ -1,0 +1,16 @@
+{
+ "authors": [
+  "VibinToast"
+ ],
+ "dependencies": [],
+ "description": "A galaxy of its own, open from the start: press R on the planet map and fly to Corsair Reach. Insect corsairs have raided its worlds and stolen the Stormglass, a Tribal relic that calls the weather. Take back a tropical island from its beach down to the pirates' grotto, shut down the storm engine drowning a rain world, and climb a volcano to put out the forge where the engines are made. Three worlds of levels with their own enemies, Tribals to rescue, keys, switches and secrets, harder as you go.",
+ "format": 1,
+ "id": "toast_corsair_reach",
+ "name": "Corsair Reach",
+ "shortDescription": "A galaxy of its own: three new worlds of levels, from a pirate island to a storm world and a volcanic forge.",
+ "tags": [
+  "Levels",
+  "Enemies"
+ ],
+ "version": "0.1.0"
+}

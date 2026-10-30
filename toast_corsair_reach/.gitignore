@@ -1,0 +1,6 @@
+# Built from the blender/ scripts on each machine: the .glb and .blend hold the game's texture pixels
+corsair_reach.jfgproj/geometry/*.glb
+*.blend
+*.blend1
+blender/out/
+blender/__pycache__/
