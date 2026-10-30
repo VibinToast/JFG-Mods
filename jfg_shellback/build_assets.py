@@ -119,7 +119,7 @@ for name, sets in (("spine", HOVER), ("dizzy", HOVER), ("spark", FADING), ("dust
     add_model(name)
     add_type(name, HOST_DEF, sets)
 
-# Placing them: JFG-Studio places a mod's own types (its jfg_debug_room project has a squad of them).
+# Placing them: JFG-Studio places a mod's own types (the Shellback Burrows level pack has squads of them).
 doc = {"entries": entries, "objtypes": types, "animRows": anim_rows}
 (HERE / "jfg_assets.json").write_text(json.dumps(doc, indent=2) + "\n")
 print("files:", " ".join(files))
