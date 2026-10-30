@@ -4,6 +4,12 @@ The owner plays every level once all twelve are built. Each level's session adds
 checks its level with Studio (`validate`, `check_placement`, `level_layout`, the previews) and with renders from the
 hero's eye height, but no one has played it.
 
+**Play in the JFG-170 build** (`C:\jfg3\Recomp`, port branch `feature/collision-limits`) until the PM lands JFG-170.
+In any build without it, the importer's segment seams become invisible upright walls: the owner was stopped by one
+at the top of Gullwing Docks' start ramp, and the game then froze there (2026-10-30). The JFG-170 build joins the
+seams (518 in Gullwing) and the wall was gone; the level's mesh needs no change. Copy the pack's `.nrm` into
+`C:\jfg3\Recomp\bin\mods` after each rebuild.
+
 ## 1.2 Gullwing Docks (JFG-169, built 2026-10-30, not played)
 
 Start it from 1.1's gate, or straight in:

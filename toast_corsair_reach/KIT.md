@@ -256,6 +256,10 @@ Health and ammo after every big fight; a full health before each world's last fi
 
 ## Known tool gaps (worked round; reported to JFG-Studio Dev)
 
+- **Segment seams are invisible walls in the stock port** (owner's play-test, 2026-10-30): the importer's segment seams
+  become upright collision edges, and one stopped the hero at a ramp top in 1.2, then the game froze. The port's
+  JFG-170 (`feature/collision-limits`, played from `C:\jfg3\Recomp`) joins them, and the wall was gone with the same
+  mesh. Play-test the pack in that build until JFG-170 lands; don't reshape levels round seams.
 - `place_squad` reads the highest floor: it finds no cover under a roof or up a crow's nest, and can merge close
   covers into one hole. Add or split those holes by hand in the level's `objects.json`.
 - Squad members, Tribals and pickups placed by `[x, z]` land on roofs, counters and nests: give `[x, y, z]` under a
