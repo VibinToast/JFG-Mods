@@ -23,7 +23,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | 1.4 | `smugglers` Smugglers' Run (optional) | built, checked, not play-tested | 12b6f3c |
 | 2.1 | `stiltwater` Stiltwater Outskirts | built, checked, not play-tested | 3f6e998 |
 | 2.2 | `bellmarket` Drowned Bellmarket (hub) | built, checked, not play-tested | ff63176 |
-| 2.3 | `undercistern` The Undercistern | built, checked, not play-tested | COMMIT |
+| 2.3 | `undercistern` The Undercistern | built, checked, not play-tested | 09771d2 |
 | 2.4 | `stormspire` Stormspire | | |
 | 3.1 | `slagflats` Slag Flats | | |
 | 3.2 | `bellows` The Bellows | | |
