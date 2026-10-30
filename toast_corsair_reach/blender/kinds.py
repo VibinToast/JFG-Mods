@@ -25,6 +25,13 @@ BASES = {
            ("plates", 32, 32), ("bands", 32, 32), ("nozzle", 64, 32)],
     0x54: [("panel", 16, 16), ("engine", 32, 16), ("panel2", 32, 16), ("bar", 32, 16), ("dark", 16, 16),
            ("emblem", 32, 64), ("scope", 8, 8)],
+    # the shielded soldier: the blue one's slots, plus the shield's emblem strip and its face
+    0x99: [("head", 32, 32), ("shell", 32, 32), ("limb", 16, 16), ("grad", 16, 16), ("tiny", 4, 4),
+           ("headside", 32, 32), ("emblem", 32, 16), ("env", 32, 16), ("strap", 16, 32), ("torso", 32, 64),
+           ("band", 32, 16), ("shieldface", 32, 32)],
+    # the captain: head, shell, a masked limb, its belt panel ("armour") and an 8 x 8 the model leaves untextured
+    0x12F: [("head", 32, 32), ("shell", 32, 32), ("limb", 16, 16), ("tiny", 4, 4), ("headside", 32, 32),
+            ("band", 32, 16), ("env", 32, 16), ("armour", 32, 32), ("scope", 8, 8)],
 }
 
 
@@ -120,6 +127,8 @@ def soldier(pal):
                 return shade(c, 0.75 + 0.35 * math.sin(math.pi * (y + 0.5) / h))
             if r == "scope":
                 return shade(pal["trim"], 1.2 if (x + y) % 3 else 0.7)
+            if r in ("emblem", "shieldface", "armour"):
+                return pal[r](x, y, w, h)
             return base
         return fn
     return role
@@ -233,13 +242,56 @@ def sand_beetle(role):
     return fn
 
 
-MASKED = {(0xEE, 1)}  # slots whose base image has a cut-out: ours gets one too (a rounded blob)
+def rope(x, y, w, h, light=(196, 160, 98), dark=(120, 88, 48)):
+    """Twisted rope across a band: diagonal strands."""
+    return light if ((x + y) // 2) % 3 else dark
+
+
+def canvas(x, y, w, h):
+    """Tan sailcloth: a fine weave, a darker seam every 16 rows."""
+    weave = 1.0 + 0.06 * (((x + y) % 2) * 2 - 1)
+    c = (192, 162, 112) if (y // 16) % 2 == 0 else (180, 150, 102)
+    if y % 16 == 15:
+        c = (130, 104, 70)
+    return shade(c, weave)
+
+
+BOARDER = {
+    "seed": 7, "coat": (186, 156, 108), "trim": (120, 88, 48), "limb": (150, 122, 80), "strap": (140, 104, 58),
+    # canvas with two rope bands round the body
+    "pattern": lambda x, y, w, h: rope(x, y, w, h) if (h * 0.3 <= y < h * 0.3 + 4) or (h * 0.62 <= y < h * 0.62 + 4)
+    else canvas(x, y, w, h),
+    "hat": lambda x, y, w, h: rope(x, y, w, h) if abs(y - h * 0.2) < 2 else canvas(x, y, w, h),
+    "band": rope,
+    # the shield: planks lashed with rope, and its face of stretched canvas laced at the edges with our mark
+    "emblem": lambda x, y, w, h: rope(x, y, w, h) if abs(x - y * 2) < 3 or abs((w - x) - y * 2) < 3
+    else ((112, 80, 50) if (x // 8) % 2 else (128, 92, 58)),
+    "shieldface": lambda x, y, w, h: (rope(x, y, w, h) if (x < 3 or x > w - 4 or y < 3 or y > h - 4)
+                                      else (150, 40, 30) if (abs(x - y) < 2 or abs(x + y - (w - 1)) < 2)
+                                      and 6 < x < w - 7 else canvas(x, y, w, h)),
+}
+GOLD = (222, 176, 64)
+FIRST_MATE = {
+    "seed": 9, "coat": (168, 26, 26), "trim": GOLD, "limb": (140, 20, 22), "strap": (60, 30, 20),
+    # a long red coat with gold piping down its front and round its hem
+    "pattern": lambda x, y, w, h: GOLD if abs(x - w / 2) < 1.5 or y > h - 3 or (y % 10 == 4 and abs(x - w / 2) < 5)
+    else (170, 28, 26),
+    "hat": lambda x, y, w, h: GOLD if abs(y - h * 0.22) < 1.5 else (24, 18, 20),  # a black hat with a gold band
+    "band": lambda x, y, w, h: GOLD if y % 5 in (1, 2) else (110, 20, 18),
+    # the coat's skirts: red, a column of gold buttons, a gold hem
+    "armour": lambda x, y, w, h: GOLD if y > h - 4 or ((x in (12, 13, 18, 19)) and y % 8 in (2, 3))
+    else (150, 22, 22) if (x // 4) % 4 else (128, 18, 18),
+}
+
+MASKED = {(0xEE, 1), (0x12F, 2)}  # slots whose base image has a cut-out: ours gets one too (a rounded blob)
 
 KINDS = {
     "deckhand": (0x78, lambda r: soldier(DECKHAND)(r)),
     "lookout": (0x8C, lambda r: soldier(LOOKOUT)(r)),
     "skitterer": (0xEE, sand_beetle),  # 0xE1 hung in the air in the hold (owner's play-test): a ground beetle
     "gull_raider": (0x54, gull),
+    "boarder": (0x99, lambda r: soldier(BOARDER)(r)),
+    "first_mate": (0x12F, lambda r: soldier(FIRST_MATE)(r)),
 }
 
 

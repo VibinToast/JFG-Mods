@@ -8,6 +8,13 @@ local BEATS = {
     { near = { 114, 220, -661, 150 }, text = "Their gate key. Careless." },
     { near = { 1100, 420, -1740, 190 }, text = "The harbour's theirs. Whatever they took, it's down there." },
   },
+  level_gullwing = {
+    { start = true, text = "The corsairs' harbour. The sun's going down; so are they." },
+    { box = { -560, -175, 60, 340 }, text = "That winch holds the gatehouse door." },
+    { box = { 600, 1240, 425, 640 }, text = "Their flagship. The hold's empty: the plunder's somewhere else." },
+    -- past the gate (its squad keeps it shut), in the cave mouth
+    { box = { 1825, 1975, -1400, -1305 }, text = "Torches in the cliff. That's where they keep it." },
+  },
 }
 
 local current, said, ids = nil, {}, {}

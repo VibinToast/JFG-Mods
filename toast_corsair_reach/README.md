@@ -21,7 +21,7 @@ galaxy is open from the start: on the planet map press **R** (on a controller RB
 Cay. Each world opens once the one before it is completed. Nothing needs the jetpack or hover; any hero can play it
 at any point of a game.
 
-**Built so far:** the first level, Sunwreck Beach. The rest are on their way.
+**Built so far:** the first two levels, Sunwreck Beach and Gullwing Docks. The rest are on their way.
 
 ## Install
 
@@ -38,10 +38,11 @@ on your machine:
 2. Build each level's geometry in Blender 5.2 with the jfg64 add-on (0.6.0 or newer):
    ```sh
    blender --background --factory-startup --addons jfg64 --python blender/sunwreck.py
+   blender --background --factory-startup --addons jfg64 --python blender/gullwing.py
    ```
-   It writes `blender/out/sunwreck.glb`.
-3. In JFG-Studio, import it into the project (File > Import geometry, or the `reimport_geometry` tool) as
-   `sunwreck`.
+   Each writes its level's `.glb` to `blender/out/` (`sunwreck.glb`, `gullwing.glb`).
+3. In JFG-Studio, import each into the project (File > Import geometry, or the `reimport_geometry` tool) under its
+   own name (`sunwreck`, `gullwing`).
 4. Build the pack in JFG-Studio, or from the command line:
    ```sh
    jfgstudio build corsair_reach.jfgproj -o toast_corsair_reach.nrm

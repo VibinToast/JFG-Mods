@@ -287,6 +287,128 @@ def water_surface(m, height, x0, z0, x1, z1, step, level, mat=0, merge=3):
                     m.face([(x, z, level) for x, z in poly], mat, (0, 0, 1))
 
 
+def tiled(m, x0, z0, x1, z1, y0, mat=0, y1=None, along="x", size=130.0, facing=(0, 0, 1)):
+    """A floor over x0..x1, z0..z1 in squares of about `size` (no big floor triangles: see heightfield); y0 at the
+    x0 (or z0) end and y1 at the other (a ramp along `along`). facing (0, 0, -1) makes a ceiling."""
+    y1 = y0 if y1 is None else y1
+    nx = max(1, math.ceil(abs(x1 - x0) / size))
+    nz = max(1, math.ceil(abs(z1 - z0) / size))
+
+    def hy(x, z):
+        t = (x - x0) / (x1 - x0) if along == "x" else (z - z0) / (z1 - z0)
+        return y0 + (y1 - y0) * t
+    for a in range(nx):
+        u0, u1 = x0 + (x1 - x0) * a / nx, x0 + (x1 - x0) * (a + 1) / nx
+        for b in range(nz):
+            v0, v1 = z0 + (z1 - z0) * b / nz, z0 + (z1 - z0) * (b + 1) / nz
+            m.face([(u0, v0, hy(u0, v0)), (u1, v0, hy(u1, v0)), (u1, v1, hy(u1, v1)), (u0, v1, hy(u0, v1))], mat,
+                   facing)
+    return hy
+
+
+def sides(m, x0, z0, x1, z1, y0, top, mat=0, which="nsew", inset=0.0, inward=False):
+    """The walls of a block x0..x1, z0..z1 from y0 up to `top` (a height or top(x, z)), facing out (inward: facing
+    in, a room's walls), set `inset` in from its top's edges where a neighbour's wall shares the plane (two faces in
+    one plane flicker). which: n (-z), s (+z), e (+x), w (-x)."""
+    t = top if callable(top) else (lambda x, z, v=top: v)
+    xa, xb, za, zb = min(x0, x1) + inset, max(x0, x1) - inset, min(z0, z1) + inset, max(z0, z1) - inset
+    k = -1 if inward else 1
+    if "n" in which:
+        m.face([(xb, za, y0), (xa, za, y0), (xa, za, t(xa, za)), (xb, za, t(xb, za))], mat, (0, -k, 0))
+    if "s" in which:
+        m.face([(xa, zb, y0), (xb, zb, y0), (xb, zb, t(xb, zb)), (xa, zb, t(xa, zb))], mat, (0, k, 0))
+    if "e" in which:
+        m.face([(xb, zb, y0), (xb, za, y0), (xb, za, t(xb, za)), (xb, zb, t(xb, zb))], mat, (k, 0, 0))
+    if "w" in which:
+        m.face([(xa, za, y0), (xa, zb, y0), (xa, zb, t(xa, zb)), (xa, za, t(xa, za))], mat, (-k, 0, 0))
+
+
+def block(m, x0, z0, x1, z1, y0, y1, side, top=None, which="nsew", size=130.0, y1b=None, along="x", inset=0.0):
+    """A walkable block: its top tiled (size None: one face, for tops nobody walks on), y1 to y1b along `along` for
+    a ramp, and its walls from y0 on the sides in `which`."""
+    top = side if top is None else top
+    if size is None:
+        y1b_ = y1 if y1b is None else y1b
+        hy = (lambda x, z: y1 + (y1b_ - y1) * ((x - x0) / (x1 - x0) if along == "x" else (z - z0) / (z1 - z0)))
+        m.face([(x0, z0, hy(x0, z0)), (x1, z0, hy(x1, z0)), (x1, z1, hy(x1, z1)), (x0, z1, hy(x0, z1))], top,
+               (0, 0, 1))
+    else:
+        hy = tiled(m, x0, z0, x1, z1, y1, top, y1b, along, size)
+    if which:
+        sides(m, x0, z0, x1, z1, y0, hy, side, which, inset)
+    return hy
+
+
+def post(m, x, z, r, y0, y1, mat=0, n=6, cap=True, phase=0.0):
+    """An n-sided post (a piling, a mast) from y0 to y1."""
+    ring = [(x + r * math.cos(phase + k * math.tau / n), z + r * math.sin(phase + k * math.tau / n)) for k in range(n)]
+    for k in range(n):
+        a, b = ring[k], ring[(k + 1) % n]
+        m.face([(a[0], a[1], y0), (b[0], b[1], y0), (b[0], b[1], y1), (a[0], a[1], y1)], mat,
+               ((a[0] + b[0]) / 2 - x, (a[1] + b[1]) / 2 - z, 0))
+    if cap:
+        m.face([(p[0], p[1], y1) for p in ring], mat, (0, 0, 1))
+
+
+def collider(e, a, b, y0, y1):
+    """An invisible wall from a to b ((x, z)), y0 to y1, solid from both sides (two faces: Mesh `e` of the boundary
+    material). Over a parapet or bulwark the player sees, never standing in the open."""
+    e.face([(a[0], a[1], y0), (b[0], b[1], y0), (b[0], b[1], y1), (a[0], a[1], y1)], 0, None)
+    e.face([(b[0], b[1], y0), (a[0], a[1], y0), (a[0], a[1], y1), (b[0], b[1], y1)], 0, None)
+
+
+def rects_minus(rect, holes):
+    """The parts of rect (x0, z0, x1, z1) outside the holes, as rectangles: the cells between all the edges, joined
+    along x in each row."""
+    x0, z0, x1, z1 = rect
+    xs = sorted({x0, x1} | {v for h in holes for v in (h[0], h[2]) if x0 < v < x1})
+    zs = sorted({z0, z1} | {v for h in holes for v in (h[1], h[3]) if z0 < v < z1})
+    out = []
+    for j in range(len(zs) - 1):
+        run = None
+        for i in range(len(xs) - 1):
+            cx, cz = (xs[i] + xs[i + 1]) / 2, (zs[j] + zs[j + 1]) / 2
+            free = not any(h[0] < cx < h[2] and h[1] < cz < h[3] for h in holes)
+            if free and run is None:
+                run = xs[i]
+            if not free and run is not None:
+                out.append((run, zs[j], xs[i], zs[j + 1]))
+                run = None
+        if run is not None:
+            out.append((run, zs[j], xs[-1], zs[j + 1]))
+    return out
+
+
+def _cuts(a, b, edges, step):
+    """Points from a to b through every edge between them, no gap over `step`."""
+    pts = sorted({a, b} | {v for v in edges if a < v < b})
+    out = [pts[0]]
+    for p, q in zip(pts, pts[1:]):
+        n = max(1, math.ceil((q - p) / step - 1e-6))
+        out += [p + (q - p) * k / n for k in range(1, n + 1)]
+    return out
+
+
+def water_box(m, rect, holes, floor_y, level, floor_mat, water_mat, piece=(200.0, 100.0), wm=None):
+    """A pool in a walled hollow: its floor at floor_y (in m) and its surface at `level` (in wm, or m) over rect
+    minus holes (blocks standing in it), in pieces of at most piece (x, z): walkable floor and water in small
+    pieces (see heightfield). One grid through every hole's edges, so neighbouring pieces share whole edges (a piece
+    edge ending on the middle of another's reads as a water edge hovering in the open). The surface never reaches
+    under anything solid."""
+    wm = wm or m
+    x0, z0, x1, z1 = rect
+    xs = _cuts(x0, x1, [v for h in holes for v in (h[0], h[2])], piece[0])
+    zs = _cuts(z0, z1, [v for h in holes for v in (h[1], h[3])], piece[1])
+    for i in range(len(xs) - 1):
+        for j in range(len(zs) - 1):
+            u0, u1, v0, v1 = xs[i], xs[i + 1], zs[j], zs[j + 1]
+            cx, cz = (u0 + u1) / 2, (v0 + v1) / 2
+            if any(h[0] < cx < h[2] and h[1] < cz < h[3] for h in holes):
+                continue
+            m.face([(u0, v0, floor_y), (u1, v0, floor_y), (u1, v1, floor_y), (u0, v1, floor_y)], floor_mat, (0, 0, 1))
+            wm.face([(u0, v0, level), (u1, v0, level), (u1, v1, level), (u0, v1, level)], water_mat, (0, 0, 1))
+
+
 def _planar_uvs(mesh, size=256.0):
     uv = mesh.uv_layers.get("UV") or mesh.uv_layers.new(name="UV")
     for poly in mesh.polygons:

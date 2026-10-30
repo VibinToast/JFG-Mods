@@ -1302,14 +1302,14 @@
     "startPoint": 0,
     "unlockWorld": -1
    },
-   "name": "exit to the harbour (for now: the game's way back)",
+   "name": "exit to the harbour (Gullwing Docks)",
    "pos": [
     1305,
     420,
     -1550
    ],
    "size": 28,
-   "target": "stock:level/21",
+   "target": "pack:level/gullwing",
    "type": "stock:objtype/0xB",
    "uid": "exit_to_the_harbour__for_now__the_game_s_way_back1"
   },
@@ -1926,6 +1926,22 @@
    "size": 18,
    "type": "stock:objtype/0x69",
    "uid": "hole15"
+  },
+  {
+   "fields": {
+    "player": 0,
+    "startPoint": 1,
+    "yaw": 48
+   },
+   "name": "from gullwing",
+   "pos": [
+    1080,
+    428,
+    -1550
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xD",
+   "uid": "from_gullwing1"
   }
  ]
 }

@@ -493,5 +493,53 @@ the stats screen's Tribal count per world, and where a death restarts (above).
   each a block whose wall is the next one's cliff, so it is longer than the brief's 1,200 (about 3,200 walked);
   the gate is at x 1250, z -1550, floor 420, the exit just behind it. The lookout's region covers the whole path
   (members only notice a hero inside a region). Grass tufts were dropped: decoration that isn't solid can't share a
-  piece of the level with the sea. 2,882 triangles, 136 KB (over the 121 KB warning, under the buffer). Until 1.2
-  exists, the gate's exit leads to the game's usual way back (stock level 21), which also tests the stats screen.
+  piece of the level with the sea. 2,882 triangles, 136 KB (over the 121 KB warning, under the buffer). Its gate's
+  exit now leads into 1.2's start point 0; 1.2's way back arrives at 1.1's start point 1, by the gate (1080, 420,
+  -1550), facing the gate.
+
+### 1.2 Gullwing Docks as built (2026-10-30, not play-tested yet)
+
+Built by `blender/gullwing.py` (by hand on `common.py`'s new `block`/`sides`/`tiled`/`post`/`collider`/`water_box`
+helpers; no jfg64 `layout`/`building`), sky `blender/sky_dusk.py` (`pack:sky/dusk`: violet over an orange horizon, the
+sun's disc due west, the western half warmed by vertex colour), kinds `boarder` and `first_mate` in `blender/kinds.py`.
+4,042 triangles, 165 KB, 7 images of our own (sail, fish sign, KEEP OUT sign, awning canvas, rope coil, flag,
+shutters), 13 game textures. Fog (235, 160, 130) 986 / 1020, tune 5, music `pack:music/gullwing_docks`.
+
+**The plan, where it differs from the table above (my choices, owner away):**
+
+| Area | As built |
+|---|---|
+| A. Headland stair | x -2210..-1450, z -50..1460: start landing L0 at 420 (start point 0 at (-2040, 420, 1330), facing the harbour), leg 1 north 420 → 300, L1, leg 2 south 300 → 190, L2, leg 3 north 190 → 20 to the market. Legs 260 wide (brief 300). Parapets 45-60 high with colliders over them where the drop is to the sea. The way back to 1.1: an arch on L0's south edge (exit at (-2040, 420, 1485)) |
+| B. Fish market | x -1450..-475, z -50..700, floor 20. Machine gun chest in a stall at the way in (-1392, 160), facing west, outside the squads' region. 3 deckhands + 2 boarders share one region (x -1290..-560, z 30..610) with 5 fish counters (105 tall) as cover; patrol of 4 deckhands on the promenade (z 645, x -1380 → -620, there and back). Awning counters along the houses (outside the region). Crane on the canal bank |
+| B'. Back alley | x -1450..-1250, z -450..-50: the smugglers' door (an unlocked wooden door in a 160 doorway, KEEP OUT sign, blue lantern), the exit behind it |
+| S. Smugglers' cache | the market pier is raised (deck at 110, a ramp up from the promenade) so the cache fits under it: a dry stone landing at 0 under the pier's end, Tribal 4 and ammo; steps out of the water every ~300 |
+| C. Canal and gatehouse | canal x -475..-125 (water -40/-10), stone bridge z 75..325 into the gatehouse (x -175..25) in the **dividing wall** (x -125..-75, 320 high), which splits the harbour west/east: the gatehouse door (switch, flag 103) is the only way east. The winch on a post in the canal at (-300, 230, 450), lamp over it, facing the bridge |
+| D. Yard | tiers 20 (the yard, x -75..560), 70 (loading terrace) and 120 (tower terrace), joined by ramps; 3 boarders among 3 cargo stacks. Watchtower x 600..800, z -950..-750, top 500 (a curb, not a parapet: the lookout fires over it). The brief's inside stair became a wooden ramp up the tower's front to a landing at 200 (brief 260) and a door into a room at 200: Tribal 1 and a clip |
+| E. Warehouse | x -700..300, z -1300..-550, eave 600, gable to 720; loft along the north wall at 220 (rail 30 high), stair up the east wall; front doorway (no door) into the yard, back door to the lane west, kept locked by its 4 deckhands (door id 2, lock light beside it in the lane). Red key and Tribal 2 in the loft, lookout 7 at the loft's west end. S2: a lean-to in the canal street with a ledge top at 170 and a medium health |
+| F. Ship | hull x 450..1240, z 410..650, deck 90, **moored flush against the quay** (no water gap to fall into), a blunt bow butting the causeway. Boarding gate on the quay side (posts + lintel, red key door), gangplank with a landing at its top. Colliders over both bulwarks (north 150 → 300, low enough to shoot the nests over from the quay; south 150 → 450). Masts at x 690 and 1150, nests at 400 (12-high rims), lookouts 9 and 10; sails braced 30° so they show from the quay. 4 deckhands on deck, cover: the two mast feet and two cargo stacks. Stern cabin: Tribal 3 and ammo |
+| F'. Bow causeway | from the bow (90) through a postern in the **fort wall** (x 1400..1460, 450 high) down to the far pier (20), railed with colliders |
+| G. Harbour gate | far pier x 1460..1950 (full health and ammo), storehouse east of it; gate between two towers in the north cliff at (1900, -1298), fires on the towers; 2 first mates (door id 3: they keep the gate locked, lock light by the east tower, cutcamera 1 at (1900, 170, -880)) + 3 deckhands, one region, 5 stone blocks as cover. Tunnel behind with fires, the exit at (1900, 20, -1440) |
+
+**Closed:** the west and east halves are split by walls the hero can't climb (the dividing wall 320, the sea walls
+300, the fort wall 450, the sheds' eaves 450, the warehouse's 600); every wall top within a jump is 250 or more over
+the floor beside it; the ship and causeway have colliders over their rails. Boundary colliders behind the cliffs and
+buildings only (never over open water). Water everywhere 30 deep, with steps out.
+
+**Difficulty:** deckhands and boarders `aimSpread` 52 (1.1: 60), lookouts 75 (1.1: 90), smart deckhand squads
+`flags` 729 (0x40 set). Drops: small and medium health. Snipers: 4 (tower, loft, two nests).
+
+**Exits (TODO for the next sessions):**
+- **TODO 1.3 (Blackwater Grotto):** the exit `todo_1_3__exit_into_the_grotto...` at (1900, 20, -1440) in the cave
+  mouth behind the harbour gate leads to the game's way back (stock level 21) for now. When 1.3 exists: point it at
+  `pack:level/blackwater` start point 0 (`update_object` target and `startPoint`), rename it, and give 1.3 its way
+  back to a new start point in 1.2 in the cave mouth (about (1900, 20, -1350), facing south).
+- **TODO 1.4 (Smugglers' Run):** the exit `todo_1_4__exit_into_the_smugglers_tunnels...` at (-1350, 20, -498)
+  behind the smugglers' door leads to stock level 21 for now. When 1.4 exists: point it at its start point 0, and
+  1.4's way back to a new start point in the back alley (about (-1350, 20, -380), facing south).
+
+**Tool gaps met (reported, worked round):** place_squad found no cover under a roof or a crow's nest (it reads
+the highest floor): the warehouse's 4 crates and the ship's 2 mast feet got their holes by hand in `objects.json`; it
+also merged three close covers at the gate into one big hole (split by hand). Squad members and Tribals placed by
+[x, z] land on roofs, counters and nests: every one was moved by hand. The texscroll's water index (14) came from
+Studio's `track_textures` run by hand (no MCP tool). The far sea had holes where the importer cut big water pieces
+at the water texture's repeats: its grid now breaks every 6000 (the repeat), so nothing is cut.

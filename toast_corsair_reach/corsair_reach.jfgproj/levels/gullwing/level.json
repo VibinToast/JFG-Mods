@@ -1,0 +1,23 @@
+{
+ "format": 1,
+ "header": {
+  "cutsceneData": 3,
+  "fog3": 986,
+  "fogB": 130,
+  "fogFar": 1020,
+  "fogG": 160,
+  "fogNear": 986,
+  "fogR": 235,
+  "lights": 24,
+  "region": 0,
+  "regionIndex": 0,
+  "tune": 5,
+  "tuneChannelMask": 65535,
+  "world": 15
+ },
+ "music": "pack:music/gullwing_docks",
+ "name": "Gullwing Docks",
+ "planet": "driftwood",
+ "sky": "pack:sky/dusk",
+ "track": "pack:track/gullwing"
+}
