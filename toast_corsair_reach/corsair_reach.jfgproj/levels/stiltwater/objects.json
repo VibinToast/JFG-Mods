@@ -3557,16 +3557,17 @@
     "condition": -1,
     "levelHigh": 255,
     "radius": 35,
+    "startPoint": 0,
     "unlockWorld": -1
    },
-   "name": "TODO 2.2: into the town, on to the drowned market (for now: the game's way back)",
+   "name": "into the town",
    "pos": [
     100,
     62,
     -2105
    ],
    "size": 28,
-   "target": "stock:level/21",
+   "target": "pack:level/bellmarket",
    "type": "stock:objtype/0xB",
    "uid": "todo_2_2__into_the_town__on_to_the_drowned_market__for_now__the_game_s_way_back1"
   },

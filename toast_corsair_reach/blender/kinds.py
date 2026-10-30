@@ -421,6 +421,22 @@ BELL_LOOKOUT = {
     "band": lambda x, y, w, h: (58, 60, 68) if y % 5 in (1, 2) else (100, 102, 110),
 }
 
+STEEL, STEEL_D, RIVET = (78, 86, 96), (46, 52, 60), (150, 160, 170)
+TOWER_WARDEN = {
+    "seed": 67, "coat": STEEL, "trim": (120, 130, 142), "limb": (58, 64, 74), "strap": (40, 36, 34),
+    # rain-dark steel plates, rivet rows, wet streaks running down
+    "pattern": lambda x, y, w, h: RIVET if y % 12 == 3 and x % 4 == 1
+    else STEEL_D if y % 12 == 0 or (x * 7 + y) % 23 == 0 else (STEEL if (x // 8) % 2 else (70, 78, 88)),
+    "hat": lambda x, y, w, h: RIVET if abs(y - h * 0.25) < 1.2 and x % 3 == 0 else (64, 72, 82),  # a steel helm
+    "band": lambda x, y, w, h: STEEL_D if y % 5 in (1, 2) else (92, 100, 110),
+    # the shield: iron plates riveted at the edges, a bell in pale steel on its face (the market's guard)
+    "emblem": lambda x, y, w, h: RIVET if x % 6 == 2 and y in (2, h - 3) else STEEL_D if (x // 8) % 2 else STEEL,
+    "shieldface": lambda x, y, w, h: (RIVET if (x < 3 or x > w - 4 or y < 3 or y > h - 4) and (x + y) % 4 == 0
+                                      else STEEL_D if (x < 3 or x > w - 4 or y < 3 or y > h - 4)
+                                      else (176, 184, 192) if (8 <= y <= 22 and abs(x - w / 2 + 0.5) <= (y - 6) * 0.45)
+                                      or (23 <= y <= 25 and 7 <= x <= w - 8) else (60, 68, 78)),
+}
+
 
 def storm_midge(role):
     """A biting flyer of the storm: slate grey, electric-blue stripes, pale glowing wing edges."""
@@ -511,6 +527,7 @@ KINDS = {
     "storm_midge": (0x2D, storm_midge),
     "marsh_leech": (0x122, marsh_leech),
     "bog_walker": (0x121, bog_walker),
+    "tower_warden": (0x99, lambda r: soldier(TOWER_WARDEN)(r)),
 }
 
 

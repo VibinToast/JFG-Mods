@@ -53,6 +53,20 @@ local BEATS = {
     -- onto the gate platform from the south
     { box = { -400, 600, -1500, -1400 }, text = "The town's flood gate. The lighthouse is beyond the town." },
   },
+  level_bellmarket = {
+    -- the gate arcade (start point 0 is in it; start points 1-3, from the cistern and the spire, are not)
+    { box = { -600, 600, 1300, 1600 }, text = "Bellmarket. The water's in the streets now." },
+    -- the tower's foot: the door and the pulley over it
+    { box = { -1600, -1000, -600, -450 }, text = "The tower door hangs from that pulley." },
+    -- into the causeway's forecourt (start point 1 is east of it, in the north lane)
+    { box = { -400, 400, -1300, -850 },
+      text = "Two locks. The colonists say one key's up the bell tower, and the other went down the cistern." },
+    -- the bell chamber, by its door out onto the roofs (a sphere: the floors below share its x and z)
+    { near = { -1150, 700, -920, 220 },
+      text = "From up here you can see it: the engine on the lighthouse, pulling the clouds down." },
+    -- through the inner gate (start point 3, back from the spire, is north of this strip)
+    { box = { -150, 150, -1730, -1685 }, text = "The causeway's clear." },
+  },
 }
 
 -- Lightning in Mirefall's levels: every `every` seconds (a random wait between the two), the fog flashes to `flash`
@@ -60,6 +74,7 @@ local BEATS = {
 -- stops for good once that game flag is on (the storm engine dead).
 local LIGHTNING = {
   level_stiltwater = { fog = { 60, 70, 85, 985, 1019 }, flash = { 190, 205, 235 }, every = { 20, 40 } },
+  level_bellmarket = { fog = { 60, 70, 85, 985, 1019 }, flash = { 190, 205, 235 }, every = { 20, 40 } },
 }
 
 local current, said, ids, when = nil, {}, {}, {}

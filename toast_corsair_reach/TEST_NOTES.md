@@ -136,7 +136,7 @@ torchlight, the exit into 1.3's east landing.
 
 Start it from 1.3's sea door (past the trade chart), from the planet map (Mirefall, once Driftwood is completed), or
 straight in: `--mods-only toast_corsair_reach --start-level toast_corsair_reach:level_stiltwater --start-point 0`.
-Start point 1 (behind the flood gate) is for 2.2's way back; nothing leads there yet.
+Start point 1 (behind the flood gate) is where 2.2's way back arrives.
 
 **The route:** the landing jetty (machine gun chest) → the crossing in the reed beds (3 storm midges over the water)
 → west to the hut plaza (4 slickers among crates and barrels; 2 lookouts on hut roofs) → the big hut (Tribal) and
@@ -175,5 +175,56 @@ walk → the flood gate (4 slickers and 3 bog walkers together) → the light bl
 - **Falling through floors:** polyList 152 (the geometry needs 101, at the big hut).
 - **Size:** 264 KB unpacked, 6,500 triangles (fits the track buffer; bigger than 9 in 10 of the game's levels).
 
-**Placeholders:** the exit behind the flood gate leads to the game's usual way back (stock level 21) until 2.2
-exists (TODO in `levels/2.2_bellmarket.md`).
+**Links:** the exit behind the flood gate leads into 2.2's gate arcade (start point 0); 2.2's way back arrives at
+start point 1, in the passage behind the gate. No stats screen between them (one region).
+
+## 2.2 Drowned Bellmarket (Mirefall's hub; JFG-169, built 2026-10-30, not played)
+
+Start it from 2.1's flood gate passage, or straight in:
+`--mods-only toast_corsair_reach --start-level toast_corsair_reach:level_bellmarket --start-point 0`. Start points 1
+(the north lane by the forecourt) and 2 (outside the cistern's arch) are for 2.3's exits, 3 (behind the inner gate)
+for 2.4's way back; nothing leads there yet.
+
+**The route:** the gate arcade (the whole hub in view: the fountain, the tower north-west, the cistern's blue lamp
+east) → the flooded square (wade 20 deep) to the fountain court (4 tower wardens behind market stalls, 4 slickers
+patrolling round the fountain; 2 lookouts on the tower's balconies) → the west lane and street (3 bog walkers among
+rubble; the open house: Tribal, health) → the tower's foot: shoot the pulley over the door (flag 106) → inside, up
+the ramps: the first landing (3 slickers), the second floor (Tribal by the window), the third landing (2 tower
+wardens), the bell chamber (the lime key, a Tribal, health, ammo) → out of its east door and down the roofs (520,
+340, 180: the low roof has a Tribal), the stair to the forecourt → the gates' fight (3 tower wardens and 3 bog walkers)
+→ the lime gate → (blue gate shut) → the north lane east, the east street, the cistern's arch → 2.3. Back from 2.3
+with the blue key at start point 1 → the blue gate → the exit to 2.4. The secret: wade round the fountain to the gap
+in its north face (Tribal, the world's health upgrade).
+
+**Untested in a pack level (please look):**
+- **Tower wardens (0x99, shielded):** the pack's second kind on this base (rain-dark steel plates, rivets, a pale bell
+  on the shield; slots painted by role, not looked at on the model). Size the stock squad's (40%). Health 10.
+- **The switch door:** the game's shootable switch (0x48) over the tower door at 236 (a beam and brackets round it):
+  seen and shot from the west street? Does the door open, the jingle play, and stay open after a reload (flag 106)?
+- **Squads on the tower's half-floors** (180 and 540, a ceiling at 960 above): `place_squad` saw the ceiling as the
+  floor, so members were set by hand and the blocks' holes added by hand. Do the slickers and wardens move between
+  their blocks, or stand? Do any walk off the edge (a drop of 160-180, harmless) or onto a ramp?
+- **The ramps** (26.6-29.4°, 140 wide) and **half-floors without rails**: can every hero climb them, and does
+  anything read as a ledge or snag? A fall between floors is 160-180 at most.
+- **The shortcut:** from the bell chamber's east door a drop of 180 onto roof A, then 180 onto B, 160 onto C, and
+  the stair down. Do the drops hurt (they shouldn't: under 240)? Do the parapets' colliders (to 400) feel like
+  invisible walls? Can anyone climb back up (they shouldn't)?
+- **The patrol:** squad 2 walks a chain round three sides of the plinth (its north half stands in the water); do they
+  walk it, and fight off it once they see the hero?
+- **Squads on the court** (paving 5 over the water): squad 1 stays on its south band behind the stalls (holes); do
+  any step into the water?
+- **Lookouts on the balconies** (450 and 600, 20 rims): seen from the arcade before they fire? Each stands at the
+  corner it fires over (`raycast`: clear to the north lane, the court and the west street; the tower's foot is under
+  them, a dead zone). Its region is the ground it watches.
+- **The blue key door:** 2.3 will hold its key; until then it can't open (and `validate` warns). The **lime key door**
+  and its key in the bell chamber: does the door open with the key, and stay open (2.3's return lands outside it)?
+- **The grotto:** the gap in the plinth's north face (120 wide, 110 over the drowned cobbles, 20 of water): can every
+  hero wade in? The health upgrade (upgrade 60, flag 107) taken once?
+- **Rain, lightning, the storm sky** as 2.1 (the same values and `LIGHTNING` row). The lighthouse's glowing lamp room
+  far north-east: seen from the chamber's door?
+- **Story:** 5 lines (the arcade, the tower's foot, the forecourt, the bell chamber's door, through the inner gate).
+  Arrivals at start points 1-3 show none of them.
+- **Size:** 207 KB unpacked, 5,094 triangles; polyList need 86 (the game's 90).
+
+**Placeholders:** the cistern's exit and the causeway's exit lead to the game's usual way back (stock level 21) until
+2.3 and 2.4 exist (TODOs in `levels/2.3_undercistern.md` and `levels/2.4_stormspire.md`, with the blue key's).

@@ -22,7 +22,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | 1.3 | `blackwater` Blackwater Grotto | built, checked, not play-tested | 6e5dd6b |
 | 1.4 | `smugglers` Smugglers' Run (optional) | built, checked, not play-tested | 12b6f3c |
 | 2.1 | `stiltwater` Stiltwater Outskirts | built, checked, not play-tested | 3f6e998 |
-| 2.2 | `bellmarket` Drowned Bellmarket (hub) | | |
+| 2.2 | `bellmarket` Drowned Bellmarket (hub) | built, checked, not play-tested | |
 | 2.3 | `undercistern` The Undercistern | | |
 | 2.4 | `stormspire` Stormspire | | |
 | 3.1 | `slagflats` Slag Flats | | |
@@ -230,7 +230,8 @@ Health and ammo after every big fight; a full health before each world's last fi
    `fence`, moved from 1.3 for 1.4). Copy the shape of the last built level's script (`gullwing.py` for built
    places, `sunwreck.py` for open ground, `blackwater.py` for caves (`cave_wall`, `rim`), `smugglers.py` for built
    rooms and tunnels under a roof, `stiltwater.py` for boardwalks over wadeable water (`deck_union`, `ramp`,
-   `mound`) and a leaning building): build, bake, `jfg64.budgets`,
+   `mound`) and a leaning building, `bellmarket.py` for a town of solid houses round a square on one 100-grid floor
+   (`ground`, `house`, `jambs`) and a tower climbed inside on half-floors (`slab_ramp`)): build, bake, `jfg64.budgets`,
    export to `blender/out/<level>.glb`. Fixed seeds. Add a helper to `common.py` when two levels would need it.
 2. **Run** in background Blender: `blender --background --factory-startup --addons jfg64 --python blender/<level>.py`.
 3. **Studio**: `import_geometry` (first time) or `reimport_geometry`, `add_level` on planet, `set_level` (fog, sky,
@@ -308,6 +309,24 @@ Health and ammo after every big fight; a full health before each world's last fi
 - A leaning building (2.1's chapel, `T(u, v, w)` in `stiltwater.py`): a wall leaning out has an upward-facing outside,
   which Studio's placement notes list as a floor (harmless); give the slope's tiles an edge where the inside water
   meets the floor. Objects and region points inside it by `[x, y, z]` (it has a roof).
+- A key in a level not built yet (2.2's blue gate): `place_key_door`'s `key_level` must exist, so `place` the door
+  alone (0x1AC, `fields {"keyLock": "blue key"}`, `example [424, 8]`) and write the key's TODO in that level's Links
+  (`place` 0x261 there); `validate` warns `key` until then.
+- `place_squad` spreads members onto cover blocks' tops (y 118 on 110 blocks) and region corners onto a lantern's top:
+  check every member's and corner's y. `update_object` with `[x, y, z]` keeps y exactly: give floor + 8 for walkers.
+- Holes by hand (under a ceiling): per hole, four `0x5` region points (`region` n, `corner` 0-3 at (x0, z0), (x0, z1),
+  (x1, z1), (x1, z0), 10 outside the block) and one `0x69` (`flags` 1, `region` n, `link` the squad's region, at its
+  middle), written into `objects.json`; then `open_project` again so the server reloads it. Lights, sounds and a
+  texscroll can go in the same way (2.2: 23 lights in one edit).
+- Boxes touching boxes or walls are z-fighting: a balcony slab's face on the wall, a corbel's top on the slab's
+  underside, a lamp box on a gate wall, rims meeting at a corner. `block(..., which=..., size=None)` leaves the
+  touching side out; stop a rim 1 short of the next. A box's top within 12 under a ceiling (a beam) is a folded floor.
+- A lookout on a balcony stands at the rim it fires over: 55 back, its steep shots hit the balcony floor (2.2).
+- Stock 0x99 (shielded): list 447/78, health 8, aim 50, dodge 100, size 40.
+- `texscroll` index for a pack track in Studio's venv: `c = catalog.Catalog.open()` (it loads jfgformats), then
+  `ready, _ = game_textures.Library(c).prepare_glb(glb)`, `tracks.import_track(models.ModelData(c.assets), str(ready),
+  track_id=c.track_count(), log=print, stock_textures=True)`, `tracks.read_track(res["data"])["textures"][k][0]` is
+  texture k's id (2.2's water 0x0DED is 15).
 
 ## Before you finish
 
