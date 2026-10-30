@@ -3673,9 +3673,9 @@
    },
    "name": "chest stall lantern",
    "pos": [
-    -1380,
+    -1570,
     240,
-    160
+    110
    ],
    "size": 32,
    "type": "stock:objtype/0x10",
@@ -4106,13 +4106,13 @@
     "cameraHeight": 75,
     "contents": 2,
     "size": 100,
-    "yaw": 16384
+    "yaw": -32768
    },
    "name": "machine gun chest",
    "pos": [
-    -1392,
-    25,
-    160
+    -1570,
+    22,
+    80
    ],
    "size": 20,
    "type": "stock:objtype/0x1AA",

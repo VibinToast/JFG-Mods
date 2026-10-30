@@ -3720,7 +3720,7 @@
   },
   {
    "fields": {
-    "cameraAngle": 4096,
+    "cameraAngle": 0,
     "cameraDistance": 200,
     "cameraHeight": 75,
     "contents": 20,

@@ -260,6 +260,9 @@ Health and ammo after every big fight; a full health before each world's last fi
   become upright collision edges, and one stopped the hero at a ramp top in 1.2, then the game froze. The port's
   JFG-170 (`feature/collision-limits`, played from `C:\jfg3\Recomp`) joins them, and the wall was gone with the same
   mesh. Play-test the pack in that build until JFG-170 lands; don't reshape levels round seams.
+- **Chests need open ground** (owner's play-test, 2026-10-30): 1.2's chest in a stall 136 wide wouldn't open and the
+  camera clipped into the hero. Its opening camera stands `cameraDistance` (200) out in front at `cameraAngle`: leave
+  that clear (`raycast` from the chest), never a booth or alcove.
 - `place_squad` reads the highest floor: it finds no cover under a roof or up a crow's nest, and can merge close
   covers into one hole. Add or split those holes by hand in the level's `objects.json`.
 - Squad members, Tribals and pickups placed by `[x, z]` land on roofs, counters and nests: give `[x, y, z]` under a
