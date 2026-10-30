@@ -67,6 +67,20 @@ local BEATS = {
     -- through the inner gate (start point 3, back from the spire, is north of this strip)
     { box = { -150, 150, -1730, -1685 }, text = "The causeway's clear." },
   },
+  level_undercistern = {
+    -- the landing at the foot of the entry stair (start point 0, the only one, is on it)
+    { box = { -1400, -1200, -1400, -1100 }, text = "The cistern. The whole town drank from here." },
+    -- in front of the sluice gate: its valve is across the channel, behind bars
+    { box = { -1000, -900, -1060, -900 }, text = "The sluice is held shut. Its valve's across the channel, behind the bars." },
+    -- the valve shot (game flag 108)
+    { flag = 108, text = "The sluice gate's open." },
+    -- into the cell block from the sluice passage
+    { box = { -360, -200, -1080, -880 }, text = "Colonists, locked in. The corsairs made it a jail." },
+    -- out onto the channel walks
+    { box = { 480, 680, -1080, -880 }, text = "Something's moving in the drains." },
+    -- on the plinth in the great cistern, by the key (a sphere: the gallery's lookout is above)
+    { near = { 200, -260, 820, 150 }, text = "The causeway key. Back up to the square." },
+  },
 }
 
 -- Lightning in Mirefall's levels: every `every` seconds (a random wait between the two), the fog flashes to `flash`
@@ -75,6 +89,7 @@ local BEATS = {
 local LIGHTNING = {
   level_stiltwater = { fog = { 60, 70, 85, 985, 1019 }, flash = { 190, 205, 235 }, every = { 20, 40 } },
   level_bellmarket = { fog = { 60, 70, 85, 985, 1019 }, flash = { 190, 205, 235 }, every = { 20, 40 } },
+  -- level_undercistern has none: it is underground, with no sky or opening for a flash to show through
 }
 
 local current, said, ids, when = nil, {}, {}, {}

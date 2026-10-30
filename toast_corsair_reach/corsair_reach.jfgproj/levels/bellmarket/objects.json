@@ -48,14 +48,14 @@
     "startPoint": 0,
     "unlockWorld": -1
    },
-   "name": "TODO 2.3: down into the cistern (for now: the game's way back)",
+   "name": "down into the cistern",
    "pos": [
     1890,
     -138,
     0
    ],
    "size": 28,
-   "target": "stock:level/21",
+   "target": "pack:level/undercistern",
    "type": "stock:objtype/0xB",
    "uid": "todo_2_3__down_into_the_cistern__for_now__the_game_s_way_back1"
   },

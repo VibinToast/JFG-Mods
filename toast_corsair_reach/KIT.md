@@ -23,7 +23,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | 1.4 | `smugglers` Smugglers' Run (optional) | built, checked, not play-tested | 12b6f3c |
 | 2.1 | `stiltwater` Stiltwater Outskirts | built, checked, not play-tested | 3f6e998 |
 | 2.2 | `bellmarket` Drowned Bellmarket (hub) | built, checked, not play-tested | ff63176 |
-| 2.3 | `undercistern` The Undercistern | | |
+| 2.3 | `undercistern` The Undercistern | built, checked, not play-tested | COMMIT |
 | 2.4 | `stormspire` Stormspire | | |
 | 3.1 | `slagflats` Slag Flats | | |
 | 3.2 | `bellows` The Bellows | | |
@@ -67,7 +67,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | The vault | 1.3 | purple |
 | The flood gate | 2.1 | light blue |
 | The outer causeway gate | 2.2 | lime |
-| The inner causeway gate (key from 2.3, `key_level`) | 2.2 | blue |
+| The inner causeway gate (key on 2.3's plinth, placed there by hand) | 2.2 | blue |
 | The bellows chamber door | 3.2 | tango |
 
 Free: magenta, green, lemon.
@@ -122,8 +122,8 @@ A chest's `contents` has **its own numbering**, not the weapon's (decomp MSR "Ch
 | 2 | `bog_walker` | 0x121 | peat brown, moss |
 | 2 | `tower_warden` | 0x99 | rain-dark steel |
 | 2 | `bell_lookout` | 0x8C | grey hood |
-| 2 | `cistern_crawler` | 0xBD beetle (or 0xEF) | pale, white spots |
-| 2 | `drain_rat` | a small ground base (not 0xE1: it hangs in the air) | wet grey-brown |
+| 2 | `cistern_crawler` | 0xEF beetle (0xBD's squads are all sentries) | pale, white spots |
+| 2 | `drain_rat` | 0xEE beetle at squad size 26 (not 0xE1: it hangs in the air) | wet grey-brown |
 | 2 | `spire_captain` | 0x12F | storm-blue coat, lightning stripe |
 | 2 | `engine_guard` | 0x9C | brass and black |
 | 3 | `furnace_hand` | 0x78 | leather apron brown, soot |
@@ -326,7 +326,19 @@ Health and ammo after every big fight; a full health before each world's last fi
 - `texscroll` index for a pack track in Studio's venv: `c = catalog.Catalog.open()` (it loads jfgformats), then
   `ready, _ = game_textures.Library(c).prepare_glb(glb)`, `tracks.import_track(models.ModelData(c.assets), str(ready),
   track_id=c.track_count(), log=print, stock_textures=True)`, `tracks.read_track(res["data"])["textures"][k][0]` is
-  texture k's id (2.2's water 0x0DED is 15).
+  texture k's id (2.2's water 0x0DED is 15; 2.3's 13).
+- Pillars that reach the ceiling (no top) and a block with a pipe up to the ceiling get no hole from `place_squad`
+  (2.3: 7 pillars, 1 of 3 pumps): add them by hand (region numbers after the last one Studio gave; holes count as
+  regions). A spread member landing inside such a pillar stops `place_squad` ("no floor under"): move the centre.
+- Beetle bases: every stock squad of 0xBD is a sentry; 0xEF has a smart one (435/62: health 16, aim 50, dodge 100,
+  size 39); 0xEE's smart one is 461/37 (18, aim 150, 100, size 37). Squads of 0xEF, 0xEE and 0x122 have no member
+  entries: the squadron spawns them round itself, so put the squadron where they should appear (a rats' tunnel).
+- `place_switch_door` drops the switch onto the floor under `switch_pos` (an alcove's sill): set its height after
+  with `update_object` (`on_floor` false).
+- `check_placement` reads a door's floor about 60 each side: a stair starting 40 past a door is "on a slope"; leave
+  80 of level floor past it.
+- A lookout over a pillared hall: the row nearest its perch blocks most of its fan; work out where each line to the
+  way in, the key and the doors crosses each row (`raycast` from just in front of its rim) and keep pillars out.
 
 ## Before you finish
 

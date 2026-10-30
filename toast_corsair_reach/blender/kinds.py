@@ -47,6 +47,11 @@ BASES = {
     0x122: [("band", 32, 16), ("band", 32, 16), ("shell", 32, 32), ("shell", 32, 32), ("tiny", 8, 8),
             ("head", 32, 32), ("strip", 32, 4), ("shell", 32, 32), ("body", 64, 32), ("shell", 32, 32),
             ("limb", 16, 16), ("shell", 32, 32), ("leg", 16, 32)],
+    # the horned beetle (0xEF; 0xBD has the same slots): a band, shells, a tiny one, a head, a wide body sheet, a leg
+    # and a thin strip (roles by size)
+    0xEF: [("band", 32, 16), ("shell", 32, 32), ("shell", 32, 32), ("tiny", 8, 8), ("head", 32, 32),
+           ("shell", 32, 32), ("shell", 32, 32), ("body", 64, 32), ("leg", 16, 32), ("shell", 32, 32),
+           ("shell", 32, 32), ("strip", 32, 4)],
 }
 
 
@@ -509,6 +514,61 @@ def bog_walker(role):
     return fn
 
 
+def cistern_crawler(role):
+    """A beetle grown pale in the dark under the town: bone-white shell, chalky white spots, no eye (the head's
+    lens painted over in the shell's colour), grey joints."""
+    sp = speckle(71)
+    pale, chalk, grey = (196, 190, 172), (244, 242, 232), (112, 110, 104)
+    rnd = random.Random(73)
+    dots = [(rnd.random(), rnd.random(), 0.05 + 0.06 * rnd.random()) for _ in range(10)]
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        u, v = (x + 0.5) / w, (y + 0.5) / h
+        base = shade(pale, 0.85 + 0.2 * s)
+        for (a, b, r) in dots:
+            if math.hypot(u - a, (v - b) * (w / h if h < w else 1)) < r:
+                base = shade(chalk, 0.95 + 0.08 * s)
+        if role in ("shell", "body", "head", "band"):
+            seg = 0.85 + 0.18 * math.sin(math.pi * ((y * 3 / h) % 1.0))
+            return shade(base, seg * rounded(x, y, w, h))
+        if role in ("leg", "strip"):
+            return shade(grey, 0.7 + 0.3 * ((y // 3) % 2) + 0.1 * s)
+        return shade(grey, 0.9 + 0.2 * s)
+    return fn
+
+
+def drain_rat(role):
+    """A small fast scuttler of the drains: wet grey-brown, darker along the back, a glossy wet sheen, a dull red
+    eye."""
+    sp = speckle(79)
+    fur, dark, wet = (104, 92, 80), (52, 46, 40), (150, 146, 138)
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        grain = shade(fur, 0.8 + 0.3 * s) if s < 0.9 else wet
+        if role in ("head", "ear"):
+            e = eye(x, y, w, h, dark, lens=(70, 18, 14))
+            return e or shade(grain, rounded(x, y, w, h))
+        if role in ("shell", "speckle", "plates", "swirl"):
+            back = 0.75 + 0.3 * abs((x + 0.5) / w - 0.5) * 2
+            return shade(grain, back * rounded(x, y, w, h))
+        if role == "sheen":
+            t = (math.sin(x / w * 5 + y / h * 4) + 1) / 2
+            return tuple(fur[i] + (wet[i] - fur[i]) * t * 0.7 for i in range(3))
+        if role == "teeth":
+            return (200, 190, 160) if (x // 3) % 2 == 0 and y > h * 0.35 else dark
+        if role in ("ribs", "bands"):
+            return shade(dark, 0.8 + 0.4 * ((y // 3) % 2))
+        if role == "flash":
+            return (120, 40, 30) if (x + y) % 4 < 2 else (70, 24, 20)
+        if role == "nozzle":
+            hole = any(math.hypot(x - cx, y - h / 2) < 4 for cx in (w * 0.3, w * 0.55, w * 0.8))
+            return (16, 14, 12) if hole else shade(dark, 0.8 + 0.3 * s)
+        return grain
+    return fn
+
+
 MASKED = {(0xEE, 1), (0x12F, 2), (0x121, 2), (0x121, 8), (0x122, 10)}  # slots whose base image has a cut-out: ours gets one too (a rounded blob)
 BLEND = {(0x9C, 12): 150, (0x9C, 13): 120}  # slots whose base image is see-through: ours too, at this alpha
 
@@ -528,6 +588,8 @@ KINDS = {
     "marsh_leech": (0x122, marsh_leech),
     "bog_walker": (0x121, bog_walker),
     "tower_warden": (0x99, lambda r: soldier(TOWER_WARDEN)(r)),
+    "cistern_crawler": (0xEF, cistern_crawler),  # 0xEF: 0xBD's squads are all sentries; 0xEF has a smart one
+    "drain_rat": (0xEE, drain_rat),  # a ground beetle, not 0xE1 (it hangs from a thread)
 }
 
 

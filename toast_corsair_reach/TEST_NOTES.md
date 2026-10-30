@@ -226,5 +226,51 @@ in its north face (Tribal, the world's health upgrade).
   Arrivals at start points 1-3 show none of them.
 - **Size:** 207 KB unpacked, 5,094 triangles; polyList need 86 (the game's 90).
 
-**Placeholders:** the cistern's exit and the causeway's exit lead to the game's usual way back (stock level 21) until
-2.3 and 2.4 exist (TODOs in `levels/2.3_undercistern.md` and `levels/2.4_stormspire.md`, with the blue key's).
+**Placeholders:** the causeway's exit leads to the game's usual way back (stock level 21) until 2.4 exists (TODO in
+`levels/2.4_stormspire.md`). The cistern's exit leads to 2.3 (start point 0) since 2.3 was built.
+
+## 2.3 The Undercistern (JFG-169, built 2026-10-30, not played)
+
+Start it from 2.2's cistern arch (the ramp's foot), or straight in:
+`--mods-only toast_corsair_reach --start-level toast_corsair_reach:level_undercistern --start-point 0`. One start
+point (0, the foot of the entry stair).
+
+**The route:** down the entry stair → the pump gallery (3 cistern crawlers among three pumps) → the sluice gate is
+shut: shoot the valve across the channel, behind the bars (flag 108) → the sluice passage down to the cell block (4
+marsh leeches; three cells with glass windows, a Tribal in each) → the channel walks: rats wade across the channel
+out of a tunnel east (the ammo cache at its end) and out of one south (a Tribal at its end) → west along the walk,
+the stair down to the guard room (quiet: health, ammo, a Tribal) → the great cistern (knee-deep water, 7 pillars, 5
+cistern crawlers, 3 bog walkers at the far end, a lookout on the south gallery; the blue key on the plinth in the
+middle; the gallery's stair along the east wall for ammo) → the east door opens when the bog walkers are dead → the
+return stair up → the exit into 2.2's north lane by the causeway gates. The loop: from the walks' west end, the
+return stair up to the pump gallery (its door opens when the south rats are dead).
+
+**Untested in a pack level (please look):**
+- **The two new kinds.** Cistern crawlers on 0xEF (pale bone-white, chalk spots, a grey underside; the base's
+  smart squad, size 39): do they walk between the pillars and pumps and take cover? Drain rats on 0xEE at size 26
+  (stock 37), wet grey-brown with a dull red eye: small enough to read as vermin, big enough to hit? Slots painted by
+  size, not looked at on the model.
+- **Squads in water** (the great cistern: crawlers and bog walkers placed by hand in 30 of water, as 1.4's tavern
+  crew): do they walk, take cover at the pillars and fight? Do the rats wade the 30-deep channels from their tunnels
+  to the walkway, or stop at the water?
+- **Rats with no cover** (`validate` `squad-cover`): their regions are straight strips (tunnel, channel, walkway).
+  Do they rush, or stand at the tunnel's end and fire? If they stand, a block in each tunnel is the fix.
+- **The valve switch** (0x48) on the alcove's back wall at 136, behind four iron bars (gaps about 18), across the
+  channel: easy to see and hit from the gallery's floor? Do the bars stop shots? Does the sluice gate open and stay
+  open after a reload (flag 108)? Can a hero squeeze between the bars (harmless: a dead end)?
+- **Glass:** three panes 138 a side in square windows (140, sill 30): do they fill the openings, break, and let
+  every hero step over the sill to the Tribal?
+- **The lookout** on the gallery (perch 230, a 20 rim, its lamp behind it, the game's flames beside it): seen from
+  the way in before it fires? Its lines to the way in and the plinth are clear (`raycast`); the east door's passes a
+  pillar.
+- **Squad doors:** the return door (squad 4, the south rats) and the east door (squad 6, the bog walkers) open when
+  their squads are dead?
+- **The blue key carried back (`key_level`-style, placed here for 2.2's door):** take it from the plinth, leave by
+  the return stair to 2.2 start point 1: does the inner (blue) gate open? And the way back (2.2 start point 2)?
+- **Falls:** the gallery's balustrade (100, no collider) and its 20 rim: a fall of 200 into the water must not hurt.
+  The gallery stair (21.8°) and the other stairs (26.6-27.3°): every hero climbs them?
+- **Darkness:** fog (15, 25, 35), oil lamps (24 lights: the header's limit), bake ambient (0.12, 0.16, 0.25). Too
+  dark to see the crawlers, or the switch?
+- **No rain, no lightning** underground (a choice: no sky or opening; `story.lua` has no `LIGHTNING` row for it).
+- **Story:** 6 lines (the entry landing, the sluice gate, the valve shot, the cell block, the channel walks, the key).
+- **Size:** 137 KB unpacked, 3,430 triangles; polyList need 91 (the build sets 137).
