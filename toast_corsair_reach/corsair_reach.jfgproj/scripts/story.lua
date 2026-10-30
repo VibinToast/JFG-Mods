@@ -125,6 +125,21 @@ local BEATS = {
     -- the exit door (door 3) opens: the chamber's guards are dead
     { door = 3, text = "The Crown is up the mountain." },
   },
+  level_crown = {
+    -- on the roof door ledge (start points 0 and 1, from the Bellows and the vents, are both on it)
+    { box = { 1000, 1500, 1400, 1700 }, text = "Caldera Crown. Everything they build, they build up there." },
+    -- at the foot of the rim gate's cut, past the crown guards' fire
+    { box = { 1000, 1300, -100, 0 }, text = "Last chance to rest." },
+    -- the counterweight shot (game flag 113): the rim gate opens
+    { flag = 113, text = "The counterweight's down. The rim gate is open." },
+    -- the way into the Crown, out of the quiet room (wave 1 starts here)
+    { box = { -800, -700, -1300, -1100 }, text = "The forge-masters. All of them." },
+    -- the forge core's door (door 1) opens: the last wave is dead. The pack is done: Cinderhold's last gate is open.
+    -- Flag 126 is "the Crown is out": later visits keep the calm fog and play no sting
+    { door = 1, set_flag = 126, fog = { 45, 12, 8, 988, 1021, 90 }, complete = "cinderhold",
+      music = "cinderhold_victory", text = "The Crown's fires are out." },
+    { after = 5, delay = 4, text = "Mirefall stays dry; the cay stays free. Corsair Reach is quiet." },
+  },
 }
 
 -- Lightning in Mirefall's levels: every `every` seconds (a random wait between the two), the fog flashes to `flash`

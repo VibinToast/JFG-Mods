@@ -72,7 +72,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 
 Free: magenta, green, lemon.
 
-### Game flags (11 of 25, handed out by the tools from 103; record the real one in the status of your level)
+### Game flags (13 of 25, handed out by the tools from 103; record the real one in the status of your level)
 
 | Use | Level | Expected |
 |---|---|---|
@@ -88,6 +88,7 @@ Free: magenta, green, lemon.
 | Switch: crane release | 3.2 | 111 |
 | Health upgrade: pump hall | 3.4 | 112 |
 | Switch: rim counterweight | 3.3 | 113 |
+| Lua: the Crown is out (`story.lua` sets it: the calm fog on later visits) | 3.3 | 126 (no object holds it) |
 
 Levels may be built out of this order, so the tools' numbers may differ: what counts is no clash (`validate`).
 
@@ -238,7 +239,8 @@ Health and ammo after every big fight; a full health before each world's last fi
    rooms and tunnels under a roof, `stiltwater.py` for boardwalks over wadeable water (`deck_union`, `ramp`,
    `mound`) and a leaning building, `bellmarket.py` for a town of solid houses round a square on one 100-grid floor
    (`ground`, `house`, `jambs`) and a tower climbed inside on half-floors (`slab_ramp`), `bellows.py` for a building
-   on three floors (`room`, `reveal`, `open_rail`, a catwalk with perches)): build, bake, `jfg64.budgets`,
+   on three floors (`room`, `reveal`, `open_rail`, a catwalk with perches), `crown.py` for switchbacks up a slope,
+   a crater with a railed rim walk and a ring arena (`walk_zone`, `arena`)): build, bake, `jfg64.budgets`,
    export to `blender/out/<level>.glb`. Fixed seeds. Add a helper to `common.py` when two levels would need it.
 2. **Run** in background Blender: `blender --background --factory-startup --addons jfg64 --python blender/<level>.py`.
 3. **Studio**: `import_geometry` (first time) or `reimport_geometry`, `add_level` on planet, `set_level` (fog, sky,
@@ -398,6 +400,20 @@ Health and ammo after every big fight; a full health before each world's last fi
   stock health / aim / dodge, and `track_textures` the lava's scroll index (3.2: 15, 0x1546 = 0x1547).
 - The scratchpad is shared with earlier sessions: name scratch files by level (another level's `asbuilt.md` there
   replaced 3.2's text for a moment).
+- A band under 140 wide on the 100 grid (3.3's pit round its island) comes out in pieces: only the vertices inside it
+  sink. Make it 140+ (the pit is every vertex 290-430 from the centre).
+- A level ledge outside a railing hides what lies below it (3.3's crater lake): let the ledge fall from the railing to
+  141 inside the walk's edge (each grid triangle under the walk keeps level corners: the walk sagged 6 at most) and
+  keep the lake 200-400 under the walk.
+- One long collider (a lip's `coll_to` along 2,200) fills the hero's collision list: colliders in pieces of 250.
+- A building in a squad's region (3.3's forge core, 240 x 240 x 300) gets no hole from `place_squad` or `add_cover`:
+  add it by hand. Obstacles within about 40 of a wall (a ring's outer wall) join it and get none either.
+- Waves (3.3): squadron `trigger` 1, the zone a cylinder round the squadron + (triggerX/Y/Z) x 16, radius
+  triggerRadius x 16, the hero's y within triggerHalfHeight x 16. A squadron with a door id locks it from level start
+  (decomp `doorRegisterOpener`), spawned or not: a wave that never appears locks its door for good. `validate` warns
+  `squad-trigger` on every trigger-1 squad, a hand-set zone too.
+- Lua's flags (126, 127) are held by no object: the tools handing out flags from 103 don't know them; check a new
+  switch or health upgrade doesn't get one.
 
 ## Before you finish
 

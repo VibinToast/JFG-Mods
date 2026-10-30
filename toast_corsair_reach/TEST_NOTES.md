@@ -437,3 +437,51 @@ the game's way back).
 
 **Placeholders:** the exit up to the Crown and the side door to the vents lead to the game's usual way back (stock
 level 21) until 3.3 and 3.4 exist (TODOs in `levels/3.3_crown.md` and `levels/3.4_vents.md`).
+
+## 3.3 Caldera Crown (Cinderhold's last level, the pack's finale; JFG-169, built 2026-10-30, not played)
+
+Start it from 3.2's exit passage, or straight in:
+`--mods-only toast_corsair_reach --start-level toast_corsair_reach:level_crown --start-point 0`. Start point 1 (the
+service lift, beside start point 0) is where 3.4 will arrive. 3.2's exit up to the Crown now leads here.
+
+**The route:** the roof door ledge (the doorhouse: the way back down to 3.2 and the service lift to the vents; the
+flats far below over a railing) → leg 1 west under lookout 1 on its perch → the west landing: ember beetles, cinder
+wasps over them and lookout 2 above, all at once → leg 2 east (a Tribal in an alcove at its end) → leg 3 west → leg 4
+east → the ash shelf: 4 crown guards round a fire drum → shoot **the counterweight** on the basalt pillar in the
+lava pool (flag 113) → the rim gate opens (a Tribal in an alcove east of the shelf) → the rim walk round the crater
+(a Tribal at its dead end left of the gate), the lava lake below: 2 slag gunners in a bay, 3 cinder wasps → the quiet
+room (full health, full ammo) → the Crown: wave 1 at the way in, wave 2 as you come round the ring, wave 3 on the
+causeways and the island → the core door opens: the end (complete, sting, fog) → inside: a Tribal and the shuttle
+pad home (the game's usual way back, with the stats screen).
+
+**Untested in a pack level (please look):**
+- **The waves on trigger zones** (squadron `trigger` 1, the zones set by hand; validate's `squad-trigger` warnings on
+  them are expected): wave 1 (5 furnace hands, 3 forgemasters) should appear as you step into the Crown from the
+  quiet room; wave 2 (2 slag gunners, 4 cinder wasps on the west ring) as you come round the north or south ring,
+  before either causeway; wave 3 (5 crown guards on the island, 3 forgemasters by the south causeway; `flags` 0x40:
+  they come straight for you) as you step onto a causeway. Do all three appear? If wave 3 never appears the core door
+  stays locked (a softlock): the fallback is `trigger` 3 on all six wave squads (all at once).
+- **The end:** when the last of wave 3 dies the core door opens (a camera shot of it, 3 s), "The Crown's fires are
+  out.", the fog fades to a calm dark red, `cinderhold_victory` plays, Cinderhold is completed; "Mirefall stays dry;
+  the cay stays free. Corsair Reach is quiet." 4 s later. On a later visit: no sting, the calm fog at arrival. Does
+  the map show Cinderhold completed? The way home inside the core: the stats screen, then the game's usual way back.
+- **Crown guards** (0x9C, the new kind: molten gold plate, ember seams, a crown on the shield): health 16, on the
+  ash shelf (4) and the island (5). Too tough for the island's narrow ring round the core?
+- **The counterweight switch** (0x48) on a pillar in a lava pool at the shelf's north-east corner, 120 over the
+  shelf: easy to see and hit? Does the rim gate (a mine door) open and stay open after a reload (flag 113)? Message
+  "The counterweight's down...".
+- **Lookouts on perches over the switchbacks** (catwalk lookouts, 160 and 220 over the leg below, braziers beside
+  them): seen before they fire? Can the hero hit them from below?
+- **Three types at once** at the west landing (beetles, wasps, lookout 2 sharing one region): too much?
+- **The rim walk's railing** over the crater (posts every 150, a rail at 150, a collider to 400): any invisible-wall
+  feel? Is the lava lake in view below?
+- **The lava:** the crater lake (far below, out of reach), the Crown's pit (30 deep, banks 36: walk out) and the
+  shelf's pool: do they scroll (texscroll texture 14), glow and hurt?
+- **Ash:** 3.1's snow settings (intensity 70). Does it read as falling ash here?
+- **The sky:** `cinder_rim`, Cinderhold's dome without the volcano (you stand on it). Does the fog meet its horizon?
+- **Light:** night, the lava glowing from below, braziers and the forge's fire on the core (22 lights). Too dark on
+  the legs?
+- **Size:** 260 KB unpacked, 5,979 triangles; polyList need 189 (the build sets 284).
+
+**Placeholders:** the service lift's exit leads to the game's usual way back (stock level 21) until 3.4 exists (TODO
+in `levels/3.4_vents.md`).

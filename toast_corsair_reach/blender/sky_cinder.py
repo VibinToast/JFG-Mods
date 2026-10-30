@@ -7,6 +7,8 @@ As sky_storm.py: a sphere faced inwards, unlit, the image times the vertex colou
 (70, 30, 20) all round, so the fog meets the sky without a seam. The volcano is a cone of its own inside the dome
 (vertex colours on a small rock image): the dome moves with the camera, so it stays on the horizon, due north
 (game -z), as far away as the sky. VOLCANO = False leaves it out (a level standing on the volcano itself).
+With SKY_VARIANT=rim in the environment it builds 3.3's copy instead: no volcano (the Crown stands on it), the horizon
+row at the Crown's fog colour (90, 25, 15), its own names -> out/sky_cinder_rim.glb (import_sky as "cinder_rim").
 """
 import math
 import os
@@ -20,10 +22,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import common as C  # noqa: E402
 import jfg64  # noqa: E402
 
-VOLCANO = True
+RIM = os.environ.get("SKY_VARIANT") == "rim"
+VOLCANO = not RIM
+NAME = "sky_cinder_rim" if RIM else "sky_cinder"
 R = 9000.0
 W, H = 64, 32  # u once round the sky, v from the horizon (row 0) to straight up
-HORIZON = (70 / 255, 30 / 255, 20 / 255)  # the level's fog colour (set_level fogR/G/B)
+HORIZON = ((90, 25, 15) if RIM else (70, 30, 20))  # the level's fog colour (set_level fogR/G/B)
+HORIZON = tuple(c / 255 for c in HORIZON)
 
 
 def noise(seed):
@@ -90,14 +95,14 @@ def plain_px(x, y):
     return (0.9 + 0.1 * g, 0.88 + 0.1 * g, 0.86 + 0.1 * g)
 
 
-scene, coll = C.new_scene("sky_cinder")
-img = C.own_image("sky_cinder_clouds", W, H, sky_px)
-mat = C.own_material("sky_cinder", img)
+scene, coll = C.new_scene(NAME)
+img = C.own_image(NAME + "_clouds", W, H, sky_px)
+mat = C.own_material(NAME, img)
 
 bm = bmesh.new()
 bmesh.ops.create_uvsphere(bm, u_segments=24, v_segments=12, radius=R)
 bmesh.ops.reverse_faces(bm, faces=bm.faces[:])  # seen from inside
-mesh = bpy.data.meshes.new("sky_cinder")
+mesh = bpy.data.meshes.new(NAME)
 bm.to_mesh(mesh)
 bm.free()
 uv = mesh.uv_layers.new(name="UV")
@@ -122,20 +127,20 @@ for poly in mesh.polygons:
             c = (1.0 - 0.4 * d, 1.0 - 0.45 * d, 1.0 - 0.45 * d)
         col.data[li].color = (*[min(1.0, v_) for v_ in c], 1.0)
 mesh.materials.append(mat)
-sky = bpy.data.objects.new("sky_cinder", mesh)
+sky = bpy.data.objects.new(NAME, mesh)
 coll.objects.link(sky)
 objs = [sky]
 
 if VOLCANO:
     # a cone due north, inside the dome: its foot under the horizon, its top about 40 degrees up (over the
     # levels' rims: 25-35 degrees from the flats), a crater rim
-    rock = C.own_material("sky_cinder_rock", C.own_image("sky_cinder_rock", 16, 16, rock_px))
-    plain = C.own_material("sky_cinder_plain", C.own_image("sky_cinder_plain", 8, 8, plain_px))
+    rock = C.own_material(NAME + "_rock", C.own_image(NAME + "_rock", 16, 16, rock_px))
+    plain = C.own_material(NAME + "_plain", C.own_image(NAME + "_plain", 8, 8, plain_px))
     mats = []  # per face: 0 rock, 1 plain
     D = 6000.0                      # distance north (Blender +y): every point stays inside the dome (R)
     foot, top_r, top_y, base_y = 5000.0, 700.0, D * math.tan(math.radians(40)), -1500.0
     n = 14
-    vm = bpy.data.meshes.new("sky_cinder_volcano")
+    vm = bpy.data.meshes.new(NAME + "_volcano")
     verts, faces, cols, uvs = [], [], [], []
     rng = random.Random(5)
 
@@ -201,10 +206,10 @@ if VOLCANO:
             vcol.data[li].color = (*cols[vi], 1.0)
     vm.validate()
     vm.update()
-    vo = bpy.data.objects.new("sky_cinder_volcano", vm)
+    vo = bpy.data.objects.new(NAME + "_volcano", vm)
     coll.objects.link(vo)
     objs.append(vo)
 
-out = jfg64.export(os.path.join(C.OUT, "sky_cinder.glb"), objects=objs)
-bpy.ops.wm.save_as_mainfile(filepath=os.path.join(C.OUT, "sky_cinder.blend"))
+out = jfg64.export(os.path.join(C.OUT, NAME + ".glb"), objects=objs)
+bpy.ops.wm.save_as_mainfile(filepath=os.path.join(C.OUT, NAME + ".blend"))
 print("SKY", out.get("triangles") if isinstance(out, dict) else out)

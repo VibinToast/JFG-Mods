@@ -660,6 +660,36 @@ FORGEMASTER = {
     "armour": lambda x, y, w, h: GOLD if y > h - 4 or x % 8 == 0 else (46, 40, 52) if (y // 6) % 2 else OBSIDIAN,
 }
 
+MOLTEN, MOLTEN_D, EMBER = (236, 178, 52), (150, 92, 22), (255, 96, 24)
+
+
+def molten(x, y, w, h, seed=0):
+    """Gold plate fresh from the forge: bright gold, a darker cooling crust, glowing orange cracks."""
+    t = math.sin(x * 0.9 + y * 0.37 + seed) + math.sin(y * 0.61 - x * 0.23 + 2 * seed)
+    if abs(t) < 0.18:
+        return EMBER
+    return MOLTEN if t > 0.6 else shade(MOLTEN, 0.85) if t > -0.4 else MOLTEN_D
+
+
+CROWN_GUARD = {
+    "seed": 113, "coat": MOLTEN, "trim": EMBER, "limb": (120, 74, 20), "strap": (90, 50, 16),
+    # molten gold plate with glowing seams and a dark band at the waist
+    "pattern": lambda x, y, w, h: (70, 34, 12) if h * 0.55 <= y < h * 0.55 + 3 else molten(x, y, w, h, 1),
+    # a crowned helm: gold, a row of ember points along its brow
+    "hat": lambda x, y, w, h: (EMBER if abs(y - h * 0.3) < 1.5 and x % 4 < 2
+                               else MOLTEN if y < h * 0.3 else molten(x, y, w, h, 2)),
+    "band": lambda x, y, w, h: EMBER if y % 6 in (2, 3) else MOLTEN_D,
+    "emblem": lambda x, y, w, h: EMBER if (x + y) % 6 < 2 else MOLTEN,
+    # the shield: a molten gold face, a dark rim and a crown of three points in ember orange
+    "shieldface": lambda x, y, w, h: ((60, 30, 10) if (x < 3 or x > w - 4 or y < 3 or y > h - 4)
+                                      else EMBER if (h * 0.35 < y < h * 0.62 and (abs(x - w / 2) < (y - h * 0.35) * 0.9
+                                                                                  or abs(x - w * 0.25) < (y - h * 0.35) * 0.5
+                                                                                  or abs(x - w * 0.75) < (y - h * 0.35) * 0.5))
+                                      else molten(x, y, w, h, 3)),
+    "shieldglow": lambda x, y, w, h: shade(EMBER, 0.45 + 0.4 * math.sin(math.pi * (x + 0.5) / w)),
+    "glow": lambda x, y, w, h: shade(EMBER, 0.4 + 0.6 * max(0.0, 1 - math.hypot(x - w / 2, y - h / 2) / (w / 2))),
+}
+
 
 def ember_beetle(role):
     """A shield beetle out of the slag: a black crust shell split by glowing orange-yellow heat seams."""
@@ -794,6 +824,7 @@ KINDS = {
     "slag_gunner": (0x143, slag_gunner),  # big: the stock squad's size 40 (x 368 tall = 147)
     "catwalk_lookout": (0x8C, lambda r: soldier(CATWALK_LOOKOUT)(r)),
     "forgemaster": (0x12F, lambda r: soldier(FORGEMASTER)(r)),
+    "crown_guard": (0x9C, lambda r: soldier(CROWN_GUARD)(r)),
 }
 
 

@@ -48,14 +48,14 @@
     "startPoint": 0,
     "unlockWorld": -1
    },
-   "name": "TODO 3.3: up to the Crown (for now: the game's way back)",
+   "name": "up to the Crown",
    "pos": [
     400,
     1100,
     1475
    ],
    "size": 28,
-   "target": "stock:level/21",
+   "target": "pack:level/crown",
    "type": "stock:objtype/0xB",
    "uid": "todo_3_3__up_to_the_crown__for_now__the_game_s_way_back1"
   },

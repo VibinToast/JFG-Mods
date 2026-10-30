@@ -1,0 +1,30 @@
+{
+ "format": 1,
+ "header": {
+  "cutsceneData": 3,
+  "fog3": 986,
+  "fogB": 15,
+  "fogFar": 1020,
+  "fogG": 25,
+  "fogNear": 986,
+  "fogR": 90,
+  "region": 0,
+  "regionIndex": 0,
+  "tune": 4,
+  "tuneChannelMask": 65535,
+  "weather": 256,
+  "weatherFlags": 1,
+  "weatherIntensity": 70,
+  "weatherOpacity": 140,
+  "weatherType": 0,
+  "weatherVelX": 40,
+  "weatherVelY": -70,
+  "weatherVelZ": 25,
+  "world": 15
+ },
+ "music": "pack:music/caldera_crown",
+ "name": "Caldera Crown",
+ "planet": "cinderhold",
+ "sky": "pack:sky/cinder_rim",
+ "track": "pack:track/crown"
+}
