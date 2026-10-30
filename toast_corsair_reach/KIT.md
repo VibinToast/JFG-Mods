@@ -26,7 +26,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | 2.3 | `undercistern` The Undercistern | built, checked, not play-tested | 09771d2 |
 | 2.4 | `stormspire` Stormspire | built, checked, not play-tested | 1f2bf81 |
 | 3.1 | `slagflats` Slag Flats | built, checked, not play-tested | 80e6941 |
-| 3.2 | `bellows` The Bellows | built, checked, not play-tested | (commit) |
+| 3.2 | `bellows` The Bellows | built, checked, not play-tested | 4cfd5ca |
 | 3.3 | `crown` Caldera Crown (finale) | | |
 | 3.4 | `vents` Coolant Vents (optional) | | |
 
