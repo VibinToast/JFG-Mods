@@ -21,8 +21,23 @@ galaxy is open from the start: on the planet map press **R** (on a controller RB
 Cay. Each world opens once the one before it is completed. Nothing needs the jetpack or hover; any hero can play it
 at any point of a game. A few secrets want a particular hero: in Cinderhold, only Juno walks on lava unhurt.
 
-**Built so far:** Driftwood Cay and Mirefall (eight levels) and Cinderhold's first, Slag Flats. The rest are on their
-way.
+## Levels
+
+Twelve levels, four to a world. Each world has one optional level, reached by a side way and rejoining the main
+route further on.
+
+| World | Levels |
+|---|---|
+| **Driftwood Cay** | Sunwreck Beach · Gullwing Docks · Blackwater Grotto · Smugglers' Run (optional, under the docks) |
+| **Mirefall** | Stiltwater Outskirts · Drowned Bellmarket (the hub) · The Undercistern · Stormspire |
+| **Cinderhold** | Slag Flats · The Bellows · Caldera Crown (the finale) · Coolant Vents (optional, beside the foundry) |
+
+Every level has a way back to the one before it, except a world's first. In Mirefall the town is a hub: the key to
+its inner gate lies in the waterworks below it. Each world's last level completes it, opens the next world on the
+map, and shows the world's stats as you leave. The finale's way out takes you home.
+
+Weapons to find: the machine gun once in every world (before any switch needs shooting), and in the optional levels
+and the grotto's vault, grenades, a shotgun and rockets. Each world hides one health upgrade.
 
 ## Install
 
@@ -41,8 +56,9 @@ on your machine:
    blender --background --factory-startup --addons jfg64 --python blender/sunwreck.py
    blender --background --factory-startup --addons jfg64 --python blender/gullwing.py
    ```
-   and so on, one script per level (`blender/slagflats.py` for Slag Flats). Each writes its level's `.glb` to
-   `blender/out/` (`sunwreck.glb`, `gullwing.glb` ...).
+   and so on, one script per level, named after the level's project name: `sunwreck`, `gullwing`, `blackwater`,
+   `smugglers`, `stiltwater`, `bellmarket`, `undercistern`, `stormspire`, `slagflats`, `bellows`, `crown`, `vents`.
+   Each writes its level's `.glb` to `blender/out/` (`sunwreck.glb`, `gullwing.glb` ...).
 3. In JFG-Studio, import each into the project (File > Import geometry, or the `reimport_geometry` tool) under its
    own name (`sunwreck`, `gullwing`).
 4. Build the pack in JFG-Studio, or from the command line:

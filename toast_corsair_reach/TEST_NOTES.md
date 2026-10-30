@@ -460,6 +460,11 @@ pad home (the game's usual way back, with the stats screen).
   before either causeway; wave 3 (5 crown guards on the island, 3 forgemasters by the south causeway; `flags` 0x40:
   they come straight for you) as you step onto a causeway. Do all three appear? If wave 3 never appears the core door
   stays locked (a softlock): the fallback is `trigger` 3 on all six wave squads (all at once).
+  Checked on paper against the decomp (Decomp Manager, 2026-10-30): a trigger-1 zone is a cylinder at the squadron +
+  (+0x1F..+0x21) x 16, radius +0x22 x 16, half-height +0x23 x 16; a door-id squadron locks its door from level start
+  and opens it once spawned and killed. Wave 1's zone (r 208) lies on the arena floor at 1400, wave 3's (r 384 round
+  the core) takes in the ring floor on both causeways, and every y band holds the floor; 47 members, well under the
+  128 kill flags. Studio main (f8fb88f) no longer warns on hand-set zones.
 - **The end:** when the last of wave 3 dies the core door opens (a camera shot of it, 3 s), "The Crown's fires are
   out.", the fog fades to a calm dark red, `cinderhold_victory` plays, Cinderhold is completed; "Mirefall stays dry;
   the cay stays free. Corsair Reach is quiet." 4 s later. On a later visit: no sting, the calm fog at arrival. Does

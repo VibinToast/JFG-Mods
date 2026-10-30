@@ -33,6 +33,7 @@ The easy way is the game's launcher: **Get Mods** lists every mod here, installs
 | <img src="jfg_shellback/thumb.png" width="64" alt=""> | **[Rolling Shellback](jfg_shellback/README.md)** | A new enemy: an armoured beetle that curls up, rolls at you and fires spines. | Enemies | 0.1.0 |
 | <img src="jfg_singularity/thumb.png" width="64" alt=""> | **[Singularity](jfg_singularity/README.md)** | A thrown black hole that pulls enemies in, then collapses in a blast. | Weapons | 0.2.0 |
 | <img src="jfg_weapon_sounds/thumb.png" width="64" alt=""> | **[Weapon Sounds](jfg_weapon_sounds/README.md)** | The weapons' sounds remastered: modern, punchy and heavy, each one switchable. | Weapons, Audio | 1.0.0 |
+| <img src="toast_corsair_reach/thumb.png" width="64" alt=""> | **[Corsair Reach](toast_corsair_reach/README.md)** | A galaxy of its own: three new worlds of levels, from a pirate island to a storm world and a volcanic forge. | Levels, Enemies | 0.1.0 |
 | <img src="toast_shellback_levels/thumb.png" width="64" alt=""> | **[Shellback Burrows](toast_shellback_levels/README.md)** | Rolling Shellback squads lurk in caves and around cave mouths across the game. | Enemies, Levels | 0.2.0 |
 
 ## Releases
