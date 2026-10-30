@@ -28,7 +28,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | 3.1 | `slagflats` Slag Flats | built, checked, not play-tested | 80e6941 |
 | 3.2 | `bellows` The Bellows | built, checked, not play-tested | 4cfd5ca |
 | 3.3 | `crown` Caldera Crown (finale) | built, checked, not play-tested | a8dee33 |
-| 3.4 | `vents` Coolant Vents (optional) | | |
+| 3.4 | `vents` Coolant Vents (optional) | built, checked, not play-tested | |
 
 ## The pack
 
@@ -136,7 +136,7 @@ A chest's `contents` has **its own numbering**, not the weapon's (decomp MSR "Ch
 | 3 | `catwalk_lookout` | 0x8C | soot and goggles |
 | 3 | `forgemaster` | 0x12F | obsidian and gold |
 | 3 | `crown_guard` | 0x9C | molten gold |
-| 3 | `vent_swarmer` | a small ground base (not 0xE1) | pale ash |
+| 3 | `vent_swarmer` | 0xEE beetle at squad size 28 (not 0xE1) | pale ash |
 | 3 | `ash_walker` | 0x121 | ash grey, ember cracks |
 
 Check each base with `describe_type` and `kind_slots` first; draw at each slot's exact size. Kinds' names describe a
@@ -413,7 +413,20 @@ Health and ammo after every big fight; a full health before each world's last fi
   (decomp `doorRegisterOpener`), spawned or not: a wave that never appears locks its door for good. `validate` warns
   `squad-trigger` on every trigger-1 squad, a hand-set zone too.
 - Lua's flags (126, 127) are held by no object: the tools handing out flags from 103 don't know them; check a new
-  switch or health upgrade doesn't get one.
+  switch or health upgrade doesn't get one. (Studio f8fb88f skips the flags the pack's Lua names: 3.4's upgrade, placed
+  through the `Session`, got 112.)
+- Round rooms without a heightfield (3.4, `vents.py`): each chamber a convex polygon with its pipes' mouths cut as
+  chords exactly the pipe's width (half-angle asin(w / 2R)), its floor the 100-grid cells (through the cover blocks'
+  edges, cover cut out) clipped to the polygon; pipes straight between chord centres. Two mouths on one chamber need
+  2 asin(w / 2R) + 10 degrees between them (60 degrees apart needs r 260 for 200-wide pipes). A picture on a round
+  wall needs a flat chord of its own (`FLATS`): one 20-degree piece is too narrow.
+- `check_placement` called an exit 45 from its back wall "clipping into geometry" (radius 35, a cage picture 4 out on
+  the wall): 55 from the wall passed.
+- Fog zones (3.4's steam): whether a zone's fog goes back when the hero leaves it is unknown, so every room gets a
+  zone (steam, or the level's own fog). Untested in play.
+- The MCP server may be older than Studio main (3.4's had no `object_values` / `track_textures`): a script of
+  `Session` calls that empties the level's `objects.json` first and places everything is quick to re-run after a
+  change; `open_project` in the MCP after it.
 
 ## Before you finish
 

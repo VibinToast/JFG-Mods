@@ -61,17 +61,17 @@
     "condition": -1,
     "levelHigh": 255,
     "radius": 35,
-    "startPoint": 0,
+    "startPoint": 1,
     "unlockWorld": -1
    },
-   "name": "TODO 3.4: down the service lift to the coolant vents (for now: the game's way back)",
+   "name": "down the service lift to the coolant vents",
    "pos": [
     1450,
     602,
     1480
    ],
    "size": 28,
-   "target": "stock:level/21",
+   "target": "pack:level/vents",
    "type": "stock:objtype/0xB",
    "uid": "todo_3_4__down_the_service_lift_to_the_coolant_vents__for_now__the_game_s_way_back1"
   },

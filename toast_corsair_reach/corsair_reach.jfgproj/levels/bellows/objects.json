@@ -69,14 +69,14 @@
     "startPoint": 0,
     "unlockWorld": -1
    },
-   "name": "TODO 3.4: the side door to the coolant vents (for now: the game's way back)",
+   "name": "the side door to the coolant vents",
    "pos": [
     1045,
     850,
     600
    ],
    "size": 28,
-   "target": "stock:level/21",
+   "target": "pack:level/vents",
    "type": "stock:objtype/0xB",
    "uid": "todo_3_4__the_side_door_to_the_coolant_vents__for_now__the_game_s_way_back1"
   },

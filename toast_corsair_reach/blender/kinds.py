@@ -793,6 +793,72 @@ def slag_gunner(role):
     return fn
 
 
+# 3.4 Coolant Vents
+def vent_swarmer(role):
+    """A small scuttler bred in the steam: pale ash shell dusted with soot flecks, a darker ridge along the back,
+    joints the grey of cold cinders, a pale steamy eye."""
+    sp = speckle(127)
+    ash, soot, cold = (206, 202, 192), (92, 88, 84), (130, 128, 124)
+    rnd = random.Random(131)
+    flecks = [(rnd.random(), rnd.random(), 0.03 + 0.04 * rnd.random()) for _ in range(12)]
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        u, v = (x + 0.5) / w, (y + 0.5) / h
+        base = shade(ash, 0.82 + 0.22 * s)
+        for (a, b, r) in flecks:
+            if math.hypot(u - a, (v - b) * (w / h if h < w else 1)) < r:
+                base = shade(soot, 0.85 + 0.3 * s)
+        if role in ("head", "ear"):
+            e = eye(x, y, w, h, soot, lens=(170, 196, 210))
+            return e or shade(base, rounded(x, y, w, h))
+        if role in ("shell", "speckle", "plates", "swirl"):
+            ridge = 0.72 + 0.28 * min(1.0, abs(u - 0.5) * 3.0)
+            return shade(base, ridge * rounded(x, y, w, h))
+        if role == "sheen":
+            t = (math.sin(u * 6 + v * 3) + 1) / 2
+            return tuple(clamp(base[i] * (0.85 + 0.25 * t)) for i in range(3))
+        if role == "teeth":
+            return (226, 222, 210) if (x // 3) % 2 == 0 and y > h * 0.35 else soot
+        if role in ("ribs", "bands"):
+            return shade(cold, 0.75 + 0.35 * ((y // 3) % 2))
+        if role == "flash":
+            return (196, 220, 232) if (x + y) % 4 < 2 else (120, 140, 150)
+        if role == "nozzle":
+            hole = any(math.hypot(x - cx, y - h / 2) < 4 for cx in (w * 0.3, w * 0.55, w * 0.8))
+            return (30, 30, 30) if hole else shade(cold, 0.8 + 0.3 * s)
+        return base
+    return fn
+
+
+def ash_walker(role):
+    """One of the dead the forge burnt out: ash grey, cracked all over with ember-orange seams, a dull ember eye."""
+    sp = speckle(137)
+    ash, dark = (112, 108, 104), (46, 42, 40)
+    rnd = random.Random(139)
+    seams = [(rnd.random(), rnd.random(), rnd.random() * math.pi) for _ in range(7)]
+
+    def crack(x, y, w, h):
+        u, v = (x + 0.5) / w, (y + 0.5) / h
+        d = min(abs((u - a) * math.sin(t) - (v - b) * math.cos(t)) for a, b, t in seams)
+        return max(0.0, 1.0 - d * 14.0)
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        base = shade(ash, 0.75 + 0.35 * s)
+        k = crack(x, y, w, h)
+        hot = tuple(clamp(base[i] * (1 - k) + (255, 120 + 60 * k, 30)[i] * k) for i in range(3)) if k > 0 else None
+        if role == "head":
+            e = eye(x, y, w, h, dark, lens=(150, 50, 16))
+            return e or hot or shade(base, rounded(x, y, w, h))
+        if role in ("body", "shell"):
+            return hot or shade(base, rounded(x, y, w, h))
+        if role == "limb":
+            return hot or shade(base, 0.7 + 0.25 * ((y // 4) % 2))
+        return shade(dark, 0.9 + 0.3 * s) if role != "tiny" else (230, 110, 30)
+    return fn
+
+
 MASKED = {(0xEE, 1), (0x12F, 2), (0x121, 2), (0x121, 8), (0x122, 10), (0xF5, 5), (0xF5, 6), (0xF5, 13),
           (0xF5, 15)}  # slots whose base image has a cut-out: ours gets one too (a rounded blob)
 BLEND = {(0x9C, 12): 150, (0x9C, 13): 120, (0xBE, 13): 150, (0x143, 9): 170}  # slots whose base image is see-through: ours too, at this alpha
@@ -825,6 +891,8 @@ KINDS = {
     "catwalk_lookout": (0x8C, lambda r: soldier(CATWALK_LOOKOUT)(r)),
     "forgemaster": (0x12F, lambda r: soldier(FORGEMASTER)(r)),
     "crown_guard": (0x9C, lambda r: soldier(CROWN_GUARD)(r)),
+    "vent_swarmer": (0xEE, vent_swarmer),  # a small ground beetle (never 0xE1: it hangs from a thread)
+    "ash_walker": (0x121, ash_walker),
 }
 
 

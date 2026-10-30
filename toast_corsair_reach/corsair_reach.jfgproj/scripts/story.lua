@@ -140,6 +140,16 @@ local BEATS = {
       music = "cinderhold_victory", text = "The Crown's fires are out." },
     { after = 5, delay = 4, text = "Mirefall stays dry; the cay stays free. Corsair Reach is quiet." },
   },
+  level_vents = {
+    -- in the vent hatch by the way in (start point 0 is in it; start point 1, down from the Crown, is in the lift
+    -- room at the far end of the level)
+    { box = { -160, 160, 900, 1200 }, text = "Coolant vents. At least it's cool." },
+    -- out of the hatch's pipe into the first chamber: steam and hissing either way round
+    { box = { -150, 150, 560, 760 }, text = "Something's moving in the steam. Keep to the vent stacks." },
+    -- in the pump hall's west alcove, at the rockets chest
+    { box = { -520, -400, -1300, -1140 }, text = "Their spare parts. Ours now." },
+    { after = 3, delay = 4, text = "The service lift by the pumps goes up to the Crown's roof door." },
+  },
 }
 
 -- Lightning in Mirefall's levels: every `every` seconds (a random wait between the two), the fog flashes to `flash`

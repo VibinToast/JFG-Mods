@@ -390,7 +390,7 @@ the back of the vestibule (for now the game's way back).
 
 Start it from 3.1's foundry vestibule, or straight in:
 `--mods-only toast_corsair_reach --start-level toast_corsair_reach:level_bellows --start-point 0`. Start points 1 (top
-of the exit passage) and 2 (the side recess) are where 3.3's and 3.4's ways back will arrive.
+of the exit passage) and 2 (the side recess) are where 3.3's and 3.4's ways back arrive.
 
 **The route:** the loading dock (quiet; the way back to 3.1 in its west wall; a ramp up to a locked door in its east
 wall) → corridor south → furnace room 1: 4 furnace hands among coal bunkers → furnace room 2: 4 more → (side room:
@@ -402,8 +402,7 @@ hall (the switch under the crane's jib on the south wall, flag 111) → the fore
 Tribal → the patrol dead opens the shortcut door down to the dock (the loop) → the stair room up to the catwalk →
 across the hall over the channel past the lookouts' perches (a Tribal in a railed bay) → the tango key door → the
 bellows chamber: 4 furnace hands and 2 slag gunners lock the exit door; a Tribal behind the bellows → the exit door
-→ the passage up (for now the game's way back). The side door east, under a blue light, leads to the vents (for now
-the game's way back).
+→ the passage up to the Crown (3.3). The side door east, under a blue light, leads to the vents (3.4's vent hatch).
 
 **Untested in a pack level (please look):**
 - **Snipers on perches over a hall** (three catwalk lookouts, a new kind of 0x8C): perches 110 out from the
@@ -435,14 +434,14 @@ the game's way back).
   chamber, the exit door).
 - **Size:** 156 KB unpacked, 3,924 triangles; polyList need 91 (the build sets 137).
 
-**Placeholders:** the exit up to the Crown and the side door to the vents lead to the game's usual way back (stock
-level 21) until 3.3 and 3.4 exist (TODOs in `levels/3.3_crown.md` and `levels/3.4_vents.md`).
+**Links:** the exit up to the Crown leads to 3.3's roof door (its start point 0); the side door to 3.4's vent hatch
+(its start point 0).
 
 ## 3.3 Caldera Crown (Cinderhold's last level, the pack's finale; JFG-169, built 2026-10-30, not played)
 
 Start it from 3.2's exit passage, or straight in:
 `--mods-only toast_corsair_reach --start-level toast_corsair_reach:level_crown --start-point 0`. Start point 1 (the
-service lift, beside start point 0) is where 3.4 will arrive. 3.2's exit up to the Crown now leads here.
+service lift, beside start point 0) is where 3.4 arrives. 3.2's exit up to the Crown now leads here.
 
 **The route:** the roof door ledge (the doorhouse: the way back down to 3.2 and the service lift to the vents; the
 flats far below over a railing) → leg 1 west under lookout 1 on its perch → the west landing: ember beetles, cinder
@@ -483,5 +482,44 @@ pad home (the game's usual way back, with the stats screen).
   the legs?
 - **Size:** 260 KB unpacked, 5,979 triangles; polyList need 189 (the build sets 284).
 
-**Placeholders:** the service lift's exit leads to the game's usual way back (stock level 21) until 3.4 exists (TODO
-in `levels/3.4_vents.md`).
+**Links:** the service lift leads down to 3.4's lift room (its start point 1).
+
+## 3.4 Coolant Vents (Cinderhold's optional level; JFG-169, built 2026-10-30, not played)
+
+Start it from 3.2's side door (the bellows chamber's east wall), from 3.3's service lift (start point 1), or straight
+in: `--mods-only toast_corsair_reach --start-level toast_corsair_reach:level_vents --start-point 0`.
+
+**The route:** the vent hatch (quiet; the way back to 3.2 on its south wall; message 1) → a short pipe north into K1
+(ammo; message 2) → round the ring of six round chambers either way, or across through the manifold in the middle:
+vent swarmers (4) in K2 (south-west), in the manifold and in K5 (north-east), each pack among four vent stacks; health
+and ammo in K3 and K6 → the dead ends off K3 (north-west) and K6 (south-east): 4 ash walkers among coolant tanks and
+a Tribal behind them in each → K4 (north, quiet: health, full machine gun ammo) → the pump hall: 5 ash walkers and 4
+swarmers at once among five pumps and four vent stacks → the rockets chest in the west alcove (message 3, then the
+lift's message 4), the health upgrade across the coolant channel in the north wall's alcove, Tribals in the south and
+east alcoves → the service lift (east wall) up to 3.3.
+
+**Untested in a pack level (please look):**
+- **Vent swarmers** (0xEE, the new kind: pale ash, soot flecks) at size 28, health 27: their squadrons spawn the
+  pack round themselves at a pipe's mouth between the stacks. Do they appear clear of the stacks, use them as cover,
+  and read as a swarm? Too tough at 27?
+- **Ash walkers** (0x121, the new kind: ash grey, ember cracks), health 15, among four coolant tanks in a small round
+  room (r 230). Do they move between the tanks or crowd?
+- **Two squads sharing one region** in the pump hall (5 walkers + 4 swarmers, nine holes): too much for an optional
+  level? Can the hero get between the pumps (gaps 65)?
+- **Steam** (fog zones): white-grey (150, 156, 162, 980 / 1,018) in the seven fighting and side chambers, the
+  level's own (55, 66, 76, 986 / 1,021) in the hatch, K1, K4 and the hall. Too thick or too faint? Does a zone's fog
+  stay after leaving it (each room sets its own, so it shouldn't show)?
+- **The coolant channel** (water 27 deep, texture 0x11D0, texscroll texture 5): does it scroll and read as coolant?
+  Can every hero wade across to the health upgrade's alcove (a step of 35 up out of it)?
+- **The health upgrade** (flag 112): does it stay taken after a reload?
+- **The rockets chest** (`contents` 20): rockets, with rocket ammo beside it and a rocket clip in the lift room.
+- **Round rooms:** walls of 20-degree pieces, domes up to a glowing grille; any seams where a pipe meets a chamber
+  (the mouths are cut exactly 200 wide)? Any spot where the hero catches on a floor edge?
+- **Light:** coolant blue under every grille, warm glows at the pumps and the hatch (16 lights; ambient lifted from the
+  kit's). Too dark or too blue?
+- **Sound:** steam hiss (sound 130 at pitch 190) in the steam chambers, the pumps (56 at pitch 45): do they read as
+  steam and pumps?
+- **Size:** 131 KB unpacked, 3,245 triangles; polyList need 57 (the build leaves 90).
+
+**Links:** the vent hatch's exit leads back to 3.2's side recess (its start point 2); the service lift up to 3.3's
+service lift (its start point 1). 3.2's side door and 3.3's service lift now lead here (start points 0 and 1).
