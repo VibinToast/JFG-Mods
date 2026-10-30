@@ -2706,14 +2706,14 @@
     "startPoint": 0,
     "unlockWorld": -1
    },
-   "name": "TODO 3.2: into the foundry, on to the bellows (for now: the game's way back)",
+   "name": "into the foundry, on to the bellows",
    "pos": [
     1850,
     352,
     -1655
    ],
    "size": 28,
-   "target": "stock:level/21",
+   "target": "pack:level/bellows",
    "type": "stock:objtype/0xB",
    "uid": "todo_3_2__into_the_foundry__on_to_the_bellows__for_now__the_game_s_way_back1"
   },

@@ -384,5 +384,56 @@ the back of the vestibule (for now the game's way back).
 - **Story:** 5 lines (the landing, the canyon's mouth, bridge 1, the yard, the foundry door).
 - **Size:** 245 KB unpacked, 5,237 triangles; polyList need 74 (fits the game's 90).
 
-**Placeholders:** the vestibule's exit leads to the game's usual way back (stock level 21) until 3.2 exists (TODO
-in `levels/3.2_bellows.md`).
+**Placeholders:** none now: the vestibule's exit leads into 3.2's loading dock (done by 3.2's session).
+
+## 3.2 The Bellows (JFG-169, built 2026-10-30, not played)
+
+Start it from 3.1's foundry vestibule, or straight in:
+`--mods-only toast_corsair_reach --start-level toast_corsair_reach:level_bellows --start-point 0`. Start points 1 (top
+of the exit passage) and 2 (the side recess) are where 3.3's and 3.4's ways back will arrive.
+
+**The route:** the loading dock (quiet; the way back to 3.1 in its west wall; a ramp up to a locked door in its east
+wall) → corridor south → furnace room 1: 4 furnace hands among coal bunkers → furnace room 2: 4 more → (side room:
+a Tribal, health, ammo) → the casting hall's west door: three catwalk lookouts above on perches, two turrets on
+plinths across the molten channel; ingot stacks and the mould bed to hide behind (**secret**: a low opening in the
+mould bed's south face, a crawlspace with full health and full machine gun ammo) → over a bridge → 4 forgemasters at
+the stair → up the stair to the gallery: the patrol of 4 furnace hands → shoot **the crane's release** across the
+hall (the switch under the crane's jib on the south wall, flag 111) → the foreman's office: **the tango key**, a
+Tribal → the patrol dead opens the shortcut door down to the dock (the loop) → the stair room up to the catwalk →
+across the hall over the channel past the lookouts' perches (a Tribal in a railed bay) → the tango key door → the
+bellows chamber: 4 furnace hands and 2 slag gunners lock the exit door; a Tribal behind the bellows → the exit door
+→ the passage up (for now the game's way back). The side door east, under a blue light, leads to the vents (for now
+the game's way back).
+
+**Untested in a pack level (please look):**
+- **Snipers on perches over a hall** (three catwalk lookouts, a new kind of 0x8C): perches 110 out from the
+  catwalk's west side, no rim, the lookout 25 from the edge, a red lamp and the game's flames beside each. Seen
+  before they fire from the west door? Can they hit the hero on the west floor, and can he hit them? Do they ever
+  fall or step off their perches?
+- **Forgemasters** (0x12F, a new kind: obsidian and gold), 4 of them among ingot stacks and the turrets' plinths at
+  the stair foot. Do they move between cover? Health 18 each: too tough for this point?
+- **The molten channel** under two iron bridges (rails 90, no collider) and under the catwalk: does it scroll
+  (texscroll texture 15), glow, hurt, and can a hero who falls in walk straight out (banks 36)?
+- **A switch shot across a hall:** the crane's release (0x48, stock size 20) at 960 on the south wall, about 900 from
+  the gallery. Can it be seen and hit from the gallery (and the floor)? Does the foreman's door (a mine door, 0x19D)
+  open and stay open after a reload (flag 111)? Message "The crane let go...".
+- **A patrol on a gallery** (4 furnace hands walking a straight 1,060 chain at 600, under the catwalk at its
+  middle): do they walk it, and fight when they see the hero (no cover in their strip)? Does their death open the
+  shortcut door at the top of the dock's ramp (door 2)?
+- **The gallery's open rail** (kerb 30, posts, a rail at 100, no collider; a fall of 250 to the hall floor): can the
+  hero slip between the posts? Is the hall in view from it?
+- **The catwalk** (grating 200 wide at 850, rails at 150 with a collider to 400 over them): any invisible-wall feel
+  at the rails? The perches open off it with no rail (a 500 fall: hurts, onto the floor, not death).
+- **The tango key and its door** (the pack's tango colour; the key on the office floor).
+- **The bellows chamber:** furnace hands and slag gunners sharing a region and one door; the bellows as a big cover
+  hole (added by hand). Do the gunners spawn clear of the bellows (their squadron stands at (380, 850, 600))? Does
+  the exit door open when all six die (`door = 3` message)?
+- **The side door** (an open mine door, keyLock 0, as 1.2's door to 1.4): does it open as the hero comes?
+- **Light:** no sky, every room lit by furnaces, the channel and lamps (ambient lifted from the kit's as in 3.1). Too
+  dark anywhere (the dock and the furnace rooms are the darkest)? The cold blue light at the side door visible?
+- **Story:** 6 lines (the dock, the hall's west door, the gallery by the foreman's door, the release shot, the
+  chamber, the exit door).
+- **Size:** 156 KB unpacked, 3,924 triangles; polyList need 91 (the build sets 137).
+
+**Placeholders:** the exit up to the Crown and the side door to the vents lead to the game's usual way back (stock
+level 21) until 3.3 and 3.4 exist (TODOs in `levels/3.3_crown.md` and `levels/3.4_vents.md`).

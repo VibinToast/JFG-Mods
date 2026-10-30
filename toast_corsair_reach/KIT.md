@@ -26,7 +26,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | 2.3 | `undercistern` The Undercistern | built, checked, not play-tested | 09771d2 |
 | 2.4 | `stormspire` Stormspire | built, checked, not play-tested | 1f2bf81 |
 | 3.1 | `slagflats` Slag Flats | built, checked, not play-tested | 80e6941 |
-| 3.2 | `bellows` The Bellows | | |
+| 3.2 | `bellows` The Bellows | built, checked, not play-tested | (commit) |
 | 3.3 | `crown` Caldera Crown (finale) | | |
 | 3.4 | `vents` Coolant Vents (optional) | | |
 
@@ -237,7 +237,8 @@ Health and ammo after every big fight; a full health before each world's last fi
    places, `sunwreck.py` for open ground, `blackwater.py` for caves (`cave_wall`, `rim`), `smugglers.py` for built
    rooms and tunnels under a roof, `stiltwater.py` for boardwalks over wadeable water (`deck_union`, `ramp`,
    `mound`) and a leaning building, `bellmarket.py` for a town of solid houses round a square on one 100-grid floor
-   (`ground`, `house`, `jambs`) and a tower climbed inside on half-floors (`slab_ramp`)): build, bake, `jfg64.budgets`,
+   (`ground`, `house`, `jambs`) and a tower climbed inside on half-floors (`slab_ramp`), `bellows.py` for a building
+   on three floors (`room`, `reveal`, `open_rail`, a catwalk with perches)): build, bake, `jfg64.budgets`,
    export to `blender/out/<level>.glb`. Fixed seeds. Add a helper to `common.py` when two levels would need it.
 2. **Run** in background Blender: `blender --background --factory-startup --addons jfg64 --python blender/<level>.py`.
 3. **Studio**: `import_geometry` (first time) or `reimport_geometry`, `add_level` on planet, `set_level` (fog, sky,
@@ -384,6 +385,19 @@ Health and ammo after every big fight; a full health before each world's last fi
   16 million; its real floor is about 6).
 - A dome landmark (3.1's volcano, a cone inside the dome, its far half left out: sky faces draw in no depth order)
   must reach about 40 degrees to show over the rims seen from a level's floors (25-35 degrees on 3.1's flats).
+- Lone members (lookouts, turrets) from the Session's `place_squad` are spread 150 from the centre onto the floor
+  below (3.2): pass `spread` 0 or move each onto its perch or plinth by `[x, y, z]`. Region corners from a centre
+  `[x, y, z]` land on whatever floor is at or below y there (a perch, the top of a block): set every corner's y.
+- A perch's 20 rim 47 from the lookout stopped its shots to a door 550 away and 500 below (3.2): no rim, the lookout
+  25 from the edge; perches on one side only when the other side is over another squad's region (a roof to it).
+- A solid 100 lip on a gallery hides the hall at eye height too (3.2): an open rail (`open_rail` in `bellows.py`:
+  kerb 30, posts, rail, no collider); posts end inside the rail without caps (caps in the rail's top plane flicker),
+  and two fences meeting start 14 apart (their end posts' caps flicker).
+- A big built prop (3.2's bellows: boards and leather faces) gets no hole from `place_squad`, and members spread
+  onto it: add its hole by hand, set the members by `[x, y, z]`. The Session's `object_values` gives a squadron's
+  stock health / aim / dodge, and `track_textures` the lava's scroll index (3.2: 15, 0x1546 = 0x1547).
+- The scratchpad is shared with earlier sessions: name scratch files by level (another level's `asbuilt.md` there
+  replaced 3.2's text for a moment).
 
 ## Before you finish
 

@@ -636,6 +636,31 @@ FURNACE_HAND = {
 }
 
 
+# 3.2 The Bellows
+CATWALK_LOOKOUT = {
+    "seed": 107, "coat": (58, 54, 52), "trim": (230, 140, 50), "limb": (44, 40, 38), "strap": (92, 64, 40),
+    # a soot-grey work coat, ash smudges, a leather bandolier across the chest
+    "pattern": lambda x, y, w, h: ((96, 66, 40) if abs(x - (w * 0.2 + y * 0.45)) < 2.2
+                                   else (34, 30, 30) if (x * 3 + y * 7) % 19 < 2 else (60, 56, 54)),
+    # a soot cap with big round goggles over the eyes' line: amber lenses in brass rims
+    "hat": lambda x, y, w, h: ((240, 160, 60) if abs(y - h * 0.32) < 2.5 and (abs(x - w * 0.3) < 3.5
+                                                                          or abs(x - w * 0.7) < 3.5)
+                               else (150, 112, 50) if abs(y - h * 0.32) < 3.5 else (40, 36, 34)),
+    "band": lambda x, y, w, h: (150, 112, 50) if y % 6 in (2, 3) else (44, 40, 38),
+}
+OBSIDIAN = (24, 20, 26)
+FORGEMASTER = {
+    "seed": 109, "coat": OBSIDIAN, "trim": GOLD, "limb": (34, 28, 36), "strap": (120, 86, 34),
+    # an obsidian-black long coat with a glassy sheen, gold piping down its front and gold bands at the cuffs
+    "pattern": lambda x, y, w, h: (GOLD if abs(x - w / 2) < 1.5 or y > h - 3
+                                   else (70, 62, 84) if (x + y) % 11 == 0 else OBSIDIAN),
+    "hat": lambda x, y, w, h: GOLD if abs(y - h * 0.2) < 1.5 or (y < h * 0.2 and x % 6 == 2) else (30, 26, 32),
+    "band": lambda x, y, w, h: GOLD if y % 5 in (1, 2) else OBSIDIAN,
+    # the coat's skirts: obsidian plates edged in gold
+    "armour": lambda x, y, w, h: GOLD if y > h - 4 or x % 8 == 0 else (46, 40, 52) if (y // 6) % 2 else OBSIDIAN,
+}
+
+
 def ember_beetle(role):
     """A shield beetle out of the slag: a black crust shell split by glowing orange-yellow heat seams."""
     sp = speckle(83)
@@ -767,6 +792,8 @@ KINDS = {
     "cinder_wasp": (0x29, cinder_wasp),
     "forge_turret": (0xF5, forge_turret),
     "slag_gunner": (0x143, slag_gunner),  # big: the stock squad's size 40 (x 368 tall = 147)
+    "catwalk_lookout": (0x8C, lambda r: soldier(CATWALK_LOOKOUT)(r)),
+    "forgemaster": (0x12F, lambda r: soldier(FORGEMASTER)(r)),
 }
 
 

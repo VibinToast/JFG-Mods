@@ -110,6 +110,21 @@ local BEATS = {
     -- the foundry door (door 2), seen locked this visit, opens: its gunners are dead
     { door = 2, text = "The foundry doors." },
   },
+  level_bellows = {
+    -- in the loading dock by the way in (start point 0 is in it; start points 1 and 2, back from the Crown and the
+    -- vents, are in the bellows chamber's passages)
+    { box = { -2000, -1700, -1350, -1050 }, text = "The Bellows. They pour the engines' hearts here." },
+    -- through the casting hall's west door, under the catwalk's lookouts
+    { box = { -300, -150, -440, -240 }, text = "Snipers on the catwalks. Keep to the moulds." },
+    -- on the gallery by the foreman's door (a sphere: the hall floor is under it)
+    { near = { -120, 600, -910, 130 }, text = "The foreman's door hangs from the crane. Its release is across the hall." },
+    -- the crane's release shot (game flag 111)
+    { flag = 111, text = "The crane let go. The foreman's door is open." },
+    -- into the bellows chamber through the tango door (nothing under the chamber)
+    { box = { 300, 500, 40, 160 }, text = "The bellows. Every furnace in the mountain breathes through it." },
+    -- the exit door (door 3) opens: the chamber's guards are dead
+    { door = 3, text = "The Crown is up the mountain." },
+  },
 }
 
 -- Lightning in Mirefall's levels: every `every` seconds (a random wait between the two), the fog flashes to `flash`
