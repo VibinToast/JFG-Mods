@@ -4,7 +4,7 @@
 
 **Hint characters turn to you and talk at once: no walking up, no slow turn.**
 
-Version **0.1.1** · Gameplay · by VibinToast · needs Jet Force Gemini: Recompiled 1.3.0 or newer
+Version **0.1.2** · Gameplay · by VibinToast · needs Jet Force Gemini: Recompiled 1.3.0 or newer
 
 ## About
 
@@ -25,7 +25,7 @@ Change them in the game's Mods menu (the mod's Configure page) or on the launche
 ## Install
 
 - **In the game's launcher:** open **Get Mods**, pick this mod and press **Install** (it keeps it up to date).
-- **By hand:** download `jfg_quick_talk.nrm` from its release, [`jfg_quick_talk-v0.1.1`](https://github.com/VibinToast/JFG-Mods/releases/tag/jfg_quick_talk-v0.1.1), and put it in the game's `mods` folder.
+- **By hand:** download `jfg_quick_talk.nrm` from its release, [`jfg_quick_talk-v0.1.2`](https://github.com/VibinToast/JFG-Mods/releases/tag/jfg_quick_talk-v0.1.2), and put it in the game's `mods` folder.
 
 ## Build
 

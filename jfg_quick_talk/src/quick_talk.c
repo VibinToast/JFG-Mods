@@ -31,6 +31,8 @@ RECOMP_IMPORT("*", double recomp_get_config_double(const char* key));
 #define OBJ_X 0x0C
 #define OBJ_Z 0x14
 #define OBJ_PHASE 0x28        // f32, the animation's phase 0..1
+#define OBJ_ID 0x4A           // s16, the object's type
+#define ID_FLOYD 0x264
 #define OBJ_DATA 0x68
 #define D_STATE 0x00
 #define D_TALK_RADIUS 0x18
@@ -114,9 +116,10 @@ RECOMP_CALLBACK("*", jfg_on_game_tick) void qt_tick(int frames) {
                 tx -= jfg_turn_sin((unsigned int)hy) * 80.0f;
                 tz -= jfg_turn_cos((unsigned int)hy) * 80.0f;
             }
-            // The game's yaw toward a point is the direction from the point to the object (as Arctanf: its stock
-            // facers aim with self - target), so a character turned the other way here faced away.
-            turn_to(obj, angle_of(*f32_at(obj, OBJ_X) - tx, *f32_at(obj, OBJ_Z) - tz), step);
+            // The game aims the logic yaw at the point and stores it plus the type's offset, a half turn for all but
+            // Floyd. Aiming him a half turn off fights the game's own turn: state 5 never ends and the hero stays held.
+            const int offset = *s16_at(obj, OBJ_ID) == ID_FLOYD ? 0 : 0x8000;
+            turn_to(obj, angle_of(tx - *f32_at(obj, OBJ_X), tz - *f32_at(obj, OBJ_Z)) + offset, step);
         }
         if (skip_greeting && (*state == ST_GREET || *state == ST_GREET_SHOT)) {
             *f32_at(obj, OBJ_PHASE) = 1.0f; // the game starts the text when the greeting reaches its end
