@@ -21,7 +21,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | 1.2 | `gullwing` Gullwing Docks | built, checked, not play-tested | 5c3543b |
 | 1.3 | `blackwater` Blackwater Grotto | built, checked, not play-tested | 6e5dd6b |
 | 1.4 | `smugglers` Smugglers' Run (optional) | built, checked, not play-tested | 12b6f3c |
-| 2.1 | `stiltwater` Stiltwater Outskirts | | |
+| 2.1 | `stiltwater` Stiltwater Outskirts | built, checked, not play-tested | (this commit) |
 | 2.2 | `bellmarket` Drowned Bellmarket (hub) | | |
 | 2.3 | `undercistern` The Undercistern | | |
 | 2.4 | `stormspire` Stormspire | | |
@@ -100,8 +100,8 @@ Levels may be built out of this order, so the tools' numbers may differ: what co
 | Rockets (5) | chest in the 3.4 pump hall | optional |
 
 Ammo only for the pistol (0) and machine gun (2), plus grenade, shotgun and rocket ammo next to and after their chests.
-A chest's `contents` has **its own numbering**, not the weapon's: 2 machine gun, 5 grenades, 0 shotgun, 20 rockets
-(8 is cluster bombs; `describe_type chest` lists them).
+A chest's `contents` has **its own numbering**, not the weapon's (decomp MSR "Chest" table): 0 shotgun, 1 homing,
+2 machine gun, 4 shuriken, 5 grenades, 20 rockets (8 is cluster bombs; `describe_type chest` lists them).
 
 ### Kinds (textures drawn by our own code in `blender/kinds.py`, never the game's)
 
@@ -183,7 +183,10 @@ Health and ammo after every big fight; a full health before each world's last fi
   `{"like": 42, ...}` for the game's rainy level's values) in every Mirefall level, heaviest at Stormspire. Snow
   (`"snow"`) may read as falling ash at the Crown: try it, keep it if it looks like ash. Lightning from Lua in Mirefall:
   `jfg.fog` to pale blue-white over 3 ticks and back over 20, every 20-40 s (10-20 s at Stormspire; stops when the
-  engine dies).
+  engine dies). Built in 2.1: add your level's row to `LIGHTNING` in `story.lua` (its fog, flash colour, `every`,
+  and `stop_flag` for 2.4's dead engine). 2.1's rain is `{"like": 42, "weatherFlags": 1, "weatherIntensity": 180,
+  "weatherOpacity": 220}`: flags 1 keeps the level's own fog (else the rain sets it and the flashes and the dome's
+  horizon no longer match); intensity 192 and over adds the game's own lightning. The storm dome is `pack:sky/storm`.
 
 ## Binding rules (the owner's, and the play-tests')
 
@@ -226,7 +229,8 @@ Health and ammo after every big fight; a full health before each world's last fi
    `walls` (sides with a sloping bottom), `ceiling`, `plane_rect` (walls with openings), `lip` with `caps`/`under`,
    `fence`, moved from 1.3 for 1.4). Copy the shape of the last built level's script (`gullwing.py` for built
    places, `sunwreck.py` for open ground, `blackwater.py` for caves (`cave_wall`, `rim`), `smugglers.py` for built
-   rooms and tunnels under a roof): build, bake, `jfg64.budgets`,
+   rooms and tunnels under a roof, `stiltwater.py` for boardwalks over wadeable water (`deck_union`, `ramp`,
+   `mound`) and a leaning building): build, bake, `jfg64.budgets`,
    export to `blender/out/<level>.glb`. Fixed seeds. Add a helper to `common.py` when two levels would need it.
 2. **Run** in background Blender: `blender --background --factory-startup --addons jfg64 --python blender/<level>.py`.
 3. **Studio**: `import_geometry` (first time) or `reimport_geometry`, `add_level` on planet, `set_level` (fog, sky,
@@ -288,6 +292,22 @@ Health and ammo after every big fight; a full health before each world's last fi
 - Decoration counts in the poly list too: 1.4's cask shelves (long thin tops) raised its need to 140; pictures on
   the wall cost nothing.
 - Story `start` beats show at every arrival; keep a level's box beats off its other start points.
+- `water_box` runs its grid through every hole's edge across the whole rectangle: in a big marsh or lagoon put every
+  footprint standing in the water on the 100 grid (x on 200 where you can), or the water's pieces multiply (2.1:
+  2,400 triangles of water and floor for 4,000 x 3,900). The bake leaves water white: set the water mesh's `Col`
+  after it for murky water (2.1).
+- A one-member lookout from `place_squad` gets holes of all the cover in its region: delete them (sentries don't
+  move; fewer objects).
+- 0x122 (marsh leech) has only sentry squads (behaviour 9): its squad stands and fires. 0x2D and 0x122 squads have no
+  member entries: the squadron spawns them. Stock (list/entry, health, aim, dodge): 0x78 407/152 3, 50, 100; 0x8C
+  528/44 4, 50, 100; 0x121 518/57 10, 50, 100; 0x122 463/14 24, 50, 100; 0x2D 450/27 1, 100, 0.
+- `geometry_info` flags: a roof drawn both sides (`quad2` closer than 12) as a folded floor (draw it outside only and
+  give the room a ceiling); a post's cap just under a floor's underside (cap=False); a decal 2 out from a wall
+  (`C.decal`'s back is 2 behind it, in the wall's plane: put it 4 out); `lip`s overlapping at a corner, or a cap
+  against another lip's side: start each lip after the last one's thickness and leave out the cap that butts.
+- A leaning building (2.1's chapel, `T(u, v, w)` in `stiltwater.py`): a wall leaning out has an upward-facing outside,
+  which Studio's placement notes list as a floor (harmless); give the slope's tiles an edge where the inside water
+  meets the floor. Objects and region points inside it by `[x, y, z]` (it has a roof).
 
 ## Before you finish
 

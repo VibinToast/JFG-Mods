@@ -41,15 +41,69 @@ local BEATS = {
     -- into the last passage (south of start point 1, so an arrival from the grotto doesn't trip it at once)
     { box = { 1200, 1400, -800, -740 }, text = "Torchlight ahead: the grotto." },
   },
+  level_stiltwater = {
+    -- on the landing jetty (start point 0 is on it; start point 1, back from the market, is not)
+    { box = { -200, 200, 1600, 1900 }, text = "Mirefall. It hasn't stopped raining since the engine came." },
+    -- the crossing in the reed beds: the flood gate's lights to the north
+    { box = { -200, 200, 800, 1000 }, text = "The flood gate's shut. Its key must be out here somewhere." },
+    -- the walk up to the hut plaza
+    { box = { -1200, -1000, 400, 800 }, text = "The colonists are hiding in their huts." },
+    -- inside the leaning chapel
+    { box = { 640, 900, -780, -420 }, text = "The chapel's going under with the rest of the town." },
+    -- onto the gate platform from the south
+    { box = { -400, 600, -1500, -1400 }, text = "The town's flood gate. The lighthouse is beyond the town." },
+  },
+}
+
+-- Lightning in Mirefall's levels: every `every` seconds (a random wait between the two), the fog flashes to `flash`
+-- over 3 ticks and fades back to the level's own fog over 20; sometimes a second flicker follows. With stop_flag, it
+-- stops for good once that game flag is on (the storm engine dead).
+local LIGHTNING = {
+  level_stiltwater = { fog = { 60, 70, 85, 985, 1019 }, flash = { 190, 205, 235 }, every = { 20, 40 } },
 }
 
 local current, said, ids, when = nil, {}, {}, {}
 local clock = 0
+local storm, next_flash, flash_ticks, flicker = nil, 0, -1, false
+
+local function id_of(name)
+  if ids[name] == nil then ids[name] = jfg.level_id(name) or false end
+  return ids[name]
+end
 
 local function beats_here(level)
   for name, list in pairs(BEATS) do
-    if ids[name] == nil then ids[name] = jfg.level_id(name) or false end
-    if ids[name] == level then return list end
+    if id_of(name) == level then return list end
+  end
+end
+
+local function storm_here(level)
+  for name, s in pairs(LIGHTNING) do
+    if id_of(name) == level then return s end
+  end
+end
+
+local function lightning(seconds)
+  if not storm or (storm.stop_flag and jfg.flag(storm.stop_flag)) then return end
+  local f = storm.fog
+  if flash_ticks >= 0 then
+    flash_ticks = flash_ticks + 1
+    if flash_ticks == 3 then  -- the flash has peaked: fade back to the level's fog
+      jfg.fog(f[1], f[2], f[3], f[4], f[5], 20)
+    elseif flash_ticks > 24 then
+      flash_ticks = -1
+      if flicker then  -- a second, quicker flicker soon after
+        flicker = false
+        next_flash = seconds + 0.3
+      else
+        next_flash = seconds + math.random(storm.every[1], storm.every[2])
+      end
+    end
+  elseif seconds >= next_flash then
+    local c = storm.flash
+    jfg.fog(c[1], c[2], c[3], f[4], f[5], 3)
+    flash_ticks = 0
+    if next_flash > 0 and math.random() < 0.35 then flicker = true end
   end
 end
 
@@ -66,6 +120,8 @@ end
 
 jfg.on("level", function(level)
   current, said, when, clock = beats_here(level), {}, {}, 0
+  storm, flash_ticks, flicker = storm_here(level), -1, false
+  if storm then next_flash = math.random(8, 16) end  -- the first soon after arrival
   if not current then return end
   for i, b in ipairs(current) do
     if b.start then show(i, b, 5) end
@@ -74,8 +130,9 @@ jfg.on("level", function(level)
 end)
 
 jfg.on("tick", function(level, seconds)
-  if not current then return end
   clock = type(seconds) == "number" and seconds or clock + 1 / 30
+  lightning(clock)
+  if not current then return end
   local x, y, z = jfg.player()
   if not x then return end
   for i, b in ipairs(current) do

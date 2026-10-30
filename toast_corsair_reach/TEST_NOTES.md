@@ -131,3 +131,49 @@ torchlight, the exit into 1.3's east landing.
 - **Links:** the smugglers' door in 1.2 → here; the way back (the dark recess at the stair's top) → 1.2's back alley
   (start point 2); the last passage → 1.3's smugglers' passage (start point 1); 1.3's passage end → here, start
   point 1. No stats screen between them (one region).
+
+## 2.1 Stiltwater Outskirts (Mirefall's entry level; JFG-169, built 2026-10-30, not played)
+
+Start it from 1.3's sea door (past the trade chart), from the planet map (Mirefall, once Driftwood is completed), or
+straight in: `--mods-only toast_corsair_reach --start-level toast_corsair_reach:level_stiltwater --start-point 0`.
+Start point 1 (behind the flood gate) is for 2.2's way back; nothing leads there yet.
+
+**The route:** the landing jetty (machine gun chest) → the crossing in the reed beds (3 storm midges over the water)
+→ west to the hut plaza (4 slickers among crates and barrels; 2 lookouts on hut roofs) → the big hut (Tribal) and
+the stair hut's roof (Tribal) → north to the mud island (4 marsh leeches among boulders) → the last bank (health,
+ammo) → east to the leaning chapel (3 bog walkers; the light blue key on the altar dais at the flooded end) and its
+bell tower (Tribal) → south to the fishers' rest (Tribal, health, ammo) → back to the crossing → north up the gate
+walk → the flood gate (4 slickers and 3 bog walkers together) → the light blue key door → the passage → the exit.
+
+**Untested in a pack level (please look):**
+- **The new planet:** completing Driftwood (1.3's chart) should open Mirefall on the map, right of Driftwood (slate
+  blue disc, x 480), its route from Driftwood to the right; picking it starts 2.1 at the jetty for every hero. The
+  sea door from 1.3 should show the stats screen (Driftwood's region left) and arrive at the jetty.
+- **Rain:** the game's rain (level 42's, intensity 180, opacity 220, `weatherFlags` 1 so the level keeps its own fog).
+  Too heavy, too light, any slowdown? Does the fog stay the dark blue-grey (60, 70, 85) that matches the storm dome's
+  horizon?
+- **Lightning (Lua):** every 20-40 s the fog flashes pale blue-white (190, 205, 235) for 3 ticks and fades back over
+  20; sometimes a second flicker. The first one 8-16 s after arrival. Does `jfg.fog` flash read as lightning, does the
+  fog come back to the level's own exactly, anything left pale after a level change or a death?
+- **The storm sky** (`pack:sky/storm`): dark clouds, paler rents. Seams with the fog at the horizon?
+- **Storm midges (0x2D flyers)** and **marsh leeches (0x122)**: the pack's first use of both bases and kinds (slots
+  painted by size, not looked at on the model). The leeches' squad is the base's only kind, a sentry (behaviour 9):
+  they stand on the island and fire. Size right (stock 42%)? Health 29.
+- **Bell lookouts (snipers, 2):** roofs at 240, 20 rims on the sides they fire over, a brazier with flames beside each.
+  Seen from the walk up to the plaza before they fire? The stair hut's lookout can't hit the stair's foot (its rim).
+- **Wading:** the marsh is 40 deep everywhere; every boardwalk is 100 over the bed with ramps every 400-600 and the
+  islands a step of 60. Can any hero get stuck, or wade round anything that matters? Juno doesn't swim at 40?
+- **The secret** under the big hut: wade in between the stilts (140 clear under its floor at 100): full health, full
+  machine gun ammo. Reachable, visible enough (a faint warm glow)?
+- **The leaning chapel:** tilted 9°, its floor sloping east into 40 of water. Do the bog walkers fight on the slope
+  (holes made by hand round 3 upright pew-ends)? Can every hero climb the dais (a step of about 55 out of the water) to
+  the key? Does the lean look right from outside?
+- **The bell tower's stair and loft** (180, balustrades 100 without colliders: a fall is 220 into water).
+- **Two squads at the gate** share one region and its 7 holes: do they spread over the cover, or crowd?
+- **The flood gate** (wooden door 0x1AC, light blue key) in a 50-deep reveal; behind it the passage. Coming back from
+  2.2 later (start point 1, behind the gate): the door stays open once unlocked?
+- **Falling through floors:** polyList 152 (the geometry needs 101, at the big hut).
+- **Size:** 264 KB unpacked, 6,500 triangles (fits the track buffer; bigger than 9 in 10 of the game's levels).
+
+**Placeholders:** the exit behind the flood gate leads to the game's usual way back (stock level 21) until 2.2
+exists (TODO in `levels/2.2_bellmarket.md`).

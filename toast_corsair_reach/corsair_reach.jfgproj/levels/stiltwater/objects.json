@@ -1,0 +1,3590 @@
+{
+ "format": 1,
+ "objects": [
+  {
+   "fields": {
+    "player": 0,
+    "startPoint": 0,
+    "yaw": 0
+   },
+   "name": "start (from the grotto's sea door)",
+   "pos": [
+    100,
+    68,
+    1800
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xD",
+   "uid": "start__from_the_grotto_s_sea_door1"
+  },
+  {
+   "fields": {
+    "cameraAngle": 4096,
+    "cameraDistance": 200,
+    "cameraHeight": 75,
+    "contents": 2,
+    "size": 100,
+    "yaw": -20746
+   },
+   "name": "machine gun chest (the landing jetty)",
+   "pos": [
+    -80,
+    62,
+    1720
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x1AA",
+   "uid": "machine_gun_chest__the_landing_jetty1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 1
+   },
+   "name": "region1_0",
+   "pos": [
+    -600,
+    -38,
+    450
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region1"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 1
+   },
+   "name": "region1_1",
+   "pos": [
+    560,
+    -38,
+    450
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region2"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 1
+   },
+   "name": "region1_2",
+   "pos": [
+    560,
+    -38,
+    1400
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region3"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 1
+   },
+   "name": "region1_3",
+   "pos": [
+    -600,
+    -38,
+    1400
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region4"
+  },
+  {
+   "fields": {
+    "baddyType": 45,
+    "count": 3,
+    "dodge": 10,
+    "doorId": 0,
+    "drop": 1,
+    "heading": -125,
+    "health": 1,
+    "offsetY": -32,
+    "region": 1,
+    "squadronId": 1,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "pack:kind/storm_midge"
+   },
+   "name": "reed_midges squad",
+   "pos": [
+    0,
+    630,
+    700
+   ],
+   "stock": {
+    "entry": 27,
+    "list": 450
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "reed_midges_squad1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 2
+   },
+   "name": "region2_0",
+   "pos": [
+    -1560,
+    62,
+    40
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region5"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 2
+   },
+   "name": "region2_1",
+   "pos": [
+    -1040,
+    62,
+    40
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region6"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 2
+   },
+   "name": "region2_2",
+   "pos": [
+    -1040,
+    62,
+    360
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region7"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 2
+   },
+   "name": "region2_3",
+   "pos": [
+    -1560,
+    62,
+    360
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region8"
+  },
+  {
+   "fields": {
+    "baddyType": 120,
+    "count": 4,
+    "dodge": 110,
+    "doorId": 0,
+    "drop": 20,
+    "heading": -110,
+    "health": 4,
+    "region": 2,
+    "squadronId": 2,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "pack:kind/slicker"
+   },
+   "name": "plaza_slickers squad",
+   "pos": [
+    -1300,
+    68,
+    200
+   ],
+   "stock": {
+    "entry": 152,
+    "list": 407
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "plaza_slickers_squad1"
+  },
+  {
+   "fields": {
+    "squadron": 2,
+    "yaw": 155
+   },
+   "name": "plaza_slickers",
+   "pos": [
+    -1300,
+    68,
+    350
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 163,
+    "list": 407
+   },
+   "type": "pack:kind/slicker",
+   "uid": "plaza_slickers1"
+  },
+  {
+   "fields": {
+    "squadron": 2,
+    "yaw": 133
+   },
+   "name": "plaza_slickers",
+   "pos": [
+    -1150,
+    68,
+    200
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 163,
+    "list": 407
+   },
+   "type": "pack:kind/slicker",
+   "uid": "plaza_slickers2"
+  },
+  {
+   "fields": {
+    "squadron": 2,
+    "yaw": 142
+   },
+   "name": "plaza_slickers",
+   "pos": [
+    -1300,
+    68,
+    50
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 163,
+    "list": 407
+   },
+   "type": "pack:kind/slicker",
+   "uid": "plaza_slickers3"
+  },
+  {
+   "fields": {
+    "squadron": 2,
+    "yaw": 157
+   },
+   "name": "plaza_slickers",
+   "pos": [
+    -1450,
+    68,
+    200
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 163,
+    "list": 407
+   },
+   "type": "pack:kind/slicker",
+   "uid": "plaza_slickers4"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 3
+   },
+   "name": "hole3_0",
+   "pos": [
+    -1500,
+    60,
+    80
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole1"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 3
+   },
+   "name": "hole3_1",
+   "pos": [
+    -1500,
+    60,
+    180
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole2"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 3
+   },
+   "name": "hole3_2",
+   "pos": [
+    -1400,
+    60,
+    180
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole3"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 3
+   },
+   "name": "hole3_3",
+   "pos": [
+    -1400,
+    60,
+    80
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole4"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 2,
+    "region": 3
+   },
+   "name": "hole3",
+   "pos": [
+    -1450,
+    60,
+    130
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole5"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 4
+   },
+   "name": "hole4_0",
+   "pos": [
+    -1500,
+    60,
+    240
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole6"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 4
+   },
+   "name": "hole4_1",
+   "pos": [
+    -1500,
+    60,
+    340
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole7"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 4
+   },
+   "name": "hole4_2",
+   "pos": [
+    -1400,
+    60,
+    340
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole8"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 4
+   },
+   "name": "hole4_3",
+   "pos": [
+    -1400,
+    60,
+    240
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole9"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 2,
+    "region": 4
+   },
+   "name": "hole4",
+   "pos": [
+    -1450,
+    60,
+    290
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole10"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 5
+   },
+   "name": "hole5_0",
+   "pos": [
+    -1340,
+    60,
+    240
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole11"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 5
+   },
+   "name": "hole5_1",
+   "pos": [
+    -1340,
+    60,
+    320
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole12"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 5
+   },
+   "name": "hole5_2",
+   "pos": [
+    -1240,
+    60,
+    320
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole13"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 5
+   },
+   "name": "hole5_3",
+   "pos": [
+    -1240,
+    60,
+    240
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole14"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 2,
+    "region": 5
+   },
+   "name": "hole5",
+   "pos": [
+    -1290,
+    60,
+    280
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole15"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 6
+   },
+   "name": "hole6_0",
+   "pos": [
+    -1180,
+    60,
+    80
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole16"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 6
+   },
+   "name": "hole6_1",
+   "pos": [
+    -1180,
+    60,
+    180
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole17"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 6
+   },
+   "name": "hole6_2",
+   "pos": [
+    -1100,
+    60,
+    180
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole18"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 6
+   },
+   "name": "hole6_3",
+   "pos": [
+    -1100,
+    60,
+    80
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole19"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 2,
+    "region": 6
+   },
+   "name": "hole6",
+   "pos": [
+    -1140,
+    60,
+    130
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole20"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 7
+   },
+   "name": "region7_0",
+   "pos": [
+    -1720,
+    392,
+    -480
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region9"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 7
+   },
+   "name": "region7_1",
+   "pos": [
+    -980,
+    58,
+    -480
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region10"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 7
+   },
+   "name": "region7_2",
+   "pos": [
+    -980,
+    -38,
+    400
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region11"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 7
+   },
+   "name": "region7_3",
+   "pos": [
+    -1720,
+    -38,
+    400
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region12"
+  },
+  {
+   "fields": {
+    "baddyType": 140,
+    "count": 1,
+    "dodge": 110,
+    "doorId": 0,
+    "heading": -103,
+    "health": 5,
+    "region": 7,
+    "squadronId": 3,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "pack:kind/bell_lookout"
+   },
+   "name": "stair_hut_lookout squad",
+   "pos": [
+    -1690,
+    248,
+    -390
+   ],
+   "stock": {
+    "entry": 44,
+    "list": 528
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "stair_hut_lookout_squad1"
+  },
+  {
+   "fields": {
+    "squadron": 3,
+    "yaw": 152
+   },
+   "name": "stair_hut_lookout",
+   "pos": [
+    -1690,
+    250,
+    -330
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 45,
+    "list": 528
+   },
+   "type": "pack:kind/bell_lookout",
+   "uid": "stair_hut_lookout1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 12
+   },
+   "name": "region12_0",
+   "pos": [
+    -1720,
+    -38,
+    -100
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region13"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 12
+   },
+   "name": "region12_1",
+   "pos": [
+    -980,
+    57,
+    -100
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region14"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 12
+   },
+   "name": "region12_2",
+   "pos": [
+    -980,
+    62,
+    820
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region15"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 12
+   },
+   "name": "region12_3",
+   "pos": [
+    -1720,
+    -38,
+    820
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region16"
+  },
+  {
+   "fields": {
+    "baddyType": 140,
+    "count": 1,
+    "dodge": 110,
+    "doorId": 0,
+    "heading": -84,
+    "health": 5,
+    "region": 12,
+    "squadronId": 4,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "pack:kind/bell_lookout"
+   },
+   "name": "west_hut_lookout squad",
+   "pos": [
+    -1690,
+    248,
+    200
+   ],
+   "stock": {
+    "entry": 44,
+    "list": 528
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "west_hut_lookout_squad1"
+  },
+  {
+   "fields": {
+    "squadron": 4,
+    "yaw": 174
+   },
+   "name": "west_hut_lookout",
+   "pos": [
+    -1635,
+    250,
+    200
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 45,
+    "list": 528
+   },
+   "type": "pack:kind/bell_lookout",
+   "uid": "west_hut_lookout1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 8
+   },
+   "name": "region8_0",
+   "pos": [
+    -780,
+    22,
+    -880
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region17"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 8
+   },
+   "name": "region8_1",
+   "pos": [
+    -420,
+    24,
+    -880
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region18"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 8
+   },
+   "name": "region8_2",
+   "pos": [
+    -420,
+    22,
+    -320
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region19"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 8
+   },
+   "name": "region8_3",
+   "pos": [
+    -780,
+    24,
+    -320
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region20"
+  },
+  {
+   "fields": {
+    "baddyType": 290,
+    "count": 4,
+    "dodge": 110,
+    "doorId": 0,
+    "drop": 21,
+    "heading": 79,
+    "health": 29,
+    "region": 8,
+    "squadronId": 5,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "pack:kind/marsh_leech"
+   },
+   "name": "island_leeches squad",
+   "pos": [
+    -600,
+    48,
+    -610
+   ],
+   "stock": {
+    "entry": 14,
+    "list": 463
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "island_leeches_squad1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 9
+   },
+   "name": "hole9_0",
+   "pos": [
+    -740,
+    29,
+    -820
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole21"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 9
+   },
+   "name": "hole9_1",
+   "pos": [
+    -740,
+    29,
+    -740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole22"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 9
+   },
+   "name": "hole9_2",
+   "pos": [
+    -660,
+    29,
+    -740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole23"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 9
+   },
+   "name": "hole9_3",
+   "pos": [
+    -660,
+    29,
+    -820
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole24"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 8,
+    "region": 9
+   },
+   "name": "hole9",
+   "pos": [
+    -700,
+    29,
+    -780
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole25"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 10
+   },
+   "name": "hole10_0",
+   "pos": [
+    -740,
+    29,
+    -480
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole26"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 10
+   },
+   "name": "hole10_1",
+   "pos": [
+    -740,
+    29,
+    -400
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole27"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 10
+   },
+   "name": "hole10_2",
+   "pos": [
+    -660,
+    29,
+    -400
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole28"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 10
+   },
+   "name": "hole10_3",
+   "pos": [
+    -660,
+    29,
+    -480
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole29"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 8,
+    "region": 10
+   },
+   "name": "hole10",
+   "pos": [
+    -700,
+    29,
+    -440
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole30"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 11
+   },
+   "name": "hole11_0",
+   "pos": [
+    -540,
+    29,
+    -820
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole31"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 11
+   },
+   "name": "hole11_1",
+   "pos": [
+    -540,
+    29,
+    -740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole32"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 11
+   },
+   "name": "hole11_2",
+   "pos": [
+    -460,
+    29,
+    -740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole33"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 11
+   },
+   "name": "hole11_3",
+   "pos": [
+    -460,
+    29,
+    -820
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole34"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 8,
+    "region": 11
+   },
+   "name": "hole11",
+   "pos": [
+    -500,
+    29,
+    -780
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole35"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 13
+   },
+   "name": "hole13_0",
+   "pos": [
+    -540,
+    29,
+    -480
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole36"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 13
+   },
+   "name": "hole13_1",
+   "pos": [
+    -540,
+    29,
+    -400
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole37"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 13
+   },
+   "name": "hole13_2",
+   "pos": [
+    -460,
+    29,
+    -400
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole38"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 13
+   },
+   "name": "hole13_3",
+   "pos": [
+    -460,
+    29,
+    -480
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole39"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 8,
+    "region": 13
+   },
+   "name": "hole13",
+   "pos": [
+    -500,
+    29,
+    -440
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole40"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 14
+   },
+   "name": "region14_0",
+   "pos": [
+    625,
+    59,
+    -765
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region21"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 14
+   },
+   "name": "region14_1",
+   "pos": [
+    975,
+    3,
+    -765
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region22"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 14
+   },
+   "name": "region14_2",
+   "pos": [
+    975,
+    3,
+    -435
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region23"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 14
+   },
+   "name": "region14_3",
+   "pos": [
+    625,
+    59,
+    -435
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region24"
+  },
+  {
+   "fields": {
+    "baddyType": 289,
+    "count": 3,
+    "dodge": 110,
+    "doorId": 0,
+    "drop": 20,
+    "heading": 64,
+    "health": 12,
+    "region": 14,
+    "squadronId": 6,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "pack:kind/bog_walker"
+   },
+   "name": "nave_bog_walkers squad",
+   "pos": [
+    800,
+    37,
+    -600
+   ],
+   "stock": {
+    "entry": 57,
+    "list": 518
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "nave_bog_walkers_squad1"
+  },
+  {
+   "fields": {
+    "squadron": 6,
+    "yaw": 37
+   },
+   "name": "nave_bog_walkers",
+   "pos": [
+    800,
+    37,
+    -450
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/bog_walker",
+   "uid": "nave_bog_walkers1"
+  },
+  {
+   "fields": {
+    "squadron": 6,
+    "yaw": 73
+   },
+   "name": "nave_bog_walkers",
+   "pos": [
+    850,
+    30,
+    -600
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/bog_walker",
+   "uid": "nave_bog_walkers2"
+  },
+  {
+   "fields": {
+    "squadron": 6,
+    "yaw": 97
+   },
+   "name": "nave_bog_walkers",
+   "pos": [
+    700,
+    54,
+    -560
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/bog_walker",
+   "uid": "nave_bog_walkers3"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 15
+   },
+   "name": "region15_0",
+   "pos": [
+    -360,
+    62,
+    -1860
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region25"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 15
+   },
+   "name": "region15_1",
+   "pos": [
+    560,
+    62,
+    -1860
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region26"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 15
+   },
+   "name": "region15_2",
+   "pos": [
+    560,
+    62,
+    -1440
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region27"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 15
+   },
+   "name": "region15_3",
+   "pos": [
+    -360,
+    62,
+    -1440
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region28"
+  },
+  {
+   "fields": {
+    "baddyType": 120,
+    "count": 4,
+    "dodge": 110,
+    "doorId": 0,
+    "drop": 3,
+    "heading": 106,
+    "health": 4,
+    "region": 15,
+    "squadronId": 7,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "pack:kind/slicker"
+   },
+   "name": "gate_slickers squad",
+   "pos": [
+    100,
+    68,
+    -1640
+   ],
+   "stock": {
+    "entry": 152,
+    "list": 407
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "gate_slickers_squad1"
+  },
+  {
+   "fields": {
+    "squadron": 7,
+    "yaw": 86
+   },
+   "name": "gate_slickers",
+   "pos": [
+    0,
+    68,
+    -1480
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 163,
+    "list": 407
+   },
+   "type": "pack:kind/slicker",
+   "uid": "gate_slickers1"
+  },
+  {
+   "fields": {
+    "squadron": 7,
+    "yaw": 91
+   },
+   "name": "gate_slickers",
+   "pos": [
+    320,
+    68,
+    -1640
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 163,
+    "list": 407
+   },
+   "type": "pack:kind/slicker",
+   "uid": "gate_slickers2"
+  },
+  {
+   "fields": {
+    "squadron": 7,
+    "yaw": 114
+   },
+   "name": "gate_slickers",
+   "pos": [
+    100,
+    68,
+    -1800
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 163,
+    "list": 407
+   },
+   "type": "pack:kind/slicker",
+   "uid": "gate_slickers3"
+  },
+  {
+   "fields": {
+    "squadron": 7,
+    "yaw": 130
+   },
+   "name": "gate_slickers",
+   "pos": [
+    -220,
+    68,
+    -1660
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 163,
+    "list": 407
+   },
+   "type": "pack:kind/slicker",
+   "uid": "gate_slickers4"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 16
+   },
+   "name": "hole16_0",
+   "pos": [
+    -320,
+    60,
+    -1840
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole41"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 16
+   },
+   "name": "hole16_1",
+   "pos": [
+    -320,
+    60,
+    -1740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole42"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 16
+   },
+   "name": "hole16_2",
+   "pos": [
+    -200,
+    60,
+    -1740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole43"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 16
+   },
+   "name": "hole16_3",
+   "pos": [
+    -200,
+    60,
+    -1840
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole44"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 15,
+    "region": 16
+   },
+   "name": "hole16",
+   "pos": [
+    -260,
+    60,
+    -1790
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole45"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 17
+   },
+   "name": "hole17_0",
+   "pos": [
+    -320,
+    60,
+    -1580
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole46"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 17
+   },
+   "name": "hole17_1",
+   "pos": [
+    -320,
+    60,
+    -1500
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole47"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 17
+   },
+   "name": "hole17_2",
+   "pos": [
+    -180,
+    60,
+    -1500
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole48"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 17
+   },
+   "name": "hole17_3",
+   "pos": [
+    -180,
+    60,
+    -1580
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole49"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 15,
+    "region": 17
+   },
+   "name": "hole17",
+   "pos": [
+    -250,
+    60,
+    -1540
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole50"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 18
+   },
+   "name": "hole18_0",
+   "pos": [
+    -160,
+    60,
+    -1720
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole51"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 18
+   },
+   "name": "hole18_1",
+   "pos": [
+    -160,
+    60,
+    -1640
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole52"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 18
+   },
+   "name": "hole18_2",
+   "pos": [
+    0,
+    60,
+    -1640
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole53"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 18
+   },
+   "name": "hole18_3",
+   "pos": [
+    0,
+    60,
+    -1720
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole54"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 15,
+    "region": 18
+   },
+   "name": "hole18",
+   "pos": [
+    -80,
+    60,
+    -1680
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole55"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 19
+   },
+   "name": "hole19_0",
+   "pos": [
+    80,
+    60,
+    -1560
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole56"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 19
+   },
+   "name": "hole19_1",
+   "pos": [
+    80,
+    60,
+    -1480
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole57"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 19
+   },
+   "name": "hole19_2",
+   "pos": [
+    220,
+    60,
+    -1480
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole58"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 19
+   },
+   "name": "hole19_3",
+   "pos": [
+    220,
+    60,
+    -1560
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole59"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 15,
+    "region": 19
+   },
+   "name": "hole19",
+   "pos": [
+    150,
+    60,
+    -1520
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole60"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 20
+   },
+   "name": "hole20_0",
+   "pos": [
+    220,
+    60,
+    -1740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole61"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 20
+   },
+   "name": "hole20_1",
+   "pos": [
+    220,
+    60,
+    -1660
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole62"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 20
+   },
+   "name": "hole20_2",
+   "pos": [
+    340,
+    60,
+    -1660
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole63"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 20
+   },
+   "name": "hole20_3",
+   "pos": [
+    340,
+    60,
+    -1740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole64"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 15,
+    "region": 20
+   },
+   "name": "hole20",
+   "pos": [
+    280,
+    60,
+    -1700
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole65"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 21
+   },
+   "name": "hole21_0",
+   "pos": [
+    360,
+    60,
+    -1600
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole66"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 21
+   },
+   "name": "hole21_1",
+   "pos": [
+    360,
+    60,
+    -1520
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole67"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 21
+   },
+   "name": "hole21_2",
+   "pos": [
+    480,
+    60,
+    -1520
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole68"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 21
+   },
+   "name": "hole21_3",
+   "pos": [
+    480,
+    60,
+    -1600
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole69"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 15,
+    "region": 21
+   },
+   "name": "hole21",
+   "pos": [
+    420,
+    60,
+    -1560
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole70"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 22
+   },
+   "name": "hole22_0",
+   "pos": [
+    380,
+    60,
+    -1820
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole71"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 22
+   },
+   "name": "hole22_1",
+   "pos": [
+    380,
+    60,
+    -1740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole72"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 22
+   },
+   "name": "hole22_2",
+   "pos": [
+    540,
+    60,
+    -1740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole73"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 22
+   },
+   "name": "hole22_3",
+   "pos": [
+    540,
+    60,
+    -1820
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole74"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 15,
+    "region": 22
+   },
+   "name": "hole22",
+   "pos": [
+    460,
+    60,
+    -1780
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole75"
+  },
+  {
+   "fields": {
+    "baddyType": 289,
+    "count": 3,
+    "dodge": 110,
+    "doorId": 0,
+    "drop": 21,
+    "heading": 98,
+    "health": 12,
+    "region": 15,
+    "squadronId": 8,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "pack:kind/bog_walker"
+   },
+   "name": "gate_bog_walkers squad",
+   "pos": [
+    200,
+    68,
+    -1640
+   ],
+   "stock": {
+    "entry": 57,
+    "list": 518
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "gate_bog_walkers_squad1"
+  },
+  {
+   "fields": {
+    "squadron": 8,
+    "yaw": 81
+   },
+   "name": "gate_bog_walkers",
+   "pos": [
+    250,
+    68,
+    -1610
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/bog_walker",
+   "uid": "gate_bog_walkers1"
+  },
+  {
+   "fields": {
+    "squadron": 8,
+    "yaw": 94
+   },
+   "name": "gate_bog_walkers",
+   "pos": [
+    520,
+    68,
+    -1660
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/bog_walker",
+   "uid": "gate_bog_walkers2"
+  },
+  {
+   "fields": {
+    "squadron": 8,
+    "yaw": 116
+   },
+   "name": "gate_bog_walkers",
+   "pos": [
+    27,
+    68,
+    -1740
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/bog_walker",
+   "uid": "gate_bog_walkers3"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 23
+   },
+   "name": "nave_hole_a_0",
+   "pos": [
+    640,
+    54,
+    -740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "nave_hole_a1"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 23
+   },
+   "name": "nave_hole_a_1",
+   "pos": [
+    640,
+    54,
+    -640
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "nave_hole_a2"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 23
+   },
+   "name": "nave_hole_a_2",
+   "pos": [
+    740,
+    38,
+    -640
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "nave_hole_a3"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 23
+   },
+   "name": "nave_hole_a_3",
+   "pos": [
+    740,
+    38,
+    -740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "nave_hole_a4"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 14,
+    "region": 23
+   },
+   "name": "nave_hole_a",
+   "pos": [
+    690,
+    46,
+    -690
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "nave_hole_a5"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 24
+   },
+   "name": "nave_hole_b_0",
+   "pos": [
+    750,
+    36,
+    -560
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "nave_hole_b1"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 24
+   },
+   "name": "nave_hole_b_1",
+   "pos": [
+    750,
+    36,
+    -460
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "nave_hole_b2"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 24
+   },
+   "name": "nave_hole_b_2",
+   "pos": [
+    850,
+    20,
+    -460
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "nave_hole_b3"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 24
+   },
+   "name": "nave_hole_b_3",
+   "pos": [
+    850,
+    20,
+    -560
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "nave_hole_b4"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 14,
+    "region": 24
+   },
+   "name": "nave_hole_b",
+   "pos": [
+    800,
+    28,
+    -510
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "nave_hole_b5"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 25
+   },
+   "name": "nave_hole_c_0",
+   "pos": [
+    860,
+    19,
+    -740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "nave_hole_c1"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 25
+   },
+   "name": "nave_hole_c_1",
+   "pos": [
+    860,
+    19,
+    -640
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "nave_hole_c2"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 25
+   },
+   "name": "nave_hole_c_2",
+   "pos": [
+    960,
+    3,
+    -640
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "nave_hole_c3"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 25
+   },
+   "name": "nave_hole_c_3",
+   "pos": [
+    960,
+    3,
+    -740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "nave_hole_c4"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 14,
+    "region": 25
+   },
+   "name": "nave_hole_c",
+   "pos": [
+    910,
+    11,
+    -690
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "nave_hole_c5"
+  },
+  {
+   "fields": {
+    "keyLock": 6,
+    "yaw": -32768
+   },
+   "name": "light blue key door",
+   "pos": [
+    100,
+    62,
+    -1925
+   ],
+   "schema": "door",
+   "stock": {
+    "entry": 8,
+    "list": 424
+   },
+   "type": "stock:objtype/0x1AC",
+   "uid": "light_blue_key_door1"
+  },
+  {
+   "fields": {
+    "size": 64
+   },
+   "name": "light blue key",
+   "pos": [
+    1188,
+    30,
+    -600
+   ],
+   "size": 14,
+   "type": "stock:objtype/0x25C",
+   "uid": "light_blue_key1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 26
+   },
+   "name": "region26_0",
+   "pos": [
+    -1780,
+    242,
+    -480
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region29"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 26
+   },
+   "name": "region26_1",
+   "pos": [
+    -1620,
+    242,
+    -480
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region30"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 26
+   },
+   "name": "region26_2",
+   "pos": [
+    -1620,
+    242,
+    -320
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region31"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 26
+   },
+   "name": "region26_3",
+   "pos": [
+    -1780,
+    242,
+    -320
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region32"
+  },
+  {
+   "fields": {
+    "alertBehaviour": 9,
+    "baddyType": 285,
+    "behaviour": 9,
+    "count": 1,
+    "doorId": 0,
+    "heading": -99,
+    "hurtBehaviour": 9,
+    "region": 26,
+    "squadronId": 9,
+    "trigger": 3
+   },
+   "name": "tribal stair hut roof squad",
+   "pos": [
+    -1760,
+    248,
+    -350
+   ],
+   "stock": {
+    "entry": 52,
+    "list": 556
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "tribal_stair_hut_roof_squad1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 27
+   },
+   "name": "region27_0",
+   "pos": [
+    -1590,
+    122,
+    610
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region33"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 27
+   },
+   "name": "region27_1",
+   "pos": [
+    -1210,
+    122,
+    610
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region34"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 27
+   },
+   "name": "region27_2",
+   "pos": [
+    -1210,
+    122,
+    890
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region35"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 27
+   },
+   "name": "region27_3",
+   "pos": [
+    -1590,
+    122,
+    890
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region36"
+  },
+  {
+   "fields": {
+    "alertBehaviour": 9,
+    "baddyType": 286,
+    "behaviour": 9,
+    "count": 1,
+    "doorId": 0,
+    "heading": -90,
+    "hurtBehaviour": 9,
+    "region": 27,
+    "squadronId": 10,
+    "trigger": 3
+   },
+   "name": "tribal big hut squad",
+   "pos": [
+    -1280,
+    128,
+    820
+   ],
+   "stock": {
+    "entry": 54,
+    "list": 557
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "tribal_big_hut_squad1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 28
+   },
+   "name": "region28_0",
+   "pos": [
+    220,
+    182,
+    -1180
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region37"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 28
+   },
+   "name": "region28_1",
+   "pos": [
+    380,
+    182,
+    -1180
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region38"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 28
+   },
+   "name": "region28_2",
+   "pos": [
+    380,
+    182,
+    -920
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region39"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 28
+   },
+   "name": "region28_3",
+   "pos": [
+    220,
+    182,
+    -920
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region40"
+  },
+  {
+   "fields": {
+    "alertBehaviour": 9,
+    "baddyType": 284,
+    "behaviour": 9,
+    "count": 1,
+    "doorId": 0,
+    "heading": 126,
+    "hurtBehaviour": 9,
+    "region": 28,
+    "squadronId": 11,
+    "trigger": 3
+   },
+   "name": "tribal bell loft squad",
+   "pos": [
+    240,
+    188,
+    -1150
+   ],
+   "stock": {
+    "entry": 121,
+    "list": 490
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "tribal_bell_loft_squad1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 29
+   },
+   "name": "region29_0",
+   "pos": [
+    620,
+    82,
+    220
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region41"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 29
+   },
+   "name": "region29_1",
+   "pos": [
+    980,
+    82,
+    220
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region42"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 29
+   },
+   "name": "region29_2",
+   "pos": [
+    980,
+    82,
+    580
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region43"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 29
+   },
+   "name": "region29_3",
+   "pos": [
+    620,
+    82,
+    580
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region44"
+  },
+  {
+   "fields": {
+    "alertBehaviour": 9,
+    "baddyType": 287,
+    "behaviour": 9,
+    "count": 1,
+    "doorId": 0,
+    "heading": 104,
+    "hurtBehaviour": 9,
+    "region": 29,
+    "squadronId": 12,
+    "trigger": 3
+   },
+   "name": "tribal fishers' rest squad",
+   "pos": [
+    920,
+    88,
+    530
+   ],
+   "stock": {
+    "entry": 21,
+    "list": 405
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "tribal_fishers__rest_squad1"
+  },
+  {
+   "fields": {
+    "weapon": 0
+   },
+   "name": "pistol clip (crossing)",
+   "pos": [
+    -120,
+    62,
+    900
+   ],
+   "size": 16,
+   "type": "stock:objtype/0x17E",
+   "uid": "pistol_clip__crossing1"
+  },
+  {
+   "fields": {
+    "weapon": 2
+   },
+   "name": "machine gun ammo (crossing)",
+   "pos": [
+    120,
+    62,
+    900
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "machine_gun_ammo__crossing1"
+  },
+  {
+   "fields": {
+    "amount": 1
+   },
+   "name": "medium health (big hut)",
+   "pos": [
+    -1520,
+    122,
+    820
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xA9",
+   "uid": "medium_health__big_hut1"
+  },
+  {
+   "fields": {
+    "weapon": 2
+   },
+   "name": "machine gun ammo (big hut)",
+   "pos": [
+    -1260,
+    122,
+    660
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "machine_gun_ammo__big_hut1"
+  },
+  {
+   "fields": {
+    "amount": 2
+   },
+   "name": "full health (secret: under the big hut)",
+   "pos": [
+    -1490,
+    -38,
+    690
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xA9",
+   "uid": "full_health__secret__under_the_big_hut1"
+  },
+  {
+   "fields": {
+    "weapon": 2
+   },
+   "name": "full machine gun ammo (secret: under the big hut)",
+   "pos": [
+    -1350,
+    -38,
+    760
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "full_machine_gun_ammo__secret__under_the_big_hut1"
+  },
+  {
+   "fields": {
+    "amount": 1
+   },
+   "name": "medium health (last bank)",
+   "pos": [
+    -740,
+    30,
+    -1100
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xA9",
+   "uid": "medium_health__last_bank1"
+  },
+  {
+   "fields": {
+    "weapon": 2
+   },
+   "name": "machine gun ammo (last bank)",
+   "pos": [
+    -660,
+    30,
+    -1100
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "machine_gun_ammo__last_bank1"
+  },
+  {
+   "fields": {
+    "weapon": 0
+   },
+   "name": "pistol clip (last bank)",
+   "pos": [
+    -700,
+    27,
+    -1040
+   ],
+   "size": 16,
+   "type": "stock:objtype/0x17E",
+   "uid": "pistol_clip__last_bank1"
+  },
+  {
+   "fields": {
+    "amount": 0
+   },
+   "name": "small health (chapel landing)",
+   "pos": [
+    460,
+    62,
+    -720
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xA9",
+   "uid": "small_health__chapel_landing1"
+  },
+  {
+   "fields": {
+    "amount": 1
+   },
+   "name": "medium health (fishers' rest)",
+   "pos": [
+    700,
+    82,
+    280
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xA9",
+   "uid": "medium_health__fishers__rest1"
+  },
+  {
+   "fields": {
+    "weapon": 2
+   },
+   "name": "full machine gun ammo (fishers' rest)",
+   "pos": [
+    900,
+    82,
+    280
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "full_machine_gun_ammo__fishers__rest1"
+  },
+  {
+   "fields": {
+    "weapon": 0
+   },
+   "name": "pistol ammo (fishers' rest)",
+   "pos": [
+    700,
+    82,
+    520
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "pistol_ammo__fishers__rest1"
+  },
+  {
+   "fields": {
+    "amount": 1
+   },
+   "name": "medium health (flood gate)",
+   "pos": [
+    -120,
+    62,
+    -1840
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xA9",
+   "uid": "medium_health__flood_gate1"
+  },
+  {
+   "fields": {
+    "weapon": 2
+   },
+   "name": "machine gun ammo (flood gate)",
+   "pos": [
+    320,
+    62,
+    -1850
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "machine_gun_ammo__flood_gate1"
+  },
+  {
+   "fields": {
+    "blue": 90,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 170,
+    "halfHeight": 8,
+    "intensity": 210,
+    "kind": 19,
+    "radius": 380,
+    "red": 255
+   },
+   "name": "jetty lantern",
+   "pos": [
+    -150,
+    245,
+    1650
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "jetty_lantern1"
+  },
+  {
+   "fields": {
+    "blue": 90,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 170,
+    "halfHeight": 8,
+    "intensity": 210,
+    "kind": 19,
+    "radius": 380,
+    "red": 255
+   },
+   "name": "crossing lantern",
+   "pos": [
+    180,
+    245,
+    820
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "crossing_lantern1"
+  },
+  {
+   "fields": {
+    "blue": 90,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 170,
+    "halfHeight": 8,
+    "intensity": 210,
+    "kind": 19,
+    "radius": 380,
+    "red": 255
+   },
+   "name": "plaza lantern east",
+   "pos": [
+    -1020,
+    245,
+    20
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "plaza_lantern_east1"
+  },
+  {
+   "fields": {
+    "blue": 90,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 170,
+    "halfHeight": 8,
+    "intensity": 210,
+    "kind": 19,
+    "radius": 380,
+    "red": 255
+   },
+   "name": "plaza lantern west",
+   "pos": [
+    -1580,
+    245,
+    380
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "plaza_lantern_west1"
+  },
+  {
+   "fields": {
+    "blue": 60,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 150,
+    "halfHeight": 8,
+    "intensity": 230,
+    "kind": 19,
+    "radius": 360,
+    "red": 255
+   },
+   "name": "stair hut lookout's fire",
+   "pos": [
+    -1760,
+    300,
+    -455
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "stair_hut_lookout_s_fire1"
+  },
+  {
+   "fields": {
+    "blue": 60,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 150,
+    "halfHeight": 8,
+    "intensity": 230,
+    "kind": 19,
+    "radius": 360,
+    "red": 255
+   },
+   "name": "west hut lookout's fire",
+   "pos": [
+    -1760,
+    300,
+    140
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "west_hut_lookout_s_fire1"
+  },
+  {
+   "fields": {
+    "blue": 90,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 170,
+    "halfHeight": 8,
+    "intensity": 190,
+    "kind": 19,
+    "radius": 300,
+    "red": 255
+   },
+   "name": "big hut lamp",
+   "pos": [
+    -1400,
+    260,
+    750
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "big_hut_lamp1"
+  },
+  {
+   "fields": {
+    "blue": 90,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 170,
+    "halfHeight": 8,
+    "intensity": 210,
+    "kind": 19,
+    "radius": 380,
+    "red": 255
+   },
+   "name": "gate walk lantern",
+   "pos": [
+    -20,
+    245,
+    -580
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "gate_walk_lantern1"
+  },
+  {
+   "fields": {
+    "blue": 90,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 170,
+    "halfHeight": 8,
+    "intensity": 210,
+    "kind": 19,
+    "radius": 380,
+    "red": 255
+   },
+   "name": "chapel landing lantern",
+   "pos": [
+    420,
+    245,
+    -320
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "chapel_landing_lantern1"
+  },
+  {
+   "fields": {
+    "blue": 100,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 180,
+    "halfHeight": 8,
+    "intensity": 220,
+    "kind": 19,
+    "radius": 340,
+    "red": 255
+   },
+   "name": "altar candles",
+   "pos": [
+    1240,
+    120,
+    -600
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "altar_candles1"
+  },
+  {
+   "fields": {
+    "blue": 120,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 140,
+    "halfHeight": 8,
+    "intensity": 150,
+    "kind": 19,
+    "radius": 380,
+    "red": 150
+   },
+   "name": "nave glow",
+   "pos": [
+    760,
+    260,
+    -600
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "nave_glow1"
+  },
+  {
+   "fields": {
+    "blue": 90,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 170,
+    "halfHeight": 8,
+    "intensity": 190,
+    "kind": 19,
+    "radius": 300,
+    "red": 255
+   },
+   "name": "bell loft lamp",
+   "pos": [
+    300,
+    280,
+    -1050
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "bell_loft_lamp1"
+  },
+  {
+   "fields": {
+    "blue": 60,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 150,
+    "halfHeight": 8,
+    "intensity": 240,
+    "kind": 19,
+    "radius": 420,
+    "red": 255
+   },
+   "name": "fishers' brazier",
+   "pos": [
+    800,
+    180,
+    400
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "fishers__brazier1"
+  },
+  {
+   "fields": {
+    "blue": 90,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 170,
+    "halfHeight": 8,
+    "intensity": 210,
+    "kind": 19,
+    "radius": 380,
+    "red": 255
+   },
+   "name": "gate platform lantern west",
+   "pos": [
+    -380,
+    245,
+    -1420
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "gate_platform_lantern_west1"
+  },
+  {
+   "fields": {
+    "blue": 90,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 170,
+    "halfHeight": 8,
+    "intensity": 210,
+    "kind": 19,
+    "radius": 380,
+    "red": 255
+   },
+   "name": "gate platform lantern east",
+   "pos": [
+    580,
+    245,
+    -1420
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "gate_platform_lantern_east1"
+  },
+  {
+   "fields": {
+    "blue": 50,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 140,
+    "halfHeight": 8,
+    "intensity": 240,
+    "kind": 19,
+    "radius": 450,
+    "red": 255
+   },
+   "name": "gate tower fire west",
+   "pos": [
+    -50,
+    610,
+    -1945
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "gate_tower_fire_west1"
+  },
+  {
+   "fields": {
+    "blue": 50,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 140,
+    "halfHeight": 8,
+    "intensity": 240,
+    "kind": 19,
+    "radius": 450,
+    "red": 255
+   },
+   "name": "gate tower fire east",
+   "pos": [
+    250,
+    610,
+    -1945
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "gate_tower_fire_east1"
+  },
+  {
+   "fields": {
+    "blue": 90,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 170,
+    "halfHeight": 8,
+    "intensity": 190,
+    "kind": 19,
+    "radius": 260,
+    "red": 255
+   },
+   "name": "gate passage lantern",
+   "pos": [
+    40,
+    230,
+    -2100
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "gate_passage_lantern1"
+  },
+  {
+   "fields": {
+    "blue": 120,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 190,
+    "halfHeight": 8,
+    "intensity": 170,
+    "kind": 19,
+    "radius": 260,
+    "red": 255
+   },
+   "name": "ship's cabin lamp",
+   "pos": [
+    500,
+    230,
+    1770
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "ship_s_cabin_lamp1"
+  },
+  {
+   "name": "stair hut lookout's flames",
+   "pos": [
+    -1760,
+    280,
+    -455
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "stair_hut_lookout_s_flames1"
+  },
+  {
+   "name": "west hut lookout's flames",
+   "pos": [
+    -1760,
+    280,
+    140
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "west_hut_lookout_s_flames1"
+  },
+  {
+   "name": "altar candle north",
+   "pos": [
+    1245,
+    80,
+    -645
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "altar_candle_north1"
+  },
+  {
+   "name": "altar candle south",
+   "pos": [
+    1245,
+    80,
+    -555
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "altar_candle_south1"
+  },
+  {
+   "name": "fishers' brazier flames",
+   "pos": [
+    800,
+    130,
+    400
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "fishers__brazier_flames1"
+  },
+  {
+   "name": "gate tower fire west",
+   "pos": [
+    -50,
+    580,
+    -1945
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "gate_tower_fire_west2"
+  },
+  {
+   "name": "gate tower fire east",
+   "pos": [
+    250,
+    580,
+    -1945
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "gate_tower_fire_east2"
+  },
+  {
+   "fields": {
+    "texture": 14,
+    "uSpeed": 1,
+    "vSpeed": 1
+   },
+   "name": "marsh water scroll",
+   "pos": [
+    0,
+    0,
+    0
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xF",
+   "uid": "marsh_water_scroll1"
+  },
+  {
+   "fields": {
+    "pitch": 90,
+    "priority": 64,
+    "range": 1200,
+    "sound": 130,
+    "volume": 55
+   },
+   "name": "water lapping reed beds",
+   "pos": [
+    0,
+    0,
+    900
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x20",
+   "uid": "water_lapping_reed_beds1"
+  },
+  {
+   "fields": {
+    "pitch": 90,
+    "priority": 64,
+    "range": 1100,
+    "sound": 130,
+    "volume": 55
+   },
+   "name": "water lapping huts",
+   "pos": [
+    -1300,
+    0,
+    500
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x20",
+   "uid": "water_lapping_huts1"
+  },
+  {
+   "fields": {
+    "pitch": 80,
+    "priority": 64,
+    "range": 700,
+    "sound": 130,
+    "volume": 60
+   },
+   "name": "water lapping chapel",
+   "pos": [
+    1050,
+    0,
+    -600
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x20",
+   "uid": "water_lapping_chapel1"
+  },
+  {
+   "fields": {
+    "animGroup": -1,
+    "arg1A": 1,
+    "condition": -1,
+    "levelHigh": 255,
+    "radius": 35,
+    "unlockWorld": -1
+   },
+   "name": "TODO 2.2: into the town, on to the drowned market (for now: the game's way back)",
+   "pos": [
+    100,
+    62,
+    -2105
+   ],
+   "size": 28,
+   "target": "stock:level/21",
+   "type": "stock:objtype/0xB",
+   "uid": "todo_2_2__into_the_town__on_to_the_drowned_market__for_now__the_game_s_way_back1"
+  },
+  {
+   "fields": {
+    "player": 0,
+    "startPoint": 1,
+    "yaw": 32
+   },
+   "name": "start (back from the drowned market)",
+   "pos": [
+    100,
+    68,
+    -2010
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xD",
+   "uid": "start__back_from_the_drowned_market1"
+  }
+ ]
+}

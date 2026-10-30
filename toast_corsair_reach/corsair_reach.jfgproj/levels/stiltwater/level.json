@@ -1,0 +1,31 @@
+{
+ "format": 1,
+ "header": {
+  "cutsceneData": 3,
+  "fog3": 985,
+  "fogB": 85,
+  "fogFar": 1019,
+  "fogG": 70,
+  "fogNear": 985,
+  "fogR": 60,
+  "lights": 24,
+  "region": 0,
+  "regionIndex": 0,
+  "tune": 4,
+  "tuneChannelMask": 65535,
+  "weather": 1184,
+  "weatherFlags": 1,
+  "weatherIntensity": 180,
+  "weatherOpacity": 220,
+  "weatherType": 1,
+  "weatherVelX": -15,
+  "weatherVelY": -357,
+  "weatherVelZ": 139,
+  "world": 15
+ },
+ "music": "pack:music/stiltwater_outskirts",
+ "name": "Stiltwater Outskirts",
+ "planet": "mirefall",
+ "sky": "pack:sky/storm",
+ "track": "pack:track/stiltwater"
+}

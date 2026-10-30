@@ -61,16 +61,17 @@
     "condition": -1,
     "levelHigh": 255,
     "radius": 60,
+    "startPoint": 0,
     "unlockWorld": -1
    },
-   "name": "TODO 2.1: the sea door, out to the heroes' ship (for now: the game's way back)",
+   "name": "the sea door",
    "pos": [
     -835,
     2,
     -1275
    ],
    "size": 28,
-   "target": "stock:level/21",
+   "target": "pack:level/stiltwater",
    "type": "stock:objtype/0xB",
    "uid": "todo_2_1__the_sea_door__out_to_the_heroes__ship__for_now__the_game_s_way_back1"
   },

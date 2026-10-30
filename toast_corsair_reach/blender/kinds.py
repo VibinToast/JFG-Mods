@@ -40,6 +40,13 @@ BASES = {
     # size: the model's own images were not looked at)
     0x121: [("body", 64, 32), ("head", 32, 32), ("limb", 16, 16), ("body", 64, 32), ("shell", 32, 32),
             ("shell", 32, 32), ("tiny", 8, 8), ("body", 64, 32), ("limb", 32, 32)],
+    # the striped flyer: a long body sheet, a tiny one, a shell, two wing strips and a panel (roles by size)
+    0x2D: [("body", 32, 64), ("tiny", 8, 8), ("shell", 32, 32), ("wing", 32, 16), ("panel", 16, 16),
+           ("wing", 32, 16)],
+    # the big bug: bands, shells, a head, a thin strip, a wide body sheet, a masked limb and a leg (roles by size)
+    0x122: [("band", 32, 16), ("band", 32, 16), ("shell", 32, 32), ("shell", 32, 32), ("tiny", 8, 8),
+            ("head", 32, 32), ("strip", 32, 4), ("shell", 32, 32), ("body", 64, 32), ("shell", 32, 32),
+            ("limb", 16, 16), ("shell", 32, 32), ("leg", 16, 32)],
 }
 
 
@@ -395,7 +402,98 @@ def drowned_crew(role):
     return fn
 
 
-MASKED = {(0xEE, 1), (0x12F, 2), (0x121, 2), (0x121, 8)}  # slots whose base image has a cut-out: ours gets one too (a rounded blob)
+# ------------------------------------------------------------------------------------------------ world 2: Mirefall
+
+SLICKER = {
+    "seed": 31, "coat": (222, 182, 38), "trim": (40, 36, 30), "limb": (160, 128, 30), "strap": (38, 32, 28),
+    # yellow oilskins, shiny where the rain runs, two dark straps crossing the chest
+    "pattern": lambda x, y, w, h: (36, 30, 26) if abs(x - (w * 0.3 + y * 0.25)) < 2 or abs(x - (w * 0.7 - y * 0.25)) < 2
+    else ((245, 214, 90) if (x + y * 2) % 13 == 0 else (222, 182, 38)),
+    # a sou'wester: a yellow brim and crown, a dark band
+    "hat": lambda x, y, w, h: (40, 36, 30) if abs(y - h * 0.3) < 1.5 else (215, 175, 40),
+    "band": lambda x, y, w, h: (222, 182, 38) if y % 6 < 2 else (38, 32, 28),
+}
+BELL_LOOKOUT = {
+    "seed": 37, "coat": (108, 110, 116), "trim": (58, 60, 68), "limb": (78, 80, 88), "strap": (52, 46, 40),
+    # a grey hooded cloak, darker folds running down it
+    "pattern": lambda x, y, w, h: (84, 86, 94) if (x + 3) % 9 < 2 else (112, 114, 120),
+    "hat": lambda x, y, w, h: (70, 72, 80) if y > h * 0.7 else (100, 102, 110),  # the hood, shadowed at its rim
+    "band": lambda x, y, w, h: (58, 60, 68) if y % 5 in (1, 2) else (100, 102, 110),
+}
+
+
+def storm_midge(role):
+    """A biting flyer of the storm: slate grey, electric-blue stripes, pale glowing wing edges."""
+    sp = speckle(43)
+    slate, blue, dark = (72, 80, 94), (70, 175, 255), (34, 38, 48)
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        if role in ("body", "shell"):
+            if (y // 5) % 3 == 0:
+                return shade(blue, 0.85 + 0.3 * s)
+            return shade(slate, rounded(x, y, w, h) * (0.9 + 0.15 * s))
+        if role == "wing":
+            edge = y < 2 or y > h - 3
+            return shade(blue, 1.1) if edge else shade(slate, 0.75 + 0.35 * (x / w))
+        if role == "panel":
+            return shade(blue, 1.2) if (x + y) % 5 == 0 else shade(dark, 0.9 + 0.2 * s)
+        return blue
+    return fn
+
+
+def marsh_leech(role):
+    """A swollen bug of the bog: slimy green-brown, dark spots, wet highlights."""
+    sp = speckle(47)
+    green, brown, dark = (78, 92, 46), (96, 74, 42), (36, 34, 22)
+    rnd = random.Random(53)
+    spots = [(rnd.random(), rnd.random(), 0.06 + 0.07 * rnd.random()) for _ in range(9)]
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        u, v = (x + 0.5) / w, (y + 0.5) / h
+        base = green if math.sin(u * 7 + v * 5 + s) > 0 else brown
+        for (a, b, r) in spots:
+            if math.hypot(u - a, v - b) < r:
+                return shade(dark, 0.8 + 0.3 * s)
+        if (x * 3 + y * 7) % 17 == 0:
+            return (170, 190, 120)  # a wet glint
+        if role in ("shell", "body", "head", "band"):
+            return shade(base, rounded(x, y, w, h) * (0.85 + 0.2 * s))
+        if role in ("limb", "leg"):
+            return shade(brown, 0.6 + 0.3 * ((y // 3) % 2))
+        return shade(dark, 1.0 + 0.3 * s)
+    return fn
+
+
+def bog_walker(role):
+    """One of the drowned of the marsh: peat brown, green moss in patches, root-dark streaks, a pale dead eye."""
+    sp = speckle(59)
+    peat, moss, dark, pale = (84, 60, 40), (70, 102, 48), (36, 26, 18), (176, 182, 160)
+    rnd = random.Random(61)
+    patches = [(rnd.random(), rnd.random(), 0.1 + 0.12 * rnd.random()) for _ in range(6)]
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        u, v = (x + 0.5) / w, (y + 0.5) / h
+        base = shade(peat, 0.8 + 0.3 * s)
+        for (a, b, r) in patches:
+            if math.hypot(u - a, (v - b) * 0.8) < r * (0.8 + 0.4 * s):
+                base = shade(moss, 0.8 + 0.3 * s)
+        if (x * 5 + y) % 13 == 0:
+            base = shade(dark, 1.0)
+        if role == "head":
+            e = eye(x, y, w, h, dark, lens=(120, 126, 108))
+            return e or shade(base, rounded(x, y, w, h))
+        if role in ("body", "shell"):
+            return shade(base, rounded(x, y, w, h))
+        if role == "limb":
+            return shade(base, 0.7 + 0.25 * ((y // 4) % 2))
+        return shade(pale if role == "tiny" else dark, 0.9 + 0.2 * s)
+    return fn
+
+
+MASKED = {(0xEE, 1), (0x12F, 2), (0x121, 2), (0x121, 8), (0x122, 10)}  # slots whose base image has a cut-out: ours gets one too (a rounded blob)
 BLEND = {(0x9C, 12): 150, (0x9C, 13): 120}  # slots whose base image is see-through: ours too, at this alpha
 
 KINDS = {
@@ -408,6 +506,11 @@ KINDS = {
     "cave_crab": (0xEE, cave_crab),
     "vault_guard": (0x9C, lambda r: soldier(VAULT_GUARD)(r)),
     "drowned_crew": (0x121, drowned_crew),
+    "slicker": (0x78, lambda r: soldier(SLICKER)(r)),
+    "bell_lookout": (0x8C, lambda r: soldier(BELL_LOOKOUT)(r)),
+    "storm_midge": (0x2D, storm_midge),
+    "marsh_leech": (0x122, marsh_leech),
+    "bog_walker": (0x121, bog_walker),
 }
 
 

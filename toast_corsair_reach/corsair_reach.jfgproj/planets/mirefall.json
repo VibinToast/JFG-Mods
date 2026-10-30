@@ -1,0 +1,33 @@
+{
+ "disc": {
+  "colour": [
+   92,
+   112,
+   140
+  ],
+  "index": 3,
+  "radius": 30,
+  "x": 480,
+  "y": 300
+ },
+ "displayName": {
+  "en": "Mirefall"
+ },
+ "entryLevel": {
+  "juno": "pack:level/stiltwater",
+  "lupus": "pack:level/stiltwater",
+  "vela": "pack:level/stiltwater"
+ },
+ "format": 1,
+ "galaxy": "corsair_reach",
+ "routes": [
+  {
+   "back": "left",
+   "dir": "right",
+   "from": "pack:world/driftwood"
+  }
+ ],
+ "unlock": {
+  "completed": "driftwood"
+ }
+}
