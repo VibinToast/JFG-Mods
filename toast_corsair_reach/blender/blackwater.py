@@ -323,7 +323,7 @@ def fence(m, a, b, ya, yb, h=150.0, every=160.0, coll=550.0, first=True):
     collider(edges, a, b, min(ya, yb), max(ya, yb) + coll)
 
 
-def deck(m, x0, z0, x1, z1, y, thick=12.0, which="nsew"):
+def deck(m, x0, z0, x1, z1, y, thick=40.0, which="nsew"):
     """A plank deck (a bridge): top, underside and edges."""
     tiled(m, x0, z0, x1, z1, y, DECK)
     tiled(m, x0, z0, x1, z1, y - thick, DECK, facing=(0, 0, -1), size=200.0)
@@ -572,7 +572,7 @@ deck(wood, -700, 150, -550, 350, 160, which="ns")
 rails(wood, (-700, 152), (-550, 152), 160)
 rails(wood, (-700, 348), (-550, 348), 160)
 for (x, z) in ((-680, 160), (-570, 160), (-680, 340), (-570, 340)):
-    post(wood, x, z, 10, FL, 148, HULL, n=6, cap=False)
+    post(wood, x, z, 10, FL, 120, HULL, n=6, cap=False)
 ISL = (-550, -50, 50, 450)
 block(rock, *ISL, FL, 160, ROCK, STONE, "nsew")
 # the second bridge: planks at 160 to x 350, then a rock ramp down to the landing (160 -> 40)
@@ -580,7 +580,7 @@ deck(wood, 50, 230, 350, 430, 160, which="ns")
 rails(wood, (50, 232), (350, 232), 160)
 rails(wood, (50, 428), (350, 428), 160)
 for (x, z) in ((70, 240), (200, 240), (330, 240), (70, 420), (200, 420), (330, 420)):
-    post(wood, x, z, 10, FL, 148, HULL, n=6, cap=False)
+    post(wood, x, z, 10, FL, 120, HULL, n=6, cap=False)
 RAMP2 = (350, 230, 600, 430)
 block(rock, *RAMP2, FL, 160, ROCK, STONE, "nsw", y1b=40, along="x")
 lip(rock, (350, 230), (600, 230), 160, 40, h=80, thick=20)

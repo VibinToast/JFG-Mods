@@ -120,9 +120,9 @@
    },
    "name": "galleon winch (switch)",
    "pos": [
-    300,
-    352,
-    -100
+    327,
+    420,
+    -56
    ],
    "size": 22,
    "type": "stock:objtype/0x48",
@@ -156,8 +156,8 @@
    "name": "hull door lock light",
    "pos": [
     530,
-    55,
-    -362
+    150,
+    -410
    ],
    "size": 16,
    "type": "stock:objtype/0xDE",

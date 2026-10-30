@@ -1113,7 +1113,7 @@
    "fields": {
     "aimSpread": 48,
     "baddyType": 323,
-    "count": 2,
+    "count": 1,
     "dodge": 120,
     "doorId": 0,
     "drop": 21,
@@ -2496,7 +2496,7 @@
    "fields": {
     "aimSpread": 48,
     "baddyType": 323,
-    "count": 2,
+    "count": 1,
     "dodge": 120,
     "doorId": 2,
     "drop": 21,
@@ -3672,7 +3672,7 @@
    "name": "foundry door lock light",
    "pos": [
     1670,
-    352,
+    460,
     -1470
    ],
    "size": 16,
@@ -3695,6 +3695,100 @@
    "size": 20,
    "type": "stock:objtype/0x1AE",
    "uid": "foundry_door_opens1"
+  },
+  {
+   "fields": {
+    "cameraAngle": 4096,
+    "cameraDistance": 200,
+    "cameraHeight": 75,
+    "contents": 20,
+    "size": 100,
+    "yaw": 30858
+   },
+   "name": "rockets chest (below the landing ledge)",
+   "pos": [
+    -2100,
+    2,
+    1250
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x1AA",
+   "uid": "rockets_chest__below_the_landing_ledge1"
+  },
+  {
+   "fields": {
+    "cameraAngle": 4096,
+    "cameraDistance": 200,
+    "cameraHeight": 75,
+    "contents": 14,
+    "size": 100,
+    "yaw": 26942
+   },
+   "name": "sniper chest (below the landing ledge)",
+   "pos": [
+    -1950,
+    2,
+    1200
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x1AA",
+   "uid": "sniper_chest__below_the_landing_ledge1"
+  },
+  {
+   "fields": {
+    "weapon": 5
+   },
+   "name": "full rocket ammo (by the chests)",
+   "pos": [
+    -2030,
+    2,
+    1260
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "full_rocket_ammo__by_the_chests1"
+  },
+  {
+   "fields": {
+    "weapon": 7
+   },
+   "name": "full sniper ammo (by the chests)",
+   "pos": [
+    -2030,
+    2,
+    1200
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "full_sniper_ammo__by_the_chests1"
+  },
+  {
+   "fields": {
+    "weapon": 5
+   },
+   "name": "rocket ammo (past bridge 1)",
+   "pos": [
+    -210,
+    152,
+    630
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "rocket_ammo__past_bridge1"
+  },
+  {
+   "fields": {
+    "weapon": 7
+   },
+   "name": "sniper ammo (past bridge 1)",
+   "pos": [
+    -160,
+    146,
+    630
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "sniper_ammo__past_bridge1"
   }
  ]
 }

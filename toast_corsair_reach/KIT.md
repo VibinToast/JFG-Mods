@@ -99,7 +99,10 @@ Levels may be built out of this order, so the tools' numbers may differ: what co
 | Machine gun (2) | chests: 1.2 fish market, 2.1 landing jetty, 3.1 canyon niche | yes: before every switch of its world |
 | Grenades (8) | chest in the 1.3 vault | optional (stays in the save's main game) |
 | Shotgun (3) | chest in the 1.4 strongroom | optional |
-| Rockets (5) | chest in the 3.4 pump hall | optional |
+| Shuriken (9) | chest at the foot of 1.4's cellar stair | before 1.4's zombies |
+| Flamethrower (6) | chest on the 2.1 landing jetty | required: before the first zombies on the main route |
+| Rockets (5), sniper (7) | chests below the 3.1 landing ledge | required: before the first turrets |
+| Homing missiles (1) | chest in the 3.4 pump hall (was rockets) | optional |
 
 Ammo only for the pistol (0) and machine gun (2), plus grenade, shotgun and rocket ammo next to and after their chests.
 A chest's `contents` has **its own numbering**, not the weapon's (decomp MSR "Chest" table): 0 shotgun, 1 homing,
@@ -256,6 +259,15 @@ Health and ammo after every big fight; a full health before each world's last fi
 
 ## Known tool gaps (worked round; reported to JFG-Studio Dev)
 
+- **Owner's rules from the play-test (2026-10-30):**
+  - Zombies (0x121): give the flamethrower, rockets (homing or tri) or shuriken before the first one, with ammo.
+  - Turrets (0xF5): give rockets and the sniper (preferred, for headshots) before the first one, with ammo.
+  - Big bases with no member entries (0x122, 0x143, 0xEF): squadron `count` 1. More than one stack in one spot and
+    stop firing. For more of them, use separate one-enemy squadrons, apart.
+  - Door lock lights (0xDE): the model is centred (38 under its position), so mount it on a wall about 110 over the
+    floor, never on the floor (the game's own stand about 100 up). validate's "floating" on them is expected.
+  - Door switches (0x48): the model is centred, 102 wide and 79 tall; keep 45 clear above and below and 20 behind.
+  - Bridge decks: an underside 12 under the top went with a fall through 1.3's bridge; decks are now 40 thick.
 - **Segment seams are invisible walls in the stock port** (owner's play-test, 2026-10-30): the importer's segment seams
   become upright collision edges, and one stopped the hero at a ramp top in 1.2, then the game froze. The port's
   JFG-170 (`feature/collision-limits`, played from `C:\jfg3\Recomp`) joins them, and the wall was gone with the same

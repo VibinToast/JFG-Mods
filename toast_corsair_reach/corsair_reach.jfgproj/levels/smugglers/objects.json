@@ -3064,6 +3064,53 @@
    },
    "type": "stock:objtype/0x76",
    "uid": "grotto_torch_flame_east1"
+  },
+  {
+   "fields": {
+    "cameraAngle": 0,
+    "cameraDistance": 200,
+    "cameraHeight": 75,
+    "contents": 4,
+    "size": 100,
+    "yaw": 1480
+   },
+   "name": "shuriken chest (foot of the cellar stair)",
+   "pos": [
+    -1250,
+    -58,
+    -550
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x1AA",
+   "uid": "shuriken_chest__foot_of_the_cellar_stair1"
+  },
+  {
+   "fields": {
+    "weapon": 9
+   },
+   "name": "full shuriken ammo (by the chest)",
+   "pos": [
+    -1180,
+    -58,
+    -550
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "full_shuriken_ammo__by_the_chest1"
+  },
+  {
+   "fields": {
+    "weapon": 9
+   },
+   "name": "shuriken ammo (the cache)",
+   "pos": [
+    -390,
+    -58,
+    245
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "shuriken_ammo__the_cache1"
   }
  ]
 }

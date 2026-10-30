@@ -73,7 +73,7 @@
    "pos": [
     -1080,
     136,
-    -614
+    -634
    ],
    "size": 22,
    "type": "stock:objtype/0x48",
@@ -162,7 +162,7 @@
    "fields": {
     "aimSpread": 49,
     "baddyType": 290,
-    "count": 4,
+    "count": 1,
     "dodge": 110,
     "doorId": 0,
     "drop": 20,
@@ -959,7 +959,7 @@
    "fields": {
     "aimSpread": 49,
     "baddyType": 239,
-    "count": 3,
+    "count": 1,
     "dodge": 110,
     "doorId": 0,
     "drop": 1,
@@ -1203,7 +1203,7 @@
    "fields": {
     "aimSpread": 49,
     "baddyType": 239,
-    "count": 5,
+    "count": 1,
     "dodge": 110,
     "doorId": 0,
     "drop": 21,
@@ -3420,6 +3420,20 @@
    "size": 14,
    "type": "stock:objtype/0xA9",
    "uid": "small_health__the_way_out1"
+  },
+  {
+   "fields": {
+    "weapon": 6
+   },
+   "name": "flamethrower ammo (the guard room)",
+   "pos": [
+    -640,
+    -298,
+    520
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "flamethrower_ammo__the_guard_room1"
   }
  ]
 }

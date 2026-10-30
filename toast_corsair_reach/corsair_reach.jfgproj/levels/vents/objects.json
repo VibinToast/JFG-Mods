@@ -3723,11 +3723,11 @@
     "cameraAngle": 0,
     "cameraDistance": 200,
     "cameraHeight": 75,
-    "contents": 20,
+    "contents": 1,
     "size": 100,
     "yaw": -16384
    },
-   "name": "rockets chest in the west alcove",
+   "name": "homing missiles chest in the west alcove",
    "pos": [
     -470,
     372,
@@ -4556,6 +4556,20 @@
    "size": 14,
    "type": "stock:objtype/0xF",
    "uid": "coolant_scroll1"
+  },
+  {
+   "fields": {
+    "weapon": 6
+   },
+   "name": "flamethrower ammo (the first chamber)",
+   "pos": [
+    0,
+    492,
+    660
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "flamethrower_ammo__the_first_chamber1"
   }
  ]
 }

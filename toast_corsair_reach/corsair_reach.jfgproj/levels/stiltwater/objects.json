@@ -876,7 +876,7 @@
   {
    "fields": {
     "baddyType": 290,
-    "count": 4,
+    "count": 1,
     "dodge": 110,
     "doorId": 0,
     "drop": 21,
@@ -3586,6 +3586,53 @@
    "size": 14,
    "type": "stock:objtype/0xD",
    "uid": "start__back_from_the_drowned_market1"
+  },
+  {
+   "fields": {
+    "cameraAngle": 4096,
+    "cameraDistance": 200,
+    "cameraHeight": 75,
+    "contents": 15,
+    "size": 100,
+    "yaw": 31045
+   },
+   "name": "flamethrower chest (the landing jetty)",
+   "pos": [
+    130,
+    62,
+    1620
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x1AA",
+   "uid": "flamethrower_chest__the_landing_jetty1"
+  },
+  {
+   "fields": {
+    "weapon": 6
+   },
+   "name": "full flamethrower ammo (by the chest)",
+   "pos": [
+    40,
+    62,
+    1620
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "full_flamethrower_ammo__by_the_chest1"
+  },
+  {
+   "fields": {
+    "weapon": 6
+   },
+   "name": "flamethrower ammo (last bank)",
+   "pos": [
+    -620,
+    25,
+    -1100
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "flamethrower_ammo__last_bank1"
   }
  ]
 }

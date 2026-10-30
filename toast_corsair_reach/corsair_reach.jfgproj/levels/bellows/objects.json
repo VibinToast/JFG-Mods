@@ -126,7 +126,7 @@
    "pos": [
     -100,
     960,
-    -8
+    -28
    ],
    "size": 22,
    "type": "stock:objtype/0x48",
@@ -2924,7 +2924,7 @@
    "fields": {
     "aimSpread": 48,
     "baddyType": 323,
-    "count": 2,
+    "count": 1,
     "dodge": 120,
     "doorId": 3,
     "drop": 21,
@@ -4221,6 +4221,34 @@
    "size": 18,
    "type": "stock:objtype/0x69",
    "uid": "bellows_hole"
+  },
+  {
+   "fields": {
+    "weapon": 5
+   },
+   "name": "rocket ammo (after the first furnace room)",
+   "pos": [
+    -1120,
+    352,
+    -390
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "rocket_ammo__after_the_first_furnace_room1"
+  },
+  {
+   "fields": {
+    "weapon": 7
+   },
+   "name": "sniper ammo (after the first furnace room)",
+   "pos": [
+    -1070,
+    352,
+    -390
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "sniper_ammo__after_the_first_furnace_room1"
   }
  ]
 }

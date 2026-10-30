@@ -70,7 +70,7 @@
    "name": "door switch",
    "pos": [
     -300,
-    232,
+    272,
     450
    ],
    "size": 22,
@@ -4337,7 +4337,7 @@
    "name": "harbour gate lock light",
    "pos": [
     2010,
-    22,
+    130,
     -1195
    ],
    "size": 16,
@@ -4369,7 +4369,7 @@
    "name": "warehouse back door lock light",
    "pos": [
     -725,
-    22,
+    130,
     -790
    ],
    "size": 16,

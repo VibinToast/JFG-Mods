@@ -4458,6 +4458,20 @@
    "size": 20,
    "type": "stock:objtype/0x20",
    "uid": "water_lapping_by_the_south_arcade1"
+  },
+  {
+   "fields": {
+    "weapon": 6
+   },
+   "name": "flamethrower ammo (the arcade)",
+   "pos": [
+    390,
+    62,
+    1480
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xCF",
+   "uid": "flamethrower_ammo__the_arcade1"
   }
  ]
 }

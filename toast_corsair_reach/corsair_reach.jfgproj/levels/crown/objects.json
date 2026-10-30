@@ -1238,7 +1238,7 @@
    "fields": {
     "aimSpread": 47,
     "baddyType": 323,
-    "count": 2,
+    "count": 1,
     "dodge": 125,
     "doorId": 0,
     "drop": 21,
@@ -1931,7 +1931,7 @@
    "fields": {
     "aimSpread": 47,
     "baddyType": 323,
-    "count": 2,
+    "count": 1,
     "dodge": 125,
     "doorId": 0,
     "drop": 21,
@@ -2527,9 +2527,9 @@
    },
    "name": "door switch",
    "pos": [
-    1414,
-    1120,
-    50
+    1369,
+    1108,
+    65
    ],
    "size": 22,
    "type": "stock:objtype/0x48",
@@ -3893,7 +3893,7 @@
    "name": "forge core door lock light",
    "pos": [
     -1610,
-    1402,
+    1510,
     -1050
    ],
    "size": 16,

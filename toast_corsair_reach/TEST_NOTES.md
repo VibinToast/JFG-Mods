@@ -10,6 +10,11 @@ at the top of Gullwing Docks' start ramp, and the game then froze there (2026-10
 seams (518 in Gullwing) and the wall was gone; the level's mesh needs no change. Copy the pack's `.nrm` into
 `C:\jfg3\Recomp\bin\mods` after each rebuild.
 
+**After the second play-test (2026-10-30), please re-check:** 1.3's bridges hold (x 50..350, and x -700..-550); the
+door lock lights on their walls; the door switches in 1.2, 1.3, 2.3, 2.4, 3.2 and 3.3; one big enemy per squad
+(marsh leech, cistern crawler, slag gunner); the new chests (shuriken 1.4, flamethrower 2.1, rockets and sniper 3.1,
+homing missiles 3.4). The game also crashed around 09:54 in 3.2, soon after its arrival; no crash log, cause unknown.
+
 ## 1.2 Gullwing Docks (JFG-169, built 2026-10-30, not played)
 
 Start it from 1.1's gate, or straight in:
