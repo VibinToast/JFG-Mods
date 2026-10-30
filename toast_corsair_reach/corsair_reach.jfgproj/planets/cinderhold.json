@@ -1,0 +1,33 @@
+{
+ "disc": {
+  "colour": [
+   120,
+   30,
+   20
+  ],
+  "index": 3,
+  "radius": 38,
+  "x": 700,
+  "y": 300
+ },
+ "displayName": {
+  "en": "Cinderhold"
+ },
+ "entryLevel": {
+  "juno": "pack:level/slagflats",
+  "lupus": "pack:level/slagflats",
+  "vela": "pack:level/slagflats"
+ },
+ "format": 1,
+ "galaxy": "corsair_reach",
+ "routes": [
+  {
+   "back": "left",
+   "dir": "right",
+   "from": "pack:world/mirefall"
+  }
+ ],
+ "unlock": {
+  "completed": "mirefall"
+ }
+}

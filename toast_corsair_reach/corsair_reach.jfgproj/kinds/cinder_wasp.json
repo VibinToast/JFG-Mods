@@ -1,0 +1,13 @@
+{
+ "base": "stock:objtype/0x29",
+ "format": 1,
+ "name": "Cinder wasp",
+ "scale": 1.0,
+ "textures": {
+  "0": "0.png",
+  "1": "1.png",
+  "2": "2.png",
+  "3": "3.png",
+  "4": "4.png"
+ }
+}

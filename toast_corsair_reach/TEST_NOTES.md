@@ -330,5 +330,59 @@ until 3.1 exists).
 - **Story:** 6 lines (the causeway, G1, the first ramp, the lamp room, the engine dead, Cinderhold).
 - **Size:** 224 KB unpacked, 5,449 triangles; polyList need 281 (the build sets 422).
 
-**Placeholders:** the lift's exit leads to the game's usual way back (stock level 21) until 3.1 exists (TODO in
-`levels/3.1_slagflats.md`). 2.2's causeway exit now leads here.
+**Placeholders:** none left: the lift's exit ("down the keeper's lift", `arg1A` 1) leads to 3.1's landing ledge
+(start point 0) since 3.1 was built. 2.2's causeway exit leads here.
+
+## 3.1 Slag Flats (Cinderhold's entry level; JFG-169, built 2026-10-30, not played)
+
+Start it from 2.4's lift (after the engine dies), from the planet map (Cinderhold, once Mirefall is completed), or
+straight in: `--mods-only toast_corsair_reach --start-level toast_corsair_reach:level_slagflats --start-point 0`.
+Start point 1 (in the foundry's vestibule, facing out) is where 3.2's way back will arrive.
+
+**The route:** the landing ledge (a small lava pool beside it) → up the basalt canyon: the machine gun chest and a
+Tribal in a niche on the right → 4 furnace hands where the canyon widens (basalt columns as cover) → 3 ember beetles
+at the last bends → the flats: bridge 1 under a turret's fire (slag lumps on the near bank), 3 cinder wasps over the
+ground beyond → bridge 2 (a second turret), or round the north end of the middle river, past its spring (the loop) →
+bridge 3: 2 slag gunners at its far end → the cut into the ore yard under the signal gantry: 4 furnace hands and 3
+ember beetles among ore carts and bins → shoot the rail signal hanging under the gantry (flag 110) → the yard gate
+opens → up the ramp to the forge gate: 2 slag gunners lock the foundry door; it opens on a camera shot → the exit at
+the back of the vestibule (for now the game's way back).
+
+**Untested in a pack level (please look):**
+- **The planet:** does Cinderhold (a red-black disc right of Mirefall) appear on the map once Mirefall is completed,
+  reached with the stick right from Mirefall (left goes back)? Does the map start this level, for every hero? Does
+  2.4's lift arrive on the landing ledge, with the stats screen first?
+- **Lava (the pack's first):** three rivers, a spring, a lake and the landing's pool, all a surface 30 over a solid
+  bed with banks 36 high. Does it hurt Vela and Lupus, can they walk straight out anywhere, is Juno unhurt and does
+  he wade (not fall through)? Does it scroll (texscroll texture 12; if the wrong surface moves, the lava's index is
+  another one)? Does it glow (its vertex colours are near white; red-orange pools are baked along the banks)?
+- **The lava-walker's cache:** an island in the lake bay south of the middle river, about 200 of lava from the north
+  shore: a Tribal and full machine gun ammo. Juno's secret; how much does it cost Vela or Lupus to wade there?
+- **Falling ash:** the game's snow, light and slow (intensity 70, opacity 140, weatherFlags 1). Does it read as ash
+  under the red sky, or as snow? If snow, remove it (`set_level weather "none"`).
+- **The sky** (`pack:sky/cinder`, its first use): a dark red dome, the volcano due north with fire and smoke at its
+  top, 40 degrees up. Seen over the canyon walls from the start, and over the north rim from the flats? Does the
+  horizon meet the fog (70, 30, 20)?
+- **Five new kinds and four new bases:** furnace hands (0x78: leather apron, goggles), ember beetles (0xBE, the
+  pack's first: black crust, glowing seams; their stock size 35 is a big beetle), cinder wasps (0x29, first: ash grey
+  and orange, flyers over the ground between rivers 1 and 2), forge turrets (0xF5, first: on stone plinths 70 high on
+  the far banks of bridges 1 and 2; can they hit the hero on the bridge, can he hit them?) and slag gunners (0x143,
+  first: big armoured gunners, size 40 of a 368-tall model; the game's only squad of them is a smart one, so they
+  move behind the slag lumps at bridge 3 and the ingot stacks in the court). Slots painted by role, not looked at on
+  the models.
+- **The switch hanging under a beam:** the rail signal (0x48) at 450 under the gantry over the yard's way in, facing
+  into the yard. Can it be seen and shot from the yard floor? Does the yard gate (0x19D, a new door type for the
+  pack) open, fill its opening, and stay open after a reload (flag 110)?
+- **The foundry door** (0xF9, 338 x 256, a new door type for the pack) in a 300 x 216 opening: does it fill it? Does
+  it open when both gunners die, with the camera shot from the court (lock light 0xDE on the court floor beside it)?
+  Message "The foundry doors."
+- **Squads sharing a region** (the yard's two) and their 7 cover holes (carts and bins). Do they move between cover?
+- **The column stair** (secret, any hero): basalt columns 70, 140 and 210 high against the canyon's west wall, a full
+  health on top.
+- **Arriving at start point 1** (from 3.2, when it exists): if the gunners are alive again, the foundry door stays
+  locked from inside: the player can only go back into 3.2. Fine?
+- **Story:** 5 lines (the landing, the canyon's mouth, bridge 1, the yard, the foundry door).
+- **Size:** 245 KB unpacked, 5,237 triangles; polyList need 74 (fits the game's 90).
+
+**Placeholders:** the vestibule's exit leads to the game's usual way back (stock level 21) until 3.2 exists (TODO
+in `levels/3.2_bellows.md`).

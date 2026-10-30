@@ -48,14 +48,14 @@
     "startPoint": 0,
     "unlockWorld": -1
    },
-   "name": "TODO 3.1: down the keeper's lift to the slag flats (for now: the game's way back)",
+   "name": "down the keeper's lift",
    "pos": [
     625,
     1202,
     -600
    ],
    "size": 28,
-   "target": "stock:level/21",
+   "target": "pack:level/slagflats",
    "type": "stock:objtype/0xB",
    "uid": "todo_3_1__down_the_keeper_s_lift_to_the_slag_flats__for_now__the_game_s_way_back1"
   },

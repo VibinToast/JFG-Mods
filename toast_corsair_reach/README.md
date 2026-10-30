@@ -19,9 +19,10 @@ that calls the weather. Follow it across three worlds:
 Every world has its own enemies, Tribals to rescue, keys, switches and secrets, and it gets harder as you go. The
 galaxy is open from the start: on the planet map press **R** (on a controller RB or D-pad right) and fly to Driftwood
 Cay. Each world opens once the one before it is completed. Nothing needs the jetpack or hover; any hero can play it
-at any point of a game.
+at any point of a game. A few secrets want a particular hero: in Cinderhold, only Juno walks on lava unhurt.
 
-**Built so far:** the first two levels, Sunwreck Beach and Gullwing Docks. The rest are on their way.
+**Built so far:** Driftwood Cay and Mirefall (eight levels) and Cinderhold's first, Slag Flats. The rest are on their
+way.
 
 ## Install
 
@@ -40,7 +41,8 @@ on your machine:
    blender --background --factory-startup --addons jfg64 --python blender/sunwreck.py
    blender --background --factory-startup --addons jfg64 --python blender/gullwing.py
    ```
-   Each writes its level's `.glb` to `blender/out/` (`sunwreck.glb`, `gullwing.glb`).
+   and so on, one script per level (`blender/slagflats.py` for Slag Flats). Each writes its level's `.glb` to
+   `blender/out/` (`sunwreck.glb`, `gullwing.glb` ...).
 3. In JFG-Studio, import each into the project (File > Import geometry, or the `reimport_geometry` tool) under its
    own name (`sunwreck`, `gullwing`).
 4. Build the pack in JFG-Studio, or from the command line:

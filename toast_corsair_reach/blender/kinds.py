@@ -52,6 +52,22 @@ BASES = {
     0xEF: [("band", 32, 16), ("shell", 32, 32), ("shell", 32, 32), ("tiny", 8, 8), ("head", 32, 32),
            ("shell", 32, 32), ("shell", 32, 32), ("body", 64, 32), ("leg", 16, 32), ("shell", 32, 32),
            ("shell", 32, 32), ("strip", 32, 4)],
+    # the shield beetle (0xBE): roles by size (the model's own images were not looked at); slot 13 is see-through
+    0xBE: [("tiny", 4, 4), ("leg", 16, 32), ("joint", 16, 16), ("joint", 16, 16), ("leg", 16, 32), ("shell", 32, 32),
+           ("joint", 16, 16), ("shell", 32, 32), ("shell", 32, 32), ("head", 32, 32), ("joint", 16, 16),
+           ("tiny", 8, 8), ("leg", 16, 32), ("glow", 16, 16)],
+    # the wasp flyer (0x29): a tiny one, a body sheet, a long wing strip, a panel and a second body sheet
+    0x29: [("tiny", 8, 8), ("body", 32, 32), ("wing", 16, 32), ("panel", 16, 16), ("body", 32, 32)],
+    # the turret gun (0xF5): plates and barrels; slots 5, 6, 13 and 15 are cut out (masked) in the base
+    0xF5: [("plate", 32, 32), ("bolt", 16, 16), ("barrel", 16, 32), ("barrel", 16, 32), ("bolt", 16, 16),
+           ("vent", 16, 16), ("vent", 16, 16), ("plate", 32, 32), ("plate", 32, 32), ("bolt", 16, 16),
+           ("band", 32, 16), ("band", 32, 16), ("tiny", 8, 8), ("vent", 16, 16), ("tiny", 4, 4),
+           ("vent", 32, 32), ("barrel", 16, 32), ("barrel", 16, 32), ("bolt", 16, 16)],
+    # the armoured gunner (0x143): bands, plates, wide body sheets, a tiny one, a narrow strip; slot 9 see-through
+    0x143: [("band", 32, 16), ("plate", 32, 32), ("body", 64, 32), ("plate", 32, 32), ("tiny", 8, 8),
+            ("plate", 32, 32), ("band", 32, 16), ("plate", 32, 32), ("body", 64, 32), ("visor", 32, 32),
+            ("plate", 32, 32), ("strip", 8, 32), ("body", 64, 32), ("long", 32, 64), ("plate", 32, 32),
+            ("strip", 16, 32), ("plate", 32, 32), ("plate", 32, 32)],
 }
 
 
@@ -604,8 +620,127 @@ def drain_rat(role):
     return fn
 
 
-MASKED = {(0xEE, 1), (0x12F, 2), (0x121, 2), (0x121, 8), (0x122, 10)}  # slots whose base image has a cut-out: ours gets one too (a rounded blob)
-BLEND = {(0x9C, 12): 150, (0x9C, 13): 120}  # slots whose base image is see-through: ours too, at this alpha
+# ------------------------------------------------------------------------------------------------ world 3: Cinderhold
+LEATHER, SOOT = (112, 72, 40), (36, 30, 28)
+FURNACE_HAND = {
+    "seed": 81, "coat": LEATHER, "trim": (210, 120, 40), "limb": (70, 58, 52), "strap": (56, 38, 24),
+    # a leather apron over a soot-grey smock: stitched seams, black smudges, a scorched hem
+    "pattern": lambda x, y, w, h: (SOOT if (x * 5 + y * 3) % 23 < 3 else (150, 70, 30) if y > h - 5
+                                   else (86, 54, 30) if x % 8 == 3 and y % 2 == 0
+                                   else LEATHER if w * 0.18 < x < w * 0.82 else (78, 70, 66)),
+    # a soot-black cap with welding goggles pushed up on it
+    "hat": lambda x, y, w, h: ((200, 110, 40) if abs(y - h * 0.25) < 2
+                               and (abs(x - w * 0.35) < 3 or abs(x - w * 0.65) < 3)
+                               else (60, 56, 52) if abs(y - h * 0.25) < 1 else SOOT),
+    "band": lambda x, y, w, h: (210, 120, 40) if y % 6 in (2, 3) and x % 4 else (56, 38, 24),
+}
+
+
+def ember_beetle(role):
+    """A shield beetle out of the slag: a black crust shell split by glowing orange-yellow heat seams."""
+    sp = speckle(83)
+    rnd = random.Random(85)
+    seams = [(rnd.random(), rnd.random(), rnd.random() * math.pi) for _ in range(5)]
+
+    def heat(x, y, w, h):
+        u, v = (x + 0.5) / w, (y + 0.5) / h
+        d = min(abs((u - a) * math.sin(t) - (v - b) * math.cos(t)) for a, b, t in seams)
+        return max(0.0, 1.0 - d * 9.0)
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        crust = shade((40, 30, 28), 0.85 + 0.3 * s)
+        if role == "shell":
+            k = heat(x, y, w, h)
+            if k > 0:
+                return tuple(clamp(crust[i] + (255, 150 + 80 * k, 40)[i] * k) for i in range(3))
+            return shade(crust, rounded(x, y, w, h))
+        if role == "head":
+            e = eye(x, y, w, h, (220, 110, 30), lens=(60, 14, 6))
+            return e if e else shade(crust, rounded(x, y, w, h))
+        if role in ("leg", "joint"):
+            return (230, 110, 30) if (x + y * 3) % 11 == 0 else shade((30, 24, 22), 0.8 + 0.4 * s)
+        if role == "glow":
+            return shade((255, 150, 40), 0.6 + 0.4 * max(0.0, 1 - math.hypot(x - w / 2, y - h / 2) / (w / 2)))
+        return (255, 140, 40)
+    return fn
+
+
+def cinder_wasp(role):
+    """A wasp of the ash clouds: ash-grey plates banded orange, smoky wings with ember-orange edges."""
+    sp = speckle(89)
+    ash, orange, dark = (118, 112, 108), (235, 110, 30), (40, 36, 34)
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        if role == "body":
+            if (y // 4) % 3 == 0:
+                return shade(orange, 0.85 + 0.3 * s)
+            return shade(ash, rounded(x, y, w, h) * (0.85 + 0.2 * s))
+        if role == "wing":
+            edge = x < 2 or x > w - 3
+            return shade(orange, 1.0) if edge else shade((90, 86, 84), 0.7 + 0.4 * (y / h))
+        if role == "panel":
+            return shade(orange, 1.2) if (x * y) % 7 == 0 else shade(dark, 0.9 + 0.2 * s)
+        return orange
+    return fn
+
+
+def forge_turret(role):
+    """A gun turret cast in the forge: soot-black iron plates, rivets, glowing orange seams between the plates."""
+    sp = speckle(97)
+    iron, glow = (34, 30, 30), (250, 120, 30)
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        if role == "plate":
+            if x % 16 == 0 or y % 16 == 0:
+                return shade(glow, 0.8 + 0.3 * s)
+            if x % 16 in (3, 13) and y % 16 in (3, 13):
+                return (120, 110, 100)
+            return shade(iron, rounded(x, y, w, h) * (0.85 + 0.3 * s))
+        if role == "barrel":
+            return shade((50, 46, 46), rounded(x, y, w, h)) if y > 3 else shade(glow, 1.1)
+        if role == "band":
+            return shade(glow, 0.9) if y % 8 in (3, 4) else shade(iron, 0.9 + 0.2 * s)
+        if role == "vent":
+            return shade(glow, 0.7 + 0.5 * s) if y % 3 == 1 else (20, 16, 16)
+        if role == "bolt":
+            return (130, 120, 110) if math.hypot(x - w / 2, y - h / 2) < w * 0.3 else shade(iron, 1.1)
+        return glow
+    return fn
+
+
+def slag_gunner(role):
+    """A heavy gunner in armour of black basalt, cracked with glowing orange seams; an amber visor."""
+    sp = speckle(101)
+    rnd = random.Random(103)
+    cracks = [(rnd.random(), rnd.random(), rnd.random() * math.pi) for _ in range(4)]
+
+    def seam(x, y, w, h):
+        u, v = (x + 0.5) / w, (y + 0.5) / h
+        return min(abs((u - a) * math.sin(t) - (v - b) * math.cos(t)) for a, b, t in cracks) < 0.045
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        basalt = shade((30, 28, 30), 0.8 + 0.45 * s)
+        if role in ("plate", "body", "long"):
+            if seam(x, y, w, h):
+                return shade((255, 120, 30), 0.85 + 0.25 * s)
+            return shade(basalt, rounded(x, y, w, h))
+        if role == "band":
+            return shade((230, 100, 25), 0.9) if y % 8 in (3, 4) else basalt
+        if role == "strip":
+            return shade((255, 130, 40), 0.7 + 0.3 * math.sin(math.pi * (y + 0.5) / h))
+        if role == "visor":
+            return shade((255, 170, 60), 0.6 + 0.5 * max(0.0, 1 - math.hypot(x - w / 2, y - h / 2) / (w / 2)))
+        return (255, 130, 40)
+    return fn
+
+
+MASKED = {(0xEE, 1), (0x12F, 2), (0x121, 2), (0x121, 8), (0x122, 10), (0xF5, 5), (0xF5, 6), (0xF5, 13),
+          (0xF5, 15)}  # slots whose base image has a cut-out: ours gets one too (a rounded blob)
+BLEND = {(0x9C, 12): 150, (0x9C, 13): 120, (0xBE, 13): 150, (0x143, 9): 170}  # slots whose base image is see-through: ours too, at this alpha
 
 KINDS = {
     "deckhand": (0x78, lambda r: soldier(DECKHAND)(r)),
@@ -627,6 +762,11 @@ KINDS = {
     "drain_rat": (0xEE, drain_rat),  # a ground beetle, not 0xE1 (it hangs from a thread)
     "spire_captain": (0x12F, lambda r: soldier(SPIRE_CAPTAIN)(r)),
     "engine_guard": (0x9C, lambda r: soldier(ENGINE_GUARD)(r)),
+    "furnace_hand": (0x78, lambda r: soldier(FURNACE_HAND)(r)),
+    "ember_beetle": (0xBE, ember_beetle),
+    "cinder_wasp": (0x29, cinder_wasp),
+    "forge_turret": (0xF5, forge_turret),
+    "slag_gunner": (0x143, slag_gunner),  # big: the stock squad's size 40 (x 368 tall = 147)
 }
 
 

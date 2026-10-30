@@ -98,6 +98,18 @@ local BEATS = {
       music = "mirefall_victory", text = "The engine's dead. The storm is breaking." },
     { after = 5, delay = 4, text = "Their maker's mark: Cinderhold. Mirefall is free." },
   },
+  level_slagflats = {
+    -- on the landing ledge (start point 0 is on it; start point 1, back from the bellows, is in the foundry)
+    { box = { -2450, -2050, 1250, 1650 }, text = "Cinderhold. The storm engines start here." },
+    -- out of the canyon's mouth onto the flats: the volcano and its fire fill the north
+    { box = { -1550, -1350, 150, 450 }, text = "Their summit forge: the Crown. That's the way up." },
+    -- the near bank of the first bridge, the turret on its plinth across the lava
+    { box = { -1160, -1080, 120, 480 }, text = "A turret on the far bank. Keep to the slag heaps." },
+    -- into the ore yard under the signal gantry
+    { box = { 1150, 1300, -550, -250 }, text = "The yard gate runs off that rail signal." },
+    -- the foundry door (door 2), seen locked this visit, opens: its gunners are dead
+    { door = 2, text = "The foundry doors." },
+  },
 }
 
 -- Lightning in Mirefall's levels: every `every` seconds (a random wait between the two), the fog flashes to `flash`

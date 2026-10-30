@@ -25,7 +25,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | 2.2 | `bellmarket` Drowned Bellmarket (hub) | built, checked, not play-tested | ff63176 |
 | 2.3 | `undercistern` The Undercistern | built, checked, not play-tested | 09771d2 |
 | 2.4 | `stormspire` Stormspire | built, checked, not play-tested | 1f2bf81 |
-| 3.1 | `slagflats` Slag Flats | | |
+| 3.1 | `slagflats` Slag Flats | built, checked, not play-tested | COMMIT31 |
 | 3.2 | `bellows` The Bellows | | |
 | 3.3 | `crown` Caldera Crown (finale) | | |
 | 3.4 | `vents` Coolant Vents (optional) | | |
@@ -180,6 +180,11 @@ Health and ammo after every big fight; a full health before each world's last fi
   colours) is only a stand-in. Reuse a dome where the table says "as". Match the fog colour to the dome's horizon.
 - **Music**: `import_music` the level's track, pick it with `set_level`. Stings at each world's last gate:
   `driftwood_victory`, `mirefall_victory`, `cinderhold_victory`.
+- **Cinderhold's sky** (3.1): `blender/sky_cinder.py` → `pack:sky/cinder`, horizon (70, 30, 20), the volcano due north
+  in the dome (top about 40 degrees up, the forge's fire and smoke). 3.3 stands on the volcano: build a copy with
+  `VOLCANO = False` in the script (a new name, e.g. `cinder_rim`) if a volcano on its horizon looks wrong. 3.1's ash
+  fall: `{"like": 141, "weatherIntensity": 70, "weatherOpacity": 140, "weatherVelX": 40, "weatherVelY": -70,
+  "weatherVelZ": 25, "weatherFlags": 1}` (untested: owner to judge whether it reads as ash).
 - **Weather** (Studio 3f4674d; the owner saw rain in a pack level, 2026-10-30): `set_level {"weather": "rain"}` (or
   `{"like": 42, ...}` for the game's rainy level's values) in every Mirefall level, heaviest at Stormspire. Snow
   (`"snow"`) may read as falling ash at the Crown: try it, keep it if it looks like ash. Lightning from Lua in Mirefall:
@@ -357,6 +362,28 @@ Health and ammo after every big fight; a full health before each world's last fi
 - A level with a horizon sea (water out to 12,000): `level_preview` draws the whole sea and the level is a dot; look
   with `render_views.py` instead. The sea's edge at the horizon is `validate`'s one `water` warning (1.1, 1.2, 2.4).
 - A tall tower raises the poly list need (2.4: 281, the build sets 422; 1.1's 414 passed its play-test).
+- **Studio's own `Session` (its venv) and the MCP server on one level** (3.1): after any `Session` edit,
+  `open_project` in the MCP **before its next edit**: an MCP edit made first writes its stale copy of `objects.json`
+  back and the `Session`'s changes are lost (3.1 lost its squads' health once). The newer tools in the `Session`
+  (`place_tribal` with `region` and `[x, y, z]`, `track_textures`, `model_size`, `squad_examples`) save hand edits.
+- A beam over a squad's region (a gantry) is an obstacle to `place_squad`: it joins every cover block under it into
+  one and gives none of them a hole, and members land on the beam (3.1's yard). Keep overhead beams out of regions.
+- Turret (0xF5) and flyer squads get holes from `place_squad` too: delete them. 0x143 and 0x29 squads have no member
+  entries (the squadron spawns them round itself: put it on clear floor, not on a cover rock). Stock (list/entry,
+  health, aim, dodge, size): 0xBE 485/296 14, 50, 100, 35 smart; 0x29 435/290 2, 50, 100, 31; 0xF5 522/147 20, 16,
+  100, 200 sentry; 0x143 499/145 24, 50, 100, 40, its only squad and a smart one (no sentry gunners).
+- Lava (3.1): `water_surface` per river with its own level, each window (x0, z0 on the grid) holding no ground under
+  that level (a ramp between two rivers' banks caught lava); a river's both banks at one height (steps between floors
+  go between the rivers); `bake` lights lava like rock: set its `Col` near white after. Lava's `texscroll` index is
+  not its id in the track's list (1547 read as 0x1546, 060D as 0x02FF): find it by elimination (3.1: 12).
+- A plain white 8 x 8 own image is one of the game's (the build refuses the pack): give it a grain (3.1's sky).
+- A heightfield zone must end 50+ inside the field's edge, or the room past it opens to the sky (3.1's vestibule).
+  A ceiling over a heightfield room ends where the cliff crosses it, or `geometry_info` finds a folded floor.
+- Rock out of reach flattened to 100 steps (`H` returns `100 * round(cliff / 100)` past 150 from any floor) merges
+  in `heightfield` (3,500 → 3,000 ground triangles); `level_layout` then counts those plateaus as walkable (3.1:
+  16 million; its real floor is about 6).
+- A dome landmark (3.1's volcano, a cone inside the dome, its far half left out: sky faces draw in no depth order)
+  must reach about 40 degrees to show over the rims seen from a level's floors (25-35 degrees on 3.1's flats).
 
 ## Before you finish
 
