@@ -379,6 +379,114 @@ def rects_minus(rect, holes):
     return out
 
 
+# ------------------------------------------------------------------------------------------------ rooms and tunnels
+# Built places under a roof, from 1.3's script (blackwater.py keeps its own copies): walls in pieces (no long thin
+# triangles near the hero), walls with rectangular openings, parapets and see-through rails with colliders.
+
+def cuts(a, b, step):
+    """Evenly from a to b, no gap over `step` (both ends included)."""
+    n = max(1, math.ceil(abs(b - a) / step - 1e-6))
+    return [a + (b - a) * k / n for k in range(n + 1)]
+
+
+def strip(m, a, b, y0a, y0b, y1a, y1b, mat, facing, step=200.0):
+    """A wall from a to b ((x, z)), bottom y0 and top y1 at each end, in pieces of at most `step` along it."""
+    L = math.hypot(b[0] - a[0], b[1] - a[1])
+    ts = cuts(0.0, 1.0, step / max(L, 1e-6))
+    for t0, t1 in zip(ts, ts[1:]):
+        p = (a[0] + (b[0] - a[0]) * t0, a[1] + (b[1] - a[1]) * t0)
+        q = (a[0] + (b[0] - a[0]) * t1, a[1] + (b[1] - a[1]) * t1)
+        lo0, lo1 = y0a + (y0b - y0a) * t0, y0a + (y0b - y0a) * t1
+        hi0, hi1 = y1a + (y1b - y1a) * t0, y1a + (y1b - y1a) * t1
+        if hi0 - lo0 < 0.5 and hi1 - lo1 < 0.5:
+            continue
+        m.face([(p[0], p[1], lo0), (q[0], q[1], lo1), (q[0], q[1], hi1), (p[0], p[1], hi0)], mat, facing)
+
+
+def walls(m, x0, z0, x1, z1, y0, top, mat, which="nsew", inward=False, step=200.0):
+    """The walls of x0..x1, z0..z1 from y0 to top (each a height or a function (x, z): a ramp's floor), facing out
+    (inward: a room's or a tunnel's), in pieces. which: n (-z), s (+z), e (+x), w (-x)."""
+    t = top if callable(top) else (lambda x, z, v=top: v)
+    b = y0 if callable(y0) else (lambda x, z, v=y0: v)
+    k = -1 if inward else 1
+    if "n" in which:
+        strip(m, (x1, z0), (x0, z0), b(x1, z0), b(x0, z0), t(x1, z0), t(x0, z0), mat, (0, -k, 0), step)
+    if "s" in which:
+        strip(m, (x0, z1), (x1, z1), b(x0, z1), b(x1, z1), t(x0, z1), t(x1, z1), mat, (0, k, 0), step)
+    if "e" in which:
+        strip(m, (x1, z1), (x1, z0), b(x1, z1), b(x1, z0), t(x1, z1), t(x1, z0), mat, (k, 0, 0), step)
+    if "w" in which:
+        strip(m, (x0, z0), (x0, z1), b(x0, z0), b(x0, z1), t(x0, z0), t(x0, z1), mat, (-k, 0, 0), step)
+
+
+def ceiling(m, x0, z0, x1, z1, y, mat, y1=None, along="x", size=200.0):
+    """A roof over x0..x1, z0..z1 facing down, in squares; y to y1 along `along` over a ramp."""
+    tiled(m, x0, z0, x1, z1, y, mat, y1, along, size, facing=(0, 0, -1))
+
+
+def plane_rect(m, plane, c, u0, v0, u1, v1, holes, mat, facing, step=220.0):
+    """A flat wall in the plane x = c (plane "x": u is z) or z = c (plane "z": u is x), v the height, over u0..u1,
+    v0..v1 minus rectangular openings (u0, v0, u1, v1), in pieces of at most `step`."""
+    for r in rects_minus((u0, v0, u1, v1), holes):
+        us, vs = cuts(r[0], r[2], step), cuts(r[1], r[3], step)
+        for a, b in zip(us, us[1:]):
+            for p, q in zip(vs, vs[1:]):
+                if plane == "x":
+                    pts = [(c, a, p), (c, b, p), (c, b, q), (c, a, q)]
+                else:
+                    pts = [(a, c, p), (b, c, p), (b, c, q), (a, c, q)]
+                m.face(pts, mat, facing)
+
+
+def lip(m, a, b, ya, yb, mat, h=150.0, thick=25.0, coll_to=None, edges=None, seg=200.0, caps=(True, True),
+        under=False):
+    """A parapet along a -> b ((x, z)) on floor ya..yb, `thick` to the left of a -> b, `h` tall, in pieces; with
+    coll_to and `edges` (the boundary material's Mesh), a collider up to that much over the floor. caps: its end
+    faces (left out where it butts against another parapet: two faces in one plane flicker); under: an underside
+    (a bar in the air)."""
+    dx, dz = b[0] - a[0], b[1] - a[1]
+    L = math.hypot(dx, dz)
+    nx, nz = -dz / L * thick, dx / L * thick
+    ts = cuts(0.0, 1.0, seg / L)
+    for t0, t1 in zip(ts, ts[1:]):
+        p = (a[0] + dx * t0, a[1] + dz * t0)
+        q = (a[0] + dx * t1, a[1] + dz * t1)
+        y0, y1 = ya + (yb - ya) * t0, ya + (yb - ya) * t1
+        pts = [p, q, (q[0] + nx, q[1] + nz), (p[0] + nx, p[1] + nz)]
+        tops = [y0 + h, y1 + h, y1 + h, y0 + h]
+        foot = [y0, y1, y1, y0]
+        m.face([(pp[0], pp[1], tt) for pp, tt in zip(pts, tops)], mat, (0, 0, 1))
+        if under:
+            m.face([(pp[0], pp[1], ff) for pp, ff in zip(pts, foot)], mat, (0, 0, -1))
+        cx, cz = sum(pp[0] for pp in pts) / 4, sum(pp[1] for pp in pts) / 4
+        for i in range(4):
+            if i == 1 and (t1 < 1.0 or not caps[1]) or i == 3 and (t0 > 0.0 or not caps[0]):
+                continue  # the joins between pieces are inside the parapet
+            u, w = pts[i], pts[(i + 1) % 4]
+            m.face([(u[0], u[1], foot[i]), (w[0], w[1], foot[(i + 1) % 4]), (w[0], w[1], tops[(i + 1) % 4]),
+                    (u[0], u[1], tops[i])], mat, ((u[0] + w[0]) / 2 - cx, (u[1] + w[1]) / 2 - cz, 0))
+    if coll_to and edges is not None:
+        mx, mz = nx / 2, nz / 2
+        collider(edges, (a[0] + mx, a[1] + mz), (b[0] + mx, b[1] + mz), min(ya, yb) + h, max(ya, yb) + coll_to)
+
+
+def fence(m, edges, a, b, ya, yb, mat, h=150.0, every=160.0, coll=550.0, first=True):
+    """A rail along a -> b on floor ya..yb, seen through: posts and a rail along their tops at `h`, and a collider
+    in its line from the floor to `coll` over it (in `edges`). first: its first post (left out where it starts at
+    another fence's last). From the hero's eye (55) a solid 150 parapet hides the room below it (1.3)."""
+    L = math.hypot(b[0] - a[0], b[1] - a[1])
+    for t in cuts(0.0, 1.0, every / L)[(0 if first else 1):]:
+        y = ya + (yb - ya) * t
+        post(m, a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, 8, y, y + h + 6, mat, n=4, phase=math.pi / 4)
+    dx, dz = (b[0] - a[0]) / L * 3, (b[1] - a[1]) / L * 3
+    tr = 9.0 / L  # the rail stops inside the end posts: rails meeting at a corner would overlap
+    aa = (a[0] + (b[0] - a[0]) * tr + dz, a[1] + (b[1] - a[1]) * tr - dx)
+    bb = (b[0] - (b[0] - a[0]) * tr + dz, b[1] - (b[1] - a[1]) * tr - dx)
+    y0, y1 = ya + (yb - ya) * tr, yb - (yb - ya) * tr
+    lip(m, aa, bb, y0 + h - 10, y1 + h - 10, mat, h=10, thick=6, seg=260.0, under=True)
+    collider(edges, a, b, min(ya, yb), max(ya, yb) + coll)
+
+
 def _cuts(a, b, edges, step):
     """Points from a to b through every edge between them, no gap over `step`."""
     pts = sorted({a, b} | {v for v in edges if a < v < b})

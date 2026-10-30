@@ -60,26 +60,6 @@
     "arg1A": 1,
     "condition": -1,
     "levelHigh": 255,
-    "radius": 40,
-    "unlockWorld": -1
-   },
-   "name": "TODO 1.4: way back into the smugglers' tunnels (for now: the game's way back)",
-   "pos": [
-    1695,
-    42,
-    550
-   ],
-   "size": 28,
-   "target": "stock:level/21",
-   "type": "stock:objtype/0xB",
-   "uid": "todo_1_4__way_back_into_the_smugglers__tunnels__for_now__the_game_s_way_back1"
-  },
-  {
-   "fields": {
-    "animGroup": -1,
-    "arg1A": 1,
-    "condition": -1,
-    "levelHigh": 255,
     "radius": 60,
     "unlockWorld": -1
    },
@@ -4175,6 +4155,27 @@
    "size": 20,
    "type": "stock:objtype/0x20",
    "uid": "camp_fire_crackle1"
+  },
+  {
+   "fields": {
+    "animGroup": -1,
+    "arg1A": 1,
+    "condition": -1,
+    "levelHigh": 255,
+    "radius": 40,
+    "startPoint": 1,
+    "unlockWorld": -1
+   },
+   "name": "back to the smugglers' tunnels",
+   "pos": [
+    1695,
+    42,
+    550
+   ],
+   "size": 28,
+   "target": "pack:level/smugglers",
+   "type": "stock:objtype/0xB",
+   "uid": "back_to_the_smugglers__tunnels1"
   }
  ]
 }

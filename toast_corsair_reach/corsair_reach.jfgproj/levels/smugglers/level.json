@@ -1,0 +1,23 @@
+{
+ "format": 1,
+ "header": {
+  "cutsceneData": 3,
+  "fog3": 986,
+  "fogB": 30,
+  "fogFar": 1021,
+  "fogG": 40,
+  "fogNear": 986,
+  "fogR": 30,
+  "lights": 24,
+  "region": 0,
+  "regionIndex": 0,
+  "tune": 12,
+  "tuneChannelMask": 65535,
+  "world": 15
+ },
+ "music": "pack:music/smugglers_run",
+ "name": "Smugglers' Run",
+ "planet": "driftwood",
+ "sky": -1,
+ "track": "pack:track/smugglers"
+}

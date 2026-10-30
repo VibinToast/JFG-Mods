@@ -42,8 +42,9 @@ exit.
 - **Polylist**: the build raised it to 512 (the deck needs up to 341). Any falling through the deck?
 - **The start view**: parapets 45 high at the start landing. Does the harbour show at once?
 
-**Placeholders:** both onward exits lead to the game's usual way back (stock level 21) until 1.3 (the cave mouth)
-and 1.4 (the smugglers' door) exist. The way back at the start (the arch) leads to 1.1's gate.
+**Exits:** the cave mouth leads to 1.3, the smugglers' door (`into_the_smugglers__tunnels1`, back alley) to 1.4's
+start point 0; 1.4's way back arrives at start point 2 in the back alley, facing south. The way back at the start
+(the arch) leads to 1.1's gate.
 
 ## 1.3 Blackwater Grotto (JFG-169, built 2026-10-30, not played)
 
@@ -86,5 +87,47 @@ door exit. The loop: the stair from the landing back up to the walkway.
   (Mirefall should open on the map) and the `driftwood_victory` sting (only the first time).
 - **Falling through floors:** polyList 165 (the geometry needs 110).
 
-**Placeholders:** the sea door and the way back to 1.4 lead to the game's usual way back (stock level 21) until 2.1
-and 1.4 exist. The way back at the start (the tunnel's dark recess) leads to 1.2's cave mouth.
+**Placeholders:** the sea door leads to the game's usual way back (stock level 21) until 2.1 exists. The way back at
+the start (the tunnel's dark recess) leads to 1.2's cave mouth; the smugglers' passage's end
+(`back_to_the_smugglers__tunnels1`) to 1.4's start point 1, in its last passage.
+
+## 1.4 Smugglers' Run (optional; JFG-169, built 2026-10-30, not played)
+
+Start it from 1.2's smugglers' door (the back alley off the fish market), or straight in:
+`--mods-only toast_corsair_reach --start-level toast_corsair_reach:level_smugglers --start-point 0`. Start point 1 is
+the arrival from 1.3 (its smugglers' passage), at the far end of the level.
+
+**The route:** the cellar stair → the rum cellar (3 drowned crew among three vats, a green lamp) → the brick tunnels
+(a loop round a block; a dead end west with a Tribal, a niche south with ammo) → the drowned tavern (4 drowned crew
+among three tables and the bar in 30 of water; the lookout on the gallery up the stair, a Tribal in the alcove behind
+it) → the passage east past the strongroom's window (break the glass, climb in: the shotgun chest, the health upgrade,
+2 Tribals) → down into the rock to the landing stage (3 deckhands among cargo) → the last passage, the grotto's
+torchlight, the exit into 1.3's east landing.
+
+**Untested in a pack level (please look):**
+- **Drowned crew (undead, 0x121):** the pack's first use; the kind's texture slots were painted by size (head,
+  body, limbs guessed, not looked at on the model): does it read as seaweed green-grey, anything painted on the wrong
+  part? Health 11 (stock 10).
+- **Enemies in water:** the tavern's 4 crew start and fight in 30 of water among the tables and the bar (Studio
+  placed them there and found no problem). Do they walk and take cover in it, or float, stick or stand still? If they
+  misbehave, the fix is the tavern floor dry with water only round its edges (`HOLLOW` in `blender/smugglers.py`).
+- **The lookout on the gallery** (perch 180 over the floor, a rim 20 from x 520 to 700 in front of it, a board
+  balustrade 100 high elsewhere): seen from the way in? Can it hit the way in, the water and the east doorway (Studio's
+  raycasts say yes), and can it be shot back from the tables? Its region is the whole tavern floor.
+- **The balustrade:** solid boards 100 high, no collider, up the stair and along the gallery. A hero who jumps over
+  falls 180 at most, onto the dry floor or the water: fine?
+- **Glass:** one square pane (140, sill 30) in the passage's south wall; a 50-deep reveal behind it, then a step of
+  30 down into the strongroom.
+- **The shotgun chest** (`contents` 0) and **the health upgrade** (upgrade 58, game flag 105): taken once each, gone
+  after a reload?
+- **Barrels and drums** (breakable) along the cellar's walls, outside the fight's region: do the drums' blasts hurt
+  the crew? Any stuck in a wall?
+- **The tavern mist** (fog zone, green-grey, a little nearer than the level's fog) and the water's scroll (texture 14):
+  too thick, too fast?
+- **Story:** 5 lines (arrival, the tavern, the window, the landing stage, the last passage). The arrival line also
+  shows when coming in from 1.3.
+- **The dark:** ambient (0.17, 0.21, 0.17) green-grey, candle and lantern pools, the cellar's green lamp. Readable?
+- **Falling through floors:** polyList 176 (the geometry needs 117, at the tavern's water).
+- **Links:** the smugglers' door in 1.2 → here; the way back (the dark recess at the stair's top) → 1.2's back alley
+  (start point 2); the last passage → 1.3's smugglers' passage (start point 1); 1.3's passage end → here, start
+  point 1. No stats screen between them (one region).

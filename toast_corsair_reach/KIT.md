@@ -20,7 +20,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 | 1.1 | `sunwreck` Sunwreck Beach | passed the owner's play-test | 6a93b33 |
 | 1.2 | `gullwing` Gullwing Docks | built, checked, not play-tested | 5c3543b |
 | 1.3 | `blackwater` Blackwater Grotto | built, checked, not play-tested | 6e5dd6b |
-| 1.4 | `smugglers` Smugglers' Run (optional) | | |
+| 1.4 | `smugglers` Smugglers' Run (optional) | built, checked, not play-tested | COMMIT |
 | 2.1 | `stiltwater` Stiltwater Outskirts | | |
 | 2.2 | `bellmarket` Drowned Bellmarket (hub) | | |
 | 2.3 | `undercistern` The Undercistern | | |
@@ -222,10 +222,11 @@ Health and ammo after every big fight; a full health before each world's last fi
 1. **Script**: `blender/<level>.py` builds the level from nothing on `common.py` (`G(x, z, y)` game to Blender;
    `heightfield` with `skip` / `merge_above`; `water_surface` cut at the shore; `boulder`, `low_rock`, `decal`;
    built shapes with `block`, `sides`, `tiled`, `post`, `collider`, `water_box` (added for 1.2); `game(tex_id)` and
-   `own_image` / `own_material`; `bake` with sun, ambient, lamps, `soft`, AO). Copy the shape of the last built
-   level's script (`gullwing.py` for built places, `sunwreck.py` for open ground, `blackwater.py` for caves and
-   tunnels: its `cave_wall`, `plane_rect` (walls with openings), `fence` (see-through rails), `rim`, `lip` with
-   `caps`/`under`, `strip`, `sides` with a sloping bottom): build, bake, `jfg64.budgets`,
+   `own_image` / `own_material`; `bake` with sun, ambient, lamps, `soft`, AO; for rooms and tunnels `cuts`, `strip`,
+   `walls` (sides with a sloping bottom), `ceiling`, `plane_rect` (walls with openings), `lip` with `caps`/`under`,
+   `fence`, moved from 1.3 for 1.4). Copy the shape of the last built level's script (`gullwing.py` for built
+   places, `sunwreck.py` for open ground, `blackwater.py` for caves (`cave_wall`, `rim`), `smugglers.py` for built
+   rooms and tunnels under a roof): build, bake, `jfg64.budgets`,
    export to `blender/out/<level>.glb`. Fixed seeds. Add a helper to `common.py` when two levels would need it.
 2. **Run** in background Blender: `blender --background --factory-startup --addons jfg64 --python blender/<level>.py`.
 3. **Studio**: `import_geometry` (first time) or `reimport_geometry`, `add_level` on planet, `set_level` (fog, sky,
@@ -252,7 +253,7 @@ Health and ammo after every big fight; a full health before each world's last fi
 - A parapet's sides start at the floor, not under it, or they flicker against the wall below.
 - A lookout needs its rim below its gun height: `raycast` from the lookout, not only to it.
 - `texscroll` index: `jfgstudio.track_textures` in Studio's venv after `formats.load()` (1.2's water was 14; 1.3's
-  water 3, falls 16).
+  water 3, falls 16; 1.4's water 14).
 - Under a roof (1.3): `surface_at` gives the roof as the floor, but placing by `[x, z]` takes the lowest dry floor
   with room, so it works in a cave; region corners at a wall and members spread by `place_squad` still land on the
   roof, boulder flanks, tents, crates and in the water: set every member, perch lookout and corner by `[x, y, z]`.
@@ -276,7 +277,17 @@ Health and ammo after every big fight; a full health before each world's last fi
   (1.3's moon shaft). Its sky dome shows through the opening.
 - Stock squad values (health, aim) aren't in `objects.json`: read them from the ROM with Studio's
   `catalog.stock_entry` + `objects.decode_entry(..., schema 'squadron')` in its venv. Health is whole units (x 1.1
-  of 3 stays 3).
+  of 3 stays 3). The undead's (0x121, list 518 entry 57) is 10.
+- `place_squad` leaves members in shallow water (30 deep) where it put them, and placing by `[x, y, z]` keeps them
+  there; whether they walk and take cover in it is untested (1.4's tavern crew).
+- A rail's collider over a floor further down (a stair or gallery over a room) reads as an invisible wall: where a
+  fall is harmless (under 240, onto floor or water), a solid balustrade (`lip`, 100 high) without a collider. Leave
+  a lookout a 20 rim along all its lines of fire (`raycast` to the way in): a balustrade cut 1.4's first line.
+- `check_placement` keeps pickups 35, crates 40 and chests 50 off any wall (Studio's `placement.CLEAR`): a niche for
+  two pickups wants 120 across; an exit's radius must fit a recess's depth (a radius-35 exit, 130 deep).
+- Decoration counts in the poly list too: 1.4's cask shelves (long thin tops) raised its need to 140; pictures on
+  the wall cost nothing.
+- Story `start` beats show at every arrival; keep a level's box beats off its other start points.
 
 ## Before you finish
 

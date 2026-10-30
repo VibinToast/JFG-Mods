@@ -1,0 +1,3069 @@
+{
+ "format": 1,
+ "objects": [
+  {
+   "fields": {
+    "player": 0,
+    "startPoint": 0,
+    "yaw": 32
+   },
+   "name": "start (from the docks' smugglers' door)",
+   "pos": [
+    -1300,
+    28,
+    -910
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xD",
+   "uid": "start__from_the_docks__smugglers__door1"
+  },
+  {
+   "fields": {
+    "animGroup": -1,
+    "arg1A": 1,
+    "condition": -1,
+    "levelHigh": 255,
+    "radius": 35,
+    "startPoint": 2,
+    "unlockWorld": -1
+   },
+   "name": "back to the docks",
+   "pos": [
+    -1300,
+    20,
+    -1065
+   ],
+   "size": 28,
+   "target": "pack:level/gullwing",
+   "type": "stock:objtype/0xB",
+   "uid": "back_to_the_docks1"
+  },
+  {
+   "fields": {
+    "animGroup": -1,
+    "arg1A": 1,
+    "condition": -1,
+    "levelHigh": 255,
+    "radius": 40,
+    "startPoint": 1,
+    "unlockWorld": -1
+   },
+   "name": "into the grotto",
+   "pos": [
+    1300,
+    -148,
+    -955
+   ],
+   "size": 28,
+   "target": "pack:level/blackwater",
+   "type": "stock:objtype/0xB",
+   "uid": "into_the_grotto1"
+  },
+  {
+   "fields": {
+    "player": 0,
+    "startPoint": 1,
+    "yaw": 32
+   },
+   "name": "start 1 (back from the grotto)",
+   "pos": [
+    1300,
+    -142,
+    -850
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xD",
+   "uid": "from_blackwater1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 1
+   },
+   "name": "region1_0",
+   "pos": [
+    -1135,
+    -58,
+    -560
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region1"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 1
+   },
+   "name": "region1_1",
+   "pos": [
+    -765,
+    -58,
+    -560
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region2"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 1
+   },
+   "name": "region1_2",
+   "pos": [
+    -765,
+    -58,
+    -240
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region3"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 1
+   },
+   "name": "region1_3",
+   "pos": [
+    -1135,
+    -58,
+    -240
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region4"
+  },
+  {
+   "fields": {
+    "baddyType": 289,
+    "count": 3,
+    "doorId": 0,
+    "drop": 21,
+    "heading": 52,
+    "health": 11,
+    "region": 1,
+    "squadronId": 1,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "pack:kind/drowned_crew"
+   },
+   "name": "cellar_crew squad",
+   "pos": [
+    -950,
+    -52,
+    -400
+   ],
+   "stock": {
+    "entry": 57,
+    "list": 518
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "cellar_crew_squad1"
+  },
+  {
+   "fields": {
+    "squadron": 1,
+    "yaw": 38
+   },
+   "name": "cellar_crew",
+   "pos": [
+    -1060,
+    -50,
+    -300
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/drowned_crew",
+   "uid": "cellar_crew1"
+  },
+  {
+   "fields": {
+    "squadron": 1,
+    "yaw": 61
+   },
+   "name": "cellar_crew",
+   "pos": [
+    -840,
+    -50,
+    -320
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/drowned_crew",
+   "uid": "cellar_crew2"
+  },
+  {
+   "fields": {
+    "squadron": 1,
+    "yaw": 59
+   },
+   "name": "cellar_crew",
+   "pos": [
+    -950,
+    -50,
+    -520
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/drowned_crew",
+   "uid": "cellar_crew3"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 2
+   },
+   "name": "hole2_0",
+   "pos": [
+    -1095,
+    -60,
+    -520
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole1"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 2
+   },
+   "name": "hole2_1",
+   "pos": [
+    -1095,
+    -60,
+    -420
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole2"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 2
+   },
+   "name": "hole2_2",
+   "pos": [
+    -1015,
+    -60,
+    -420
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole3"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 2
+   },
+   "name": "hole2_3",
+   "pos": [
+    -1015,
+    -60,
+    -520
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole4"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 1,
+    "region": 2
+   },
+   "name": "hole2",
+   "pos": [
+    -1055,
+    -60,
+    -470
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole5"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 3
+   },
+   "name": "hole3_0",
+   "pos": [
+    -995,
+    -60,
+    -360
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole6"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 3
+   },
+   "name": "hole3_1",
+   "pos": [
+    -995,
+    -60,
+    -280
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole7"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 3
+   },
+   "name": "hole3_2",
+   "pos": [
+    -915,
+    -60,
+    -280
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole8"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 3
+   },
+   "name": "hole3_3",
+   "pos": [
+    -915,
+    -60,
+    -360
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole9"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 1,
+    "region": 3
+   },
+   "name": "hole3",
+   "pos": [
+    -955,
+    -60,
+    -320
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole10"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 4
+   },
+   "name": "hole4_0",
+   "pos": [
+    -895,
+    -60,
+    -520
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole11"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 4
+   },
+   "name": "hole4_1",
+   "pos": [
+    -895,
+    -60,
+    -420
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole12"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 4
+   },
+   "name": "hole4_2",
+   "pos": [
+    -815,
+    -60,
+    -420
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole13"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 4
+   },
+   "name": "hole4_3",
+   "pos": [
+    -815,
+    -60,
+    -520
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole14"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 1,
+    "region": 4
+   },
+   "name": "hole4",
+   "pos": [
+    -855,
+    -60,
+    -470
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole15"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 5
+   },
+   "name": "region5_0",
+   "pos": [
+    140,
+    -113,
+    120
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region5"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 5
+   },
+   "name": "region5_1",
+   "pos": [
+    680,
+    -113,
+    120
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region6"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 5
+   },
+   "name": "region5_2",
+   "pos": [
+    680,
+    -113,
+    480
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region7"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 5
+   },
+   "name": "region5_3",
+   "pos": [
+    140,
+    -113,
+    480
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region8"
+  },
+  {
+   "fields": {
+    "baddyType": 289,
+    "count": 4,
+    "doorId": 0,
+    "drop": 21,
+    "heading": 54,
+    "health": 11,
+    "region": 5,
+    "squadronId": 2,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "pack:kind/drowned_crew"
+   },
+   "name": "tavern_crew squad",
+   "pos": [
+    410,
+    -107,
+    300
+   ],
+   "stock": {
+    "entry": 57,
+    "list": 518
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "tavern_crew_squad1"
+  },
+  {
+   "fields": {
+    "squadron": 2,
+    "yaw": 41
+   },
+   "name": "tavern_crew",
+   "pos": [
+    410,
+    -107,
+    450
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/drowned_crew",
+   "uid": "tavern_crew1"
+  },
+  {
+   "fields": {
+    "squadron": 2,
+    "yaw": 56
+   },
+   "name": "tavern_crew",
+   "pos": [
+    560,
+    -105,
+    400
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/drowned_crew",
+   "uid": "tavern_crew2"
+  },
+  {
+   "fields": {
+    "squadron": 2,
+    "yaw": 68
+   },
+   "name": "tavern_crew",
+   "pos": [
+    410,
+    -107,
+    150
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/drowned_crew",
+   "uid": "tavern_crew3"
+  },
+  {
+   "fields": {
+    "squadron": 2,
+    "yaw": 49
+   },
+   "name": "tavern_crew",
+   "pos": [
+    260,
+    -107,
+    300
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 58,
+    "list": 518
+   },
+   "type": "pack:kind/drowned_crew",
+   "uid": "tavern_crew4"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 6
+   },
+   "name": "hole6_0",
+   "pos": [
+    180,
+    -115,
+    160
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole16"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 6
+   },
+   "name": "hole6_1",
+   "pos": [
+    180,
+    -115,
+    260
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole17"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 6
+   },
+   "name": "hole6_2",
+   "pos": [
+    280,
+    -115,
+    260
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole18"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 6
+   },
+   "name": "hole6_3",
+   "pos": [
+    280,
+    -115,
+    160
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole19"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 5,
+    "region": 6
+   },
+   "name": "hole6",
+   "pos": [
+    230,
+    -115,
+    210
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole20"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 7
+   },
+   "name": "hole7_0",
+   "pos": [
+    240,
+    -115,
+    360
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole21"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 7
+   },
+   "name": "hole7_1",
+   "pos": [
+    240,
+    -115,
+    440
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole22"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 7
+   },
+   "name": "hole7_2",
+   "pos": [
+    480,
+    -115,
+    440
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole23"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 7
+   },
+   "name": "hole7_3",
+   "pos": [
+    480,
+    -115,
+    360
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole24"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 5,
+    "region": 7
+   },
+   "name": "hole7",
+   "pos": [
+    360,
+    -115,
+    400
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole25"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 8
+   },
+   "name": "hole8_0",
+   "pos": [
+    380,
+    -115,
+    160
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole26"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 8
+   },
+   "name": "hole8_1",
+   "pos": [
+    380,
+    -115,
+    260
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole27"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 8
+   },
+   "name": "hole8_2",
+   "pos": [
+    480,
+    -115,
+    260
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole28"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 8
+   },
+   "name": "hole8_3",
+   "pos": [
+    480,
+    -115,
+    160
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole29"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 5,
+    "region": 8
+   },
+   "name": "hole8",
+   "pos": [
+    430,
+    -115,
+    210
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole30"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 9
+   },
+   "name": "hole9_0",
+   "pos": [
+    560,
+    -115,
+    220
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole31"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 9
+   },
+   "name": "hole9_1",
+   "pos": [
+    560,
+    -115,
+    320
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole32"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 9
+   },
+   "name": "hole9_2",
+   "pos": [
+    660,
+    -115,
+    320
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole33"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 9
+   },
+   "name": "hole9_3",
+   "pos": [
+    660,
+    -115,
+    220
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole34"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 5,
+    "region": 9
+   },
+   "name": "hole9",
+   "pos": [
+    610,
+    -115,
+    270
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole35"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 10
+   },
+   "name": "region10_0",
+   "pos": [
+    20,
+    -78,
+    80
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region9"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 10
+   },
+   "name": "region10_1",
+   "pos": [
+    790,
+    -78,
+    80
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region10"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 10
+   },
+   "name": "region10_2",
+   "pos": [
+    790,
+    -78,
+    490
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region11"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 10
+   },
+   "name": "region10_3",
+   "pos": [
+    20,
+    -78,
+    490
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region12"
+  },
+  {
+   "fields": {
+    "aimSpread": 65,
+    "baddyType": 140,
+    "count": 1,
+    "doorId": 0,
+    "heading": 75,
+    "region": 10,
+    "squadronId": 3,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "pack:kind/lookout"
+   },
+   "name": "gallery_lookout squad",
+   "pos": [
+    610,
+    108,
+    38
+   ],
+   "stock": {
+    "entry": 44,
+    "list": 528
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "gallery_lookout_squad1"
+  },
+  {
+   "fields": {
+    "squadron": 3,
+    "yaw": 75
+   },
+   "name": "gallery_lookout",
+   "pos": [
+    610,
+    104,
+    38
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 45,
+    "list": 528
+   },
+   "type": "pack:kind/lookout",
+   "uid": "gallery_lookout1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 11
+   },
+   "name": "hole11_0",
+   "pos": [
+    180,
+    -115,
+    160
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole36"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 11
+   },
+   "name": "hole11_1",
+   "pos": [
+    180,
+    -115,
+    260
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole37"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 11
+   },
+   "name": "hole11_2",
+   "pos": [
+    280,
+    -115,
+    260
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole38"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 11
+   },
+   "name": "hole11_3",
+   "pos": [
+    280,
+    -115,
+    160
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole39"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 10,
+    "region": 11
+   },
+   "name": "hole11",
+   "pos": [
+    230,
+    -115,
+    210
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole40"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 12
+   },
+   "name": "hole12_0",
+   "pos": [
+    240,
+    -115,
+    360
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole41"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 12
+   },
+   "name": "hole12_1",
+   "pos": [
+    240,
+    -115,
+    440
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole42"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 12
+   },
+   "name": "hole12_2",
+   "pos": [
+    480,
+    -115,
+    440
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole43"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 12
+   },
+   "name": "hole12_3",
+   "pos": [
+    480,
+    -115,
+    360
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole44"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 10,
+    "region": 12
+   },
+   "name": "hole12",
+   "pos": [
+    360,
+    -115,
+    400
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole45"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 13
+   },
+   "name": "hole13_0",
+   "pos": [
+    380,
+    -115,
+    160
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole46"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 13
+   },
+   "name": "hole13_1",
+   "pos": [
+    380,
+    -115,
+    260
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole47"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 13
+   },
+   "name": "hole13_2",
+   "pos": [
+    480,
+    -115,
+    260
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole48"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 13
+   },
+   "name": "hole13_3",
+   "pos": [
+    480,
+    -115,
+    160
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole49"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 10,
+    "region": 13
+   },
+   "name": "hole13",
+   "pos": [
+    430,
+    -115,
+    210
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole50"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 14
+   },
+   "name": "hole14_0",
+   "pos": [
+    560,
+    -115,
+    220
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole51"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 14
+   },
+   "name": "hole14_1",
+   "pos": [
+    560,
+    -115,
+    320
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole52"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 14
+   },
+   "name": "hole14_2",
+   "pos": [
+    660,
+    -115,
+    320
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole53"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 14
+   },
+   "name": "hole14_3",
+   "pos": [
+    660,
+    -115,
+    220
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole54"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 10,
+    "region": 14
+   },
+   "name": "hole14",
+   "pos": [
+    610,
+    -115,
+    270
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole55"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 15
+   },
+   "name": "region15_0",
+   "pos": [
+    1075,
+    -148,
+    -720
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region13"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 15
+   },
+   "name": "region15_1",
+   "pos": [
+    1425,
+    -148,
+    -720
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region14"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 15
+   },
+   "name": "region15_2",
+   "pos": [
+    1425,
+    -148,
+    -330
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region15"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 15
+   },
+   "name": "region15_3",
+   "pos": [
+    1075,
+    -148,
+    -330
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region16"
+  },
+  {
+   "fields": {
+    "baddyType": 120,
+    "count": 3,
+    "doorId": 0,
+    "drop": 20,
+    "heading": -122,
+    "region": 15,
+    "squadronId": 4,
+    "trigger": 3
+   },
+   "kindFields": {
+    "baddyType": "pack:kind/deckhand"
+   },
+   "name": "landing_deckhands squad",
+   "pos": [
+    1250,
+    -142,
+    -560
+   ],
+   "stock": {
+    "entry": 152,
+    "list": 407
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "landing_deckhands_squad1"
+  },
+  {
+   "fields": {
+    "squadron": 4,
+    "yaw": 140
+   },
+   "name": "landing_deckhands",
+   "pos": [
+    1250,
+    -142,
+    -410
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 163,
+    "list": 407
+   },
+   "type": "pack:kind/deckhand",
+   "uid": "landing_deckhands1"
+  },
+  {
+   "fields": {
+    "squadron": 4,
+    "yaw": 119
+   },
+   "name": "landing_deckhands",
+   "pos": [
+    1380,
+    -142,
+    -520
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 163,
+    "list": 407
+   },
+   "type": "pack:kind/deckhand",
+   "uid": "landing_deckhands2"
+  },
+  {
+   "fields": {
+    "squadron": 4,
+    "yaw": 145
+   },
+   "name": "landing_deckhands",
+   "pos": [
+    1110,
+    -142,
+    -520
+   ],
+   "schema": "squadmember",
+   "stock": {
+    "entry": 163,
+    "list": 407
+   },
+   "type": "pack:kind/deckhand",
+   "uid": "landing_deckhands3"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 16
+   },
+   "name": "hole16_0",
+   "pos": [
+    1095,
+    -150,
+    -660
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole56"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 16
+   },
+   "name": "hole16_1",
+   "pos": [
+    1095,
+    -150,
+    -580
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole57"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 16
+   },
+   "name": "hole16_2",
+   "pos": [
+    1195,
+    -150,
+    -580
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole58"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 16
+   },
+   "name": "hole16_3",
+   "pos": [
+    1195,
+    -150,
+    -660
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole59"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 15,
+    "region": 16
+   },
+   "name": "hole16",
+   "pos": [
+    1145,
+    -150,
+    -620
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole60"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 17
+   },
+   "name": "hole17_0",
+   "pos": [
+    1195,
+    -150,
+    -520
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole61"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 17
+   },
+   "name": "hole17_1",
+   "pos": [
+    1195,
+    -150,
+    -420
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole62"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 17
+   },
+   "name": "hole17_2",
+   "pos": [
+    1295,
+    -150,
+    -420
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole63"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 17
+   },
+   "name": "hole17_3",
+   "pos": [
+    1295,
+    -150,
+    -520
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole64"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 15,
+    "region": 17
+   },
+   "name": "hole17",
+   "pos": [
+    1245,
+    -150,
+    -470
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole65"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 18
+   },
+   "name": "hole18_0",
+   "pos": [
+    1295,
+    -150,
+    -680
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole66"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 18
+   },
+   "name": "hole18_1",
+   "pos": [
+    1295,
+    -150,
+    -600
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole67"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 18
+   },
+   "name": "hole18_2",
+   "pos": [
+    1395,
+    -150,
+    -600
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole68"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 18
+   },
+   "name": "hole18_3",
+   "pos": [
+    1395,
+    -150,
+    -680
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "hole69"
+  },
+  {
+   "fields": {
+    "anchored": 0,
+    "flags": 1,
+    "link": 15,
+    "region": 18
+   },
+   "name": "hole18",
+   "pos": [
+    1345,
+    -150,
+    -640
+   ],
+   "size": 18,
+   "type": "stock:objtype/0x69",
+   "uid": "hole70"
+  },
+  {
+   "fields": {
+    "hitPoints": 4,
+    "size": 27,
+    "unused11": 100,
+    "yaw": 0
+   },
+   "name": "glass",
+   "pos": [
+    1020,
+    20,
+    400
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x12B",
+   "uid": "glass1"
+  },
+  {
+   "fields": {
+    "cameraAngle": 4096,
+    "cameraDistance": 200,
+    "cameraHeight": 75,
+    "contents": 0,
+    "size": 100,
+    "yaw": -771
+   },
+   "name": "shotgun chest",
+   "pos": [
+    1000,
+    -78,
+    690
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x1AA",
+   "uid": "shotgun_chest1"
+  },
+  {
+   "fields": {
+    "upgrade": 58
+   },
+   "name": "health upgrade strongroom",
+   "pos": [
+    1000,
+    -78,
+    580
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xE9",
+   "uid": "health_upgrade_strongroom1"
+  },
+  {
+   "fields": {
+    "weapon": 3
+   },
+   "name": "shotgun ammo by the chest",
+   "pos": [
+    1070,
+    -78,
+    700
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "shotgun_ammo_by_the_chest1"
+  },
+  {
+   "fields": {
+    "weapon": 3
+   },
+   "name": "shotgun ammo last passage",
+   "pos": [
+    1300,
+    -148,
+    -800
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "shotgun_ammo_last_passage1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 19
+   },
+   "name": "region19_0",
+   "pos": [
+    -990,
+    -58,
+    -90
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region17"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 19
+   },
+   "name": "region19_1",
+   "pos": [
+    -710,
+    -58,
+    -90
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region18"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 19
+   },
+   "name": "region19_2",
+   "pos": [
+    -710,
+    -58,
+    70
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region19"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 19
+   },
+   "name": "region19_3",
+   "pos": [
+    -990,
+    -58,
+    70
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region20"
+  },
+  {
+   "fields": {
+    "alertBehaviour": 9,
+    "baddyType": 285,
+    "behaviour": 9,
+    "count": 1,
+    "doorId": 0,
+    "heading": 15,
+    "hurtBehaviour": 9,
+    "region": 19,
+    "squadronId": 5,
+    "trigger": 3
+   },
+   "name": "tribal tunnel dead end squad",
+   "pos": [
+    -930,
+    -52,
+    -10
+   ],
+   "stock": {
+    "entry": 52,
+    "list": 556
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "tribal_tunnel_dead_end_squad1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 20
+   },
+   "name": "region20_0",
+   "pos": [
+    685,
+    102,
+    -185
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region21"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 20
+   },
+   "name": "region20_1",
+   "pos": [
+    775,
+    102,
+    -185
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region22"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 20
+   },
+   "name": "region20_2",
+   "pos": [
+    775,
+    102,
+    -105
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region23"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 20
+   },
+   "name": "region20_3",
+   "pos": [
+    685,
+    102,
+    -105
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region24"
+  },
+  {
+   "fields": {
+    "alertBehaviour": 9,
+    "baddyType": 286,
+    "behaviour": 9,
+    "count": 1,
+    "doorId": 0,
+    "heading": 49,
+    "hurtBehaviour": 9,
+    "region": 20,
+    "squadronId": 6,
+    "trigger": 3
+   },
+   "name": "tribal gallery alcove squad",
+   "pos": [
+    730,
+    108,
+    -150
+   ],
+   "stock": {
+    "entry": 54,
+    "list": 557
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "tribal_gallery_alcove_squad1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 21
+   },
+   "name": "region21_0",
+   "pos": [
+    860,
+    -78,
+    600
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region25"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 21
+   },
+   "name": "region21_1",
+   "pos": [
+    990,
+    -78,
+    600
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region26"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 21
+   },
+   "name": "region21_2",
+   "pos": [
+    990,
+    -78,
+    740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region27"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 21
+   },
+   "name": "region21_3",
+   "pos": [
+    860,
+    -78,
+    740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region28"
+  },
+  {
+   "fields": {
+    "alertBehaviour": 9,
+    "baddyType": 284,
+    "behaviour": 9,
+    "count": 1,
+    "doorId": 0,
+    "heading": 38,
+    "hurtBehaviour": 9,
+    "region": 21,
+    "squadronId": 7,
+    "trigger": 3
+   },
+   "name": "tribal strongroom west squad",
+   "pos": [
+    890,
+    -72,
+    705
+   ],
+   "stock": {
+    "entry": 121,
+    "list": 490
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "tribal_strongroom_west_squad1"
+  },
+  {
+   "fields": {
+    "corner": 0,
+    "region": 22
+   },
+   "name": "region22_0",
+   "pos": [
+    1010,
+    -78,
+    600
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region29"
+  },
+  {
+   "fields": {
+    "corner": 1,
+    "region": 22
+   },
+   "name": "region22_1",
+   "pos": [
+    1140,
+    -78,
+    600
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region30"
+  },
+  {
+   "fields": {
+    "corner": 2,
+    "region": 22
+   },
+   "name": "region22_2",
+   "pos": [
+    1140,
+    -78,
+    740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region31"
+  },
+  {
+   "fields": {
+    "corner": 3,
+    "region": 22
+   },
+   "name": "region22_3",
+   "pos": [
+    1010,
+    -78,
+    740
+   ],
+   "size": 12,
+   "type": "stock:objtype/0x5",
+   "uid": "region32"
+  },
+  {
+   "fields": {
+    "alertBehaviour": 9,
+    "baddyType": 287,
+    "behaviour": 9,
+    "count": 1,
+    "doorId": 0,
+    "heading": 39,
+    "hurtBehaviour": 9,
+    "region": 22,
+    "squadronId": 8,
+    "trigger": 3
+   },
+   "name": "tribal strongroom east squad",
+   "pos": [
+    1110,
+    -72,
+    705
+   ],
+   "stock": {
+    "entry": 21,
+    "list": 405
+   },
+   "type": "stock:objtype/0x4F",
+   "uid": "tribal_strongroom_east_squad1"
+  },
+  {
+   "fields": {
+    "amount": 1
+   },
+   "name": "medium health tunnels",
+   "pos": [
+    -400,
+    -58,
+    -300
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xA9",
+   "uid": "medium_health_tunnels1"
+  },
+  {
+   "fields": {
+    "weapon": 0
+   },
+   "name": "pistol ammo tunnels",
+   "pos": [
+    -620,
+    -58,
+    -300
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "pistol_ammo_tunnels1"
+  },
+  {
+   "fields": {
+    "weapon": 0
+   },
+   "name": "ammo cache pistol",
+   "pos": [
+    -390,
+    -58,
+    355
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "ammo_cache_pistol1"
+  },
+  {
+   "fields": {
+    "weapon": 2
+   },
+   "name": "ammo cache machine gun",
+   "pos": [
+    -390,
+    -58,
+    300
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "ammo_cache_machine_gun1"
+  },
+  {
+   "fields": {
+    "amount": 0
+   },
+   "name": "small health dead end",
+   "pos": [
+    -960,
+    -58,
+    40
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xA9",
+   "uid": "small_health_dead_end1"
+  },
+  {
+   "fields": {
+    "weapon": 0
+   },
+   "name": "pistol clip stair foot",
+   "pos": [
+    -1350,
+    -58,
+    -480
+   ],
+   "size": 16,
+   "type": "stock:objtype/0x17E",
+   "uid": "pistol_clip_stair_foot1"
+  },
+  {
+   "fields": {
+    "amount": 1
+   },
+   "name": "medium health tavern east",
+   "pos": [
+    750,
+    -78,
+    150
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xA9",
+   "uid": "medium_health_tavern_east1"
+  },
+  {
+   "fields": {
+    "weapon": 0
+   },
+   "name": "pistol ammo tavern east",
+   "pos": [
+    750,
+    -78,
+    460
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "pistol_ammo_tavern_east1"
+  },
+  {
+   "fields": {
+    "weapon": 2
+   },
+   "name": "machine gun clip tavern east",
+   "pos": [
+    760,
+    -78,
+    300
+   ],
+   "size": 16,
+   "type": "stock:objtype/0x17E",
+   "uid": "machine_gun_clip_tavern_east1"
+  },
+  {
+   "fields": {
+    "weapon": 0
+   },
+   "name": "pistol ammo gallery",
+   "pos": [
+    740,
+    102,
+    -20
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "pistol_ammo_gallery1"
+  },
+  {
+   "fields": {
+    "amount": 1
+   },
+   "name": "medium health last passage",
+   "pos": [
+    1250,
+    -148,
+    -900
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xA9",
+   "uid": "medium_health_last_passage1"
+  },
+  {
+   "fields": {
+    "weapon": 0
+   },
+   "name": "pistol ammo last passage",
+   "pos": [
+    1350,
+    -148,
+    -900
+   ],
+   "size": 16,
+   "type": "stock:objtype/0xE8",
+   "uid": "pistol_ammo_last_passage1"
+  },
+  {
+   "fields": {
+    "size": 39,
+    "unused0D": 1
+   },
+   "name": "cellar crate southwest",
+   "pos": [
+    -1152,
+    -58,
+    -248
+   ],
+   "size": 14,
+   "type": "stock:objtype/0x135",
+   "uid": "cellar_crate_southwest1"
+  },
+  {
+   "fields": {
+    "size": 24,
+    "unused0D": 1
+   },
+   "name": "cellar drum west",
+   "pos": [
+    -1152,
+    -58,
+    -320
+   ],
+   "size": 14,
+   "type": "stock:objtype/0x168",
+   "uid": "cellar_drum_west1"
+  },
+  {
+   "fields": {
+    "size": 24,
+    "unused0D": 1
+   },
+   "name": "cellar drum northeast",
+   "pos": [
+    -750,
+    -58,
+    -552
+   ],
+   "size": 14,
+   "type": "stock:objtype/0x168",
+   "uid": "cellar_drum_northeast1"
+  },
+  {
+   "fields": {
+    "size": 39,
+    "unused0D": 1
+   },
+   "name": "cellar crate east",
+   "pos": [
+    -750,
+    -58,
+    -480
+   ],
+   "size": 14,
+   "type": "stock:objtype/0x135",
+   "uid": "cellar_crate_east1"
+  },
+  {
+   "fields": {
+    "size": 39,
+    "unused0D": 1
+   },
+   "name": "tunnel crate",
+   "pos": [
+    -140,
+    -58,
+    -360
+   ],
+   "size": 14,
+   "type": "stock:objtype/0x135",
+   "uid": "tunnel_crate1"
+  },
+  {
+   "fields": {
+    "size": 39,
+    "unused0D": 1
+   },
+   "name": "passage crate",
+   "pos": [
+    1352,
+    -78,
+    352
+   ],
+   "size": 14,
+   "type": "stock:objtype/0x135",
+   "uid": "passage_crate1"
+  },
+  {
+   "fields": {
+    "size": 24,
+    "unused0D": 1
+   },
+   "name": "passage drum",
+   "pos": [
+    1280,
+    -78,
+    352
+   ],
+   "size": 14,
+   "type": "stock:objtype/0x168",
+   "uid": "passage_drum1"
+  },
+  {
+   "fields": {
+    "blue": 85,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 165,
+    "halfHeight": 8,
+    "intensity": 210,
+    "kind": 19,
+    "radius": 340,
+    "red": 255
+   },
+   "name": "stair lantern",
+   "pos": [
+    -1214,
+    230,
+    -930
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "stair_lantern1"
+  },
+  {
+   "fields": {
+    "blue": 110,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 255,
+    "halfHeight": 8,
+    "intensity": 200,
+    "kind": 19,
+    "radius": 560,
+    "red": 70
+   },
+   "name": "cellar green lamp",
+   "pos": [
+    -950,
+    200,
+    -400
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "cellar_green_lamp1"
+  },
+  {
+   "fields": {
+    "blue": 85,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 165,
+    "halfHeight": 8,
+    "intensity": 200,
+    "kind": 19,
+    "radius": 300,
+    "red": 255
+   },
+   "name": "tunnel lantern north",
+   "pos": [
+    -400,
+    140,
+    -386
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "tunnel_lantern_north1"
+  },
+  {
+   "fields": {
+    "blue": 85,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 165,
+    "halfHeight": 8,
+    "intensity": 200,
+    "kind": 19,
+    "radius": 300,
+    "red": 255
+   },
+   "name": "tunnel lantern west",
+   "pos": [
+    -686,
+    140,
+    0
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "tunnel_lantern_west1"
+  },
+  {
+   "fields": {
+    "blue": 85,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 165,
+    "halfHeight": 8,
+    "intensity": 200,
+    "kind": 19,
+    "radius": 300,
+    "red": 255
+   },
+   "name": "tunnel lantern east",
+   "pos": [
+    -114,
+    140,
+    -50
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "tunnel_lantern_east1"
+  },
+  {
+   "fields": {
+    "blue": 85,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 165,
+    "halfHeight": 8,
+    "intensity": 200,
+    "kind": 19,
+    "radius": 300,
+    "red": 255
+   },
+   "name": "tunnel lantern south",
+   "pos": [
+    -560,
+    140,
+    286
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "tunnel_lantern_south1"
+  },
+  {
+   "fields": {
+    "blue": 70,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 150,
+    "halfHeight": 8,
+    "intensity": 150,
+    "kind": 19,
+    "radius": 240,
+    "red": 255
+   },
+   "name": "dead end lantern",
+   "pos": [
+    -986,
+    110,
+    -10
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "dead_end_lantern1"
+  },
+  {
+   "fields": {
+    "blue": 60,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 150,
+    "halfHeight": 8,
+    "intensity": 140,
+    "kind": 19,
+    "radius": 180,
+    "red": 255
+   },
+   "name": "ammo niche candle",
+   "pos": [
+    -390,
+    40,
+    360
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "ammo_niche_candle1"
+  },
+  {
+   "fields": {
+    "blue": 90,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 170,
+    "halfHeight": 8,
+    "intensity": 170,
+    "kind": 19,
+    "radius": 620,
+    "red": 255
+   },
+   "name": "tavern chandelier",
+   "pos": [
+    400,
+    380,
+    200
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "tavern_chandelier1"
+  },
+  {
+   "fields": {
+    "blue": 60,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 150,
+    "halfHeight": 8,
+    "intensity": 160,
+    "kind": 19,
+    "radius": 230,
+    "red": 255
+   },
+   "name": "table candle west",
+   "pos": [
+    225,
+    0,
+    215
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "table_candle_west1"
+  },
+  {
+   "fields": {
+    "blue": 60,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 150,
+    "halfHeight": 8,
+    "intensity": 160,
+    "kind": 19,
+    "radius": 230,
+    "red": 255
+   },
+   "name": "table candle middle",
+   "pos": [
+    425,
+    0,
+    205
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "table_candle_middle1"
+  },
+  {
+   "fields": {
+    "blue": 60,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 150,
+    "halfHeight": 8,
+    "intensity": 160,
+    "kind": 19,
+    "radius": 230,
+    "red": 255
+   },
+   "name": "table candle east",
+   "pos": [
+    605,
+    0,
+    265
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "table_candle_east1"
+  },
+  {
+   "fields": {
+    "blue": 60,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 150,
+    "halfHeight": 8,
+    "intensity": 170,
+    "kind": 19,
+    "radius": 260,
+    "red": 255
+   },
+   "name": "bar candles",
+   "pos": [
+    360,
+    20,
+    400
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "bar_candles1"
+  },
+  {
+   "fields": {
+    "blue": 85,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 165,
+    "halfHeight": 8,
+    "intensity": 210,
+    "kind": 19,
+    "radius": 340,
+    "red": 255
+   },
+   "name": "lookout lantern",
+   "pos": [
+    720,
+    240,
+    -86
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "lookout_lantern1"
+  },
+  {
+   "fields": {
+    "blue": 60,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 150,
+    "halfHeight": 8,
+    "intensity": 150,
+    "kind": 19,
+    "radius": 240,
+    "red": 255
+   },
+   "name": "tavern way in",
+   "pos": [
+    40,
+    120,
+    200
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "tavern_way_in1"
+  },
+  {
+   "fields": {
+    "blue": 85,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 165,
+    "halfHeight": 8,
+    "intensity": 200,
+    "kind": 19,
+    "radius": 300,
+    "red": 255
+   },
+   "name": "passage lantern west",
+   "pos": [
+    1000,
+    120,
+    214
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "passage_lantern_west1"
+  },
+  {
+   "fields": {
+    "blue": 85,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 165,
+    "halfHeight": 8,
+    "intensity": 200,
+    "kind": 19,
+    "radius": 300,
+    "red": 255
+   },
+   "name": "passage lantern east",
+   "pos": [
+    1386,
+    120,
+    300
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "passage_lantern_east1"
+  },
+  {
+   "fields": {
+    "blue": 110,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 210,
+    "halfHeight": 8,
+    "intensity": 200,
+    "kind": 19,
+    "radius": 380,
+    "red": 255
+   },
+   "name": "strongroom light",
+   "pos": [
+    1000,
+    160,
+    600
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "strongroom_light1"
+  },
+  {
+   "fields": {
+    "blue": 85,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 165,
+    "halfHeight": 8,
+    "intensity": 200,
+    "kind": 19,
+    "radius": 300,
+    "red": 255
+   },
+   "name": "way down lantern",
+   "pos": [
+    1214,
+    60,
+    0
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "way_down_lantern1"
+  },
+  {
+   "fields": {
+    "blue": 85,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 165,
+    "halfHeight": 8,
+    "intensity": 200,
+    "kind": 19,
+    "radius": 320,
+    "red": 255
+   },
+   "name": "landing lantern west",
+   "pos": [
+    1064,
+    -50,
+    -520
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "landing_lantern_west1"
+  },
+  {
+   "fields": {
+    "blue": 85,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 165,
+    "halfHeight": 8,
+    "intensity": 200,
+    "kind": 19,
+    "radius": 320,
+    "red": 255
+   },
+   "name": "landing lantern east",
+   "pos": [
+    1436,
+    -50,
+    -520
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "landing_lantern_east1"
+  },
+  {
+   "fields": {
+    "blue": 50,
+    "colourCycle": 8,
+    "flags": 64,
+    "green": 140,
+    "halfHeight": 8,
+    "intensity": 230,
+    "kind": 19,
+    "radius": 460,
+    "red": 255
+   },
+   "name": "grotto torchlight",
+   "pos": [
+    1300,
+    -20,
+    -975
+   ],
+   "size": 32,
+   "type": "stock:objtype/0x10",
+   "uid": "grotto_torchlight1"
+  },
+  {
+   "fields": {
+    "texture": 14,
+    "uSpeed": 1,
+    "vSpeed": 1
+   },
+   "name": "tavern water scroll",
+   "pos": [
+    400,
+    -85,
+    300
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xF",
+   "uid": "tavern_water_scroll1"
+  },
+  {
+   "fields": {
+    "blue": 38,
+    "fadeTime": 90,
+    "far": 1019,
+    "green": 50,
+    "near": 982,
+    "radius8": 60,
+    "red": 34
+   },
+   "name": "tavern mist",
+   "pos": [
+    400,
+    -80,
+    250
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x9",
+   "uid": "tavern_mist1"
+  },
+  {
+   "fields": {
+    "pitch": 70,
+    "priority": 64,
+    "range": 800,
+    "sound": 130,
+    "volume": 40
+   },
+   "name": "tavern water lapping",
+   "pos": [
+    400,
+    -85,
+    300
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x20",
+   "uid": "tavern_water_lapping1"
+  },
+  {
+   "fields": {
+    "pitch": 170,
+    "priority": 64,
+    "range": 600,
+    "sound": 130,
+    "volume": 25
+   },
+   "name": "tunnel drips",
+   "pos": [
+    -400,
+    100,
+    -50
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x20",
+   "uid": "tunnel_drips1"
+  },
+  {
+   "fields": {
+    "pitch": 100,
+    "priority": 64,
+    "range": 500,
+    "sound": 56,
+    "volume": 60
+   },
+   "name": "grotto torches crackle",
+   "pos": [
+    1300,
+    -100,
+    -950
+   ],
+   "size": 20,
+   "type": "stock:objtype/0x20",
+   "uid": "grotto_torches_crackle1"
+  },
+  {
+   "name": "stair lantern flame",
+   "pos": [
+    -1214,
+    230,
+    -930
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "stair_lantern_flame1"
+  },
+  {
+   "name": "lookout lantern flame",
+   "pos": [
+    720,
+    240,
+    -86
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "lookout_lantern_flame1"
+  },
+  {
+   "name": "landing lantern flame west",
+   "pos": [
+    1064,
+    -50,
+    -520
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "landing_lantern_flame_west1"
+  },
+  {
+   "name": "landing lantern flame east",
+   "pos": [
+    1436,
+    -50,
+    -520
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "landing_lantern_flame_east1"
+  },
+  {
+   "name": "grotto torch flame west",
+   "pos": [
+    1215,
+    -60,
+    -986
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "grotto_torch_flame_west1"
+  },
+  {
+   "name": "grotto torch flame east",
+   "pos": [
+    1385,
+    -60,
+    -986
+   ],
+   "stock": {
+    "entry": 6,
+    "list": 420
+   },
+   "type": "stock:objtype/0x76",
+   "uid": "grotto_torch_flame_east1"
+  }
+ ]
+}

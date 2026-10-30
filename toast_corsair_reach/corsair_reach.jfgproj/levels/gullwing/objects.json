@@ -40,26 +40,6 @@
   },
   {
    "fields": {
-    "animGroup": -1,
-    "arg1A": 1,
-    "condition": -1,
-    "levelHigh": 255,
-    "radius": 30,
-    "unlockWorld": -1
-   },
-   "name": "TODO 1.4: exit into the smugglers' tunnels (for now: the game's way back)",
-   "pos": [
-    -1350,
-    22,
-    -498
-   ],
-   "size": 28,
-   "target": "stock:level/21",
-   "type": "stock:objtype/0xB",
-   "uid": "todo_1_4__exit_into_the_smugglers__tunnels__for_now__the_game_s_way_back1"
-  },
-  {
-   "fields": {
     "keyLock": 0,
     "yaw": -32768
    },
@@ -4520,6 +4500,43 @@
    "target": "pack:level/blackwater",
    "type": "stock:objtype/0xB",
    "uid": "into_the_grotto1"
+  },
+  {
+   "fields": {
+    "animGroup": -1,
+    "arg1A": 1,
+    "condition": -1,
+    "levelHigh": 255,
+    "radius": 30,
+    "startPoint": 0,
+    "unlockWorld": -1
+   },
+   "name": "into the smugglers' tunnels",
+   "pos": [
+    -1350,
+    22,
+    -498
+   ],
+   "size": 28,
+   "target": "pack:level/smugglers",
+   "type": "stock:objtype/0xB",
+   "uid": "into_the_smugglers__tunnels1"
+  },
+  {
+   "fields": {
+    "player": 0,
+    "startPoint": 2,
+    "yaw": 32
+   },
+   "name": "start 2 (back from the smugglers' tunnels)",
+   "pos": [
+    -1350,
+    28,
+    -380
+   ],
+   "size": 14,
+   "type": "stock:objtype/0xD",
+   "uid": "from_smugglers1"
   }
  ]
 }

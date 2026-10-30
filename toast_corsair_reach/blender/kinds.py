@@ -36,6 +36,10 @@ BASES = {
     0x9C: [("head", 32, 32), ("shell", 32, 32), ("limb", 16, 16), ("grad", 16, 16), ("tiny", 4, 4),
            ("headside", 32, 32), ("emblem", 32, 16), ("env", 32, 16), ("strap", 16, 32), ("torso", 32, 64),
            ("band", 32, 16), ("shieldface", 32, 32), ("shieldglow", 64, 40), ("glow", 32, 32)],
+    # the undead ant: three wide body sheets, a head, two shell pieces, two masked limbs and a tiny one (roles by
+    # size: the model's own images were not looked at)
+    0x121: [("body", 64, 32), ("head", 32, 32), ("limb", 16, 16), ("body", 64, 32), ("shell", 32, 32),
+            ("shell", 32, 32), ("tiny", 8, 8), ("body", 64, 32), ("limb", 32, 32)],
 }
 
 
@@ -352,7 +356,46 @@ VAULT_GUARD = {
     "glow": lambda x, y, w, h: shade(GOLD, 0.4 + 0.6 * max(0.0, 1 - math.hypot(x - w / 2, y - h / 2) / (w / 2))),
 }
 
-MASKED = {(0xEE, 1), (0x12F, 2)}  # slots whose base image has a cut-out: ours gets one too (a rounded blob)
+def drowned_crew(role):
+    """A crewman the sea took back: seaweed green-grey, dark weed strands hanging down, pale barnacle spots, a dull
+    sea-green eye."""
+    sp = speckle(23)
+    grey, weed, dark, pale = (104, 122, 100), (56, 92, 52), (34, 46, 34), (196, 200, 176)
+    rnd = random.Random(29)
+    spots = [(rnd.random(), rnd.random(), 0.05 + 0.06 * rnd.random()) for _ in range(7)]
+    strands = [(rnd.random(), 0.3 + 0.6 * rnd.random()) for _ in range(6)]
+
+    def barnacle(x, y, w, h):
+        for (u, v, r) in spots:
+            d = math.hypot((x + 0.5) / w - u, (y + 0.5) / h - v)
+            if d < r:
+                return shade(pale, 0.7 + 0.35 * (1 - d / r)) if d > r * 0.3 else (70, 74, 62)
+        return None
+
+    def strand(x, y, w, h):
+        for (u, length) in strands:
+            wob = u + 0.03 * math.sin(y / h * 9 + u * 20)
+            if abs((x + 0.5) / w - wob) < 0.035 and (y + 0.5) / h < length:
+                return shade(weed, 0.75 + 0.3 * sp(x, y))
+        return None
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        base = shade(grey, 0.78 + 0.3 * s)
+        if (x * 5 + y * 3) % 11 == 0:
+            base = shade(weed, 0.9 + 0.2 * s)
+        if role == "head":
+            e = eye(x, y, w, h, dark, lens=(30, 70, 55))
+            return e or strand(x, y, w, h) or shade(base, rounded(x, y, w, h))
+        if role in ("body", "shell"):
+            return strand(x, y, w, h) or barnacle(x, y, w, h) or shade(base, rounded(x, y, w, h))
+        if role == "limb":
+            return shade(base, 0.7 + 0.25 * ((y // 4) % 2)) if (x + y) % 9 else shade(dark, 1.0)
+        return shade(dark, 0.9 + 0.3 * s)
+    return fn
+
+
+MASKED = {(0xEE, 1), (0x12F, 2), (0x121, 2), (0x121, 8)}  # slots whose base image has a cut-out: ours gets one too (a rounded blob)
 BLEND = {(0x9C, 12): 150, (0x9C, 13): 120}  # slots whose base image is see-through: ours too, at this alpha
 
 KINDS = {
@@ -364,6 +407,7 @@ KINDS = {
     "first_mate": (0x12F, lambda r: soldier(FIRST_MATE)(r)),
     "cave_crab": (0xEE, cave_crab),
     "vault_guard": (0x9C, lambda r: soldier(VAULT_GUARD)(r)),
+    "drowned_crew": (0x121, drowned_crew),
 }
 
 

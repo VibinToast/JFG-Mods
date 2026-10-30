@@ -30,6 +30,17 @@ local BEATS = {
     { after = 5, delay = 4, complete = "driftwood", music = "driftwood_victory",
       text = "Driftwood Cay is free. Mirefall appears on the map." },
   },
+  level_smugglers = {
+    { start = true, text = "Smugglers' tunnels. Something's still down here." },
+    -- through the way in from the tunnels: the flooded tavern, its crew among the tables
+    { box = { 0, 150, 100, 300 }, text = "The crew never left." },
+    -- the passage past the strongroom's window
+    { box = { 900, 1150, 250, 400 }, text = "A strongroom behind glass. Glass breaks." },
+    -- down into the rock: the landing stage, cargo stacked for the grotto
+    { box = { 1200, 1400, -360, -250 }, text = "Cargo for the grotto. Someone's still loading it." },
+    -- into the last passage (south of start point 1, so an arrival from the grotto doesn't trip it at once)
+    { box = { 1200, 1400, -800, -740 }, text = "Torchlight ahead: the grotto." },
+  },
 }
 
 local current, said, ids, when = nil, {}, {}, {}
