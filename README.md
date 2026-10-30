@@ -40,6 +40,8 @@ The easy way is the game's launcher: **Get Mods** lists every mod here, installs
 
 Each mod is released on its own, tagged `<mod id>-v<version>` (for example `jfg_ammo_ring-v1.0.0`), with its `.nrm` and `thumb.png`. The latest release also carries `catalog.json`: the list of every mod's newest version, which the launcher's Get Mods page reads. Updating one mod releases only that mod.
 
+**The `catalog` release must always stay Latest:** Get Mods reads `releases/latest/download/catalog.json`, so a mod release marked Latest empties the list for every player. When publishing a mod's release, untick **Set as the latest release** (a draft made with `--latest=false` can still come out ticked). If it happens, `gh release edit catalog --latest` puts it back. An update reaches players only once `catalog.json` on the `catalog` release has the mod's new version, file, size, sha256 and thumbnail, so publish the mod first, then update the catalog.
+
 ## Building a mod
 
 You need:
