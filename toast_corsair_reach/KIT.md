@@ -19,7 +19,7 @@ what you can meanwhile. Don't change Studio's code. Never launch the game.
 |---|---|---|---|
 | 1.1 | `sunwreck` Sunwreck Beach | passed the owner's play-test | 6a93b33 |
 | 1.2 | `gullwing` Gullwing Docks | built, checked, not play-tested | 5c3543b |
-| 1.3 | `blackwater` Blackwater Grotto | | |
+| 1.3 | `blackwater` Blackwater Grotto | built, checked, not play-tested | see git log |
 | 1.4 | `smugglers` Smugglers' Run (optional) | | |
 | 2.1 | `stiltwater` Stiltwater Outskirts | | |
 | 2.2 | `bellmarket` Drowned Bellmarket (hub) | | |
@@ -100,6 +100,8 @@ Levels may be built out of this order, so the tools' numbers may differ: what co
 | Rockets (5) | chest in the 3.4 pump hall | optional |
 
 Ammo only for the pistol (0) and machine gun (2), plus grenade, shotgun and rocket ammo next to and after their chests.
+A chest's `contents` has **its own numbering**, not the weapon's: 2 machine gun, 5 grenades, 0 shotgun, 20 rockets
+(8 is cluster bombs; `describe_type chest` lists them).
 
 ### Kinds (textures drawn by our own code in `blender/kinds.py`, never the game's)
 
@@ -221,12 +223,16 @@ Health and ammo after every big fight; a full health before each world's last fi
    `heightfield` with `skip` / `merge_above`; `water_surface` cut at the shore; `boulder`, `low_rock`, `decal`;
    built shapes with `block`, `sides`, `tiled`, `post`, `collider`, `water_box` (added for 1.2); `game(tex_id)` and
    `own_image` / `own_material`; `bake` with sun, ambient, lamps, `soft`, AO). Copy the shape of the last built
-   level's script (`gullwing.py` for built places, `sunwreck.py` for open ground): build, bake, `jfg64.budgets`,
+   level's script (`gullwing.py` for built places, `sunwreck.py` for open ground, `blackwater.py` for caves and
+   tunnels: its `cave_wall`, `plane_rect` (walls with openings), `fence` (see-through rails), `rim`, `lip` with
+   `caps`/`under`, `strip`, `sides` with a sloping bottom): build, bake, `jfg64.budgets`,
    export to `blender/out/<level>.glb`. Fixed seeds. Add a helper to `common.py` when two levels would need it.
 2. **Run** in background Blender: `blender --background --factory-startup --addons jfg64 --python blender/<level>.py`.
 3. **Studio**: `import_geometry` (first time) or `reimport_geometry`, `add_level` on planet, `set_level` (fog, sky,
    weather, music, lights), start points, objects, squads, gates, exits (`connect`), Tribals, pickups, `story.lua`.
-   Kinds: add yours to `blender/kinds.py` and `make_kind`. Reconnect the MCP server if Studio changed under you (an
+   Kinds: add yours to `blender/kinds.py` and `make_kind`. `scripts/story.lua` beats: `start`, `box`, `near`, `flag n`
+  (a switch shot), `after n` + `delay` (seconds after beat n), with `complete = planet` and `music = track` for
+  a world's last level (1.3's chart beat). Reconnect the MCP server if Studio changed under you (an
    old server writes level.json back without newer fields).
 4. **Textures**: 8-14 of the game's per level by role (`stock_levels`, `stock_level_textures`, `texture_sheet`;
    repeat both ways for big surfaces) plus a few own images at small power-of-two sizes.
@@ -245,7 +251,32 @@ Health and ammo after every big fight; a full health before each world's last fi
 - Water must be one grid through every hole's edges: T-junctions read as hovering water.
 - A parapet's sides start at the floor, not under it, or they flicker against the wall below.
 - A lookout needs its rim below its gun height: `raycast` from the lookout, not only to it.
-- `texscroll` index: `jfgstudio.track_textures` in Studio's venv after `formats.load()` (1.2's water was 14).
+- `texscroll` index: `jfgstudio.track_textures` in Studio's venv after `formats.load()` (1.2's water was 14; 1.3's
+  water 3, falls 16).
+- Under a roof (1.3): `surface_at` gives the roof as the floor, but placing by `[x, z]` takes the lowest dry floor
+  with room, so it works in a cave; region corners at a wall and members spread by `place_squad` still land on the
+  roof, boulder flanks, tents, crates and in the water: set every member, perch lookout and corner by `[x, y, z]`.
+- Cover: Studio merges obstacles whose boxes come within about 40 (20 plus its 20 grid; chained) into one hole, and
+  gives none to one touching the region's edge: model cover at least 45 apart (box to box) and 25 inside the
+  region. An up-facing surface over the region (a crow's nest) is an obstacle too.
+- A second `place_squad` into the same region makes a copy of the region and its holes: delete the copy and set
+  the squadron's `region` to the first one's. `place_tribal` makes a 240 square region: shrink it to the room
+  (cells, alcoves) by hand.
+- A door in a wall: give the doorway a reveal 40 deep and stand the door in it, on a level floor 70 deep; at the
+  wall's face `check_placement` measures the open floor beyond ("wider than the door"). An exit's radius must stay
+  inside its room ("clipping").
+- A sheet that doesn't collide (`nocollide`) beside see-through water is an import error (the segment loses its
+  collision): make waterfalls a solid sheet 2 in front of the rock, with an image of our own and a texscroll.
+- Solid 150 parapets hide the view at eye height: rails (posts, a rail at 150) with a collider in their line
+  (`fence`). A lookout's rim over 20 blocks it firing steeply down: stand it near the rim it fires over.
+- A visible grille (posts, a collider in its line) still reads as an invisible wall (warning): leave it.
+- 0x0DED (water) doesn't tile: water pieces across its repeats get cut; add zero-width holes at the multiples of
+  the water's `uv_size` to `water_box` (1.3's `HOLES`).
+- Bake a roofed level with `shadow=0`: the roof shades everything, and an opening to the sky lets the sun through
+  (1.3's moon shaft). Its sky dome shows through the opening.
+- Stock squad values (health, aim) aren't in `objects.json`: read them from the ROM with Studio's
+  `catalog.stock_entry` + `objects.decode_entry(..., schema 'squadron')` in its venv. Health is whole units (x 1.1
+  of 3 stays 3).
 
 ## Before you finish
 

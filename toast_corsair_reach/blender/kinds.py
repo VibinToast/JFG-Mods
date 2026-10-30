@@ -32,6 +32,10 @@ BASES = {
     # the captain: head, shell, a masked limb, its belt panel ("armour") and an 8 x 8 the model leaves untextured
     0x12F: [("head", 32, 32), ("shell", 32, 32), ("limb", 16, 16), ("tiny", 4, 4), ("headside", 32, 32),
             ("band", 32, 16), ("env", 32, 16), ("armour", 32, 32), ("scope", 8, 8)],
+    # the big-shield soldier: the shielded one's slots, plus its shield's see-through face (64 x 40) and a glow
+    0x9C: [("head", 32, 32), ("shell", 32, 32), ("limb", 16, 16), ("grad", 16, 16), ("tiny", 4, 4),
+           ("headside", 32, 32), ("emblem", 32, 16), ("env", 32, 16), ("strap", 16, 32), ("torso", 32, 64),
+           ("band", 32, 16), ("shieldface", 32, 32), ("shieldglow", 64, 40), ("glow", 32, 32)],
 }
 
 
@@ -127,7 +131,7 @@ def soldier(pal):
                 return shade(c, 0.75 + 0.35 * math.sin(math.pi * (y + 0.5) / h))
             if r == "scope":
                 return shade(pal["trim"], 1.2 if (x + y) % 3 else 0.7)
-            if r in ("emblem", "shieldface", "armour"):
+            if r in ("emblem", "shieldface", "armour", "shieldglow", "glow"):
                 return pal[r](x, y, w, h)
             return base
         return fn
@@ -283,7 +287,73 @@ FIRST_MATE = {
     else (150, 22, 22) if (x // 4) % 4 else (128, 18, 18),
 }
 
+
+def cave_crab(role):
+    """A crab-backed beetle from the grotto's pools: coral orange shell, pale barnacle spots, dark joints."""
+    sp = speckle(17)
+    coral, dark, pale = (232, 104, 64), (110, 40, 28), (238, 226, 205)
+    rnd = random.Random(21)
+    spots = [(rnd.random(), rnd.random(), 0.06 + 0.07 * rnd.random()) for _ in range(9)]
+
+    def barnacle(x, y, w, h):
+        for (u, v, r) in spots:
+            d = math.hypot((x + 0.5) / w - u, (y + 0.5) / h - v)
+            if d < r:
+                return shade(pale, 0.75 + 0.35 * (1 - d / r)) if d > r * 0.35 else (90, 80, 70)
+        return None
+
+    def fn(x, y, w, h):
+        s = sp(x, y)
+        base = shade(coral, 0.84 + 0.24 * s)
+        if role == "head":
+            e = eye(x, y, w, h, dark, lens=(20, 12, 10))
+            return e or shade(base, rounded(x, y, w, h))
+        if role in ("shell", "speckle", "plates"):
+            b = barnacle(x, y, w, h)
+            seg = 0.82 + 0.22 * math.sin(math.pi * ((y * 3 / h) % 1.0))
+            return b or shade(base, seg * rounded(x, y, w, h))
+        if role == "teeth":
+            return pale if (x // 3) % 2 == 0 and y > h * 0.35 else dark
+        if role == "ribs":
+            return shade(dark, 0.8 + 0.4 * ((y // 3) % 2))
+        if role == "sheen":
+            t = (math.sin(x / w * 6 + y / h * 3) + 1) / 2
+            return tuple(coral[i] + (pale[i] - coral[i]) * t * 0.5 for i in range(3))
+        if role == "flash":
+            return (255, 200, 140) if (x + y) % 4 < 2 else (230, 90, 50)
+        if role == "swirl":
+            d = math.hypot(x - w / 2, y - h / 2) / (w / 2)
+            return shade(coral, 0.6 + 0.5 * abs(math.sin(d * 7 + math.atan2(y - h / 2, x - w / 2))))
+        if role == "bands":
+            return coral if (y // 5) % 2 == 0 else dark
+        if role == "ear":
+            return eye(x, y, w, h, dark, lens=(30, 14, 10)) or base
+        if role == "nozzle":
+            hole = any(math.hypot(x - cx, y - h / 2) < 4 for cx in (w * 0.3, w * 0.55, w * 0.8))
+            return (20, 10, 8) if hole else shade(dark, 0.8 + 0.3 * s)
+        return base
+    return fn
+
+
+BLACK = (26, 24, 28)
+VAULT_GUARD = {
+    "seed": 11, "coat": BLACK, "trim": GOLD, "limb": (34, 30, 34), "strap": (150, 115, 40),
+    # black armour with gold bands across the chest and a gold collar
+    "pattern": lambda x, y, w, h: GOLD if y % 16 in (5, 6) or y < 3 else (30, 28, 32) if (x // 6) % 2 else BLACK,
+    "hat": lambda x, y, w, h: GOLD if abs(y - h * 0.2) < 1.5 or abs(x - w / 2) < 1 else (22, 20, 24),
+    "band": lambda x, y, w, h: GOLD if y % 5 in (1, 2) else BLACK,
+    "emblem": lambda x, y, w, h: GOLD if (x + y) % 8 < 2 else (40, 34, 30),
+    # the shield: black plate, a gold rim and a gold coin in the middle
+    "shieldface": lambda x, y, w, h: (GOLD if (x < 3 or x > w - 4 or y < 3 or y > h - 4)
+                                      or math.hypot(x - w / 2 + 0.5, y - h / 2 + 0.5) < w * 0.22
+                                      else (36, 32, 36) if (x // 4 + y // 4) % 2 else BLACK),
+    # its see-through face (alpha added in main) and glow: a dim gold sheen
+    "shieldglow": lambda x, y, w, h: shade(GOLD, 0.45 + 0.35 * math.sin(math.pi * (x + 0.5) / w)),
+    "glow": lambda x, y, w, h: shade(GOLD, 0.4 + 0.6 * max(0.0, 1 - math.hypot(x - w / 2, y - h / 2) / (w / 2))),
+}
+
 MASKED = {(0xEE, 1), (0x12F, 2)}  # slots whose base image has a cut-out: ours gets one too (a rounded blob)
+BLEND = {(0x9C, 12): 150, (0x9C, 13): 120}  # slots whose base image is see-through: ours too, at this alpha
 
 KINDS = {
     "deckhand": (0x78, lambda r: soldier(DECKHAND)(r)),
@@ -292,6 +362,8 @@ KINDS = {
     "gull_raider": (0x54, gull),
     "boarder": (0x99, lambda r: soldier(BOARDER)(r)),
     "first_mate": (0x12F, lambda r: soldier(FIRST_MATE)(r)),
+    "cave_crab": (0xEE, cave_crab),
+    "vault_guard": (0x9C, lambda r: soldier(VAULT_GUARD)(r)),
 }
 
 
@@ -299,7 +371,12 @@ def main():
     for name, (base, painter) in KINDS.items():
         for slot, (role, w, h) in enumerate(BASES[base]):
             px = paint(w, h, painter(role))
-            if (base, slot) in MASKED:
+            if (base, slot) in BLEND:
+                rgba = []
+                for i in range(w * h):
+                    rgba += px[i * 3:i * 3 + 3] + [BLEND[(base, slot)]]
+                png(os.path.join(OUT, name, f"{slot}.png"), w, h, rgba, channels=4)
+            elif (base, slot) in MASKED:
                 rgba = []
                 for i in range(w * h):
                     x, y = i % w, i // w

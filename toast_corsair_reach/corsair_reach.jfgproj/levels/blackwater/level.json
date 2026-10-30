@@ -1,0 +1,23 @@
+{
+ "format": 1,
+ "header": {
+  "cutsceneData": 3,
+  "fog3": 986,
+  "fogB": 40,
+  "fogFar": 1021,
+  "fogG": 30,
+  "fogNear": 986,
+  "fogR": 10,
+  "lights": 24,
+  "region": 0,
+  "regionIndex": 0,
+  "tune": 12,
+  "tuneChannelMask": 65535,
+  "world": 15
+ },
+ "music": "pack:music/blackwater_grotto",
+ "name": "Blackwater Grotto",
+ "planet": "driftwood",
+ "sky": "pack:sky/night",
+ "track": "pack:track/blackwater"
+}
