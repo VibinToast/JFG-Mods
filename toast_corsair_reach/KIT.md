@@ -242,6 +242,10 @@ Health and ammo after every big fight; a full health before each world's last fi
 - `texscroll`'s texture index: no MCP tool; run Studio's `track_textures` by hand.
 - Big water pieces are cut at the water texture's repeats (holes in the far sea): break the water grid every 6000.
 - A level's collision list (polyList) is sized by Studio per level; 1.2 needed 341 on its deck (built 512).
+- Water must be one grid through every hole's edges: T-junctions read as hovering water.
+- A parapet's sides start at the floor, not under it, or they flicker against the wall below.
+- A lookout needs its rim below its gun height: `raycast` from the lookout, not only to it.
+- `texscroll` index: `jfgstudio.track_textures` in Studio's venv after `formats.load()` (1.2's water was 14).
 
 ## Before you finish
 
